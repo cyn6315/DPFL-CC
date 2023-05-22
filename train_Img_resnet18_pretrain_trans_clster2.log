@@ -1,0 +1,1256 @@
+nohup: ignoring input
+cuda:1
+Namespace(batch_size=280, clipping_style='all-layer', cluster_temperature=1.0, dataset='ImageNet-10', dataset_dir='/home/chenyannan/fast-differential-privacy-main/examples/image_classification/data', downsample_lr=0.0003, epochs=800, feature_dim=256, image_size=224, instance_temperature=0.5, learning_rate=0.0003, mini_bs=140, model_path='save/Img-10-pretrain-transform-cluster', project_lr=0.0006, r_conv=4, r_proj=16, reload=True, resnet='ResNet18', resnet_lr=0.006, seed=42, start_epoch=80, test_image_size=256, weight_decay=0.0, workers=8)
+Step [0/92]	 loss_instance: 4.123716831207275	 loss_cluster: 2.2223756313323975
+Step [50/92]	 loss_instance: 4.103920936584473	 loss_cluster: 2.22322678565979
+Epoch [81/800]	 Loss: 6.288321702376656
+Step [0/92]	 loss_instance: 4.070451736450195	 loss_cluster: 2.156404733657837
+Step [50/92]	 loss_instance: 4.129759788513184	 loss_cluster: 2.1503031253814697
+Epoch [82/800]	 Loss: 6.2784685622090874
+Step [0/92]	 loss_instance: 4.036499977111816	 loss_cluster: 2.1250576972961426
+Step [50/92]	 loss_instance: 4.107811450958252	 loss_cluster: 2.142235040664673
+Epoch [83/800]	 Loss: 6.276676535606384
+Step [0/92]	 loss_instance: 4.077442169189453	 loss_cluster: 2.1735851764678955
+Step [50/92]	 loss_instance: 4.058944225311279	 loss_cluster: 2.152611017227173
+Epoch [84/800]	 Loss: 6.300001994423244
+### Creating features from model ###
+Features shape (13000,)
+Rround 84 NMI = 0.7768 ARI = 0.7388 F = 0.7650 ACC = 0.8546
+### Creating features from model ###
+Features shape (60000,)
+Rround 84 NMI = 0.2024 ARI = 0.0643 F = 0.2309 ACC = 0.2868
+Step [0/92]	 loss_instance: 4.150122165679932	 loss_cluster: 2.2012317180633545
+Step [50/92]	 loss_instance: 4.1072187423706055	 loss_cluster: 2.148587465286255
+Epoch [85/800]	 Loss: 6.263602583304696
+Step [0/92]	 loss_instance: 4.075231552124023	 loss_cluster: 2.182345390319824
+Step [50/92]	 loss_instance: 4.078963756561279	 loss_cluster: 2.1793673038482666
+Epoch [86/800]	 Loss: 6.281522870063782
+Step [0/92]	 loss_instance: 4.085084438323975	 loss_cluster: 2.1891355514526367
+Step [50/92]	 loss_instance: 4.125003814697266	 loss_cluster: 2.159756898880005
+Epoch [87/800]	 Loss: 6.293412058249764
+Step [0/92]	 loss_instance: 4.069155693054199	 loss_cluster: 2.124939203262329
+Step [50/92]	 loss_instance: 4.112245559692383	 loss_cluster: 2.258268356323242
+Epoch [88/800]	 Loss: 6.2890488894089405
+### Creating features from model ###
+Features shape (13000,)
+Rround 88 NMI = 0.7696 ARI = 0.7287 F = 0.7559 ACC = 0.8470
+### Creating features from model ###
+Features shape (60000,)
+Rround 88 NMI = 0.2460 ARI = 0.1053 F = 0.2589 ACC = 0.3216
+Step [0/92]	 loss_instance: 4.150269508361816	 loss_cluster: 2.1770617961883545
+Step [50/92]	 loss_instance: 4.125217437744141	 loss_cluster: 2.2884302139282227
+Epoch [89/800]	 Loss: 6.2810357342595635
+Step [0/92]	 loss_instance: 4.096594333648682	 loss_cluster: 2.181586265563965
+Step [50/92]	 loss_instance: 4.100334167480469	 loss_cluster: 2.1661376953125
+Epoch [90/800]	 Loss: 6.292505518249843
+Step [0/92]	 loss_instance: 4.055723190307617	 loss_cluster: 2.146078586578369
+Step [50/92]	 loss_instance: 4.121917247772217	 loss_cluster: 2.2214598655700684
+Epoch [91/800]	 Loss: 6.281278081562208
+Step [0/92]	 loss_instance: 4.0842695236206055	 loss_cluster: 2.1785874366760254
+Step [50/92]	 loss_instance: 4.110543727874756	 loss_cluster: 2.187178373336792
+Epoch [92/800]	 Loss: 6.278133475262186
+### Creating features from model ###
+Features shape (13000,)
+Rround 92 NMI = 0.7790 ARI = 0.7315 F = 0.7584 ACC = 0.8523
+### Creating features from model ###
+Features shape (60000,)
+Rround 92 NMI = 0.2852 ARI = 0.1780 F = 0.2863 ACC = 0.3804
+Step [0/92]	 loss_instance: 4.094310760498047	 loss_cluster: 2.1723873615264893
+Step [50/92]	 loss_instance: 4.061984062194824	 loss_cluster: 2.189985513687134
+Epoch [93/800]	 Loss: 6.298242418662362
+Step [0/92]	 loss_instance: 4.103766918182373	 loss_cluster: 2.1575381755828857
+Step [50/92]	 loss_instance: 4.119609832763672	 loss_cluster: 2.1815338134765625
+Epoch [94/800]	 Loss: 6.268211587615635
+Step [0/92]	 loss_instance: 4.1184468269348145	 loss_cluster: 2.174198865890503
+Step [50/92]	 loss_instance: 4.087528228759766	 loss_cluster: 2.1746532917022705
+Epoch [95/800]	 Loss: 6.291444436363552
+Step [0/92]	 loss_instance: 4.091702938079834	 loss_cluster: 2.226308822631836
+Step [50/92]	 loss_instance: 4.120102882385254	 loss_cluster: 2.2527008056640625
+Epoch [96/800]	 Loss: 6.297304785769919
+### Creating features from model ###
+Features shape (13000,)
+Rround 96 NMI = 0.7868 ARI = 0.7491 F = 0.7743 ACC = 0.8588
+### Creating features from model ###
+Features shape (60000,)
+Rround 96 NMI = 0.1616 ARI = 0.0503 F = 0.2429 ACC = 0.2410
+Step [0/92]	 loss_instance: 4.075232982635498	 loss_cluster: 2.164761781692505
+Step [50/92]	 loss_instance: 4.041386127471924	 loss_cluster: 2.1382951736450195
+Epoch [97/800]	 Loss: 6.260760711586994
+Step [0/92]	 loss_instance: 4.111189365386963	 loss_cluster: 2.18257737159729
+Step [50/92]	 loss_instance: 4.097250938415527	 loss_cluster: 2.1621670722961426
+Epoch [98/800]	 Loss: 6.279030291930489
+Step [0/92]	 loss_instance: 4.048890590667725	 loss_cluster: 2.1888041496276855
+Step [50/92]	 loss_instance: 4.124332427978516	 loss_cluster: 2.1891448497772217
+Epoch [99/800]	 Loss: 6.277113551678865
+Step [0/92]	 loss_instance: 4.0792107582092285	 loss_cluster: 2.183342456817627
+Step [50/92]	 loss_instance: 4.187291622161865	 loss_cluster: 2.2812917232513428
+Epoch [100/800]	 Loss: 6.2696716681770654
+### Creating features from model ###
+Features shape (13000,)
+Rround 100 NMI = 0.7852 ARI = 0.7473 F = 0.7726 ACC = 0.8568
+### Creating features from model ###
+Features shape (60000,)
+Rround 100 NMI = 0.2670 ARI = 0.1191 F = 0.2727 ACC = 0.3610
+Step [0/92]	 loss_instance: 4.082190036773682	 loss_cluster: 2.186760663986206
+Step [50/92]	 loss_instance: 4.099863529205322	 loss_cluster: 2.2036259174346924
+Epoch [101/800]	 Loss: 6.2693697162296464
+Step [0/92]	 loss_instance: 4.0992631912231445	 loss_cluster: 2.1560826301574707
+Step [50/92]	 loss_instance: 4.116097927093506	 loss_cluster: 2.2217555046081543
+Epoch [102/800]	 Loss: 6.268662810325623
+Step [0/92]	 loss_instance: 4.113741874694824	 loss_cluster: 2.193450450897217
+Step [50/92]	 loss_instance: 4.1155476570129395	 loss_cluster: 2.1947505474090576
+Epoch [103/800]	 Loss: 6.270922199539516
+Step [0/92]	 loss_instance: 4.091925144195557	 loss_cluster: 2.153672695159912
+Step [50/92]	 loss_instance: 4.031809329986572	 loss_cluster: 2.131725788116455
+Epoch [104/800]	 Loss: 6.271387400834457
+### Creating features from model ###
+Features shape (13000,)
+Rround 104 NMI = 0.7844 ARI = 0.7446 F = 0.7702 ACC = 0.8572
+### Creating features from model ###
+Features shape (60000,)
+Rround 104 NMI = 0.2933 ARI = 0.1555 F = 0.2879 ACC = 0.3902
+Step [0/92]	 loss_instance: 4.106367588043213	 loss_cluster: 2.21294903755188
+Step [50/92]	 loss_instance: 4.099766254425049	 loss_cluster: 2.1775527000427246
+Epoch [105/800]	 Loss: 6.27132360831551
+Step [0/92]	 loss_instance: 4.070566654205322	 loss_cluster: 2.1790056228637695
+Step [50/92]	 loss_instance: 4.077689170837402	 loss_cluster: 2.1633546352386475
+Epoch [106/800]	 Loss: 6.28060401522595
+Step [0/92]	 loss_instance: 4.1070427894592285	 loss_cluster: 2.174403667449951
+Step [50/92]	 loss_instance: 4.090579032897949	 loss_cluster: 2.136847972869873
+Epoch [107/800]	 Loss: 6.271106098009192
+Step [0/92]	 loss_instance: 4.0976972579956055	 loss_cluster: 2.134911298751831
+Step [50/92]	 loss_instance: 4.087454795837402	 loss_cluster: 2.2026517391204834
+Epoch [108/800]	 Loss: 6.270509839057922
+### Creating features from model ###
+Features shape (13000,)
+Rround 108 NMI = 0.7982 ARI = 0.7635 F = 0.7871 ACC = 0.8651
+### Creating features from model ###
+Features shape (60000,)
+Rround 108 NMI = 0.2303 ARI = 0.0523 F = 0.2553 ACC = 0.2852
+Step [0/92]	 loss_instance: 4.056318759918213	 loss_cluster: 2.1411941051483154
+Step [50/92]	 loss_instance: 4.078336715698242	 loss_cluster: 2.127845525741577
+Epoch [109/800]	 Loss: 6.257952995922254
+Step [0/92]	 loss_instance: 4.000773906707764	 loss_cluster: 2.1622750759124756
+Step [50/92]	 loss_instance: 4.115195274353027	 loss_cluster: 2.190666913986206
+Epoch [110/800]	 Loss: 6.258983824564063
+Step [0/92]	 loss_instance: 4.097155570983887	 loss_cluster: 2.158233404159546
+Step [50/92]	 loss_instance: 4.141716957092285	 loss_cluster: 2.2097694873809814
+Epoch [111/800]	 Loss: 6.260870353035305
+Step [0/92]	 loss_instance: 4.07293176651001	 loss_cluster: 2.1577279567718506
+Step [50/92]	 loss_instance: 4.065992832183838	 loss_cluster: 2.177182912826538
+Epoch [112/800]	 Loss: 6.250186816505764
+### Creating features from model ###
+Features shape (13000,)
+Rround 112 NMI = 0.7925 ARI = 0.7556 F = 0.7801 ACC = 0.8622
+### Creating features from model ###
+Features shape (60000,)
+Rround 112 NMI = 0.2290 ARI = 0.0971 F = 0.2744 ACC = 0.2876
+Step [0/92]	 loss_instance: 4.096490859985352	 loss_cluster: 2.159362316131592
+Step [50/92]	 loss_instance: 4.069772720336914	 loss_cluster: 2.194451332092285
+Epoch [113/800]	 Loss: 6.252070924510127
+Step [0/92]	 loss_instance: 4.102939605712891	 loss_cluster: 2.204477310180664
+Step [50/92]	 loss_instance: 4.179096221923828	 loss_cluster: 2.2563796043395996
+Epoch [114/800]	 Loss: 6.273870203806006
+Step [0/92]	 loss_instance: 4.082139492034912	 loss_cluster: 2.128026008605957
+Step [50/92]	 loss_instance: 4.083350658416748	 loss_cluster: 2.1699554920196533
+Epoch [115/800]	 Loss: 6.2489728150160415
+Step [0/92]	 loss_instance: 4.1431121826171875	 loss_cluster: 2.1628949642181396
+Step [50/92]	 loss_instance: 4.070807933807373	 loss_cluster: 2.1622865200042725
+Epoch [116/800]	 Loss: 6.24598517106927
+### Creating features from model ###
+Features shape (13000,)
+Rround 116 NMI = 0.7949 ARI = 0.7610 F = 0.7850 ACC = 0.8656
+### Creating features from model ###
+Features shape (60000,)
+Rround 116 NMI = 0.1969 ARI = 0.0495 F = 0.2576 ACC = 0.2745
+Step [0/92]	 loss_instance: 4.061714172363281	 loss_cluster: 2.1746907234191895
+Step [50/92]	 loss_instance: 4.090490818023682	 loss_cluster: 2.1569595336914062
+Epoch [117/800]	 Loss: 6.257325799568839
+Step [0/92]	 loss_instance: 4.069474697113037	 loss_cluster: 2.177680015563965
+Step [50/92]	 loss_instance: 4.083794116973877	 loss_cluster: 2.1679821014404297
+Epoch [118/800]	 Loss: 6.235325740731281
+Step [0/92]	 loss_instance: 4.047086715698242	 loss_cluster: 2.147365093231201
+Step [50/92]	 loss_instance: 4.0905866622924805	 loss_cluster: 2.183953285217285
+Epoch [119/800]	 Loss: 6.258768470390983
+Step [0/92]	 loss_instance: 4.057962417602539	 loss_cluster: 2.176267385482788
+Step [50/92]	 loss_instance: 4.1074299812316895	 loss_cluster: 2.1950173377990723
+Epoch [120/800]	 Loss: 6.258276203404302
+### Creating features from model ###
+Features shape (13000,)
+Rround 120 NMI = 0.7794 ARI = 0.7451 F = 0.7707 ACC = 0.8582
+### Creating features from model ###
+Features shape (60000,)
+Rround 120 NMI = 0.3124 ARI = 0.1382 F = 0.3130 ACC = 0.3840
+Step [0/92]	 loss_instance: 4.103447437286377	 loss_cluster: 2.181072950363159
+Step [50/92]	 loss_instance: 4.053711414337158	 loss_cluster: 2.132878065109253
+Epoch [121/800]	 Loss: 6.259540267612623
+Step [0/92]	 loss_instance: 4.046558380126953	 loss_cluster: 2.1730616092681885
+Step [50/92]	 loss_instance: 4.063492298126221	 loss_cluster: 2.1629161834716797
+Epoch [122/800]	 Loss: 6.247846826263096
+Step [0/92]	 loss_instance: 4.10976505279541	 loss_cluster: 2.2116363048553467
+Step [50/92]	 loss_instance: 4.133314609527588	 loss_cluster: 2.1499578952789307
+Epoch [123/800]	 Loss: 6.237107587897259
+Step [0/92]	 loss_instance: 4.088901042938232	 loss_cluster: 2.2703638076782227
+Step [50/92]	 loss_instance: 4.1210150718688965	 loss_cluster: 2.1926934719085693
+Epoch [124/800]	 Loss: 6.252659165340921
+### Creating features from model ###
+Features shape (13000,)
+Rround 124 NMI = 0.8060 ARI = 0.7749 F = 0.7977 ACC = 0.8772
+### Creating features from model ###
+Features shape (60000,)
+Rround 124 NMI = 0.2505 ARI = 0.0889 F = 0.2620 ACC = 0.3238
+Step [0/92]	 loss_instance: 4.147903919219971	 loss_cluster: 2.194031000137329
+Step [50/92]	 loss_instance: 4.084872245788574	 loss_cluster: 2.187239170074463
+Epoch [125/800]	 Loss: 6.2551661263341485
+Step [0/92]	 loss_instance: 4.0473175048828125	 loss_cluster: 2.1766669750213623
+Step [50/92]	 loss_instance: 4.105662822723389	 loss_cluster: 2.1836705207824707
+Epoch [126/800]	 Loss: 6.24352328673653
+Step [0/92]	 loss_instance: 4.130753040313721	 loss_cluster: 2.1853935718536377
+Step [50/92]	 loss_instance: 4.109136581420898	 loss_cluster: 2.201141834259033
+Epoch [127/800]	 Loss: 6.245339435079823
+Step [0/92]	 loss_instance: 4.08845853805542	 loss_cluster: 2.1993210315704346
+Step [50/92]	 loss_instance: 4.075765132904053	 loss_cluster: 2.1887617111206055
+Epoch [128/800]	 Loss: 6.236974166787189
+### Creating features from model ###
+Features shape (13000,)
+Rround 128 NMI = 0.8138 ARI = 0.7772 F = 0.7995 ACC = 0.8744
+### Creating features from model ###
+Features shape (60000,)
+Rround 128 NMI = 0.2277 ARI = 0.0964 F = 0.2381 ACC = 0.3295
+Step [0/92]	 loss_instance: 4.06021785736084	 loss_cluster: 2.1553802490234375
+Step [50/92]	 loss_instance: 4.010643005371094	 loss_cluster: 2.1223361492156982
+Epoch [129/800]	 Loss: 6.232192386751589
+Step [0/92]	 loss_instance: 4.04351806640625	 loss_cluster: 2.171093463897705
+Step [50/92]	 loss_instance: 4.040728569030762	 loss_cluster: 2.183018207550049
+Epoch [130/800]	 Loss: 6.239042266555455
+Step [0/92]	 loss_instance: 4.100028991699219	 loss_cluster: 2.170816659927368
+Step [50/92]	 loss_instance: 4.066592693328857	 loss_cluster: 2.1349260807037354
+Epoch [131/800]	 Loss: 6.2280586595120635
+Step [0/92]	 loss_instance: 4.051420211791992	 loss_cluster: 2.1392099857330322
+Step [50/92]	 loss_instance: 4.053282737731934	 loss_cluster: 2.140688180923462
+Epoch [132/800]	 Loss: 6.230125437612119
+### Creating features from model ###
+Features shape (13000,)
+Rround 132 NMI = 0.8048 ARI = 0.7670 F = 0.7904 ACC = 0.8668
+### Creating features from model ###
+Features shape (60000,)
+Rround 132 NMI = 0.1956 ARI = 0.0619 F = 0.2337 ACC = 0.2866
+Step [0/92]	 loss_instance: 4.031465530395508	 loss_cluster: 2.1457159519195557
+Step [50/92]	 loss_instance: 4.058763027191162	 loss_cluster: 2.1762335300445557
+Epoch [133/800]	 Loss: 6.228283083957175
+Step [0/92]	 loss_instance: 4.094770908355713	 loss_cluster: 2.1859281063079834
+Step [50/92]	 loss_instance: 4.102055072784424	 loss_cluster: 2.219177484512329
+Epoch [134/800]	 Loss: 6.23762281562971
+Step [0/92]	 loss_instance: 4.049592018127441	 loss_cluster: 2.155841827392578
+Step [50/92]	 loss_instance: 4.056596279144287	 loss_cluster: 2.1419708728790283
+Epoch [135/800]	 Loss: 6.243305273677992
+Step [0/92]	 loss_instance: 4.091951370239258	 loss_cluster: 2.1927366256713867
+Step [50/92]	 loss_instance: 4.028163433074951	 loss_cluster: 2.165675401687622
+Epoch [136/800]	 Loss: 6.22748090909875
+### Creating features from model ###
+Features shape (13000,)
+Rround 136 NMI = 0.8091 ARI = 0.7792 F = 0.8013 ACC = 0.8742
+### Creating features from model ###
+Features shape (60000,)
+Rround 136 NMI = 0.1715 ARI = 0.0389 F = 0.2427 ACC = 0.2540
+Step [0/92]	 loss_instance: 4.0526509284973145	 loss_cluster: 2.161627769470215
+Step [50/92]	 loss_instance: 4.057461261749268	 loss_cluster: 2.202627420425415
+Epoch [137/800]	 Loss: 6.228285001671833
+Step [0/92]	 loss_instance: 4.076686859130859	 loss_cluster: 2.1499521732330322
+Step [50/92]	 loss_instance: 4.061618328094482	 loss_cluster: 2.1813580989837646
+Epoch [138/800]	 Loss: 6.237361664357393
+Step [0/92]	 loss_instance: 4.000429630279541	 loss_cluster: 2.1541543006896973
+Step [50/92]	 loss_instance: 4.049424648284912	 loss_cluster: 2.136554718017578
+Epoch [139/800]	 Loss: 6.2184900511866035
+Step [0/92]	 loss_instance: 4.1256256103515625	 loss_cluster: 2.18858003616333
+Step [50/92]	 loss_instance: 4.057801723480225	 loss_cluster: 2.1867830753326416
+Epoch [140/800]	 Loss: 6.227791755095772
+### Creating features from model ###
+Features shape (13000,)
+Rround 140 NMI = 0.7922 ARI = 0.7565 F = 0.7809 ACC = 0.8638
+### Creating features from model ###
+Features shape (60000,)
+Rround 140 NMI = 0.2810 ARI = 0.0975 F = 0.2859 ACC = 0.3326
+Step [0/92]	 loss_instance: 4.095351219177246	 loss_cluster: 2.157808780670166
+Step [50/92]	 loss_instance: 4.069048881530762	 loss_cluster: 2.152745008468628
+Epoch [141/800]	 Loss: 6.227052014806996
+Step [0/92]	 loss_instance: 4.0476460456848145	 loss_cluster: 2.187882661819458
+Step [50/92]	 loss_instance: 4.047200679779053	 loss_cluster: 2.16540789604187
+Epoch [142/800]	 Loss: 6.235945483912593
+Step [0/92]	 loss_instance: 4.032462120056152	 loss_cluster: 2.157583713531494
+Step [50/92]	 loss_instance: 4.091830253601074	 loss_cluster: 2.1722781658172607
+Epoch [143/800]	 Loss: 6.231066195861153
+Step [0/92]	 loss_instance: 4.045953750610352	 loss_cluster: 2.140151262283325
+Step [50/92]	 loss_instance: 4.061958312988281	 loss_cluster: 2.2004144191741943
+Epoch [144/800]	 Loss: 6.234775911206785
+### Creating features from model ###
+Features shape (13000,)
+Rround 144 NMI = 0.8168 ARI = 0.7795 F = 0.8016 ACC = 0.8767
+### Creating features from model ###
+Features shape (60000,)
+Rround 144 NMI = 0.2625 ARI = 0.1098 F = 0.2548 ACC = 0.3534
+Step [0/92]	 loss_instance: 4.062913417816162	 loss_cluster: 2.1527748107910156
+Step [50/92]	 loss_instance: 4.063364505767822	 loss_cluster: 2.1418535709381104
+Epoch [145/800]	 Loss: 6.214210225188213
+Step [0/92]	 loss_instance: 4.042131423950195	 loss_cluster: 2.1310765743255615
+Step [50/92]	 loss_instance: 4.081933975219727	 loss_cluster: 2.143512725830078
+Epoch [146/800]	 Loss: 6.2372554281483525
+Step [0/92]	 loss_instance: 4.052195072174072	 loss_cluster: 2.1460983753204346
+Step [50/92]	 loss_instance: 4.040335178375244	 loss_cluster: 2.1855721473693848
+Epoch [147/800]	 Loss: 6.2285054455632745
+Step [0/92]	 loss_instance: 4.049868583679199	 loss_cluster: 2.1512253284454346
+Step [50/92]	 loss_instance: 4.064061164855957	 loss_cluster: 2.1412224769592285
+Epoch [148/800]	 Loss: 6.225460099137348
+### Creating features from model ###
+Features shape (13000,)
+Rround 148 NMI = 0.7971 ARI = 0.7629 F = 0.7867 ACC = 0.8659
+### Creating features from model ###
+Features shape (60000,)
+Rround 148 NMI = 0.2413 ARI = 0.0825 F = 0.2434 ACC = 0.3190
+Step [0/92]	 loss_instance: 4.0565104484558105	 loss_cluster: 2.1582300662994385
+Step [50/92]	 loss_instance: 4.006495475769043	 loss_cluster: 2.1323704719543457
+Epoch [149/800]	 Loss: 6.217380404472351
+Step [0/92]	 loss_instance: 4.048275470733643	 loss_cluster: 2.196692943572998
+Step [50/92]	 loss_instance: 4.05582857131958	 loss_cluster: 2.164639472961426
+Epoch [150/800]	 Loss: 6.220919977063718
+Step [0/92]	 loss_instance: 4.0546875	 loss_cluster: 2.222919464111328
+Step [50/92]	 loss_instance: 4.017624378204346	 loss_cluster: 2.132803201675415
+Epoch [151/800]	 Loss: 6.235146522521973
+Step [0/92]	 loss_instance: 4.052207946777344	 loss_cluster: 2.1343252658843994
+Step [50/92]	 loss_instance: 4.021144390106201	 loss_cluster: 2.118736505508423
+Epoch [152/800]	 Loss: 6.232126443282418
+### Creating features from model ###
+Features shape (13000,)
+Rround 152 NMI = 0.8151 ARI = 0.7811 F = 0.8031 ACC = 0.8779
+### Creating features from model ###
+Features shape (60000,)
+Rround 152 NMI = 0.2250 ARI = 0.0819 F = 0.2391 ACC = 0.3027
+Step [0/92]	 loss_instance: 4.011532306671143	 loss_cluster: 2.1452834606170654
+Step [50/92]	 loss_instance: 4.013205528259277	 loss_cluster: 2.1455981731414795
+Epoch [153/800]	 Loss: 6.214760324229365
+Step [0/92]	 loss_instance: 4.0680928230285645	 loss_cluster: 2.2240042686462402
+Step [50/92]	 loss_instance: 4.011876583099365	 loss_cluster: 2.19543194770813
+Epoch [154/800]	 Loss: 6.214909351390341
+Step [0/92]	 loss_instance: 4.041564464569092	 loss_cluster: 2.1322076320648193
+Step [50/92]	 loss_instance: 4.049767017364502	 loss_cluster: 2.160841941833496
+Epoch [155/800]	 Loss: 6.212970132413118
+Step [0/92]	 loss_instance: 4.052909851074219	 loss_cluster: 2.184140920639038
+Step [50/92]	 loss_instance: 4.088984489440918	 loss_cluster: 2.188288688659668
+Epoch [156/800]	 Loss: 6.2209122025448345
+### Creating features from model ###
+Features shape (13000,)
+Rround 156 NMI = 0.8154 ARI = 0.7800 F = 0.8020 ACC = 0.8748
+### Creating features from model ###
+Features shape (60000,)
+Rround 156 NMI = 0.2287 ARI = 0.0942 F = 0.2404 ACC = 0.3161
+Step [0/92]	 loss_instance: 3.9900612831115723	 loss_cluster: 2.147955894470215
+Step [50/92]	 loss_instance: 4.109527587890625	 loss_cluster: 2.2445244789123535
+Epoch [157/800]	 Loss: 6.215350078499836
+Step [0/92]	 loss_instance: 4.025118827819824	 loss_cluster: 2.13938307762146
+Step [50/92]	 loss_instance: 4.036984443664551	 loss_cluster: 2.1457197666168213
+Epoch [158/800]	 Loss: 6.223561157350955
+Step [0/92]	 loss_instance: 4.070743560791016	 loss_cluster: 2.187248468399048
+Step [50/92]	 loss_instance: 3.995151996612549	 loss_cluster: 2.16204833984375
+Epoch [159/800]	 Loss: 6.21801801868107
+Step [0/92]	 loss_instance: 4.05164098739624	 loss_cluster: 2.1610095500946045
+Step [50/92]	 loss_instance: 4.069762706756592	 loss_cluster: 2.1355247497558594
+Epoch [160/800]	 Loss: 6.2201043833857
+### Creating features from model ###
+Features shape (13000,)
+Rround 160 NMI = 0.8211 ARI = 0.7907 F = 0.8117 ACC = 0.8811
+### Creating features from model ###
+Features shape (60000,)
+Rround 160 NMI = 0.2074 ARI = 0.0663 F = 0.2313 ACC = 0.3031
+Step [0/92]	 loss_instance: 4.09271764755249	 loss_cluster: 2.2003228664398193
+Step [50/92]	 loss_instance: 4.071933269500732	 loss_cluster: 2.1586382389068604
+Epoch [161/800]	 Loss: 6.211015483607417
+Step [0/92]	 loss_instance: 3.978731393814087	 loss_cluster: 2.115104913711548
+Step [50/92]	 loss_instance: 4.0384016036987305	 loss_cluster: 2.1412830352783203
+Epoch [162/800]	 Loss: 6.210985479147538
+Step [0/92]	 loss_instance: 3.9995005130767822	 loss_cluster: 2.1119916439056396
+Step [50/92]	 loss_instance: 4.044239044189453	 loss_cluster: 2.1508285999298096
+Epoch [163/800]	 Loss: 6.2144613369651465
+Step [0/92]	 loss_instance: 4.075925827026367	 loss_cluster: 2.1828644275665283
+Step [50/92]	 loss_instance: 4.073681831359863	 loss_cluster: 2.1803133487701416
+Epoch [164/800]	 Loss: 6.213610421056333
+### Creating features from model ###
+Features shape (13000,)
+Rround 164 NMI = 0.8182 ARI = 0.7797 F = 0.8018 ACC = 0.8761
+### Creating features from model ###
+Features shape (60000,)
+Rround 164 NMI = 0.2857 ARI = 0.1614 F = 0.2835 ACC = 0.3968
+Step [0/92]	 loss_instance: 4.013911724090576	 loss_cluster: 2.1469039916992188
+Step [50/92]	 loss_instance: 4.0429463386535645	 loss_cluster: 2.129450798034668
+Epoch [165/800]	 Loss: 6.2044393912605615
+Step [0/92]	 loss_instance: 4.092226505279541	 loss_cluster: 2.2282891273498535
+Step [50/92]	 loss_instance: 4.0693888664245605	 loss_cluster: 2.230802059173584
+Epoch [166/800]	 Loss: 6.224658623985622
+Step [0/92]	 loss_instance: 4.118334770202637	 loss_cluster: 2.2305374145507812
+Step [50/92]	 loss_instance: 4.071170330047607	 loss_cluster: 2.1260437965393066
+Epoch [167/800]	 Loss: 6.211877418600994
+Step [0/92]	 loss_instance: 4.063254356384277	 loss_cluster: 2.144289493560791
+Step [50/92]	 loss_instance: 4.069945812225342	 loss_cluster: 2.135019540786743
+Epoch [168/800]	 Loss: 6.208436017451079
+### Creating features from model ###
+Features shape (13000,)
+Rround 168 NMI = 0.8132 ARI = 0.7798 F = 0.8019 ACC = 0.8737
+### Creating features from model ###
+Features shape (60000,)
+Rround 168 NMI = 0.2102 ARI = 0.0643 F = 0.2230 ACC = 0.3129
+Step [0/92]	 loss_instance: 4.0369553565979	 loss_cluster: 2.1526060104370117
+Step [50/92]	 loss_instance: 4.039514064788818	 loss_cluster: 2.116499662399292
+Epoch [169/800]	 Loss: 6.222429399904997
+Step [0/92]	 loss_instance: 4.038881778717041	 loss_cluster: 2.1475467681884766
+Step [50/92]	 loss_instance: 4.025345325469971	 loss_cluster: 2.160533905029297
+Epoch [170/800]	 Loss: 6.213706156481868
+Step [0/92]	 loss_instance: 4.012208461761475	 loss_cluster: 2.1928858757019043
+Step [50/92]	 loss_instance: 4.0406293869018555	 loss_cluster: 2.1411266326904297
+Epoch [171/800]	 Loss: 6.20979250513989
+Step [0/92]	 loss_instance: 4.084568977355957	 loss_cluster: 2.14314866065979
+Step [50/92]	 loss_instance: 4.02056360244751	 loss_cluster: 2.144946813583374
+Epoch [172/800]	 Loss: 6.20684670365375
+### Creating features from model ###
+Features shape (13000,)
+Rround 172 NMI = 0.8174 ARI = 0.7807 F = 0.8027 ACC = 0.8768
+### Creating features from model ###
+Features shape (60000,)
+Rround 172 NMI = 0.2167 ARI = 0.0648 F = 0.2332 ACC = 0.3070
+Step [0/92]	 loss_instance: 4.068367958068848	 loss_cluster: 2.1661906242370605
+Step [50/92]	 loss_instance: 4.096465587615967	 loss_cluster: 2.18448543548584
+Epoch [173/800]	 Loss: 6.21388009838436
+Step [0/92]	 loss_instance: 4.037130355834961	 loss_cluster: 2.1364119052886963
+Step [50/92]	 loss_instance: 4.051494121551514	 loss_cluster: 2.146650791168213
+Epoch [174/800]	 Loss: 6.223996198695639
+Step [0/92]	 loss_instance: 4.0441508293151855	 loss_cluster: 2.1239824295043945
+Step [50/92]	 loss_instance: 4.017683029174805	 loss_cluster: 2.166013240814209
+Epoch [175/800]	 Loss: 6.196551556172579
+Step [0/92]	 loss_instance: 4.00161075592041	 loss_cluster: 2.1357085704803467
+Step [50/92]	 loss_instance: 4.039792537689209	 loss_cluster: 2.151344060897827
+Epoch [176/800]	 Loss: 6.199104749638101
+### Creating features from model ###
+Features shape (13000,)
+Rround 176 NMI = 0.8119 ARI = 0.7742 F = 0.7969 ACC = 0.8702
+### Creating features from model ###
+Features shape (60000,)
+Rround 176 NMI = 0.2486 ARI = 0.1143 F = 0.2699 ACC = 0.3429
+Step [0/92]	 loss_instance: 4.112835884094238	 loss_cluster: 2.1843953132629395
+Step [50/92]	 loss_instance: 4.0629963874816895	 loss_cluster: 2.1599743366241455
+Epoch [177/800]	 Loss: 6.202793665554212
+Step [0/92]	 loss_instance: 4.0463175773620605	 loss_cluster: 2.1463379859924316
+Step [50/92]	 loss_instance: 4.0451483726501465	 loss_cluster: 2.173344135284424
+Epoch [178/800]	 Loss: 6.19459342956543
+Step [0/92]	 loss_instance: 4.011483192443848	 loss_cluster: 2.149451732635498
+Step [50/92]	 loss_instance: 3.990678548812866	 loss_cluster: 2.125520944595337
+Epoch [179/800]	 Loss: 6.180763804394266
+Step [0/92]	 loss_instance: 4.025425434112549	 loss_cluster: 2.144181251525879
+Step [50/92]	 loss_instance: 4.019095420837402	 loss_cluster: 2.126579523086548
+Epoch [180/800]	 Loss: 6.209370260653288
+### Creating features from model ###
+Features shape (13000,)
+Rround 180 NMI = 0.8197 ARI = 0.7887 F = 0.8098 ACC = 0.8793
+### Creating features from model ###
+Features shape (60000,)
+Rround 180 NMI = 0.2403 ARI = 0.0972 F = 0.2453 ACC = 0.3430
+Step [0/92]	 loss_instance: 4.0362043380737305	 loss_cluster: 2.1508378982543945
+Step [50/92]	 loss_instance: 4.073042869567871	 loss_cluster: 2.157475709915161
+Epoch [181/800]	 Loss: 6.199651987656303
+Step [0/92]	 loss_instance: 4.022244930267334	 loss_cluster: 2.1493709087371826
+Step [50/92]	 loss_instance: 4.01362419128418	 loss_cluster: 2.1218271255493164
+Epoch [182/800]	 Loss: 6.190758912459664
+Step [0/92]	 loss_instance: 4.063324451446533	 loss_cluster: 2.154442548751831
+Step [50/92]	 loss_instance: 4.062270164489746	 loss_cluster: 2.148253917694092
+Epoch [183/800]	 Loss: 6.2204008931699
+Step [0/92]	 loss_instance: 4.044467449188232	 loss_cluster: 2.1744134426116943
+Step [50/92]	 loss_instance: 3.9755289554595947	 loss_cluster: 2.125136375427246
+Epoch [184/800]	 Loss: 6.191838585812112
+### Creating features from model ###
+Features shape (13000,)
+Rround 184 NMI = 0.8187 ARI = 0.7812 F = 0.8031 ACC = 0.8753
+### Creating features from model ###
+Features shape (60000,)
+Rround 184 NMI = 0.2433 ARI = 0.1243 F = 0.2474 ACC = 0.3426
+Step [0/92]	 loss_instance: 4.06165075302124	 loss_cluster: 2.178157329559326
+Step [50/92]	 loss_instance: 3.9808454513549805	 loss_cluster: 2.1136703491210938
+Epoch [185/800]	 Loss: 6.186431366464366
+Step [0/92]	 loss_instance: 4.032271862030029	 loss_cluster: 2.199270248413086
+Step [50/92]	 loss_instance: 4.013302326202393	 loss_cluster: 2.120549201965332
+Epoch [186/800]	 Loss: 6.205329190129819
+Step [0/92]	 loss_instance: 4.013020992279053	 loss_cluster: 2.1316633224487305
+Step [50/92]	 loss_instance: 4.050200939178467	 loss_cluster: 2.1522042751312256
+Epoch [187/800]	 Loss: 6.1909462731817495
+Step [0/92]	 loss_instance: 4.049200534820557	 loss_cluster: 2.1682958602905273
+Step [50/92]	 loss_instance: 4.0062031745910645	 loss_cluster: 2.1296682357788086
+Epoch [188/800]	 Loss: 6.202042092447695
+### Creating features from model ###
+Features shape (13000,)
+Rround 188 NMI = 0.8225 ARI = 0.7837 F = 0.8054 ACC = 0.8753
+### Creating features from model ###
+Features shape (60000,)
+Rround 188 NMI = 0.2738 ARI = 0.1393 F = 0.2510 ACC = 0.3735
+Step [0/92]	 loss_instance: 4.065871715545654	 loss_cluster: 2.158721923828125
+Step [50/92]	 loss_instance: 4.00070858001709	 loss_cluster: 2.138357639312744
+Epoch [189/800]	 Loss: 6.218678567720496
+Step [0/92]	 loss_instance: 4.017696857452393	 loss_cluster: 2.1179418563842773
+Step [50/92]	 loss_instance: 4.047943592071533	 loss_cluster: 2.18180775642395
+Epoch [190/800]	 Loss: 6.209526155305945
+Step [0/92]	 loss_instance: 4.062446594238281	 loss_cluster: 2.168569326400757
+Step [50/92]	 loss_instance: 3.9863743782043457	 loss_cluster: 2.1226439476013184
+Epoch [191/800]	 Loss: 6.1935998356860615
+Step [0/92]	 loss_instance: 4.003600597381592	 loss_cluster: 2.150333881378174
+Step [50/92]	 loss_instance: 4.0272603034973145	 loss_cluster: 2.1326184272766113
+Epoch [192/800]	 Loss: 6.19858541695968
+### Creating features from model ###
+Features shape (13000,)
+Rround 192 NMI = 0.8331 ARI = 0.7977 F = 0.8179 ACC = 0.8827
+### Creating features from model ###
+Features shape (60000,)
+Rround 192 NMI = 0.2953 ARI = 0.1773 F = 0.2831 ACC = 0.3978
+Step [0/92]	 loss_instance: 4.062155723571777	 loss_cluster: 2.1702158451080322
+Step [50/92]	 loss_instance: 4.027715682983398	 loss_cluster: 2.1237375736236572
+Epoch [193/800]	 Loss: 6.205944450005241
+Step [0/92]	 loss_instance: 4.041635990142822	 loss_cluster: 2.1868515014648438
+Step [50/92]	 loss_instance: 4.032922744750977	 loss_cluster: 2.157050609588623
+Epoch [194/800]	 Loss: 6.191508505655372
+Step [0/92]	 loss_instance: 4.050723075866699	 loss_cluster: 2.1440072059631348
+Step [50/92]	 loss_instance: 4.048862934112549	 loss_cluster: 2.1606531143188477
+Epoch [195/800]	 Loss: 6.190939058428225
+Step [0/92]	 loss_instance: 4.013713836669922	 loss_cluster: 2.1772642135620117
+Step [50/92]	 loss_instance: 4.040933132171631	 loss_cluster: 2.149242401123047
+Epoch [196/800]	 Loss: 6.190612575282222
+### Creating features from model ###
+Features shape (13000,)
+Rround 196 NMI = 0.8277 ARI = 0.7873 F = 0.8086 ACC = 0.8800
+### Creating features from model ###
+Features shape (60000,)
+Rround 196 NMI = 0.2792 ARI = 0.1326 F = 0.2783 ACC = 0.3590
+Step [0/92]	 loss_instance: 4.012253761291504	 loss_cluster: 2.2343320846557617
+Step [50/92]	 loss_instance: 4.000172138214111	 loss_cluster: 2.149308919906616
+Epoch [197/800]	 Loss: 6.194394064986187
+Step [0/92]	 loss_instance: 4.018162727355957	 loss_cluster: 2.172590970993042
+Step [50/92]	 loss_instance: 4.023263454437256	 loss_cluster: 2.1694953441619873
+Epoch [198/800]	 Loss: 6.199554106463557
+Step [0/92]	 loss_instance: 4.0001020431518555	 loss_cluster: 2.1414742469787598
+Step [50/92]	 loss_instance: 4.0185370445251465	 loss_cluster: 2.151493549346924
+Epoch [199/800]	 Loss: 6.191732619119727
+Step [0/92]	 loss_instance: 4.035650253295898	 loss_cluster: 2.1668953895568848
+Step [50/92]	 loss_instance: 4.029238700866699	 loss_cluster: 2.215819835662842
+Epoch [200/800]	 Loss: 6.182005763053894
+### Creating features from model ###
+Features shape (13000,)
+Rround 200 NMI = 0.8310 ARI = 0.7971 F = 0.8174 ACC = 0.8837
+### Creating features from model ###
+Features shape (60000,)
+Rround 200 NMI = 0.2397 ARI = 0.1260 F = 0.2471 ACC = 0.3504
+Step [0/92]	 loss_instance: 4.034473896026611	 loss_cluster: 2.1906137466430664
+Step [50/92]	 loss_instance: 4.030569553375244	 loss_cluster: 2.164307117462158
+Epoch [201/800]	 Loss: 6.185570810152137
+Step [0/92]	 loss_instance: 4.004293441772461	 loss_cluster: 2.1490559577941895
+Step [50/92]	 loss_instance: 4.056909084320068	 loss_cluster: 2.1429378986358643
+Epoch [202/800]	 Loss: 6.179302796073582
+Step [0/92]	 loss_instance: 4.033536434173584	 loss_cluster: 2.2054860591888428
+Step [50/92]	 loss_instance: 3.9938137531280518	 loss_cluster: 2.130138397216797
+Epoch [203/800]	 Loss: 6.1977764471717505
+Step [0/92]	 loss_instance: 4.07425594329834	 loss_cluster: 2.1307690143585205
+Step [50/92]	 loss_instance: 3.9831202030181885	 loss_cluster: 2.1136207580566406
+Epoch [204/800]	 Loss: 6.190290103787961
+### Creating features from model ###
+Features shape (13000,)
+Rround 204 NMI = 0.8265 ARI = 0.7923 F = 0.8131 ACC = 0.8815
+### Creating features from model ###
+Features shape (60000,)
+Rround 204 NMI = 0.2748 ARI = 0.1611 F = 0.2594 ACC = 0.3996
+Step [0/92]	 loss_instance: 3.9967267513275146	 loss_cluster: 2.1637463569641113
+Step [50/92]	 loss_instance: 4.081173896789551	 loss_cluster: 2.190589427947998
+Epoch [205/800]	 Loss: 6.1904672902563345
+Step [0/92]	 loss_instance: 4.052958011627197	 loss_cluster: 2.155944585800171
+Step [50/92]	 loss_instance: 4.0670552253723145	 loss_cluster: 2.1536448001861572
+Epoch [206/800]	 Loss: 6.187154199766076
+Step [0/92]	 loss_instance: 4.0212507247924805	 loss_cluster: 2.148799419403076
+Step [50/92]	 loss_instance: 4.015673637390137	 loss_cluster: 2.135373830795288
+Epoch [207/800]	 Loss: 6.184618701105532
+Step [0/92]	 loss_instance: 4.001594066619873	 loss_cluster: 2.1380608081817627
+Step [50/92]	 loss_instance: 4.06460428237915	 loss_cluster: 2.1789042949676514
+Epoch [208/800]	 Loss: 6.177724283674489
+### Creating features from model ###
+Features shape (13000,)
+Rround 208 NMI = 0.8259 ARI = 0.7893 F = 0.8104 ACC = 0.8774
+### Creating features from model ###
+Features shape (60000,)
+Rround 208 NMI = 0.2743 ARI = 0.1723 F = 0.2732 ACC = 0.3959
+Step [0/92]	 loss_instance: 4.019230842590332	 loss_cluster: 2.1166248321533203
+Step [50/92]	 loss_instance: 4.0732340812683105	 loss_cluster: 2.185000419616699
+Epoch [209/800]	 Loss: 6.186770371768786
+Step [0/92]	 loss_instance: 4.062297344207764	 loss_cluster: 2.2324657440185547
+Step [50/92]	 loss_instance: 4.0519022941589355	 loss_cluster: 2.19905424118042
+Epoch [210/800]	 Loss: 6.200801206671673
+Step [0/92]	 loss_instance: 4.0103654861450195	 loss_cluster: 2.165456533432007
+Step [50/92]	 loss_instance: 4.060295581817627	 loss_cluster: 2.2768921852111816
+Epoch [211/800]	 Loss: 6.1957766957904985
+Step [0/92]	 loss_instance: 4.017960071563721	 loss_cluster: 2.1305997371673584
+Step [50/92]	 loss_instance: 4.060061454772949	 loss_cluster: 2.1443464756011963
+Epoch [212/800]	 Loss: 6.186199001643969
+### Creating features from model ###
+Features shape (13000,)
+Rround 212 NMI = 0.8189 ARI = 0.7793 F = 0.8014 ACC = 0.8708
+### Creating features from model ###
+Features shape (60000,)
+Rround 212 NMI = 0.2651 ARI = 0.1512 F = 0.2769 ACC = 0.3549
+Step [0/92]	 loss_instance: 4.042884349822998	 loss_cluster: 2.1650469303131104
+Step [50/92]	 loss_instance: 4.008922100067139	 loss_cluster: 2.1725800037384033
+Epoch [213/800]	 Loss: 6.184372668680937
+Step [0/92]	 loss_instance: 4.01713752746582	 loss_cluster: 2.1145572662353516
+Step [50/92]	 loss_instance: 4.047130107879639	 loss_cluster: 2.1618454456329346
+Epoch [214/800]	 Loss: 6.188116322393003
+Step [0/92]	 loss_instance: 4.02637243270874	 loss_cluster: 2.1941990852355957
+Step [50/92]	 loss_instance: 4.023528575897217	 loss_cluster: 2.1689140796661377
+Epoch [215/800]	 Loss: 6.19593634294427
+Step [0/92]	 loss_instance: 4.016302585601807	 loss_cluster: 2.10054349899292
+Step [50/92]	 loss_instance: 4.063399791717529	 loss_cluster: 2.1642112731933594
+Epoch [216/800]	 Loss: 6.19094663599263
+### Creating features from model ###
+Features shape (13000,)
+Rround 216 NMI = 0.8329 ARI = 0.7987 F = 0.8189 ACC = 0.8852
+### Creating features from model ###
+Features shape (60000,)
+Rround 216 NMI = 0.2798 ARI = 0.1909 F = 0.2933 ACC = 0.4078
+Step [0/92]	 loss_instance: 3.9938995838165283	 loss_cluster: 2.123215913772583
+Step [50/92]	 loss_instance: 4.071400165557861	 loss_cluster: 2.208827018737793
+Epoch [217/800]	 Loss: 6.193935860758242
+Step [0/92]	 loss_instance: 3.986664295196533	 loss_cluster: 2.137854814529419
+Step [50/92]	 loss_instance: 3.961787223815918	 loss_cluster: 2.113534688949585
+Epoch [218/800]	 Loss: 6.183369931967362
+Step [0/92]	 loss_instance: 4.031155586242676	 loss_cluster: 2.145242214202881
+Step [50/92]	 loss_instance: 3.9855408668518066	 loss_cluster: 2.1258301734924316
+Epoch [219/800]	 Loss: 6.18052843860958
+Step [0/92]	 loss_instance: 3.9960875511169434	 loss_cluster: 2.1123428344726562
+Step [50/92]	 loss_instance: 4.0055317878723145	 loss_cluster: 2.1487629413604736
+Epoch [220/800]	 Loss: 6.1721387738766875
+### Creating features from model ###
+Features shape (13000,)
+Rround 220 NMI = 0.8180 ARI = 0.7865 F = 0.8079 ACC = 0.8770
+### Creating features from model ###
+Features shape (60000,)
+Rround 220 NMI = 0.2587 ARI = 0.1546 F = 0.2558 ACC = 0.3816
+Step [0/92]	 loss_instance: 4.014724254608154	 loss_cluster: 2.1445260047912598
+Step [50/92]	 loss_instance: 4.059105396270752	 loss_cluster: 2.2048628330230713
+Epoch [221/800]	 Loss: 6.186613331670347
+Step [0/92]	 loss_instance: 4.072371006011963	 loss_cluster: 2.162626028060913
+Step [50/92]	 loss_instance: 3.990438938140869	 loss_cluster: 2.1592276096343994
+Epoch [222/800]	 Loss: 6.172411177469336
+Step [0/92]	 loss_instance: 4.017687797546387	 loss_cluster: 2.1859261989593506
+Step [50/92]	 loss_instance: 4.076557159423828	 loss_cluster: 2.163072347640991
+Epoch [223/800]	 Loss: 6.173647916835288
+Step [0/92]	 loss_instance: 4.013913631439209	 loss_cluster: 2.156811237335205
+Step [50/92]	 loss_instance: 4.032186985015869	 loss_cluster: 2.1316449642181396
+Epoch [224/800]	 Loss: 6.177960867467134
+### Creating features from model ###
+Features shape (13000,)
+Rround 224 NMI = 0.8398 ARI = 0.8048 F = 0.8244 ACC = 0.8896
+### Creating features from model ###
+Features shape (60000,)
+Rround 224 NMI = 0.2723 ARI = 0.1177 F = 0.2704 ACC = 0.3695
+Step [0/92]	 loss_instance: 3.9627394676208496	 loss_cluster: 2.102720022201538
+Step [50/92]	 loss_instance: 3.9767355918884277	 loss_cluster: 2.1397390365600586
+Epoch [225/800]	 Loss: 6.166880778644396
+Step [0/92]	 loss_instance: 4.025804042816162	 loss_cluster: 2.1418304443359375
+Step [50/92]	 loss_instance: 4.007669925689697	 loss_cluster: 2.170858860015869
+Epoch [226/800]	 Loss: 6.171514930932418
+Step [0/92]	 loss_instance: 3.988960027694702	 loss_cluster: 2.1654651165008545
+Step [50/92]	 loss_instance: 3.9825470447540283	 loss_cluster: 2.1629796028137207
+Epoch [227/800]	 Loss: 6.176336153693821
+Step [0/92]	 loss_instance: 3.9961740970611572	 loss_cluster: 2.108733892440796
+Step [50/92]	 loss_instance: 3.9979288578033447	 loss_cluster: 2.143528461456299
+Epoch [228/800]	 Loss: 6.186778234398884
+### Creating features from model ###
+Features shape (13000,)
+Rround 228 NMI = 0.8371 ARI = 0.8039 F = 0.8235 ACC = 0.8862
+### Creating features from model ###
+Features shape (60000,)
+Rround 228 NMI = 0.1789 ARI = 0.0637 F = 0.2178 ACC = 0.2898
+Step [0/92]	 loss_instance: 4.035702228546143	 loss_cluster: 2.150973081588745
+Step [50/92]	 loss_instance: 4.017980098724365	 loss_cluster: 2.1989128589630127
+Epoch [229/800]	 Loss: 6.185079201408055
+Step [0/92]	 loss_instance: 4.016735553741455	 loss_cluster: 2.200286388397217
+Step [50/92]	 loss_instance: 4.034731864929199	 loss_cluster: 2.14851975440979
+Epoch [230/800]	 Loss: 6.167219597360362
+Step [0/92]	 loss_instance: 4.021470546722412	 loss_cluster: 2.1877779960632324
+Step [50/92]	 loss_instance: 3.966721534729004	 loss_cluster: 2.0881242752075195
+Epoch [231/800]	 Loss: 6.163519543150197
+Step [0/92]	 loss_instance: 4.027237415313721	 loss_cluster: 2.2335398197174072
+Step [50/92]	 loss_instance: 4.061917781829834	 loss_cluster: 2.1896893978118896
+Epoch [232/800]	 Loss: 6.17835807800293
+### Creating features from model ###
+Features shape (13000,)
+Rround 232 NMI = 0.8360 ARI = 0.8002 F = 0.8202 ACC = 0.8861
+### Creating features from model ###
+Features shape (60000,)
+Rround 232 NMI = 0.2366 ARI = 0.1129 F = 0.2394 ACC = 0.3334
+Step [0/92]	 loss_instance: 4.017074108123779	 loss_cluster: 2.1514830589294434
+Step [50/92]	 loss_instance: 4.040663242340088	 loss_cluster: 2.1458754539489746
+Epoch [233/800]	 Loss: 6.1751480154369185
+Step [0/92]	 loss_instance: 4.0071821212768555	 loss_cluster: 2.1236460208892822
+Step [50/92]	 loss_instance: 4.020664215087891	 loss_cluster: 2.1455702781677246
+Epoch [234/800]	 Loss: 6.174908332202746
+Step [0/92]	 loss_instance: 4.020864486694336	 loss_cluster: 2.157831907272339
+Step [50/92]	 loss_instance: 4.028979301452637	 loss_cluster: 2.1235640048980713
+Epoch [235/800]	 Loss: 6.1732639955437705
+Step [0/92]	 loss_instance: 4.05742073059082	 loss_cluster: 2.130788803100586
+Step [50/92]	 loss_instance: 3.970536947250366	 loss_cluster: 2.1261086463928223
+Epoch [236/800]	 Loss: 6.1802843238996426
+### Creating features from model ###
+Features shape (13000,)
+Rround 236 NMI = 0.8380 ARI = 0.8041 F = 0.8237 ACC = 0.8894
+### Creating features from model ###
+Features shape (60000,)
+Rround 236 NMI = 0.1929 ARI = 0.0745 F = 0.2370 ACC = 0.2886
+Step [0/92]	 loss_instance: 4.0595293045043945	 loss_cluster: 2.2108840942382812
+Step [50/92]	 loss_instance: 3.9960579872131348	 loss_cluster: 2.126394510269165
+Epoch [237/800]	 Loss: 6.1782722835955415
+Step [0/92]	 loss_instance: 4.070138454437256	 loss_cluster: 2.260587215423584
+Step [50/92]	 loss_instance: 4.041992664337158	 loss_cluster: 2.1741855144500732
+Epoch [238/800]	 Loss: 6.176271915435791
+Step [0/92]	 loss_instance: 3.9907989501953125	 loss_cluster: 2.130746841430664
+Step [50/92]	 loss_instance: 3.9858272075653076	 loss_cluster: 2.1352927684783936
+Epoch [239/800]	 Loss: 6.158444497896277
+Step [0/92]	 loss_instance: 4.0284271240234375	 loss_cluster: 2.168013334274292
+Step [50/92]	 loss_instance: 4.0123772621154785	 loss_cluster: 2.1794464588165283
+Epoch [240/800]	 Loss: 6.161421319712764
+### Creating features from model ###
+Features shape (13000,)
+Rround 240 NMI = 0.8340 ARI = 0.7985 F = 0.8186 ACC = 0.8843
+### Creating features from model ###
+Features shape (60000,)
+Rround 240 NMI = 0.2517 ARI = 0.0967 F = 0.2518 ACC = 0.3420
+Step [0/92]	 loss_instance: 4.084168434143066	 loss_cluster: 2.1569972038269043
+Step [50/92]	 loss_instance: 4.0156660079956055	 loss_cluster: 2.105239152908325
+Epoch [241/800]	 Loss: 6.154474605684695
+Step [0/92]	 loss_instance: 4.070728778839111	 loss_cluster: 2.154848098754883
+Step [50/92]	 loss_instance: 4.042317867279053	 loss_cluster: 2.1871345043182373
+Epoch [242/800]	 Loss: 6.1727739054223765
+Step [0/92]	 loss_instance: 3.9946393966674805	 loss_cluster: 2.2131855487823486
+Step [50/92]	 loss_instance: 4.010043621063232	 loss_cluster: 2.150223731994629
+Epoch [243/800]	 Loss: 6.17001399786576
+Step [0/92]	 loss_instance: 3.998955011367798	 loss_cluster: 2.145822763442993
+Step [50/92]	 loss_instance: 4.042072296142578	 loss_cluster: 2.20387864112854
+Epoch [244/800]	 Loss: 6.166733280472133
+### Creating features from model ###
+Features shape (13000,)
+Rround 244 NMI = 0.8322 ARI = 0.7998 F = 0.8198 ACC = 0.8836
+### Creating features from model ###
+Features shape (60000,)
+Rround 244 NMI = 0.2877 ARI = 0.1548 F = 0.2871 ACC = 0.3874
+Step [0/92]	 loss_instance: 4.045280933380127	 loss_cluster: 2.1431150436401367
+Step [50/92]	 loss_instance: 4.035188674926758	 loss_cluster: 2.177563428878784
+Epoch [245/800]	 Loss: 6.152529928995215
+Step [0/92]	 loss_instance: 3.974260091781616	 loss_cluster: 2.1097075939178467
+Step [50/92]	 loss_instance: 4.024935722351074	 loss_cluster: 2.1583449840545654
+Epoch [246/800]	 Loss: 6.151771130769149
+Step [0/92]	 loss_instance: 4.004067420959473	 loss_cluster: 2.168907642364502
+Step [50/92]	 loss_instance: 4.015002250671387	 loss_cluster: 2.1562206745147705
+Epoch [247/800]	 Loss: 6.160797953605652
+Step [0/92]	 loss_instance: 4.015212059020996	 loss_cluster: 2.180692434310913
+Step [50/92]	 loss_instance: 4.030770301818848	 loss_cluster: 2.1555206775665283
+Epoch [248/800]	 Loss: 6.164563811343649
+### Creating features from model ###
+Features shape (13000,)
+Rround 248 NMI = 0.8305 ARI = 0.7937 F = 0.8143 ACC = 0.8792
+### Creating features from model ###
+Features shape (60000,)
+Rround 248 NMI = 0.2871 ARI = 0.1992 F = 0.2916 ACC = 0.4111
+Step [0/92]	 loss_instance: 4.034106254577637	 loss_cluster: 2.158912420272827
+Step [50/92]	 loss_instance: 3.9622750282287598	 loss_cluster: 2.1460165977478027
+Epoch [249/800]	 Loss: 6.168083667755127
+Step [0/92]	 loss_instance: 4.008626937866211	 loss_cluster: 2.1255667209625244
+Step [50/92]	 loss_instance: 4.063137531280518	 loss_cluster: 2.1674082279205322
+Epoch [250/800]	 Loss: 6.179704204849575
+Step [0/92]	 loss_instance: 3.977179765701294	 loss_cluster: 2.0881292819976807
+Step [50/92]	 loss_instance: 4.021581172943115	 loss_cluster: 2.1387977600097656
+Epoch [251/800]	 Loss: 6.16453871001368
+Step [0/92]	 loss_instance: 4.058384895324707	 loss_cluster: 2.1611874103546143
+Step [50/92]	 loss_instance: 4.0005998611450195	 loss_cluster: 2.1916394233703613
+Epoch [252/800]	 Loss: 6.1627960982530015
+### Creating features from model ###
+Features shape (13000,)
+Rround 252 NMI = 0.8379 ARI = 0.8016 F = 0.8214 ACC = 0.8862
+### Creating features from model ###
+Features shape (60000,)
+Rround 252 NMI = 0.2438 ARI = 0.1130 F = 0.2387 ACC = 0.3536
+Step [0/92]	 loss_instance: 3.9846580028533936	 loss_cluster: 2.1421074867248535
+Step [50/92]	 loss_instance: 3.9938900470733643	 loss_cluster: 2.1575119495391846
+Epoch [253/800]	 Loss: 6.1656581422557
+Step [0/92]	 loss_instance: 4.033695697784424	 loss_cluster: 2.1980276107788086
+Step [50/92]	 loss_instance: 3.992387294769287	 loss_cluster: 2.1247758865356445
+Epoch [254/800]	 Loss: 6.166715813719708
+Step [0/92]	 loss_instance: 4.047419548034668	 loss_cluster: 2.1614270210266113
+Step [50/92]	 loss_instance: 3.9568490982055664	 loss_cluster: 2.172891616821289
+Epoch [255/800]	 Loss: 6.161721727122432
+Step [0/92]	 loss_instance: 4.019010066986084	 loss_cluster: 2.149740695953369
+Step [50/92]	 loss_instance: 3.969261407852173	 loss_cluster: 2.1104929447174072
+Epoch [256/800]	 Loss: 6.15725504833719
+### Creating features from model ###
+Features shape (13000,)
+Rround 256 NMI = 0.8404 ARI = 0.8082 F = 0.8274 ACC = 0.8906
+### Creating features from model ###
+Features shape (60000,)
+Rround 256 NMI = 0.2133 ARI = 0.0696 F = 0.2253 ACC = 0.2997
+Step [0/92]	 loss_instance: 4.0521559715271	 loss_cluster: 2.218245506286621
+Step [50/92]	 loss_instance: 4.0288214683532715	 loss_cluster: 2.1446340084075928
+Epoch [257/800]	 Loss: 6.167984127998352
+Step [0/92]	 loss_instance: 3.9851768016815186	 loss_cluster: 2.129429578781128
+Step [50/92]	 loss_instance: 4.024966239929199	 loss_cluster: 2.1412832736968994
+Epoch [258/800]	 Loss: 6.1571250946625415
+Step [0/92]	 loss_instance: 3.960955858230591	 loss_cluster: 2.0940349102020264
+Step [50/92]	 loss_instance: 4.000096321105957	 loss_cluster: 2.172065258026123
+Epoch [259/800]	 Loss: 6.164506228073783
+Step [0/92]	 loss_instance: 4.023271083831787	 loss_cluster: 2.160937547683716
+Step [50/92]	 loss_instance: 4.035926818847656	 loss_cluster: 2.1526949405670166
+Epoch [260/800]	 Loss: 6.175921896229619
+### Creating features from model ###
+Features shape (13000,)
+Rround 260 NMI = 0.8369 ARI = 0.8019 F = 0.8217 ACC = 0.8851
+### Creating features from model ###
+Features shape (60000,)
+Rround 260 NMI = 0.2732 ARI = 0.1251 F = 0.2595 ACC = 0.3582
+Step [0/92]	 loss_instance: 4.008622646331787	 loss_cluster: 2.1016530990600586
+Step [50/92]	 loss_instance: 3.9835598468780518	 loss_cluster: 2.145020008087158
+Epoch [261/800]	 Loss: 6.163795113563538
+Step [0/92]	 loss_instance: 4.019101619720459	 loss_cluster: 2.1234092712402344
+Step [50/92]	 loss_instance: 4.006371974945068	 loss_cluster: 2.113755464553833
+Epoch [262/800]	 Loss: 6.146244002425152
+Step [0/92]	 loss_instance: 4.018264293670654	 loss_cluster: 2.1603615283966064
+Step [50/92]	 loss_instance: 4.035444736480713	 loss_cluster: 2.164863109588623
+Epoch [263/800]	 Loss: 6.167713165283203
+Step [0/92]	 loss_instance: 4.0425591468811035	 loss_cluster: 2.182673215866089
+Step [50/92]	 loss_instance: 4.02541971206665	 loss_cluster: 2.1269049644470215
+Epoch [264/800]	 Loss: 6.156429156013157
+### Creating features from model ###
+Features shape (13000,)
+Rround 264 NMI = 0.8476 ARI = 0.8118 F = 0.8307 ACC = 0.8906
+### Creating features from model ###
+Features shape (60000,)
+Rround 264 NMI = 0.2672 ARI = 0.1284 F = 0.2485 ACC = 0.3645
+Step [0/92]	 loss_instance: 3.9776358604431152	 loss_cluster: 2.14566969871521
+Step [50/92]	 loss_instance: 3.957122325897217	 loss_cluster: 2.1212568283081055
+Epoch [265/800]	 Loss: 6.155279175094936
+Step [0/92]	 loss_instance: 3.9527945518493652	 loss_cluster: 2.1279547214508057
+Step [50/92]	 loss_instance: 4.050568103790283	 loss_cluster: 2.1660454273223877
+Epoch [266/800]	 Loss: 6.157975953558217
+Step [0/92]	 loss_instance: 3.9869041442871094	 loss_cluster: 2.1829240322113037
+Step [50/92]	 loss_instance: 4.003035068511963	 loss_cluster: 2.1559042930603027
+Epoch [267/800]	 Loss: 6.1619455866191695
+Step [0/92]	 loss_instance: 4.010982036590576	 loss_cluster: 2.156815767288208
+Step [50/92]	 loss_instance: 4.023715496063232	 loss_cluster: 2.165172576904297
+Epoch [268/800]	 Loss: 6.150756882584614
+### Creating features from model ###
+Features shape (13000,)
+Rround 268 NMI = 0.8400 ARI = 0.8060 F = 0.8254 ACC = 0.8880
+### Creating features from model ###
+Features shape (60000,)
+Rround 268 NMI = 0.1946 ARI = 0.0790 F = 0.2135 ACC = 0.2829
+Step [0/92]	 loss_instance: 4.071478843688965	 loss_cluster: 2.219820976257324
+Step [50/92]	 loss_instance: 4.031444072723389	 loss_cluster: 2.155897855758667
+Epoch [269/800]	 Loss: 6.157931628434555
+Step [0/92]	 loss_instance: 3.996013641357422	 loss_cluster: 2.140244960784912
+Step [50/92]	 loss_instance: 4.039707183837891	 loss_cluster: 2.1510331630706787
+Epoch [270/800]	 Loss: 6.162883763727934
+Step [0/92]	 loss_instance: 4.022244930267334	 loss_cluster: 2.1239097118377686
+Step [50/92]	 loss_instance: 3.9980485439300537	 loss_cluster: 2.1634459495544434
+Epoch [271/800]	 Loss: 6.167332498923592
+Step [0/92]	 loss_instance: 4.056807994842529	 loss_cluster: 2.143415927886963
+Step [50/92]	 loss_instance: 4.026385307312012	 loss_cluster: 2.154203176498413
+Epoch [272/800]	 Loss: 6.169320329375889
+### Creating features from model ###
+Features shape (13000,)
+Rround 272 NMI = 0.8348 ARI = 0.8025 F = 0.8223 ACC = 0.8871
+### Creating features from model ###
+Features shape (60000,)
+Rround 272 NMI = 0.2780 ARI = 0.1646 F = 0.2680 ACC = 0.4042
+Step [0/92]	 loss_instance: 4.0260844230651855	 loss_cluster: 2.114217519760132
+Step [50/92]	 loss_instance: 4.000381946563721	 loss_cluster: 2.107140064239502
+Epoch [273/800]	 Loss: 6.155653777329818
+Step [0/92]	 loss_instance: 3.9706363677978516	 loss_cluster: 2.1102356910705566
+Step [50/92]	 loss_instance: 4.007162570953369	 loss_cluster: 2.1516551971435547
+Epoch [274/800]	 Loss: 6.154011550156967
+Step [0/92]	 loss_instance: 4.0369038581848145	 loss_cluster: 2.1492934226989746
+Step [50/92]	 loss_instance: 4.0048394203186035	 loss_cluster: 2.1858582496643066
+Epoch [275/800]	 Loss: 6.149819638418115
+Step [0/92]	 loss_instance: 3.9901747703552246	 loss_cluster: 2.1442952156066895
+Step [50/92]	 loss_instance: 4.046753406524658	 loss_cluster: 2.129611015319824
+Epoch [276/800]	 Loss: 6.1450426734012105
+### Creating features from model ###
+Features shape (13000,)
+Rround 276 NMI = 0.8455 ARI = 0.8081 F = 0.8273 ACC = 0.8882
+### Creating features from model ###
+Features shape (60000,)
+Rround 276 NMI = 0.2644 ARI = 0.1520 F = 0.2468 ACC = 0.3959
+Step [0/92]	 loss_instance: 4.003059387207031	 loss_cluster: 2.2010982036590576
+Step [50/92]	 loss_instance: 4.020864963531494	 loss_cluster: 2.1558358669281006
+Epoch [277/800]	 Loss: 6.169384500254756
+Step [0/92]	 loss_instance: 4.0420074462890625	 loss_cluster: 2.149909496307373
+Step [50/92]	 loss_instance: 3.994053363800049	 loss_cluster: 2.173356056213379
+Epoch [278/800]	 Loss: 6.154852234798929
+Step [0/92]	 loss_instance: 4.04279088973999	 loss_cluster: 2.148954153060913
+Step [50/92]	 loss_instance: 3.954965591430664	 loss_cluster: 2.1229422092437744
+Epoch [279/800]	 Loss: 6.151255156682885
+Step [0/92]	 loss_instance: 3.9586169719696045	 loss_cluster: 2.1130242347717285
+Step [50/92]	 loss_instance: 4.0091729164123535	 loss_cluster: 2.2241151332855225
+Epoch [280/800]	 Loss: 6.156509643015654
+### Creating features from model ###
+Features shape (13000,)
+Rround 280 NMI = 0.8424 ARI = 0.8044 F = 0.8240 ACC = 0.8841
+### Creating features from model ###
+Features shape (60000,)
+Rround 280 NMI = 0.2538 ARI = 0.1308 F = 0.2445 ACC = 0.3614
+Step [0/92]	 loss_instance: 4.000011920928955	 loss_cluster: 2.0868990421295166
+Step [50/92]	 loss_instance: 4.0410475730896	 loss_cluster: 2.230193614959717
+Epoch [281/800]	 Loss: 6.1502044926518975
+Step [0/92]	 loss_instance: 4.0027689933776855	 loss_cluster: 2.1361958980560303
+Step [50/92]	 loss_instance: 4.015798091888428	 loss_cluster: 2.136263608932495
+Epoch [282/800]	 Loss: 6.156196132950161
+Step [0/92]	 loss_instance: 4.010521411895752	 loss_cluster: 2.155285596847534
+Step [50/92]	 loss_instance: 4.000766754150391	 loss_cluster: 2.1349546909332275
+Epoch [283/800]	 Loss: 6.162598760231681
+Step [0/92]	 loss_instance: 4.059617519378662	 loss_cluster: 2.196169137954712
+Step [50/92]	 loss_instance: 4.01656436920166	 loss_cluster: 2.1344590187072754
+Epoch [284/800]	 Loss: 6.15338192815366
+### Creating features from model ###
+Features shape (13000,)
+Rround 284 NMI = 0.8419 ARI = 0.8045 F = 0.8240 ACC = 0.8857
+### Creating features from model ###
+Features shape (60000,)
+Rround 284 NMI = 0.2822 ARI = 0.1414 F = 0.2758 ACC = 0.3922
+Step [0/92]	 loss_instance: 4.024157524108887	 loss_cluster: 2.1421079635620117
+Step [50/92]	 loss_instance: 4.008058071136475	 loss_cluster: 2.2222676277160645
+Epoch [285/800]	 Loss: 6.141950819803321
+Step [0/92]	 loss_instance: 4.053483963012695	 loss_cluster: 2.1515679359436035
+Step [50/92]	 loss_instance: 4.01346492767334	 loss_cluster: 2.1347267627716064
+Epoch [286/800]	 Loss: 6.146494963894719
+Step [0/92]	 loss_instance: 4.04308557510376	 loss_cluster: 2.161602735519409
+Step [50/92]	 loss_instance: 4.0298004150390625	 loss_cluster: 2.1520495414733887
+Epoch [287/800]	 Loss: 6.1555221236270405
+Step [0/92]	 loss_instance: 4.044704914093018	 loss_cluster: 2.1562533378601074
+Step [50/92]	 loss_instance: 3.978229284286499	 loss_cluster: 2.1681571006774902
+Epoch [288/800]	 Loss: 6.152974683305492
+### Creating features from model ###
+Features shape (13000,)
+Rround 288 NMI = 0.8316 ARI = 0.7939 F = 0.8145 ACC = 0.8803
+### Creating features from model ###
+Features shape (60000,)
+Rround 288 NMI = 0.2708 ARI = 0.1691 F = 0.2815 ACC = 0.3861
+Step [0/92]	 loss_instance: 3.9754276275634766	 loss_cluster: 2.1513078212738037
+Step [50/92]	 loss_instance: 3.950000047683716	 loss_cluster: 2.086106538772583
+Epoch [289/800]	 Loss: 6.149666863939037
+Step [0/92]	 loss_instance: 3.927586078643799	 loss_cluster: 2.1041531562805176
+Step [50/92]	 loss_instance: 4.015967845916748	 loss_cluster: 2.1455159187316895
+Epoch [290/800]	 Loss: 6.139526154683984
+Step [0/92]	 loss_instance: 4.048494815826416	 loss_cluster: 2.1905367374420166
+Step [50/92]	 loss_instance: 3.962197780609131	 loss_cluster: 2.137948513031006
+Epoch [291/800]	 Loss: 6.144097960513571
+Step [0/92]	 loss_instance: 3.991661787033081	 loss_cluster: 2.151226758956909
+Step [50/92]	 loss_instance: 3.9673376083374023	 loss_cluster: 2.1250033378601074
+Epoch [292/800]	 Loss: 6.154196469680123
+### Creating features from model ###
+Features shape (13000,)
+Rround 292 NMI = 0.8487 ARI = 0.8161 F = 0.8346 ACC = 0.8948
+### Creating features from model ###
+Features shape (60000,)
+Rround 292 NMI = 0.2668 ARI = 0.1556 F = 0.2614 ACC = 0.3884
+Step [0/92]	 loss_instance: 4.0114288330078125	 loss_cluster: 2.1669681072235107
+Step [50/92]	 loss_instance: 4.014382839202881	 loss_cluster: 2.157541513442993
+Epoch [293/800]	 Loss: 6.152964348378389
+Step [0/92]	 loss_instance: 3.964918375015259	 loss_cluster: 2.1356070041656494
+Step [50/92]	 loss_instance: 3.9934351444244385	 loss_cluster: 2.121847152709961
+Epoch [294/800]	 Loss: 6.156167019968447
+Step [0/92]	 loss_instance: 4.028139114379883	 loss_cluster: 2.1421029567718506
+Step [50/92]	 loss_instance: 3.9901468753814697	 loss_cluster: 2.17108154296875
+Epoch [295/800]	 Loss: 6.155836748040241
+Step [0/92]	 loss_instance: 3.9736180305480957	 loss_cluster: 2.121554374694824
+Step [50/92]	 loss_instance: 3.9838883876800537	 loss_cluster: 2.1426069736480713
+Epoch [296/800]	 Loss: 6.154327890147334
+### Creating features from model ###
+Features shape (13000,)
+Rround 296 NMI = 0.8431 ARI = 0.8100 F = 0.8290 ACC = 0.8902
+### Creating features from model ###
+Features shape (60000,)
+Rround 296 NMI = 0.2692 ARI = 0.1382 F = 0.2615 ACC = 0.3705
+Step [0/92]	 loss_instance: 3.9963362216949463	 loss_cluster: 2.139416456222534
+Step [50/92]	 loss_instance: 3.9810006618499756	 loss_cluster: 2.13122296333313
+Epoch [297/800]	 Loss: 6.142764786015386
+Step [0/92]	 loss_instance: 4.00045919418335	 loss_cluster: 2.1845338344573975
+Step [50/92]	 loss_instance: 3.9908909797668457	 loss_cluster: 2.1431500911712646
+Epoch [298/800]	 Loss: 6.140877578569495
+Step [0/92]	 loss_instance: 4.019245624542236	 loss_cluster: 2.1670234203338623
+Step [50/92]	 loss_instance: 3.9784860610961914	 loss_cluster: 2.115527629852295
+Epoch [299/800]	 Loss: 6.144919815270797
+Step [0/92]	 loss_instance: 4.079859256744385	 loss_cluster: 2.1883034706115723
+Step [50/92]	 loss_instance: 4.039557456970215	 loss_cluster: 2.1849586963653564
+Epoch [300/800]	 Loss: 6.135758933813675
+### Creating features from model ###
+Features shape (13000,)
+Rround 300 NMI = 0.8501 ARI = 0.8188 F = 0.8370 ACC = 0.8945
+### Creating features from model ###
+Features shape (60000,)
+Rround 300 NMI = 0.2492 ARI = 0.0965 F = 0.2579 ACC = 0.3488
+Step [0/92]	 loss_instance: 3.9980878829956055	 loss_cluster: 2.1530537605285645
+Step [50/92]	 loss_instance: 3.948518991470337	 loss_cluster: 2.1559407711029053
+Epoch [301/800]	 Loss: 6.136243244876033
+Step [0/92]	 loss_instance: 4.0497565269470215	 loss_cluster: 2.1549057960510254
+Step [50/92]	 loss_instance: 3.9752724170684814	 loss_cluster: 2.143602132797241
+Epoch [302/800]	 Loss: 6.1480536460876465
+Step [0/92]	 loss_instance: 3.936601161956787	 loss_cluster: 2.114495038986206
+Step [50/92]	 loss_instance: 3.9836277961730957	 loss_cluster: 2.1188089847564697
+Epoch [303/800]	 Loss: 6.142370659372081
+Step [0/92]	 loss_instance: 4.000820636749268	 loss_cluster: 2.106031656265259
+Step [50/92]	 loss_instance: 3.9636218547821045	 loss_cluster: 2.1523258686065674
+Epoch [304/800]	 Loss: 6.137571117152339
+### Creating features from model ###
+Features shape (13000,)
+Rround 304 NMI = 0.8370 ARI = 0.7907 F = 0.8117 ACC = 0.8808
+### Creating features from model ###
+Features shape (60000,)
+Rround 304 NMI = 0.2372 ARI = 0.1221 F = 0.2473 ACC = 0.3473
+Step [0/92]	 loss_instance: 3.984819173812866	 loss_cluster: 2.158494234085083
+Step [50/92]	 loss_instance: 4.0338053703308105	 loss_cluster: 2.188436269760132
+Epoch [305/800]	 Loss: 6.139402088911637
+Step [0/92]	 loss_instance: 3.989960193634033	 loss_cluster: 2.162541627883911
+Step [50/92]	 loss_instance: 4.001420497894287	 loss_cluster: 2.191314935684204
+Epoch [306/800]	 Loss: 6.1448642585588535
+Step [0/92]	 loss_instance: 4.031866550445557	 loss_cluster: 2.167142391204834
+Step [50/92]	 loss_instance: 3.9696598052978516	 loss_cluster: 2.1085429191589355
+Epoch [307/800]	 Loss: 6.143116370491359
+Step [0/92]	 loss_instance: 3.9663970470428467	 loss_cluster: 2.127807140350342
+Step [50/92]	 loss_instance: 4.016034126281738	 loss_cluster: 2.162364959716797
+Epoch [308/800]	 Loss: 6.155954205471536
+### Creating features from model ###
+Features shape (13000,)
+Rround 308 NMI = 0.8461 ARI = 0.8121 F = 0.8309 ACC = 0.8909
+### Creating features from model ###
+Features shape (60000,)
+Rround 308 NMI = 0.2867 ARI = 0.1411 F = 0.2743 ACC = 0.3807
+Step [0/92]	 loss_instance: 4.016298294067383	 loss_cluster: 2.1467769145965576
+Step [50/92]	 loss_instance: 4.054300308227539	 loss_cluster: 2.2430496215820312
+Epoch [309/800]	 Loss: 6.1485186659771465
+Step [0/92]	 loss_instance: 3.999572277069092	 loss_cluster: 2.097209930419922
+Step [50/92]	 loss_instance: 3.9946682453155518	 loss_cluster: 2.1122593879699707
+Epoch [310/800]	 Loss: 6.129565648410631
+Step [0/92]	 loss_instance: 3.9755210876464844	 loss_cluster: 2.1504099369049072
+Step [50/92]	 loss_instance: 4.041065216064453	 loss_cluster: 2.155384063720703
+Epoch [311/800]	 Loss: 6.144029052361198
+Step [0/92]	 loss_instance: 4.004265308380127	 loss_cluster: 2.1977388858795166
+Step [50/92]	 loss_instance: 3.9850053787231445	 loss_cluster: 2.138730764389038
+Epoch [312/800]	 Loss: 6.144913704498954
+### Creating features from model ###
+Features shape (13000,)
+Rround 312 NMI = 0.8446 ARI = 0.8079 F = 0.8272 ACC = 0.8882
+### Creating features from model ###
+Features shape (60000,)
+Rround 312 NMI = 0.2763 ARI = 0.1481 F = 0.2632 ACC = 0.3815
+Step [0/92]	 loss_instance: 4.0233893394470215	 loss_cluster: 2.1151609420776367
+Step [50/92]	 loss_instance: 3.985591411590576	 loss_cluster: 2.1307380199432373
+Epoch [313/800]	 Loss: 6.139107102933138
+Step [0/92]	 loss_instance: 3.9670755863189697	 loss_cluster: 2.1362435817718506
+Step [50/92]	 loss_instance: 4.0399699211120605	 loss_cluster: 2.1333162784576416
+Epoch [314/800]	 Loss: 6.128324441287829
+Step [0/92]	 loss_instance: 4.000296592712402	 loss_cluster: 2.1700806617736816
+Step [50/92]	 loss_instance: 4.0262227058410645	 loss_cluster: 2.133150100708008
+Epoch [315/800]	 Loss: 6.139661472776662
+Step [0/92]	 loss_instance: 4.036357402801514	 loss_cluster: 2.152742385864258
+Step [50/92]	 loss_instance: 3.98199725151062	 loss_cluster: 2.121429443359375
+Epoch [316/800]	 Loss: 6.164444674616274
+### Creating features from model ###
+Features shape (13000,)
+Rround 316 NMI = 0.8465 ARI = 0.8103 F = 0.8293 ACC = 0.8895
+### Creating features from model ###
+Features shape (60000,)
+Rround 316 NMI = 0.2334 ARI = 0.1088 F = 0.2539 ACC = 0.3526
+Step [0/92]	 loss_instance: 3.973201274871826	 loss_cluster: 2.1370091438293457
+Step [50/92]	 loss_instance: 4.015284061431885	 loss_cluster: 2.15675950050354
+Epoch [317/800]	 Loss: 6.1349493472472485
+Step [0/92]	 loss_instance: 4.0149006843566895	 loss_cluster: 2.121218681335449
+Step [50/92]	 loss_instance: 4.030542850494385	 loss_cluster: 2.1245620250701904
+Epoch [318/800]	 Loss: 6.134625647379004
+Step [0/92]	 loss_instance: 4.004243850708008	 loss_cluster: 2.1679155826568604
+Step [50/92]	 loss_instance: 3.9371752738952637	 loss_cluster: 2.1250343322753906
+Epoch [319/800]	 Loss: 6.135324120521545
+Step [0/92]	 loss_instance: 3.978761911392212	 loss_cluster: 2.136030912399292
+Step [50/92]	 loss_instance: 4.021637439727783	 loss_cluster: 2.1386826038360596
+Epoch [320/800]	 Loss: 6.150001577709032
+### Creating features from model ###
+Features shape (13000,)
+Rround 320 NMI = 0.8574 ARI = 0.8231 F = 0.8408 ACC = 0.8962
+### Creating features from model ###
+Features shape (60000,)
+Rround 320 NMI = 0.2274 ARI = 0.1179 F = 0.2262 ACC = 0.3564
+Step [0/92]	 loss_instance: 3.955767869949341	 loss_cluster: 2.1495091915130615
+Step [50/92]	 loss_instance: 4.028698921203613	 loss_cluster: 2.1298022270202637
+Epoch [321/800]	 Loss: 6.139578218045442
+Step [0/92]	 loss_instance: 4.003270149230957	 loss_cluster: 2.1244897842407227
+Step [50/92]	 loss_instance: 3.9529945850372314	 loss_cluster: 2.0993616580963135
+Epoch [322/800]	 Loss: 6.131748541541722
+Step [0/92]	 loss_instance: 3.9822444915771484	 loss_cluster: 2.210810422897339
+Step [50/92]	 loss_instance: 3.9708950519561768	 loss_cluster: 2.1571848392486572
+Epoch [323/800]	 Loss: 6.147534614023955
+Step [0/92]	 loss_instance: 4.008994102478027	 loss_cluster: 2.1409311294555664
+Step [50/92]	 loss_instance: 3.9903032779693604	 loss_cluster: 2.140228509902954
+Epoch [324/800]	 Loss: 6.142702309981637
+### Creating features from model ###
+Features shape (13000,)
+Rround 324 NMI = 0.8402 ARI = 0.8065 F = 0.8259 ACC = 0.8884
+### Creating features from model ###
+Features shape (60000,)
+Rround 324 NMI = 0.1956 ARI = 0.0639 F = 0.2234 ACC = 0.3011
+Step [0/92]	 loss_instance: 3.9883339405059814	 loss_cluster: 2.136979103088379
+Step [50/92]	 loss_instance: 4.0308356285095215	 loss_cluster: 2.146970748901367
+Epoch [325/800]	 Loss: 6.157534262408381
+Step [0/92]	 loss_instance: 3.984900712966919	 loss_cluster: 2.1338882446289062
+Step [50/92]	 loss_instance: 4.009640693664551	 loss_cluster: 2.153203010559082
+Epoch [326/800]	 Loss: 6.138866393462472
+Step [0/92]	 loss_instance: 3.9924142360687256	 loss_cluster: 2.1486501693725586
+Step [50/92]	 loss_instance: 4.005213260650635	 loss_cluster: 2.1204142570495605
+Epoch [327/800]	 Loss: 6.115718603134155
+Step [0/92]	 loss_instance: 3.987943410873413	 loss_cluster: 2.228238105773926
+Step [50/92]	 loss_instance: 3.997427463531494	 loss_cluster: 2.1832637786865234
+Epoch [328/800]	 Loss: 6.128182431925898
+### Creating features from model ###
+Features shape (13000,)
+Rround 328 NMI = 0.8269 ARI = 0.7878 F = 0.8090 ACC = 0.8734
+### Creating features from model ###
+Features shape (60000,)
+Rround 328 NMI = 0.3002 ARI = 0.1749 F = 0.2846 ACC = 0.3982
+Step [0/92]	 loss_instance: 4.054530143737793	 loss_cluster: 2.1835248470306396
+Step [50/92]	 loss_instance: 4.047110080718994	 loss_cluster: 2.1966867446899414
+Epoch [329/800]	 Loss: 6.1462925879851635
+Step [0/92]	 loss_instance: 4.011185169219971	 loss_cluster: 2.136866807937622
+Step [50/92]	 loss_instance: 3.987043619155884	 loss_cluster: 2.1419262886047363
+Epoch [330/800]	 Loss: 6.129327058792114
+Step [0/92]	 loss_instance: 3.9942879676818848	 loss_cluster: 2.1644017696380615
+Step [50/92]	 loss_instance: 3.9695422649383545	 loss_cluster: 2.118988037109375
+Epoch [331/800]	 Loss: 6.125979983288309
+Step [0/92]	 loss_instance: 3.9717469215393066	 loss_cluster: 2.2495946884155273
+Step [50/92]	 loss_instance: 3.9985530376434326	 loss_cluster: 2.138450860977173
+Epoch [332/800]	 Loss: 6.13828748723735
+### Creating features from model ###
+Features shape (13000,)
+Rround 332 NMI = 0.8553 ARI = 0.8196 F = 0.8377 ACC = 0.8928
+### Creating features from model ###
+Features shape (60000,)
+Rround 332 NMI = 0.2822 ARI = 0.1616 F = 0.2645 ACC = 0.3873
+Step [0/92]	 loss_instance: 3.981187582015991	 loss_cluster: 2.151895523071289
+Step [50/92]	 loss_instance: 3.9772233963012695	 loss_cluster: 2.111605167388916
+Epoch [333/800]	 Loss: 6.117365033730216
+Step [0/92]	 loss_instance: 4.003320693969727	 loss_cluster: 2.1499853134155273
+Step [50/92]	 loss_instance: 3.9429521560668945	 loss_cluster: 2.1060609817504883
+Epoch [334/800]	 Loss: 6.135729188504427
+Step [0/92]	 loss_instance: 4.042503356933594	 loss_cluster: 2.147946357727051
+Step [50/92]	 loss_instance: 4.0002875328063965	 loss_cluster: 2.1105377674102783
+Epoch [335/800]	 Loss: 6.13506237320278
+Step [0/92]	 loss_instance: 4.014750003814697	 loss_cluster: 2.1544713973999023
+Step [50/92]	 loss_instance: 3.984942674636841	 loss_cluster: 2.1258482933044434
+Epoch [336/800]	 Loss: 6.136599665102751
+### Creating features from model ###
+Features shape (13000,)
+Rround 336 NMI = 0.8390 ARI = 0.8055 F = 0.8250 ACC = 0.8875
+### Creating features from model ###
+Features shape (60000,)
+Rround 336 NMI = 0.2319 ARI = 0.1021 F = 0.2542 ACC = 0.3329
+Step [0/92]	 loss_instance: 4.013243198394775	 loss_cluster: 2.1566662788391113
+Step [50/92]	 loss_instance: 3.9707682132720947	 loss_cluster: 2.120997667312622
+Epoch [337/800]	 Loss: 6.133330796075904
+Step [0/92]	 loss_instance: 4.010156154632568	 loss_cluster: 2.1643714904785156
+Step [50/92]	 loss_instance: 3.96740984916687	 loss_cluster: 2.133737325668335
+Epoch [338/800]	 Loss: 6.138376324073128
+Step [0/92]	 loss_instance: 3.986036539077759	 loss_cluster: 2.1036386489868164
+Step [50/92]	 loss_instance: 3.9973795413970947	 loss_cluster: 2.1352906227111816
+Epoch [339/800]	 Loss: 6.133830796117368
+Step [0/92]	 loss_instance: 4.017693042755127	 loss_cluster: 2.156038761138916
+Step [50/92]	 loss_instance: 4.018704414367676	 loss_cluster: 2.18727707862854
+Epoch [340/800]	 Loss: 6.135011258332626
+### Creating features from model ###
+Features shape (13000,)
+Rround 340 NMI = 0.8421 ARI = 0.8103 F = 0.8292 ACC = 0.8881
+### Creating features from model ###
+Features shape (60000,)
+Rround 340 NMI = 0.1899 ARI = 0.0615 F = 0.2224 ACC = 0.2992
+Step [0/92]	 loss_instance: 4.010537147521973	 loss_cluster: 2.115358591079712
+Step [50/92]	 loss_instance: 3.9652063846588135	 loss_cluster: 2.1485273838043213
+Epoch [341/800]	 Loss: 6.1186529346134355
+Step [0/92]	 loss_instance: 4.0406060218811035	 loss_cluster: 2.1842219829559326
+Step [50/92]	 loss_instance: 4.008593559265137	 loss_cluster: 2.1877284049987793
+Epoch [342/800]	 Loss: 6.141267994175786
+Step [0/92]	 loss_instance: 3.9910130500793457	 loss_cluster: 2.128654718399048
+Step [50/92]	 loss_instance: 3.9787776470184326	 loss_cluster: 2.111341953277588
+Epoch [343/800]	 Loss: 6.135448315869207
+Step [0/92]	 loss_instance: 4.029973983764648	 loss_cluster: 2.16196346282959
+Step [50/92]	 loss_instance: 3.9883580207824707	 loss_cluster: 2.162172555923462
+Epoch [344/800]	 Loss: 6.130843825962232
+### Creating features from model ###
+Features shape (13000,)
+Rround 344 NMI = 0.8500 ARI = 0.8180 F = 0.8362 ACC = 0.8939
+### Creating features from model ###
+Features shape (60000,)
+Rround 344 NMI = 0.2607 ARI = 0.1459 F = 0.2643 ACC = 0.3850
+Step [0/92]	 loss_instance: 3.972433090209961	 loss_cluster: 2.0969114303588867
+Step [50/92]	 loss_instance: 3.9924280643463135	 loss_cluster: 2.1622307300567627
+Epoch [345/800]	 Loss: 6.133546378301538
+Step [0/92]	 loss_instance: 4.049266815185547	 loss_cluster: 2.140266180038452
+Step [50/92]	 loss_instance: 3.976672887802124	 loss_cluster: 2.1313858032226562
+Epoch [346/800]	 Loss: 6.133380594460861
+Step [0/92]	 loss_instance: 3.9731075763702393	 loss_cluster: 2.1151044368743896
+Step [50/92]	 loss_instance: 3.9981014728546143	 loss_cluster: 2.1159961223602295
+Epoch [347/800]	 Loss: 6.1406526254571006
+Step [0/92]	 loss_instance: 4.0319318771362305	 loss_cluster: 2.1625404357910156
+Step [50/92]	 loss_instance: 3.9742956161499023	 loss_cluster: 2.1249303817749023
+Epoch [348/800]	 Loss: 6.12885978947515
+### Creating features from model ###
+Features shape (13000,)
+Rround 348 NMI = 0.8589 ARI = 0.8235 F = 0.8412 ACC = 0.8972
+### Creating features from model ###
+Features shape (60000,)
+Rround 348 NMI = 0.2821 ARI = 0.1556 F = 0.2732 ACC = 0.3957
+Step [0/92]	 loss_instance: 3.9583046436309814	 loss_cluster: 2.1523630619049072
+Step [50/92]	 loss_instance: 3.991347312927246	 loss_cluster: 2.1682043075561523
+Epoch [349/800]	 Loss: 6.123135380122973
+Step [0/92]	 loss_instance: 4.01113224029541	 loss_cluster: 2.121051788330078
+Step [50/92]	 loss_instance: 3.997844934463501	 loss_cluster: 2.1265690326690674
+Epoch [350/800]	 Loss: 6.123519643493321
+Step [0/92]	 loss_instance: 3.983837842941284	 loss_cluster: 2.13348650932312
+Step [50/92]	 loss_instance: 3.9713544845581055	 loss_cluster: 2.129899024963379
+Epoch [351/800]	 Loss: 6.1308012060497115
+Step [0/92]	 loss_instance: 4.024372577667236	 loss_cluster: 2.136942148208618
+Step [50/92]	 loss_instance: 3.9505505561828613	 loss_cluster: 2.107182264328003
+Epoch [352/800]	 Loss: 6.132272046545277
+### Creating features from model ###
+Features shape (13000,)
+Rround 352 NMI = 0.8561 ARI = 0.8224 F = 0.8402 ACC = 0.8968
+### Creating features from model ###
+Features shape (60000,)
+Rround 352 NMI = 0.2687 ARI = 0.1411 F = 0.2644 ACC = 0.3940
+Step [0/92]	 loss_instance: 3.977182388305664	 loss_cluster: 2.1224894523620605
+Step [50/92]	 loss_instance: 3.985983371734619	 loss_cluster: 2.107602119445801
+Epoch [353/800]	 Loss: 6.124030310174693
+Step [0/92]	 loss_instance: 3.978592872619629	 loss_cluster: 2.1116087436676025
+Step [50/92]	 loss_instance: 3.9428906440734863	 loss_cluster: 2.09724497795105
+Epoch [354/800]	 Loss: 6.118126345717388
+Step [0/92]	 loss_instance: 3.9812002182006836	 loss_cluster: 2.1639187335968018
+Step [50/92]	 loss_instance: 3.9405176639556885	 loss_cluster: 2.1239254474639893
+Epoch [355/800]	 Loss: 6.11462240115456
+Step [0/92]	 loss_instance: 3.9775073528289795	 loss_cluster: 2.1229052543640137
+Step [50/92]	 loss_instance: 3.978095054626465	 loss_cluster: 2.127502679824829
+Epoch [356/800]	 Loss: 6.117795571036961
+### Creating features from model ###
+Features shape (13000,)
+Rround 356 NMI = 0.8543 ARI = 0.8196 F = 0.8377 ACC = 0.8932
+### Creating features from model ###
+Features shape (60000,)
+Rround 356 NMI = 0.2630 ARI = 0.1420 F = 0.2587 ACC = 0.3849
+Step [0/92]	 loss_instance: 3.968123435974121	 loss_cluster: 2.12007474899292
+Step [50/92]	 loss_instance: 3.9920401573181152	 loss_cluster: 2.1233582496643066
+Epoch [357/800]	 Loss: 6.1293395083883535
+Step [0/92]	 loss_instance: 3.947873830795288	 loss_cluster: 2.0914602279663086
+Step [50/92]	 loss_instance: 3.9818503856658936	 loss_cluster: 2.1568820476531982
+Epoch [358/800]	 Loss: 6.130420534507088
+Step [0/92]	 loss_instance: 3.9677765369415283	 loss_cluster: 2.1535983085632324
+Step [50/92]	 loss_instance: 4.003976821899414	 loss_cluster: 2.2101993560791016
+Epoch [359/800]	 Loss: 6.138547928436942
+Step [0/92]	 loss_instance: 3.956629753112793	 loss_cluster: 2.1048972606658936
+Step [50/92]	 loss_instance: 3.945312976837158	 loss_cluster: 2.1219096183776855
