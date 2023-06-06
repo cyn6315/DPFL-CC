@@ -19,6 +19,7 @@ from tqdm import tqdm
 import shutil
 import copy
 import loralib as lora
+import math
 
 
 
@@ -202,6 +203,15 @@ def getModelUpdate(gradDict, netcopy, net):
                 normSum += torch.sum(torch.pow(gradDict[name], exponent=2))
     return normSum
 
+def calculateNormSuqre(gradDict):
+    flag=0
+    for name in gradDict:
+        if flag==0:
+            normSum = torch.sum(torch.pow(gradDict[name], exponent=2))
+            flag=1
+        else:
+            normSum += torch.sum(torch.pow(gradDict[name], exponent=2))
+    return normSum
 
 def setParaFromAgg(model, agg):
     for name, param in model.named_parameters ():
@@ -241,12 +251,28 @@ def maskedParam(model, maskDict):
                 maskDict[name] = mask.view(param.data.size())
                 break
 
+def calculateMask(gradDict, modelUpdateDict):
+    maskDict={}
+    for name in gradDict:
+        res = torch.abs(gradDict[name]*modelUpdateDict[name])
+        flatten = torch.flatten(res)
+        saved=int(len(flatten)*args.sparsity)
+        _, indices = torch.topk(flatten, k=saved)        
+        mask = torch.zeros_like(flatten)
+        mask[indices] = 1
+        maskDict[name] = mask.view(gradDict[name].size())
+    return maskDict
 
-def maskGrad(model):
+def saveGrad(model, gradDict):
     for name, param in model.named_parameters ():
+        if param.requires_grad:
+            gradDict[name] = torch.tensor(param.grad)
+
+
+def maskModelUpdate(modelUpdateDict, maskDict):
+    for name in modelUpdateDict():
         if name in maskDict:
-            if param.grad is not None:
-                param.grad = torch.mul(param.grad, maskDict[name])
+            modelUpdateDict[name] = torch.mul(modelUpdateDict[name], maskDict[name])
 
 
 def train(agg, round):
@@ -270,6 +296,7 @@ def train(agg, round):
         ], momentum=0.9) 
         optimizer.zero_grad()
         c=batch_idx
+        modelUpdateDict={}
         gradDict={}
         lossPerUser=0
         true_epoch=0
@@ -290,27 +317,32 @@ def train(agg, round):
             z_i, z_j, c_i, c_j = model(x_i, x_j)
             loss_instance = criterion_instance(z_i, z_j)
             loss_cluster = criterion_cluster(c_i, c_j)
-            # loss_cluster_KL = criterion_KL(c_i, c_j)
-            # print(loss_cluster_KL)
-            loss = loss_instance + loss_cluster 
+            deltaNorm = getModelUpdate(modelUpdateDict, agg.model.state_dict (), model)
+            loss_blur = args.miu*max(0, deltaNorm-math.pow(args.clip_bound, 2))
+            loss = loss_instance + loss_cluster + loss_blur
             loss.backward()
+            if i == len(contrasive_pair)-1:
+                saveGrad(model, gradDict)
             optimizer.step()
             optimizer.zero_grad()
             lossPerUser += loss.item()
-
-        normSum = getModelUpdate(gradDict, agg.model.state_dict (), model) # model - modelcopy   
+        
+        getModelUpdate(modelUpdateDict, agg.model.state_dict (), model) # model - modelcopy 
+        maskDict = calculateMask(gradDict, modelUpdateDict)  
+        maskModelUpdate(modelUpdateDict, maskDict)
+        normSum = calculateNormSuqre(modelUpdateDict)
         normlist.append(torch.sqrt(normSum).item())
-        clipGrad(gradDict, normSum)
+        clipGrad(modelUpdateDict, normSum)
         train_loss+=lossPerUser
-        agg.collect(gradDict) #共享内存
+        agg.collect(modelUpdateDict) #共享内存
         print('Round: ', round, "User:", c, 'Train Loss: %.3f' % (lossPerUser/(true_epoch)))
         
         # if (round+1)%10==0 or (round+1)==args.epochs:
         #     state = {'optimizer': optimizer.state_dict()}
         #     torch.save(state, os.path.join("save/clientsOpt", "client_{}.tar".format(batch_idx)))
 
-        if batch_idx==29:
-            break
+        # if batch_idx==29:
+        #     break
        
     if args.clip_bound > 1.9:
         args.clip_bound=args.clip_bound - 0.4
@@ -428,7 +460,7 @@ def decide_requires_grad(model):
 if __name__ == "__main__":
     import warnings
     warnings.filterwarnings("ignore")
-    device= torch.device("cuda:3")
+    device= torch.device("cuda:1")
     print(device)
     parser = argparse.ArgumentParser()
     config = yaml_config_hook("config/config_DP_FL_Cifar_fix_adam.yaml")
@@ -504,7 +536,6 @@ if __name__ == "__main__":
     criterion_cluster = contrastive_loss.ClusterLoss(class_num, args.cluster_temperature, device).to(device)
     criterion_KL = contrastive_loss.ClusterKLLoss(args.mini_bs, args.instance_temperature, device).to(device)
 
-    maskDict={}
     agg = Aggregator(device)
     # loadpath="save/Cifar-10-DPFL-ResNet18-adam"
     # model_fp = os.path.join(loadpath, "checkpoint_{}.tar".format(30))
@@ -539,27 +570,6 @@ if __name__ == "__main__":
     print('Number of total parameters: ', sum([p.numel() for p in model.parameters()]))
     print('Number of trainable p  arameters: ', sum([p.numel() for p in model.parameters() if p.requires_grad]))
 
-
-    # res_params2 = [param for name, param in model.named_parameters() if 'resnet' in name]
-    # pro_params2 = [param for name, param in model.named_parameters() if 'resnet' not in name]
-
-    res_params2 = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' not in name]
-    res_params2_down = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' in name]
-    pro_params2 = [param for name, param in model.named_parameters() if 'resnet' not in name]
-
-    # betas=(0.8,0.888)
-    # optimizerList=[torch.optim.Adam([
-    #     {'params': res_params2, 'lr': args.resnet_lr},
-    #     {'params': res_params2_down, 'lr': args.downsample_lr},
-    #     {'params': pro_params2, 'lr': args.project_lr},
-    # ], betas=betas) for i in range(args.n_clients)]
-
-    # optimizerList=[torch.optim.Adam([
-    #     {'params': res_params2, 'lr': args.resnet_lr},
-    #     {'params': pro_params2, 'lr': args.project_lr},
-    # ], betas=betas) for i in range(args.n_clients)]
-
-    # print("betas",betas)
 
     # train
     for epoch in range(args.start_epoch, args.epochs):

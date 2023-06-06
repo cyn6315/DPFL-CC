@@ -11,6 +11,7 @@ from torchvision.datasets import ImageFolder
 from opacus.validators import ModuleValidator
 from evaluation import evaluation
 from opacus.accountants.utils import get_noise_multiplier
+from torch.nn.functional import normalize
 import torch.nn.functional as F
 from fastDP import PrivacyEngine
 import pickle
@@ -43,7 +44,7 @@ class Cifar10Dataset(torch.utils.data.Dataset):
         return self.samples.shape[0]
 
     def __getitem__(self, index):
-        return ([self.transform(self.samples[index]) for i in range(args.local_epoch)])
+        return ([self.transform(self.samples[index]) for i in range(args.local_epoch)], self.transform(self.samples[index]))
 
 class Cifar10DatasetTest(torch.utils.data.Dataset):
     def __init__(self, samples, labels, transform):
@@ -68,7 +69,7 @@ def createIIDTrainAndTestDataset():
     trainset = torchvision.datasets.CIFAR10(root=args.dataset_dir, train=True, download=True, transform=transformation)
     testset = torchvision.datasets.CIFAR10(root=args.dataset_dir, train=False, download=True, transform=transformation)
     dataset = data.ConcatDataset([trainset, testset])
-    dataloader = torch.utils.data.DataLoader(dataset, batch_size=1000, shuffle=True, num_workers=4) 
+    dataloader = torch.utils.data.DataLoader(dataset, batch_size=1000, shuffle=True, num_workers=args.num_workers) 
     for batch_idx, (inputs, targets) in enumerate(dataloader):
         if batch_idx==0:
             Sample=inputs.clone()
@@ -83,6 +84,37 @@ def createIIDTrainAndTestDataset():
         pickle.dump(Label, f) 
     
 
+def createImgIIDTrainAndTestDataset():
+    transformation = torchvision.transforms.Compose([
+        torchvision.transforms.Resize(size=(args.image_size, args.image_size)),
+        torchvision.transforms.ToTensor(),
+    ])
+    dataset = torchvision.datasets.ImageFolder(
+            root='datasets/Img',
+            transform=transformation,
+        )
+    dataloader = DataLoader(
+        dataset,
+        batch_size=500,
+        shuffle=True,
+        drop_last=False,
+        num_workers=args.workers,
+    )
+    for batch_idx, (inputs, targets) in enumerate(dataloader):
+        if batch_idx>6:
+            break
+        if batch_idx==0:
+            Sample=inputs.clone()
+            Label=targets.clone()
+        else:
+            Sample=torch.cat([Sample, inputs.clone()], dim=0)
+            Label=torch.cat([Label, targets.clone()], dim=0)
+    
+    with open("./datasets/Img/Sample", "wb") as f:
+        pickle.dump(Sample, f)  
+    with open("./datasets/Img/Label", "wb") as f:
+        pickle.dump(Label, f) 
+  
 
 def createIIDClientDataset():
     clientDataIndex={}
@@ -149,6 +181,7 @@ class Aggregator:
         self.device=device
         self.count = 0
         self.modelUpdate={}
+        self.cluster_center={}
         decide_requires_grad(self.model)
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=args.global_lr, momentum=args.momentum)
 
@@ -176,9 +209,11 @@ class Aggregator:
                     normSum += torch.sum(torch.pow(updated, exponent=2))
             else:
                 param.grad = None
+      
         self.optimizer.step()
         self.count = 0
         self.modelUpdate.clear()
+        self.cluster_center.clear()
         print("updated norm: ", torch.sqrt(normSum))
 
     def collect(self, model_grad):
@@ -250,19 +285,23 @@ def maskGrad(model):
 
 
 def train(agg, round):
-    agg.model.train()
+    agg.model.eval()
     train_loss = 0
     normlist=[]
-    # args.resnet_lr=args.resnet_lr*0.98
-    # args.downsample_lr=args.downsample_lr*0.98
-    # args.project_lr=args.project_lr*0.98
-    for batch_idx, (x_list) in enumerate(dataLoader):
+
+    for batch_idx, (x_list, x_random) in enumerate(dataLoader):
         model.train()
         setParaFromAgg(model, agg.model.state_dict())
         # optimizer=optimizerList[batch_idx]
         res_params2 = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' not in name]
         res_params2_down = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' in name]
         pro_params2 = [param for name, param in model.named_parameters() if 'resnet' not in name]
+        # optimizer=torch.optim.Adam([
+        #     {'params': res_params2, 'lr': args.resnet_lr},
+        #     {'params': res_params2_down, 'lr': args.downsample_lr},
+        #     {'params': pro_params2, 'lr': args.project_lr},
+        # ], betas=betas) 
+
         optimizer=torch.optim.SGD([
             {'params': res_params2, 'lr': args.resnet_lr},
             {'params': res_params2_down, 'lr': args.downsample_lr},
@@ -281,18 +320,44 @@ def train(agg, round):
 
         pair_index=np.array(range(len(contrasive_pair)))
         np.random.shuffle(pair_index)
-        
+       
+        x_random_idx = np.array(range(len(x_random)))
+        np.random.shuffle(x_random_idx)
+
+        # neg_sample_idx=np.array(range(len(Img_Sample)))
         for i in range(len(contrasive_pair)):
             true_epoch += 1 
+            # np.random.shuffle(neg_sample_idx)
+            # neg_sample = Img_Sample[neg_sample_idx[0:60]].to(device)
             pair = contrasive_pair[pair_index[i]]
             x_i = x_list[pair[0]].to(device)
             x_j = x_list[pair[1]].to(device)
             z_i, z_j, c_i, c_j = model(x_i, x_j)
-            loss_instance = criterion_instance(z_i, z_j)
+            x_rand = x_random[torch.tensor(x_random_idx[:50])].to(device)
+            np.random.shuffle(x_random_idx)
+           
+            # rand_neg = torch.cat((x_rand, neg_sample), dim=0)
+            # z_rand_neg = model.forward_instance(rand_neg)
+            # z_rand, z_neg = z_rand_neg.split([x_rand.size(0), neg_sample.size(0)], dim=0)
+            z_rand = model.forward_instance(x_rand)
+            with torch.no_grad():
+                z_j_g = agg.model.forward_instance(x_j)
+                z_rand_g = agg.model.forward_instance(x_rand)
+
+            # Contrastive losses (local, global)
+            nt_local = criterion_instance(z_i, z_j)
+            nt_global = criterion_instance(z_i, z_j_g)
+            loss_nt = nt_local + nt_global
+
+            # Relational losses (local, global)
+            js_local = contrastive_loss.js_loss(z_i, z_j, z_rand, t=args.relation_t, t2=args.relation_t2)
+            js_global = contrastive_loss.js_loss(z_i, z_j, z_rand_g, t=args.relation_t, t2=args.relation_t2)
+            loss_js = js_local + js_global
+
             loss_cluster = criterion_cluster(c_i, c_j)
-            # loss_cluster_KL = criterion_KL(c_i, c_j)
-            # print(loss_cluster_KL)
-            loss = loss_instance + loss_cluster 
+          
+            loss = loss_nt + loss_js + loss_cluster 
+            # loss = nt_local + 1.5*js_local + loss_cluster 
             loss.backward()
             optimizer.step()
             optimizer.zero_grad()
@@ -309,7 +374,7 @@ def train(agg, round):
         #     state = {'optimizer': optimizer.state_dict()}
         #     torch.save(state, os.path.join("save/clientsOpt", "client_{}.tar".format(batch_idx)))
 
-        if batch_idx==29:
+        if batch_idx==39:
             break
        
     if args.clip_bound > 1.9:
@@ -317,12 +382,12 @@ def train(agg, round):
     else:
         args.clip_bound = sum(normlist)/len(normlist) - 0.2
         if args.clip_bound > 2:
-            args.clip_bound = 1.6
-        elif args.clip_bound > 1.5:
             args.clip_bound = 1.5
-    print("clip_bound", args.clip_bound)
+        elif args.clip_bound > 1.5:
+            args.clip_bound = 1.4
+        print("clip_bound", args.clip_bound)
     
-    # agg.model.train()
+    agg.model.train()
     agg.update()
     print('*********Round: ', round, 'Train Loss: %.3f' % (train_loss/((batch_idx+1)*true_epoch)))
     
@@ -428,7 +493,7 @@ def decide_requires_grad(model):
 if __name__ == "__main__":
     import warnings
     warnings.filterwarnings("ignore")
-    device= torch.device("cuda:3")
+    device= torch.device("cuda:4")
     print(device)
     parser = argparse.ArgumentParser()
     config = yaml_config_hook("config/config_DP_FL_Cifar_fix_adam.yaml")
@@ -444,13 +509,14 @@ if __name__ == "__main__":
     torch.cuda.manual_seed(args.seed)
     np.random.seed(args.seed)
 
-    cpu_num = 6 # 这里设置成你想运行的CPU个数
+    cpu_num = 3 # 这里设置成你想运行的CPU个数
     os.environ["OMP_NUM_THREADS"] = str(cpu_num)  # noqa
     os.environ["MKL_NUM_THREADS"] = str(cpu_num) # noqa
     torch.set_num_threads(cpu_num )
     
     # createNoIIDClientDataset()
     # # createIIDTrainAndTestDataset()
+    # createImgIIDTrainAndTestDataset()
     
     # prepare data
     class_num = 10
@@ -460,6 +526,9 @@ if __name__ == "__main__":
         Sample = pickle.load(f)
     with open("./datasets/cifar10/Label", "rb") as f:
         Label = pickle.load(f)
+
+    with open("./datasets/Img/Sample", "rb") as f:
+        Img_Sample = pickle.load(f)
 
     s = 0.5
     mean=[0.4914, 0.4822, 0.4465]
@@ -501,21 +570,24 @@ if __name__ == "__main__":
     # # optimizer / loss
     
     criterion_instance = contrastive_loss.InstanceLoss(args.mini_bs, args.instance_temperature, device).to(device)
+    criterion_instance_neg = contrastive_loss.InstanceLoss_NegSample(args.mini_bs, args.instance_temperature, device).to(device)
     criterion_cluster = contrastive_loss.ClusterLoss(class_num, args.cluster_temperature, device).to(device)
-    criterion_KL = contrastive_loss.ClusterKLLoss(args.mini_bs, args.instance_temperature, device).to(device)
-
+    # criterion_KL = contrastive_loss.ClusterKLLoss(args.mini_bs, args.instance_temperature, device).to(device)
+    criterion_distance = torch.nn.PairwiseDistance(p=2)
+   
     maskDict={}
     agg = Aggregator(device)
-    # loadpath="save/Cifar-10-DPFL-ResNet18-adam"
-    # model_fp = os.path.join(loadpath, "checkpoint_{}.tar".format(30))
-    # checkpoint = torch.load(model_fp, map_location=device)
-    # agg.model.load_state_dict(checkpoint['net'], strict=False)
+    loadpath="save/Cifar-10-DPFL-ResNet18-fedx"
+    model_fp = os.path.join(loadpath, "checkpoint_{}.tar".format(30))
+    checkpoint = torch.load(model_fp, map_location=device)
+    agg.model.load_state_dict(checkpoint['net'], strict=False)
     # print(loadpath)
     
     rescopy = resnet.get_resnet(args.resnet, args.r_conv)
     modelcopy = network.Network(rescopy, args.feature_dim, class_num, args.r_proj)
     modelcopy = ModuleValidator.fix(modelcopy)
     modelcopy = modelcopy.to(device)
+    modelcopy.load_state_dict(agg.model.state_dict())
 
     res = resnet.get_resnet(args.resnet, args.r_conv)
     model = network.Network(res, args.feature_dim, class_num, args.r_proj)
@@ -547,7 +619,7 @@ if __name__ == "__main__":
     res_params2_down = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' in name]
     pro_params2 = [param for name, param in model.named_parameters() if 'resnet' not in name]
 
-    # betas=(0.8,0.888)
+    # betas=(0.7,0.8)
     # optimizerList=[torch.optim.Adam([
     #     {'params': res_params2, 'lr': args.resnet_lr},
     #     {'params': res_params2_down, 'lr': args.downsample_lr},
@@ -563,9 +635,9 @@ if __name__ == "__main__":
 
     # train
     for epoch in range(args.start_epoch, args.epochs):
-        # testiid(epoch, agg.model)
-        if epoch>args.start_epoch:
-            testiid(epoch, agg.model)
+        testiid(epoch, agg.model)
+        # if epoch>args.start_epoch:
+        #     testiid(epoch, agg.model)
         train(agg, epoch)
         save_model2(args, agg.model, epoch)
             
