@@ -190,35 +190,21 @@ class Aggregator:
             else:
                 self.modelUpdate[name] += model_grad[name].data.clone()
 
-
-def getModelUpdate(gradDict, netcopy, net):
-    flag=0
-    for name, param in net.named_parameters ():
-        if param.requires_grad:
-            gradDict[name] = (netcopy[name].data - param.data).clone()
-            if flag==0:
-                normSum = torch.sum(torch.pow(gradDict[name], exponent=2))
-                flag=1
-            else:
-                normSum += torch.sum(torch.pow(gradDict[name], exponent=2))
-    return normSum
-
 def getModelUpdate(gradDict, netcopy, net):
     for name, param in net.named_parameters ():
         if param.requires_grad:
             gradDict[name] = (netcopy[name].data - param.data).clone()
 
 
-def getModelUpdateNorm(gradDict, netcopy, net):
+def getModelUpdateNorm(netcopy, net):
     flag=0
     for name, param in net.named_parameters ():
         if param.requires_grad:
-            gradDict[name] = (netcopy[name] - param)
             if flag==0:
-                normSum = torch.sum(torch.pow(gradDict[name], exponent=2))
+                normSum = torch.sum(torch.pow((netcopy[name] - param), exponent=2))
                 flag=1
             else:
-                normSum += torch.sum(torch.pow(gradDict[name], exponent=2))
+                normSum += torch.sum(torch.pow((netcopy[name] - param), exponent=2))
     return normSum
     
 
@@ -246,31 +232,6 @@ def clipGrad(gradDict, normSum):
         gradDict[name] = torch.div(gradDict[name], max(1, scale.item()))
 
 
-def maskedParam(model, maskDict): 
-    maskConv=["downsample","resnet.conv1.weight","resnet.layer1.0.conv1.weight","resnet.layer1.0.conv2.weight",\
-                    "resnet.layer1.1.conv1.weight","resnet.layer1.1.conv2.weight", "resnet.layer2.0.conv1.weight"]
-    for name, param in model.named_parameters ():
-        for maskName in maskConv:
-            if maskName in name:
-                paramFlatten = torch.flatten(param.data)
-                ratio=0.1
-                if "resnet.conv1.weight" in name:
-                    ratio = 0.8
-                elif "resnet.layer2.0.downsample.0.weight" in name:
-                    ratio = 0.7
-                elif "resnet.layer3.0.downsample.0.weight" in name:
-                    ratio = 0.6
-                elif "resnet.layer4.0.downsample.0.weight" in name:
-                    ratio = 0.6
-                else:
-                    ratio = 0.5
-                saved=int(len(paramFlatten)*ratio)
-                _, indices = torch.topk(paramFlatten, k=saved)        
-                mask = torch.zeros_like(paramFlatten)
-                mask[indices] = 1
-                maskDict[name] = mask.view(param.data.size())
-                break
-
 def calculateMask(gradDict, modelUpdateDict):
     maskDict={}
     for name in gradDict:
@@ -291,7 +252,7 @@ def calculateMask(gradDict, modelUpdateDict):
 def saveGrad(model, gradDict):
     for name, param in model.named_parameters ():
         if param.requires_grad:
-            gradDict[name] = torch.tensor(param.grad)
+            gradDict[name] = torch.tensor(param.grad.data)
 
 
 def maskModelUpdate(modelUpdateDict, maskDict):
@@ -304,30 +265,24 @@ def train(agg, round):
     agg.model.train()
     train_loss = 0
     normlist=[]
-    feature_vector = []
-    labels_vector = []
+    totalIndex=np.array(range(args.n_clients))
+    np.random.shuffle(totalIndex)
+    sampleClients=int(args.n_clients*args.sample_ratio)
+    clients_sampled = list(totalIndex[0:sampleClients])
     for batch_idx, (x_list) in enumerate(dataLoader):
+        if clients_sampled.count(batch_idx) == 0:
+            continue
         model.train()
         setParaFromAgg(model, agg.model.state_dict())
         res_params2 = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' not in name]
         res_params2_down = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' in name]
         pro_params2 = [param for name, param in model.named_parameters() if 'resnet' not in name]
-        # optimizer=torch.optim.SGD([
-        #     {'params': res_params2, 'lr': args.resnet_lr},
-        #     {'params': res_params2_down, 'lr': args.downsample_lr},
-        #     {'params': pro_params2, 'lr': args.project_lr},
-        # ], momentum=0.9) 
-       
-        param_group=[
+        optimizer=torch.optim.SGD([
             {'params': res_params2, 'lr': args.resnet_lr},
             {'params': res_params2_down, 'lr': args.downsample_lr},
             {'params': pro_params2, 'lr': args.project_lr},
-        ] 
-
-        base_optimizer = torch.optim.SGD  # define an optimizer for the "sharpness-aware" update
-        optimizer = sam.SAM(param_group, base_optimizer, momentum=0.9)
-
-        # optimizer.zero_grad()
+        ], momentum=0.9) 
+       
         c=batch_idx
         modelUpdateDict={}
         gradDict={}
@@ -342,38 +297,58 @@ def train(agg, round):
         pair_index=np.array(range(len(contrasive_pair)))
         np.random.shuffle(pair_index)
         
+       
         for i in range(len(contrasive_pair)):
             true_epoch += 1 
             pair = contrasive_pair[pair_index[i]]
             x_i = x_list[pair[0]].to(device)
             x_j = x_list[pair[1]].to(device)
-            z_i, z_j, c_i, c_j = model(x_i, x_j)
-            loss_instance = criterion_instance(z_i, z_j)
-            loss_cluster = criterion_cluster(c_i, c_j)
-            deltaNorm = getModelUpdateNorm(modelUpdateDict, agg.model.state_dict (), model)
-            loss_blur = args.miu*max(0, deltaNorm-math.pow(args.clip_bound, 2))
-            # loss_clusterParam = 0.01*getClusterLoss(model)
-            loss = loss_instance + loss_cluster + loss_blur
-            loss.backward()
 
-            optimizer.first_step(zero_grad=True)
+            with torch.no_grad():
+                original_param={}
+                sum_grad= {}
+                for name, param in model.named_parameters ():
+                    if param.requires_grad:
+                        original_param[name] = param.data.clone().cpu()
+                        sum_grad[name] = torch.zeros_like(param).cpu()
+             
+            for j in range(args.smooth_K):
+                for name, param in model.named_parameters ():
+                    if not param.requires_grad:
+                        continue
+                    if "bn" in name or "bias" in name or "downsample.1" in name:
+                        lr = args.resnet_lr
+                    else:
+                        lr = args.downsample_lr
+                    param.data = original_param[name] + args.smooth_loss_radius * lr * torch.FloatTensor(param.size()).normal_(0, sigma * float(args.clip_bound) / math.sqrt(args.n_clients)) / args.n_clients
+                    param.data = param.data.to(device)
+                
+                z_i, z_j, c_i, c_j = model(x_i, x_j)
+                loss_instance = criterion_instance(z_i, z_j)
+                loss_cluster = criterion_cluster(c_i, c_j)
+                deltaNorm = getModelUpdateNorm(agg.model.state_dict (), model)
+                loss_blur = args.miu*max(0, deltaNorm-math.pow(args.clip_bound, 2))
+                loss = loss_instance + loss_cluster + loss_blur
+                lossPerUser += loss.item()
+                loss.backward()
+                
+                for name, param in model.named_parameters ():
+                    if param.requires_grad:
+                        sum_grad[name] = sum_grad[name] + param.grad.cpu()
+                        param.data = original_param[name].to(device)
 
-            z_i, z_j, c_i, c_j = model(x_i, x_j)
-            loss_instance = criterion_instance(z_i, z_j)
-            loss_cluster = criterion_cluster(c_i, c_j)
-            deltaNorm = getModelUpdateNorm(modelUpdateDict, agg.model.state_dict (), model)
-            loss_blur = args.miu*max(0, deltaNorm-math.pow(args.clip_bound, 2))
-            # loss_clusterParam = 0.01*getClusterLoss(model)
-            loss = loss_instance + loss_cluster + loss_blur
-            loss.backward()
+                optimizer.zero_grad()
+    
+            for name, param in model.named_parameters ():
+                if param.requires_grad:
+                    param.grad.data = torch.div(sum_grad[name], args.smooth_K).to(device)
+
             if i == len(contrasive_pair)-1:
                 saveGrad(model, gradDict)
-            # optimizer.step()
-            # optimizer.zero_grad()
-            optimizer.second_step(zero_grad=True)
-            lossPerUser += loss.item()
-        
-        getModelUpdate(modelUpdateDict, agg.model.state_dict (), model) # model - modelcopy 
+            optimizer.step()
+            optimizer.zero_grad()
+               
+        getModelUpdate(modelUpdateDict, agg.model.state_dict (), model) # modelcopy - model 
         maskDict = calculateMask(gradDict, modelUpdateDict)  
         maskModelUpdate(modelUpdateDict, maskDict)
         normSum = calculateNormSuqre(modelUpdateDict)
@@ -381,7 +356,7 @@ def train(agg, round):
         clipGrad(modelUpdateDict, normSum)
         train_loss+=lossPerUser
         agg.collect(modelUpdateDict) #共享内存
-        print('Round: ', round, "User:", c, 'Train Loss: %.3f' % (lossPerUser/(true_epoch)))
+        print('Round: ', round, "User:", c, 'Train Loss: %.3f' % (lossPerUser/(true_epoch*args.smooth_K)))
         
         if batch_idx>= 29:
             break
@@ -399,7 +374,7 @@ def train(agg, round):
     
     agg.model.train()
     agg.update()
-    print('*********Round: ', round, 'Train Loss: %.3f' % (train_loss/((batch_idx+1)*true_epoch)))
+    print('*********Round: ', round, 'Train Loss: %.3f' % (train_loss/((batch_idx+1)*true_epoch*args.smooth_K)))
     
 
 
@@ -501,7 +476,7 @@ def decide_requires_grad(model):
 if __name__ == "__main__":
     import warnings
     warnings.filterwarnings("ignore")
-    device= torch.device("cuda:1")
+    device= torch.device("cuda:3")
     print(device)
     parser = argparse.ArgumentParser()
     config = yaml_config_hook("config/config_DP_FL_Cifar_fix_adam.yaml")
@@ -533,7 +508,7 @@ if __name__ == "__main__":
         Sample = pickle.load(f)
     with open("./datasets/cifar10/Label", "rb") as f:
         Label = pickle.load(f)
-   
+
     s = 0.5
     mean=[0.4914, 0.4822, 0.4465]
     std=[0.2023, 0.1994, 0.2010]
@@ -583,6 +558,11 @@ if __name__ == "__main__":
     checkpoint = torch.load(model_fp, map_location=device)
     agg.model.load_state_dict(checkpoint['net'], strict=False)
     # print(loadpath)
+    
+    rescopy = resnet.get_resnet(args.resnet, args.r_conv)
+    modelcopy = network.Network(rescopy, args.feature_dim, class_num, args.r_proj)
+    modelcopy = ModuleValidator.fix(modelcopy)
+    modelcopy = modelcopy.to(device)
 
     res = resnet.get_resnet(args.resnet, args.r_conv)
     model = network.Network(res, args.feature_dim, class_num, args.r_proj)

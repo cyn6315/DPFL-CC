@@ -5,22 +5,24 @@ dataset_dir: "/home/chenyannan/fast-differential-privacy-main/examples/image_cla
 
 
 # train options
-batch_size: 200
+batch_size: 100
 mini_bs: 100
 image_size: 224
+test_image_size: 256
 start_epoch: 0
-epochs: 200
+epochs: 1
 local_epoch: 8
 dataset: "CIFAR-10" # CIFAR-10 / CIFAR-100 / STL-10 / ImageNet-10 / ImageNet-dogs / tiny-ImageNet
-epsilon: 6
+epsilon: 8
 clipping_style: "all-layer"
 n_clients: 600
-
+r_conv: 6
+r_proj: 16
 
 # model options
-resnet: "ResNet18_Adapter" # ResNet18 / ResNet34 / ResNet50
+resnet: "ResNet18" # ResNet18 / ResNet34 / ResNet50
 feature_dim: 128
-model_path: "save/Cifar-10-central-finetune"
+model_path: "save/Cifar-10-central"
 reload: False
 
 # loss options

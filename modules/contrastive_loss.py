@@ -170,6 +170,7 @@ class InstanceLoss_NegSample(nn.Module):
 
         return loss
     
+    
 def js_loss(x1, x2, xa, t=0.1, t2=0.1):
     """Relational loss objective function"""
     pred_sim1 = torch.mm(x1, xa.t())
@@ -177,6 +178,15 @@ def js_loss(x1, x2, xa, t=0.1, t2=0.1):
     pred_sim2 = torch.mm(x2, xa.t())
     inputs2 = F.log_softmax(pred_sim2 / t, dim=1)
     target_js = (F.softmax(pred_sim1 / t2, dim=1) + F.softmax(pred_sim2 / t2, dim=1)) / 2
+    js_loss1 = F.kl_div(inputs1, target_js, reduction="batchmean")
+    js_loss2 = F.kl_div(inputs2, target_js, reduction="batchmean")
+    return (js_loss1 + js_loss2) / 2.0
+
+
+def cluster_loss(c1, c2):
+    inputs1 = torch.log(c1)
+    inputs2 = torch.log(c2)
+    target_js = (c1 + c2) / 2
     js_loss1 = F.kl_div(inputs1, target_js, reduction="batchmean")
     js_loss2 = F.kl_div(inputs2, target_js, reduction="batchmean")
     return (js_loss1 + js_loss2) / 2.0

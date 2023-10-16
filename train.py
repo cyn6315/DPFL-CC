@@ -11,6 +11,7 @@ from evaluation import evaluation
 import PIL
 import pickle
 import torchvision.models as models
+from opacus.accountants.utils import get_noise_multiplier
 
     
 class Cifar10Dataset(torch.utils.data.Dataset):
@@ -169,7 +170,7 @@ if __name__ == "__main__":
     warnings.filterwarnings("ignore")
     device= torch.device("cuda:1")
     parser = argparse.ArgumentParser()
-    config = yaml_config_hook("config/config.yaml")
+    config = yaml_config_hook("config/config_Cifar.yaml")
     for k, v in config.items():
         parser.add_argument(f"--{k}", default=v, type=type(v))
     args = parser.parse_args()
@@ -274,12 +275,24 @@ if __name__ == "__main__":
         drop_last=True,
         num_workers=args.workers,
     )
+
+    sigma = get_noise_multiplier(
+                target_epsilon = args.epsilon,
+                target_delta = 1e-3,
+                sample_rate = 100/600,
+                epochs = args.epochs,
+            )
+    print("sigma:", sigma)
+
     # initialize model
     # resnet18 = models.resnet18(pretrained=True)
     res = resnet.get_resnet(args.resnet, args.r_conv)
     # res.load_state_dict(resnet18.state_dict(), False)
-    model = network.Network_cluster(res, args.feature_dim, class_num, args.r_proj)
+    model = network.Network(res, args.feature_dim, class_num, args.r_proj, sigma)
     model = ModuleValidator.fix(model)
+    name='save/Img-10-pretrain-transform/checkpoint_532.tar'
+    checkpoint = torch.load(name,map_location=torch.device('cpu'))['net']
+    model.load_state_dict(checkpoint, strict=False)
     model=model.to(device)
 
     # optimizer / loss
@@ -296,10 +309,11 @@ if __name__ == "__main__":
     # train
     for epoch in range(args.start_epoch, args.epochs):
         loss_epoch = train()
-        if epoch % 4 == 0:
-            save_model(args, model, optimizer, epoch)
+        testCifar(epoch)
+        # if epoch % 4 == 0:
+        #     save_model(args, model, optimizer, epoch)
         print(f"Epoch [{epoch}/{args.epochs}]\t Loss: {loss_epoch / len(data_loader)}")
-        if epoch % 4 == 0:
-            testImg(epoch)
-            testCifar(epoch)
+        # if epoch % 4 == 0:
+        #     # testImg(epoch)
+        #     testCifar(epoch)
     save_model(args, model, optimizer, args.epochs)
