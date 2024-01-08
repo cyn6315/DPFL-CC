@@ -3,6 +3,7 @@ import numpy as np
 import torch
 import torchvision
 import argparse
+from sklearn.cluster import KMeans
 from modules import transform, resnet, network, contrastive_loss, sam
 from utils import yaml_config_hook
 from torch.utils import data
@@ -11,23 +12,17 @@ from torchvision.datasets import ImageFolder
 from opacus.validators import ModuleValidator
 from evaluation import evaluation
 from opacus.accountants.utils import get_noise_multiplier
-import torch.nn.functional as F
-from fastDP import PrivacyEngine
 import pickle
 import PIL
 from tqdm import tqdm 
-import shutil
-import copy
-import loralib as lora
 import math
-from torch.nn.functional import normalize
-
+from collections import defaultdict
 
 def save_model2(args, model, current_epoch):
     out = os.path.join(args.model_path, "checkpoint_{}.tar".format(current_epoch))
     state = {'net': model.state_dict(), 'epoch': current_epoch}
     torch.save(state, out)
-
+    torch.save(clientsSavedParams, os.path.join(args.model_path, "clientsSavedParams_{}.tar".format(current_epoch)))
 
 class Cifar10Dataset(torch.utils.data.Dataset):
     def __init__(self, samples, labels, transform, transform_ori, transformation_strong):
@@ -44,7 +39,7 @@ class Cifar10Dataset(torch.utils.data.Dataset):
         return self.samples.shape[0]
 
     def __getitem__(self, index):
-        return ([self.transform(self.samples[index]) for i in range(args.local_epoch)])
+        return ([self.transform(self.samples[index]) for i in range(args.local_epoch)], self.labels[index])
 
 class Cifar10DatasetTest(torch.utils.data.Dataset):
     def __init__(self, samples, labels, transform):
@@ -84,9 +79,9 @@ def createIIDTrainAndTestDataset():
         pickle.dump(Label, f) 
     
 
-def createIIDClientDataset():
+def createclientDataIndex(samplePath):
     clientDataIndex={}
-    with open("./datasets/cifar10/Sample", "rb") as f:
+    with open(samplePath, "rb") as f:
         Sample=pickle.load(f) 
 
     samplePerClient = len(Sample)//args.n_clients
@@ -101,44 +96,76 @@ def createIIDClientDataset():
     return clientDataIndex
 
 
-def createNoIIDClientDataset():
-    clientDataIndex={}
-    for c in range(args.n_clients):
-        clientDataIndex[c]=[]
 
+def createNoIIDTrainAndTestDataset():
+    classes_per_user=args.classes_per_user
+    num_users=args.n_clients
+    num_classes = 10
+    count_per_class = (classes_per_user * num_users) // num_classes
+    class_dict = {}
+    for i in range(num_classes):
+        probs=np.array([1]*count_per_class)
+        probs_norm = (probs / probs.sum()).tolist()
+        class_dict[i] = {'count': count_per_class, 'prob': probs_norm}
+
+    class_partitions = defaultdict(list)
+    for i in range(num_users):
+        c = []
+        for _ in range(classes_per_user):
+            class_counts = [class_dict[i]['count'] for i in range(num_classes)]
+            max_class_counts = np.where(np.array(class_counts) == max(class_counts))[0]
+            max_class_counts = np.setdiff1d(max_class_counts, np.array(c))
+            c.append(np.random.choice(max_class_counts))
+            class_dict[c[-1]]['count'] -= 1
+        class_partitions['class'].append(c)
+        class_partitions['prob'].append([class_dict[i]['prob'].pop() for i in c])
+    
+    with open("./datasets/cifar10/Sample", "rb") as f:
+        Sample=pickle.load(f) 
     with open("./datasets/cifar10/Label", "rb") as f:
         Label=pickle.load(f) 
-    totalIndex=np.array(range(args.n_clients))
-    np.random.shuffle(totalIndex)
-    halfClients=args.n_clients//2
-    count=0
-    for label in range(10):
-        sampleIndex=np.where(np.array(Label)==label)[0]
-        if count % 2==0:
-            clients=np.array(totalIndex[0:halfClients])
-        else:
-            clients=np.array(totalIndex[halfClients:])
-            np.random.shuffle(totalIndex)
-        samplePerClient = len(sampleIndex)//len(clients)
-        for i in range(len(clients)):
-            c=clients[i]
-            if i==len(clients)-1:
-                c_index=list(sampleIndex[i*samplePerClient:])
-            else:
-                c_index=list(sampleIndex[i*samplePerClient:(i+1)*samplePerClient])
-            clientDataIndex[c].extend(c_index)
-        count+=1
-    for c in range(args.n_clients):
+
+    clientDataIndex = [[] for i in range(num_users)]
+    data_class_idx = [[] for i in range(10)]
+    num_samples = [0 for i in range(10)]
+    for c in range(10):
+        sampleIndex=np.where(np.array(Label)==c)[0]
+        data_class_idx[c].extend(sampleIndex)
+        num_samples[c] = len(sampleIndex)
+    for usr_i in range(num_users):
+        for c, p in zip(class_partitions['class'][usr_i], class_partitions['prob'][usr_i]):
+            end_idx = int(num_samples[c] * p)
+            clientDataIndex[usr_i].extend(data_class_idx[c][:end_idx])
+            data_class_idx[c] = data_class_idx[c][end_idx:]
+
+    for c in range(num_users):
         clientDataIndex[c]=torch.tensor(clientDataIndex[c])
-    
-    with open("./datasets/cifar10/clientDataIndex"+str(args.n_clients), "wb") as f:
-        pickle.dump(clientDataIndex, f) 
+        if c==0:
+            sample_noiid=Sample[clientDataIndex[c]].clone()
+            label_noiid=Label[clientDataIndex[c]].clone()
+        else:
+            sample_noiid=torch.cat([sample_noiid, Sample[clientDataIndex[c]].clone()], dim=0)
+            label_noiid=torch.cat([label_noiid, Label[clientDataIndex[c]].clone()], dim=0)
+
+    with open("./datasets/cifar10/Sample_noiid_class"+str(classes_per_user), "wb") as f:
+        pickle.dump(sample_noiid, f)  
+    with open("./datasets/cifar10/Label_noiid_class"+str(classes_per_user), "wb") as f:
+        pickle.dump(label_noiid, f) 
+
+
+
+def setParaFromChekpoint(model, checkpoint):
+    for name, param in model.named_parameters ():
+        if "cluster_projector2" in name and "cluster_projector2.2" not in name:
+        # if "cluster_projector2" in name:
+            name = name.replace('cluster_projector2', 'cluster_projector')
+            param.data = checkpoint[name].to(device)
 
 
 class Aggregator:
     def __init__(self, device):
         res = resnet.get_resnet(args.resnet, args.r_conv)
-        model = network.Network(res, args.feature_dim, class_num, args.r_proj)
+        model = network.Network(res, args.feature_dim, args.num_class, args.r_proj)
         model = ModuleValidator.fix(model)
         name='save/Img-10-pretrain-transform/checkpoint_532.tar'
         # name='save/Img-10-pretrain-transform-cluster/checkpoint_348.tar'
@@ -146,11 +173,11 @@ class Aggregator:
         print(name)
         model.load_state_dict(checkpoint, strict=False)
         self.model = model.to(device)
+        setParaFromChekpoint(model, checkpoint)
         self.device=device
         self.count = 0
         self.modelUpdate={}
-        # decide_requires_grad(self.model)
-        decide_requires_grad_fulltune(self.model)
+        decide_requires_grad(self.model)
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=args.global_lr, momentum=args.momentum)
 
     def update(self):
@@ -190,32 +217,28 @@ class Aggregator:
             else:
                 self.modelUpdate[name] += model_grad[name].data.clone()
 
-def getModelUpdate(gradDict, netcopy, net):
-    for name, param in net.named_parameters ():
-        if param.requires_grad:
-            gradDict[name] = (netcopy[name].data - param.data).clone()
-
-
-def getModelUpdateNorm(netcopy, net):
+def getModelUpdate(gradDict, netcopy, net, localParams):
     flag=0
     for name, param in net.named_parameters ():
-        if param.requires_grad:
+        if param.requires_grad and (name not in localParams):
+            gradDict[name] = (netcopy[name].data - param.data).clone()
+            if flag==0:
+                normSum = torch.sum(torch.pow(gradDict[name], exponent=2))
+                flag=1
+            else:
+                normSum += torch.sum(torch.pow(gradDict[name], exponent=2))
+    return normSum
+
+
+def getModelUpdateNorm(netcopy, net, localParams):
+    flag=0
+    for name, param in net.named_parameters ():
+        if param.requires_grad and (name not in localParams):
             if flag==0:
                 normSum = torch.sum(torch.pow((netcopy[name] - param), exponent=2))
                 flag=1
             else:
                 normSum += torch.sum(torch.pow((netcopy[name] - param), exponent=2))
-    return normSum
-    
-
-def calculateNormSuqre(gradDict):
-    flag=0
-    for name in gradDict:
-        if flag==0:
-            normSum = torch.sum(torch.pow(gradDict[name], exponent=2))
-            flag=1
-        else:
-            normSum += torch.sum(torch.pow(gradDict[name], exponent=2))
     return normSum
 
 
@@ -275,32 +298,41 @@ def exceedThreshold(dis):
     return index
 
 
+def setParaFromSavedParams(model, savedParams):
+    for name, param in model.named_parameters ():
+        if name in savedParams.keys():
+            param.data = savedParams[name].to(device)
+
+
 def train(agg, round):
     agg.model.train()
     train_loss = 0
     normlist=[]
-    # totalIndex=np.array(range(args.n_clients))
-    # np.random.shuffle(totalIndex)
-    # sampleClients=int(args.n_clients*args.sample_ratio)
-    # clients_sampled = list(totalIndex[0:sampleClients])
+    totalIndex=np.array(range(args.n_clients))
+    np.random.shuffle(totalIndex)
+    sampleClients=int(args.n_clients*args.sample_ratio)
+    clients_sampled = list(totalIndex[0:sampleClients])
     loss_function = torch.nn.KLDivLoss(size_average=False)
-    for batch_idx, (x_list) in enumerate(dataLoader):
-        # if clients_sampled.count(batch_idx) == 0:
-        #     continue
+    for batch_idx, (x_list, y_label) in enumerate(dataLoader):
+        if clients_sampled.count(batch_idx) == 0:
+            continue
+        c=batch_idx
         model.train()
         setParaFromAgg(model, agg.model.state_dict())
-        # res_params2 = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' not in name]
-        # res_params2_down = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' in name]
-        # pro_params2 = [param for name, param in model.named_parameters() if 'resnet' not in name]
-        # optimizer=torch.optim.SGD([
-        #     {'params': res_params2, 'lr': args.resnet_lr},
-        #     {'params': res_params2_down, 'lr': args.downsample_lr},
-        #     {'params': pro_params2, 'lr': args.instance_project_lr},
-        # ], momentum=0.9) 
-        optimizer=torch.optim.SGD(model.parameters(),lr=0.01, momentum=0.9) 
+        setParaFromSavedParams(model, clientsSavedParams[c])
+        res_params2_bn = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' not in name]
+        res_params2_conv = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' in name]
+        instance_projector_params2 = [param for name, param in model.named_parameters() if 'instance_projector' in name]
+        cluster_projector_params2 = [param for name, param in model.named_parameters() if 'cluster_projector' in name]
+        trans_params2 = [param for name, param in model.named_parameters() if 'trans' in name]
+        optimizer=torch.optim.SGD([
+            {'params': res_params2_bn, 'lr': args.resnet_lr},
+            {'params': res_params2_conv, 'lr': args.downsample_lr},
+            {'params': instance_projector_params2, 'lr': args.instance_project_lr},
+            {'params': cluster_projector_params2, 'lr': args.cluster_project_lr},
+            {'params': trans_params2, 'lr': args.trans_lr},
+        ], momentum=0.9) 
        
-       
-        c=batch_idx
         modelUpdateDict={}
         gradDict={}
         lossPerUser=0
@@ -313,10 +345,8 @@ def train(agg, round):
 
         pair_index=np.array(range(len(contrasive_pair)))
         np.random.shuffle(pair_index)
-        
-        smooth_step=args.smooth_step
 
-        for i in range(len(contrasive_pair)-smooth_step):
+        for i in range(len(contrasive_pair)):
             pair = contrasive_pair[pair_index[i]]
             batch_num = int(args.batch_size/args.mini_bs)
             batch_index=np.array(range(args.batch_size))
@@ -325,7 +355,7 @@ def train(agg, round):
                 true_epoch += 1 
                 batch_records = batch_index[j*args.mini_bs:(j+1)*args.mini_bs]
                 x_i = x_list[pair[0]][batch_records].to(device)
-                x_j = x_list[pair[1]][batch_records].to(device)            
+                x_j = x_list[pair[1]][batch_records].to(device)       
                 z_i, z_j, c_i, c_j = model(x_i, x_j)
                 loss_instance = criterion_instance(z_i, z_j)
                 loss_cluster = criterion_cluster(c_i, c_j)
@@ -339,104 +369,44 @@ def train(agg, round):
                 index_j = exceedThreshold(c_j_target)
                 c_j_target = c_j_target[index_j]
                 c_j = c_j[index_j]
-                loss_KL = loss_function(c_i.log(), c_i_target) / c_i.shape[0] + loss_function(c_j.log(), c_j_target) / c_j.shape[0]
-                
-                # deltaNorm = getModelUpdateNorm(agg.model.state_dict (), model)
-                # loss_blur = args.miu*max(0, deltaNorm-math.pow(args.clip_bound, 2))
-
-                loss = loss_instance + loss_cluster + args.loss_KL*loss_KL
-                # loss = loss_instance + loss_cluster + loss_blur
-        
+                loss_KL=0
+                if c_i.shape[0]>0:
+                    loss_KL+=loss_function(c_i.log(), c_i_target) / c_i.shape[0]
+                if c_j.shape[0]>0:
+                    loss_KL+=loss_function(c_j.log(), c_j_target) / c_j.shape[0]
+                deltaNorm = getModelUpdateNorm(agg.model.state_dict (), model, clientsSavedParams[c])
+                loss_blur = max(0, deltaNorm-math.pow(args.clip_bound, 2))
+                loss = loss_instance + loss_cluster + args.miu*loss_blur + args.loss_KL*loss_KL
                 loss.backward()
                 lossPerUser += loss.item()
-                # if i == len(contrasive_pair)-1:
-                #     saveGrad(model, gradDict)
                 optimizer.step()
                 optimizer.zero_grad()
-    
-
-
-        for i in range(len(contrasive_pair)-smooth_step, len(contrasive_pair)):
-            pair = contrasive_pair[pair_index[i]]
-            x_i = x_list[pair[0]].to(device)
-            x_j = x_list[pair[1]].to(device) 
-
-            with torch.no_grad():
-                original_param={}
-                sum_grad= {}
-                for name, param in model.named_parameters ():
-                    if param.requires_grad:
-                        original_param[name] = param.data.clone().cpu()
-                        sum_grad[name] = torch.zeros_like(param).cpu()
-            
-            for j in range(args.smooth_K):
-                if j>0:
-                    for name, param in model.named_parameters ():
-                        if not param.requires_grad:
-                            continue
-                        param.data = original_param[name] + args.smooth_loss_radius * torch.FloatTensor(param.size()).normal_(0, sigma * float(args.clip_bound) / math.sqrt(args.n_clients)) / args.n_clients
-                        param.data = param.data.to(device)
-                
-                z_i, z_j, c_i, c_j = model(x_i, x_j)
-                loss_instance = criterion_instance(z_i, z_j)
-                loss_cluster = criterion_cluster(c_i, c_j)
-                deltaNorm = getModelUpdateNorm(agg.model.state_dict (), model)
-                loss_blur = args.miu*max(0, deltaNorm-math.pow(args.clip_bound, 2))
-                c_i_target = getTargetDis(c_i)
-                index_i = exceedThreshold(c_i_target)
-                c_i_target=c_i_target[index_i]
-                c_i = c_i[index_i]
-
-                c_j_target = getTargetDis(c_j)
-                index_j = exceedThreshold(c_j_target)
-                c_j_target = c_j_target[index_j]
-                c_j = c_j[index_j]
-                loss_KL = loss_function(c_i.log(), c_i_target) / c_i.shape[0] + loss_function(c_j.log(), c_j_target) / c_j.shape[0]
-                loss = loss_instance + loss_cluster + loss_blur + args.loss_KL*loss_KL
-                loss.backward()
-                lossPerUser += loss.item()
-                for name, param in model.named_parameters ():
-                    if param.requires_grad:
-                        sum_grad[name] = sum_grad[name] + param.grad.cpu()
-                        
-                optimizer.zero_grad()
-
-            for name, param in model.named_parameters ():
-                if param.requires_grad:
-                    param.grad.data = torch.div(sum_grad[name], args.smooth_K).to(device)
-                    param.data = original_param[name].to(device)
-            
-            optimizer.step()
-            optimizer.zero_grad()
-
-
-        getModelUpdate(modelUpdateDict, agg.model.state_dict (), model) # modelcopy - model 
-        maskDict = calculateMask(gradDict, modelUpdateDict)  
-        maskModelUpdate(modelUpdateDict, maskDict)
-        normSum = calculateNormSuqre(modelUpdateDict)
+        
+        normSum = getModelUpdate(modelUpdateDict, agg.model.state_dict (), model, clientsSavedParams[c]) # modelcopy - model 
         normlist.append(torch.sqrt(normSum).item())
+        clientsSavedParams[c] = saveClientsParams(model, localParams) 
         clipGrad(modelUpdateDict, normSum)
         train_loss+=lossPerUser
         agg.collect(modelUpdateDict) #共享内存
-        print('Round: ', round, "User:", c, 'Train Loss: %.3f' % (lossPerUser/(true_epoch+smooth_step*args.smooth_K)))
+        print('Round: ', round, "User:", c, 'Train Loss: %.3f' % (lossPerUser/true_epoch))
       
-        if batch_idx>= 29:
-            break
+        # if batch_idx>= 19:
+        #     break
        
     if args.clip_bound > 1.9:
-        args.clip_bound=1.5
+        args.clip_bound=args.clip_bound - 0.4
     else:
         args.clip_bound = sum(normlist)/len(normlist) - 0.2
         if args.clip_bound > 2:
-            args.clip_bound = 1.5
+            args.clip_bound = 1.6
         elif args.clip_bound > 1.5:
-            args.clip_bound = 1.2
+            args.clip_bound = 1.4
 
     print("clip_bound", args.clip_bound)
     
     agg.model.train()
     agg.update()
-    print('*********Round: ', round, 'Train Loss: %.3f' % (train_loss/((batch_idx+1)*(true_epoch+smooth_step*args.smooth_K))))
+    print('*********Round: ', round, 'Train Loss: %.3f' % (train_loss/((batch_idx+1)*true_epoch)))
     
 
 
@@ -444,21 +414,93 @@ def inference(loader, testmodel, device):
     testmodel.eval()
     feature_vector = []
     labels_vector = []
+    kmeans_vector = []
     for step, (x, y) in enumerate(loader):
+        setParaFromSavedParams(testmodel, clientsSavedParams[step])
         x = x.to(device)
         with torch.no_grad():
-            c = testmodel.forward_cluster(x)
-        c = c.detach()
-        feature_vector.extend(c.cpu().detach().numpy())
+            for i in range(int(args.batch_size/args.mini_bs)):
+                c = testmodel.forward_cluster(x[i*args.mini_bs:(i+1)*args.mini_bs])
+                c = c.detach()
+                feature_vector.extend(c.cpu().detach().numpy())
         labels_vector.extend(y.numpy())
-        if step % 20 == 0:
+        if step % 100 == 0:
             print(f"Step [{step}/{len(loader)}]\t Computing features...")
     feature_vector = np.array(feature_vector)
     labels_vector = np.array(labels_vector)
+    kmeans_vector = np.array(kmeans_vector)
     return feature_vector, labels_vector
 
 
-def testiid(round, testmodel):
+def calClusterCenters(feature_vector, predictlabel_vector, num_calss):
+    center_list = []
+    center_label = []
+    for i in range(num_calss):
+        cluster_i = feature_vector[np.where(np.array(predictlabel_vector)==i)[0]]
+        if len(cluster_i)>0:
+            center = np.sum(cluster_i, axis=0)/len(cluster_i)
+            center_list.append(np.array(center))
+            center_label.append(i)
+    return np.array(center_list), center_label
+
+
+def inference_kfed(loader, testmodel, device):
+    testmodel.eval()
+    client_local_predict={}
+    labels_vector = []
+    collect_local_centers=[]
+    client_index_collect ={}
+    client_index_now = 0
+    client_cluster_label = {}
+    for step, (x, y) in enumerate(loader):
+        feature_vector = []
+        predictlabel_vector = []
+        setParaFromSavedParams(testmodel, clientsSavedParams[step])
+        x = x.to(device)
+        with torch.no_grad():
+            for i in range(int(args.batch_size/args.mini_bs)):
+                c = testmodel.forward_cluster(x[i*args.mini_bs:(i+1)*args.mini_bs])
+                c = c.detach()
+                predictlabel_vector.extend(c.cpu().detach().numpy())
+
+                feature = testmodel.forward_instance(x[i*args.mini_bs:(i+1)*args.mini_bs])
+                feature = feature.detach()
+                feature_vector.extend(feature.cpu().detach().numpy())
+            feature_vector = np.array(feature_vector)
+            predictlabel_vector = np.array(predictlabel_vector)
+            client_local_predict[step] = predictlabel_vector
+            local_centers, cluster_label = calClusterCenters(feature_vector, predictlabel_vector, args.num_class)
+            if True in np.isnan(local_centers):
+                print("nan", local_centers)
+            client_index_collect[step] = [client_index_now, client_index_now + len(local_centers)]
+            client_index_now = client_index_now + len(local_centers)
+            collect_local_centers.append(local_centers)
+            client_cluster_label[step] = cluster_label
+        labels_vector.extend(y.numpy())
+    print("########### begin kmeans ##########")
+    kmeans = KMeans(n_clusters=10, max_iter=1000)
+    collect_local_centers = np.concatenate(collect_local_centers, axis=0)
+    kmeans.fit(collect_local_centers)
+    global_label_pred = kmeans.labels_
+    global_results=[]
+    for c in range(args.n_clients):
+        client_global_label = global_label_pred[client_index_collect[c][0]: client_index_collect[c][1]]
+        client_local_label = client_local_predict[c]
+        preCluster = np.zeros(len(client_local_label), dtype=int)
+        if len(client_cluster_label[c])!=client_index_collect[c][1]-client_index_collect[c][0]:
+            print("false!!!")
+        for i in range(len(client_cluster_label[c])):
+            index=np.where(client_local_label==client_cluster_label[c][i])[0]
+            preCluster[index] = client_global_label[i]
+        preCluster=list(preCluster)
+        global_results.extend(preCluster)
+
+    labels_vector = np.array(labels_vector)
+    global_results = np.array(global_results)
+    return global_results, labels_vector
+
+
+def testiid(testmodel):
     nmiList, ariList, fList, accList= [],  [],  [], []
     mean=[0.4914, 0.4822, 0.4465]
     std=[0.2023, 0.1994, 0.2010]
@@ -475,7 +517,7 @@ def testiid(round, testmodel):
     dataset = Cifar10DatasetTest(Sample, Label, transformation)
     data_loader = torch.utils.data.DataLoader(
         dataset,
-        batch_size=500,
+        batch_size=args.batch_size,
         shuffle=False,
         drop_last=False,
         num_workers=args.workers,
@@ -485,6 +527,7 @@ def testiid(round, testmodel):
     X, Y = inference(data_loader, testmodel, device)
     nmi, ari, f, acc = evaluation.evaluateNoiid(Y, X)
     print('Global '+' NMI = {:.4f} ARI = {:.4f} F = {:.4f} ACC = {:.4f}'.format(nmi, ari, f, acc))
+
     for c in range(args.n_clients):
         client_X = np.array(X[np.array(clientDataIndex[c])])
         client_Y = np.array(Y[np.array(clientDataIndex[c])])
@@ -497,31 +540,33 @@ def testiid(round, testmodel):
           .format(sum(nmiList)/len(nmiList), sum(ariList)/len(ariList), sum(fList)/len(fList), sum(accList)/len(accList)))
 
 
-def test(round, testmodel):
-    train_dataset = torchvision.datasets.CIFAR10(
-            root=args.dataset_dir,
-            train=True,
-            download=True,
-            transform=transform.Transforms(size=args.image_size, mean=0.5, std=0.5).test_transform,
-        )
-    test_dataset = torchvision.datasets.CIFAR10(
-        root=args.dataset_dir,
-        train=False,
-        download=True,
-        transform=transform.Transforms(size=args.image_size, mean=0.5, std=0.5).test_transform,
-    )
-    dataset = data.ConcatDataset([train_dataset, test_dataset])
+def testNoiid(testmodel):
+    mean=[0.4914, 0.4822, 0.4465]
+    std=[0.2023, 0.1994, 0.2010]
+    transformation = [
+            torchvision.transforms.ToPILImage(),
+            torchvision.transforms.Resize(
+                    (args.test_image_size, args.test_image_size), interpolation=PIL.Image.BICUBIC
+                ),
+            torchvision.transforms.CenterCrop(args.image_size),
+            torchvision.transforms.ToTensor(),
+            torchvision.transforms.Normalize(mean=mean, std=std)
+        ]
+    transformation = torchvision.transforms.Compose(transformation)
+    dataset = Cifar10DatasetTest(Sample, Label, transformation)
     data_loader = torch.utils.data.DataLoader(
         dataset,
-        batch_size=500,
+        batch_size=args.batch_size,
         shuffle=False,
         drop_last=False,
         num_workers=args.workers,
     )
+
     print("### Creating features from model ###")
-    X, Y = inference(data_loader, testmodel, device)
-    nmi, ari, f, acc = evaluation.evaluate(Y, X)
-    print('Rround '+ str(round)+' NMI = {:.4f} ARI = {:.4f} F = {:.4f} ACC = {:.4f}'.format(nmi, ari, f, acc))
+    X, Y = inference_kfed(data_loader, testmodel, device)
+    nmi, ari, f, acc = evaluation.evaluateNoiid(Y, X)
+    print('Global '+' NMI = {:.4f} ARI = {:.4f} F = {:.4f} ACC = {:.4f}'.format(nmi, ari, f, acc))
+
 
 
 def decide_requires_grad(model):
@@ -533,22 +578,22 @@ def decide_requires_grad(model):
                 if finetuneName in name:
                     param.requires_grad_(True)
         elif "cluster_projector" in name or "instance_projector" in name:
+        # elif "cluster_projector" in name or "instance_projector" in name or "trans" in name:
             param.requires_grad_(True)
 
 
-def decide_requires_grad_fulltune(model):
-    for name, param in model.named_parameters():
-        if 'lora' in name :
-            param.requires_grad_(False)
-        else:
-            param.requires_grad_(True)
-
-      
+def saveClientsParams(model, keepLocal):
+    savedParams = {}
+    for name, param in model.named_parameters ():
+        for localParam in keepLocal:
+            if localParam in name:
+                savedParams[name] = torch.tensor(param.data).cpu()
+    return savedParams
 
 if __name__ == "__main__":
     import warnings
     warnings.filterwarnings("ignore")
-    device= torch.device("cuda:1")
+    device= torch.device("cuda:4")
     print(device)
     parser = argparse.ArgumentParser()
     config = yaml_config_hook("config/config_DP_FL_Cifar_fix_adam.yaml")
@@ -564,22 +609,27 @@ if __name__ == "__main__":
     torch.cuda.manual_seed(args.seed)
     np.random.seed(args.seed)
 
-    cpu_num = 6 # 这里设置成你想运行的CPU个数
+    cpu_num = 4 # 这里设置成你想运行的CPU个数
     os.environ["OMP_NUM_THREADS"] = str(cpu_num)  # noqa
     os.environ["MKL_NUM_THREADS"] = str(cpu_num) # noqa
     torch.set_num_threads(cpu_num )
     
+
     # createIIDTrainAndTestDataset()
-    # createNoIIDClientDataset()
+    createNoIIDTrainAndTestDataset()
 
     # prepare data
-    class_num = 10
     datasets=[]
 
-    with open("./datasets/cifar10/Sample", "rb") as f:
+    with open("./datasets/cifar10/Sample_noiid_class"+str(args.classes_per_user), "rb") as f:
         Sample = pickle.load(f)
-    with open("./datasets/cifar10/Label", "rb") as f:
+    with open("./datasets/cifar10/Label_noiid_class"+str(args.classes_per_user), "rb") as f:
         Label = pickle.load(f)
+    print("len label:",len(Label))
+    # with open("./datasets/cifar10/Sample", "rb") as f:
+    #     Sample = pickle.load(f)
+    # with open("./datasets/cifar10/Label", "rb") as f:
+    #     Label = pickle.load(f)
 
     s = 0.5
     mean=[0.4914, 0.4822, 0.4465]
@@ -616,27 +666,27 @@ if __name__ == "__main__":
             pin_memory=True,
         )
     
-    clientDataIndex = createIIDClientDataset()
-
+    clientDataIndex = createclientDataIndex("./datasets/cifar10/Sample_noiid_class"+str(args.classes_per_user))
+    # print(Label[clientDataIndex[0]], len(clientDataIndex[0]))
+   
     # # optimizer / loss
     
     criterion_instance = contrastive_loss.InstanceLoss(args.mini_bs, args.instance_temperature, device).to(device)
-    criterion_cluster = contrastive_loss.ClusterLoss(class_num, args.cluster_temperature, device).to(device)
-    criterion_KL = contrastive_loss.ClusterKLLoss(args.mini_bs, args.instance_temperature, device).to(device)
+    criterion_cluster = contrastive_loss.ClusterLoss(args.num_class, args.cluster_temperature, device).to(device)
 
     agg = Aggregator(device)
-    # loadpath="save/Cifar-10-DPFL-ResNet18-blur-lus-kl-threshold-smooth"
-    # model_fp = os.path.join(loadpath, "checkpoint_{}.tar".format(21))
+    # loadpath="save/Cifar-10-DPFL-ResNet18-noiid-classes_per_user8-num_class10"
+    # model_fp = os.path.join(loadpath, "checkpoint_{}.tar".format(4))
     # checkpoint = torch.load(model_fp, map_location=device)
     # agg.model.load_state_dict(checkpoint['net'], strict=False)
     # print(loadpath)
 
     res = resnet.get_resnet(args.resnet, args.r_conv)
-    model = network.Network(res, args.feature_dim, class_num, args.r_proj)
+    model = network.Network(res, args.feature_dim, args.num_class, args.r_proj)
     model = ModuleValidator.fix(model)
     model = model.to(device)
 
-    for name, param in model.named_parameters():
+    for name, param in agg.model.named_parameters():
         print(name, param.numel(), param.size())
 
     sigma = get_noise_multiplier(
@@ -647,23 +697,25 @@ if __name__ == "__main__":
             )
     print("sigma:", sigma)
     
-
-    # decide_requires_grad(model)
-    decide_requires_grad_fulltune(model)
+    decide_requires_grad(model)
 
     print('Number of total parameters: ', sum([p.numel() for p in model.parameters()]))
     print('Number of trainable p  arameters: ', sum([p.numel() for p in model.parameters() if p.requires_grad]))
 
-    globalMaskDict={}
+    localParams=["cluster_projector"]
+    clientsSavedParams={}
+    for c in range(args.n_clients):
+        clientsSavedParams[c] = saveClientsParams(agg.model, localParams)
+
     # train
     for epoch in range(args.start_epoch, args.epochs):
-        testiid(epoch, agg.model)
+        testNoiid(agg.model)
         # if epoch>args.start_epoch:
-        #     testiid(epoch, agg.model)
+        #     testNoiid(epoch, agg.model)
         train(agg, epoch)
         # if epoch % 5 ==0 and args.smooth_loss_radius > 0.2:
         #     args.smooth_loss_radius = 0.9 * args.smooth_loss_radius
         save_model2(args, agg.model, epoch)
             
     save_model2(args, agg.model, args.epochs)
-    testiid(args.epochs, agg.model)
+    testNoiid(agg.model)
