@@ -1,0 +1,8 @@
+nohup: ignoring input
+cuda:0
+Namespace(batch_size=300, bn_sparsity=0.9, classes_per_user=20, clip_bound=1.8, clipping_style='all-layer', cluster_project_lr=0.03, cluster_temperature=1.0, dataset='CIFAR-10', dataset_dir='/home/chenyannan/fast-differential-privacy-main/examples/image_classification/data', downsample_lr=0.04, epochs=50, epsilon=8, feature_dim=128, global_lr=1.06, image_size=224, instance_project_lr=0.03, instance_temperature=0.5, kl_threshold=0.7, linear_sparsity=0.75, local_epoch=3, loss_KL=0.5, mini_bs=150, miu=0.05, model_path='save/Cifar-10-DPFL-ResNet18-noiid-classes_per_user6-noper', momentum=0.3, n_clients=200, num_class=20, r_conv=6, r_proj=16, reload=False, resnet='ResNet18_lora', resnet_lr=0.13, sample_ratio=1, seed=17, smooth_K=6, smooth_loss_radius=2, smooth_step=0, start_epoch=0, test_image_size=256, trans_lr=0.02, weight_decay=1e-05, workers=8)
+  0%|          | 0/5 [00:00<?, ?it/s]round 0
+ NMI = 0.1360 ARI = 0.0509 F = 0.1219 ACC = 0.1572
+ 20%|██        | 1/5 [16:59<1:07:57, 1019.35s/it]round 1
+ NMI = 0.1306 ARI = 0.0532 F = 0.1224 ACC = 0.1502
+ 40%|████      | 2/5 [34:43<52:16, 1045.60s/it]  

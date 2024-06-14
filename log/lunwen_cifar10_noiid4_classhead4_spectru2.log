@@ -1,0 +1,129 @@
+nohup: ignoring input
+cuda:0
+Namespace(batch_size=1500, bn_sparsity=0.9, classes_per_user=4, clip_bound=1.8, clipping_style='all-layer', cluster_project_lr=0.04, cluster_temperature=1.0, dataset='CIFAR-10', dataset_dir='/home/chenyannan/fast-differential-privacy-main/examples/image_classification/data', downsample_lr=0.04, epochs=40, epsilon=8, feature_dim=128, global_lr=1.06, image_size=224, instance_project_lr=0.04, instance_temperature=0.5, kl_threshold=0.7, learning_rate=0.0003, linear_sparsity=0.75, local_epoch=3, loss_KL=0.5, mini_bs=125, miu=0, model_path='save/Cifar-10-DPFL-ResNet18-noiid-classes_per_user3-num_class3-noper', momentum=0.3, n_clients=40, num_class=5, r_conv=6, r_proj=16, reload=False, resnet='ResNet18_lora', resnet_lr=0.1, sample_ratio=1, seed=17, smooth_K=6, smooth_loss_radius=2, smooth_step=0, start_epoch=0, test_image_size=256, trans_lr=0.05, weight_decay=1e-05, workers=8)
+len label: 60000
+save/Img-10-pretrain-transform/checkpoint_532.tar
+save/Cifar-10-DPFL-ResNet18-noiid-classes_per_user4-per_alpha0
+resnet.conv1.weight 9408 torch.Size([64, 3, 7, 7])
+resnet.conv1.lora_A 882 torch.Size([42, 21])
+resnet.conv1.lora_B 18816 torch.Size([448, 42])
+resnet.bn1.weight 64 torch.Size([64])
+resnet.bn1.bias 64 torch.Size([64])
+resnet.layer1.0.conv1.weight 36864 torch.Size([64, 64, 3, 3])
+resnet.layer1.0.conv1.lora_A 3456 torch.Size([18, 192])
+resnet.layer1.0.conv1.lora_B 3456 torch.Size([192, 18])
+resnet.layer1.0.bn1.weight 64 torch.Size([64])
+resnet.layer1.0.bn1.bias 64 torch.Size([64])
+resnet.layer1.0.conv2.weight 36864 torch.Size([64, 64, 3, 3])
+resnet.layer1.0.conv2.lora_A 3456 torch.Size([18, 192])
+resnet.layer1.0.conv2.lora_B 3456 torch.Size([192, 18])
+resnet.layer1.0.bn2.weight 64 torch.Size([64])
+resnet.layer1.0.bn2.bias 64 torch.Size([64])
+resnet.layer1.1.conv1.weight 36864 torch.Size([64, 64, 3, 3])
+resnet.layer1.1.bn1.weight 64 torch.Size([64])
+resnet.layer1.1.bn1.bias 64 torch.Size([64])
+resnet.layer1.1.conv2.weight 36864 torch.Size([64, 64, 3, 3])
+resnet.layer1.1.bn2.weight 64 torch.Size([64])
+resnet.layer1.1.bn2.bias 64 torch.Size([64])
+resnet.layer2.0.conv1.weight 73728 torch.Size([128, 64, 3, 3])
+resnet.layer2.0.conv1.lora_A 3456 torch.Size([18, 192])
+resnet.layer2.0.conv1.lora_B 6912 torch.Size([384, 18])
+resnet.layer2.0.bn1.weight 128 torch.Size([128])
+resnet.layer2.0.bn1.bias 128 torch.Size([128])
+resnet.layer2.0.conv2.weight 147456 torch.Size([128, 128, 3, 3])
+resnet.layer2.0.conv2.lora_A 6912 torch.Size([18, 384])
+resnet.layer2.0.conv2.lora_B 6912 torch.Size([384, 18])
+resnet.layer2.0.bn2.weight 128 torch.Size([128])
+resnet.layer2.0.bn2.bias 128 torch.Size([128])
+resnet.layer2.0.downsample.0.weight 8192 torch.Size([128, 64, 1, 1])
+resnet.layer2.0.downsample.0.lora_A 2304 torch.Size([36, 64])
+resnet.layer2.0.downsample.0.lora_B 4608 torch.Size([128, 36])
+resnet.layer2.0.downsample.1.weight 128 torch.Size([128])
+resnet.layer2.0.downsample.1.bias 128 torch.Size([128])
+resnet.layer2.1.conv1.weight 147456 torch.Size([128, 128, 3, 3])
+resnet.layer2.1.bn1.weight 128 torch.Size([128])
+resnet.layer2.1.bn1.bias 128 torch.Size([128])
+resnet.layer2.1.conv2.weight 147456 torch.Size([128, 128, 3, 3])
+resnet.layer2.1.bn2.weight 128 torch.Size([128])
+resnet.layer2.1.bn2.bias 128 torch.Size([128])
+resnet.layer3.0.conv1.weight 294912 torch.Size([256, 128, 3, 3])
+resnet.layer3.0.conv1.lora_A 6912 torch.Size([18, 384])
+resnet.layer3.0.conv1.lora_B 13824 torch.Size([768, 18])
+resnet.layer3.0.bn1.weight 256 torch.Size([256])
+resnet.layer3.0.bn1.bias 256 torch.Size([256])
+resnet.layer3.0.conv2.weight 589824 torch.Size([256, 256, 3, 3])
+resnet.layer3.0.conv2.lora_A 13824 torch.Size([18, 768])
+resnet.layer3.0.conv2.lora_B 13824 torch.Size([768, 18])
+resnet.layer3.0.bn2.weight 256 torch.Size([256])
+resnet.layer3.0.bn2.bias 256 torch.Size([256])
+resnet.layer3.0.downsample.0.weight 32768 torch.Size([256, 128, 1, 1])
+resnet.layer3.0.downsample.0.lora_A 4608 torch.Size([36, 128])
+resnet.layer3.0.downsample.0.lora_B 9216 torch.Size([256, 36])
+resnet.layer3.0.downsample.1.weight 256 torch.Size([256])
+resnet.layer3.0.downsample.1.bias 256 torch.Size([256])
+resnet.layer3.1.conv1.weight 589824 torch.Size([256, 256, 3, 3])
+resnet.layer3.1.conv1.lora_A 13824 torch.Size([18, 768])
+resnet.layer3.1.conv1.lora_B 13824 torch.Size([768, 18])
+resnet.layer3.1.bn1.weight 256 torch.Size([256])
+resnet.layer3.1.bn1.bias 256 torch.Size([256])
+resnet.layer3.1.conv2.weight 589824 torch.Size([256, 256, 3, 3])
+resnet.layer3.1.conv2.lora_A 13824 torch.Size([18, 768])
+resnet.layer3.1.conv2.lora_B 13824 torch.Size([768, 18])
+resnet.layer3.1.bn2.weight 256 torch.Size([256])
+resnet.layer3.1.bn2.bias 256 torch.Size([256])
+resnet.layer4.0.conv1.weight 1179648 torch.Size([512, 256, 3, 3])
+resnet.layer4.0.conv1.lora_A 13824 torch.Size([18, 768])
+resnet.layer4.0.conv1.lora_B 27648 torch.Size([1536, 18])
+resnet.layer4.0.bn1.weight 512 torch.Size([512])
+resnet.layer4.0.bn1.bias 512 torch.Size([512])
+resnet.layer4.0.conv2.weight 2359296 torch.Size([512, 512, 3, 3])
+resnet.layer4.0.conv2.lora_A 27648 torch.Size([18, 1536])
+resnet.layer4.0.conv2.lora_B 27648 torch.Size([1536, 18])
+resnet.layer4.0.bn2.weight 512 torch.Size([512])
+resnet.layer4.0.bn2.bias 512 torch.Size([512])
+resnet.layer4.0.downsample.0.weight 131072 torch.Size([512, 256, 1, 1])
+resnet.layer4.0.downsample.0.lora_A 9216 torch.Size([36, 256])
+resnet.layer4.0.downsample.0.lora_B 18432 torch.Size([512, 36])
+resnet.layer4.0.downsample.1.weight 512 torch.Size([512])
+resnet.layer4.0.downsample.1.bias 512 torch.Size([512])
+resnet.layer4.1.conv1.weight 2359296 torch.Size([512, 512, 3, 3])
+resnet.layer4.1.conv1.lora_A 27648 torch.Size([18, 1536])
+resnet.layer4.1.conv1.lora_B 27648 torch.Size([1536, 18])
+resnet.layer4.1.bn1.weight 512 torch.Size([512])
+resnet.layer4.1.bn1.bias 512 torch.Size([512])
+resnet.layer4.1.conv2.weight 2359296 torch.Size([512, 512, 3, 3])
+resnet.layer4.1.conv2.lora_A 27648 torch.Size([18, 1536])
+resnet.layer4.1.conv2.lora_B 27648 torch.Size([1536, 18])
+resnet.layer4.1.bn2.weight 512 torch.Size([512])
+resnet.layer4.1.bn2.bias 512 torch.Size([512])
+instance_projector.0.weight 262144 torch.Size([512, 512])
+instance_projector.0.bias 512 torch.Size([512])
+instance_projector.2.weight 65536 torch.Size([128, 512])
+instance_projector.2.bias 128 torch.Size([128])
+cluster_projector2.0.weight 262144 torch.Size([512, 512])
+cluster_projector2.0.bias 512 torch.Size([512])
+cluster_projector2.2.weight 2560 torch.Size([5, 512])
+cluster_projector2.2.bias 5 torch.Size([5])
+sigma: 3.291015625
+Number of total parameters:  12187191
+Number of trainable p  arameters:  1020279
+### Creating features from model ###
+  0%|          | 0/40 [00:00<?, ?it/s]100%|██████████| 40/40 [00:00<00:00, 954.57it/s]
+  0%|          | 0/200 [00:00<?, ?it/s]  0%|          | 1/200 [00:27<1:31:00, 27.44s/it]  1%|          | 2/200 [00:56<1:32:46, 28.11s/it]  2%|▏         | 3/200 [01:30<1:42:27, 31.21s/it]  2%|▏         | 4/200 [02:00<1:40:20, 30.72s/it]  2%|▎         | 5/200 [02:32<1:41:08, 31.12s/it]  3%|▎         | 6/200 [03:01<1:38:16, 30.39s/it]  4%|▎         | 7/200 [03:30<1:35:34, 29.71s/it]  4%|▍         | 8/200 [03:58<1:33:36, 29.25s/it]  4%|▍         | 9/200 [04:26<1:31:52, 28.86s/it]  5%|▌         | 10/200 [04:54<1:30:51, 28.69s/it]  6%|▌         | 11/200 [05:21<1:28:38, 28.14s/it]  6%|▌         | 12/200 [05:51<1:29:59, 28.72s/it]  6%|▋         | 13/200 [06:17<1:26:51, 27.87s/it]  7%|▋         | 14/200 [06:46<1:27:25, 28.20s/it]  8%|▊         | 15/200 [07:12<1:24:37, 27.45s/it]  8%|▊         | 16/200 [07:37<1:22:39, 26.95s/it]  8%|▊         | 17/200 [08:05<1:22:47, 27.15s/it]  9%|▉         | 18/200 [08:31<1:21:11, 26.76s/it] 10%|▉         | 19/200 [08:56<1:19:22, 26.31s/it] 10%|█         | 20/200 [09:21<1:17:57, 25.99s/it] 10%|█         | 21/200 [09:47<1:17:38, 26.03s/it] 11%|█         | 22/200 [10:13<1:16:50, 25.90s/it] 12%|█▏        | 23/200 [10:37<1:14:52, 25.38s/it] 12%|█▏        | 24/200 [11:01<1:13:01, 24.90s/it] 12%|█▎        | 25/200 [11:27<1:13:39, 25.25s/it] 13%|█▎        | 26/200 [11:51<1:12:00, 24.83s/it] 14%|█▎        | 27/200 [12:15<1:11:12, 24.70s/it] 14%|█▍        | 28/200 [12:40<1:10:26, 24.57s/it] 14%|█▍        | 29/200 [13:06<1:11:22, 25.04s/it] 15%|█▌        | 30/200 [13:31<1:10:45, 24.97s/it] 16%|█▌        | 31/200 [13:57<1:11:18, 25.32s/it] 16%|█▌        | 32/200 [14:20<1:09:00, 24.65s/it] 16%|█▋        | 33/200 [14:45<1:09:04, 24.82s/it] 17%|█▋        | 34/200 [15:09<1:08:14, 24.66s/it] 18%|█▊        | 35/200 [15:35<1:08:48, 25.02s/it] 18%|█▊        | 36/200 [16:01<1:08:44, 25.15s/it] 18%|█▊        | 37/200 [16:26<1:08:18, 25.15s/it] 19%|█▉        | 38/200 [16:49<1:06:09, 24.50s/it] 20%|█▉        | 39/200 [17:13<1:05:51, 24.54s/it] 20%|██        | 40/200 [17:38<1:05:30, 24.57s/it] 20%|██        | 41/200 [18:00<1:02:58, 23.77s/it] 21%|██        | 42/200 [18:22<1:01:24, 23.32s/it] 22%|██▏       | 43/200 [18:44<1:00:05, 22.96s/it] 22%|██▏       | 44/200 [19:06<58:57, 22.68s/it]   22%|██▎       | 45/200 [19:29<58:51, 22.78s/it] 23%|██▎       | 46/200 [19:51<57:39, 22.46s/it] 24%|██▎       | 47/200 [20:14<58:00, 22.75s/it] 24%|██▍       | 48/200 [20:35<56:17, 22.22s/it] 24%|██▍       | 49/200 [20:56<54:59, 21.85s/it] 25%|██▌       | 50/200 [21:17<53:30, 21.40s/it] 26%|██▌       | 51/200 [21:37<52:25, 21.11s/it] 26%|██▌       | 52/200 [21:57<51:20, 20.81s/it] 26%|██▋       | 53/200 [22:17<50:22, 20.56s/it] 27%|██▋       | 54/200 [22:37<49:25, 20.31s/it] 28%|██▊       | 55/200 [22:57<48:35, 20.11s/it] 28%|██▊       | 56/200 [23:16<47:57, 19.98s/it] 28%|██▊       | 57/200 [23:36<47:16, 19.84s/it] 29%|██▉       | 58/200 [23:55<46:32, 19.66s/it] 30%|██▉       | 59/200 [24:15<46:17, 19.70s/it] 30%|███       | 60/200 [24:38<48:04, 20.60s/it] 30%|███       | 61/200 [24:57<46:57, 20.27s/it] 31%|███       | 62/200 [25:16<45:56, 19.97s/it] 32%|███▏      | 63/200 [25:37<46:00, 20.15s/it] 32%|███▏      | 64/200 [25:57<45:47, 20.20s/it] 32%|███▎      | 65/200 [26:17<45:06, 20.05s/it] 33%|███▎      | 66/200 [26:36<43:57, 19.68s/it] 34%|███▎      | 67/200 [26:55<43:11, 19.48s/it] 34%|███▍      | 68/200 [27:16<43:40, 19.85s/it] 34%|███▍      | 69/200 [27:35<43:10, 19.78s/it] 35%|███▌      | 70/200 [27:55<42:34, 19.65s/it] 36%|███▌      | 71/200 [28:13<41:30, 19.31s/it] 36%|███▌      | 72/200 [28:31<40:10, 18.83s/it] 36%|███▋      | 73/200 [28:48<39:07, 18.49s/it] 37%|███▋      | 74/200 [29:06<38:21, 18.26s/it] 38%|███▊      | 75/200 [29:24<37:33, 18.03s/it] 38%|███▊      | 76/200 [29:41<36:49, 17.82s/it] 38%|███▊      | 77/200 [29:59<36:35, 17.85s/it] 39%|███▉      | 78/200 [30:16<36:05, 17.75s/it] 40%|███▉      | 79/200 [30:35<36:19, 18.02s/it] 40%|████      | 80/200 [30:52<35:13, 17.61s/it] 40%|████      | 81/200 [31:09<34:41, 17.49s/it] 41%|████      | 82/200 [31:25<33:49, 17.20s/it] 42%|████▏     | 83/200 [31:42<33:01, 16.94s/it] 42%|████▏     | 84/200 [31:58<32:32, 16.84s/it] 42%|████▎     | 85/200 [32:14<31:42, 16.54s/it] 43%|████▎     | 86/200 [32:30<30:58, 16.30s/it] 44%|████▎     | 87/200 [32:45<30:11, 16.03s/it] 44%|████▍     | 88/200 [33:01<29:37, 15.87s/it] 44%|████▍     | 89/200 [33:16<29:02, 15.70s/it] 45%|████▌     | 90/200 [33:31<28:20, 15.46s/it] 46%|████▌     | 91/200 [33:46<27:43, 15.26s/it] 46%|████▌     | 92/200 [34:01<27:08, 15.08s/it] 46%|████▋     | 93/200 [34:15<26:35, 14.91s/it] 47%|████▋     | 94/200 [34:29<26:05, 14.77s/it] 48%|████▊     | 95/200 [34:44<25:35, 14.62s/it] 48%|████▊     | 96/200 [34:58<25:08, 14.51s/it] 48%|████▊     | 97/200 [35:12<24:39, 14.37s/it] 49%|████▉     | 98/200 [35:26<24:13, 14.25s/it] 50%|████▉     | 99/200 [35:41<24:13, 14.39s/it] 50%|█████     | 100/200 [35:57<25:09, 15.10s/it] 50%|█████     | 101/200 [36:12<24:48, 15.04s/it] 51%|█████     | 102/200 [36:26<23:58, 14.68s/it] 52%|█████▏    | 103/200 [36:39<22:55, 14.19s/it] 52%|█████▏    | 104/200 [36:53<22:19, 13.95s/it] 52%|█████▎    | 105/200 [37:05<21:33, 13.62s/it] 53%|█████▎    | 106/200 [37:20<21:53, 13.98s/it] 54%|█████▎    | 107/200 [37:35<22:04, 14.24s/it] 54%|█████▍    | 108/200 [37:50<22:05, 14.41s/it] 55%|█████▍    | 109/200 [38:03<21:19, 14.06s/it] 55%|█████▌    | 110/200 [38:16<20:34, 13.71s/it] 56%|█████▌    | 111/200 [38:29<20:01, 13.50s/it] 56%|█████▌    | 112/200 [38:42<19:30, 13.30s/it] 56%|█████▋    | 113/200 [38:54<18:37, 12.85s/it] 57%|█████▋    | 114/200 [39:06<18:17, 12.76s/it] 57%|█████▊    | 115/200 [39:18<17:41, 12.49s/it] 58%|█████▊    | 116/200 [39:30<17:04, 12.20s/it] 58%|█████▊    | 117/200 [39:43<17:16, 12.49s/it] 59%|█████▉    | 118/200 [39:54<16:40, 12.20s/it] 60%|█████▉    | 119/200 [40:05<15:58, 11.84s/it] 60%|██████    | 120/200 [40:16<15:24, 11.55s/it] 60%|██████    | 121/200 [40:27<14:55, 11.33s/it] 61%|██████    | 122/200 [40:38<14:25, 11.10s/it] 62%|██████▏   | 123/200 [40:48<13:57, 10.88s/it] 62%|██████▏   | 124/200 [40:59<13:59, 11.04s/it] 62%|██████▎   | 125/200 [41:10<13:30, 10.80s/it] 63%|██████▎   | 126/200 [41:20<13:02, 10.57s/it] 64%|██████▎   | 127/200 [41:30<12:51, 10.57s/it] 64%|██████▍   | 128/200 [41:40<12:25, 10.35s/it] 64%|██████▍   | 129/200 [41:50<12:08, 10.26s/it] 65%|██████▌   | 130/200 [42:00<11:58, 10.27s/it] 66%|██████▌   | 131/200 [42:10<11:34, 10.07s/it] 66%|██████▌   | 132/200 [42:19<11:10,  9.87s/it] 66%|██████▋   | 133/200 [42:29<10:52,  9.75s/it] 67%|██████▋   | 134/200 [42:38<10:36,  9.64s/it] 68%|██████▊   | 135/200 [42:47<10:15,  9.47s/it] 68%|██████▊   | 136/200 [42:57<10:15,  9.61s/it] 68%|██████▊   | 137/200 [43:06<09:50,  9.37s/it] 69%|██████▉   | 138/200 [43:15<09:25,  9.12s/it] 70%|██████▉   | 139/200 [43:23<09:09,  9.01s/it] 70%|███████   | 140/200 [43:33<09:15,  9.26s/it] 70%|███████   | 141/200 [43:41<08:48,  8.95s/it] 71%|███████   | 142/200 [43:50<08:26,  8.74s/it] 72%|███████▏  | 143/200 [43:58<08:07,  8.56s/it] 72%|███████▏  | 144/200 [44:06<07:48,  8.37s/it] 72%|███████▎  | 145/200 [44:13<07:27,  8.14s/it] 73%|███████▎  | 146/200 [44:21<07:07,  7.92s/it] 74%|███████▎  | 147/200 [44:28<06:55,  7.84s/it] 74%|███████▍  | 148/200 [44:36<06:38,  7.65s/it] 74%|███████▍  | 149/200 [44:43<06:19,  7.44s/it] 75%|███████▌  | 150/200 [44:50<06:03,  7.27s/it] 76%|███████▌  | 151/200 [44:57<05:55,  7.25s/it] 76%|███████▌  | 152/200 [45:04<05:42,  7.13s/it] 76%|███████▋  | 153/200 [45:10<05:24,  6.91s/it] 77%|███████▋  | 154/200 [45:16<05:12,  6.79s/it] 78%|███████▊  | 155/200 [45:23<04:56,  6.59s/it] 78%|███████▊  | 156/200 [45:29<04:44,  6.47s/it] 78%|███████▊  | 157/200 [45:35<04:31,  6.31s/it] 79%|███████▉  | 158/200 [45:40<04:17,  6.14s/it] 80%|███████▉  | 159/200 [45:46<04:04,  5.97s/it] 80%|████████  | 160/200 [45:52<03:53,  5.85s/it] 80%|████████  | 161/200 [45:57<03:42,  5.71s/it] 81%|████████  | 162/200 [46:02<03:30,  5.55s/it] 82%|████████▏ | 163/200 [46:07<03:20,  5.43s/it] 82%|████████▏ | 164/200 [46:12<03:10,  5.29s/it] 82%|████████▎ | 165/200 [46:17<02:59,  5.14s/it] 83%|████████▎ | 166/200 [46:22<02:50,  5.01s/it] 84%|████████▎ | 167/200 [46:26<02:41,  4.89s/it] 84%|████████▍ | 168/200 [46:31<02:32,  4.75s/it] 84%|████████▍ | 169/200 [46:35<02:24,  4.65s/it] 85%|████████▌ | 170/200 [46:39<02:14,  4.48s/it] 86%|████████▌ | 171/200 [46:43<02:05,  4.33s/it] 86%|████████▌ | 172/200 [46:47<01:57,  4.19s/it] 86%|████████▋ | 173/200 [46:51<01:49,  4.04s/it] 87%|████████▋ | 174/200 [46:55<01:42,  3.96s/it] 88%|████████▊ | 175/200 [46:58<01:35,  3.81s/it] 88%|████████▊ | 176/200 [47:01<01:28,  3.68s/it] 88%|████████▊ | 177/200 [47:05<01:20,  3.52s/it] 89%|████████▉ | 178/200 [47:08<01:17,  3.53s/it] 90%|████████▉ | 179/200 [47:12<01:16,  3.62s/it] 90%|█████████ | 180/200 [47:16<01:12,  3.65s/it] 90%|█████████ | 181/200 [47:18<01:04,  3.39s/it] 91%|█████████ | 182/200 [47:21<00:56,  3.13s/it] 92%|█████████▏| 183/200 [47:23<00:49,  2.90s/it] 92%|█████████▏| 184/200 [47:26<00:44,  2.77s/it] 92%|█████████▎| 185/200 [47:28<00:39,  2.64s/it] 93%|█████████▎| 186/200 [47:30<00:34,  2.49s/it] 94%|█████████▎| 187/200 [47:32<00:31,  2.40s/it] 94%|█████████▍| 188/200 [47:35<00:27,  2.29s/it] 94%|█████████▍| 189/200 [47:36<00:22,  2.05s/it] 95%|█████████▌| 190/200 [47:37<00:18,  1.84s/it] 96%|█████████▌| 191/200 [47:39<00:14,  1.65s/it] 96%|█████████▌| 192/200 [47:40<00:11,  1.48s/it] 96%|█████████▋| 193/200 [47:41<00:09,  1.33s/it] 97%|█████████▋| 194/200 [47:41<00:07,  1.18s/it] 98%|█████████▊| 195/200 [47:42<00:05,  1.04s/it] 98%|█████████▊| 196/200 [47:43<00:03,  1.11it/s] 98%|█████████▊| 197/200 [47:43<00:02,  1.30it/s] 99%|█████████▉| 198/200 [47:44<00:01,  1.55it/s]100%|█████████▉| 199/200 [47:44<00:00,  2.03it/s]100%|██████████| 200/200 [47:44<00:00, 14.32s/it]
+########### begin SpectralClustering ##########
+
+Intel MKL ERROR: Parameter 6 was incorrect on entry to DLASWP.
+
+Intel MKL ERROR: Parameter 6 was incorrect on entry to DLASWP.
+
+Intel MKL ERROR: Parameter 6 was incorrect on entry to DLASWP.
+
+Intel MKL ERROR: Parameter 6 was incorrect on entry to DLASWP.
+
+Intel MKL ERROR: Parameter 6 was incorrect on entry to DLASWP.
+
+Intel MKL ERROR: Parameter 6 was incorrect on entry to DLASWP.
+
+Intel MKL ERROR: Parameter 6 was incorrect on entry to DLASWP.
+
+Intel MKL ERROR: Parameter 6 was incorrect on entry to DLASWP.

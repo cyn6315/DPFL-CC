@@ -149,9 +149,12 @@ class Aggregator:
         self.device=device
         self.count = 0
         self.modelUpdate={}
-        # decide_requires_grad(self.model)
-        decide_requires_grad_fulltune(self.model)
-        self.optimizer = torch.optim.SGD(self.model.parameters(), lr=args.global_lr, momentum=args.momentum)
+        decide_requires_grad(self.model)
+        # decide_requires_grad_fulltune(self.model)
+        # self.optimizer = torch.optim.SGD(self.model.parameters(), lr=args.global_lr, momentum=args.momentum)
+        adam_lr=0.03
+        self.optimizer = torch.optim.Adam(self.model.parameters(), lr=adam_lr)
+        print("adam_lr ",adam_lr)
 
     def update(self):
         print("count",self.count )
@@ -170,7 +173,7 @@ class Aggregator:
                 )
                 updated = torch.div(self.modelUpdate[name], self.count)
                 # param.data = param.data + args.global_lr*(updated + torch.div(noise, 600))
-                param.grad = updated + torch.div(noise, 400)
+                param.grad = updated + torch.div(noise, 600)
                 if normSum == 0:
                     normSum = torch.sum(torch.pow(updated, exponent=2))
                 else:
@@ -289,15 +292,15 @@ def train(agg, round):
         #     continue
         model.train()
         setParaFromAgg(model, agg.model.state_dict())
-        # res_params2 = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' not in name]
-        # res_params2_down = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' in name]
-        # pro_params2 = [param for name, param in model.named_parameters() if 'resnet' not in name]
-        # optimizer=torch.optim.SGD([
-        #     {'params': res_params2, 'lr': args.resnet_lr},
-        #     {'params': res_params2_down, 'lr': args.downsample_lr},
-        #     {'params': pro_params2, 'lr': args.instance_project_lr},
-        # ], momentum=0.9) 
-        optimizer=torch.optim.SGD(model.parameters(),lr=0.01, momentum=0.9) 
+        res_params2 = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' not in name]
+        res_params2_down = [param for name, param in model.named_parameters() if 'resnet' in name and 'lora' in name]
+        pro_params2 = [param for name, param in model.named_parameters() if 'resnet' not in name]
+        optimizer=torch.optim.SGD([
+            {'params': res_params2, 'lr': args.resnet_lr},
+            {'params': res_params2_down, 'lr': args.downsample_lr},
+            {'params': pro_params2, 'lr': args.instance_project_lr},
+        ], momentum=0.9) 
+        # optimizer=torch.optim.SGD(model.parameters(),lr=0.01, momentum=0.9) 
        
        
         c=batch_idx
@@ -330,21 +333,22 @@ def train(agg, round):
                 loss_instance = criterion_instance(z_i, z_j)
                 loss_cluster = criterion_cluster(c_i, c_j)
 
-                c_i_target = getTargetDis(c_i)
-                index_i = exceedThreshold(c_i_target)
-                c_i_target=c_i_target[index_i]
-                c_i = c_i[index_i]
+                # c_i_target = getTargetDis(c_i)
+                # index_i = exceedThreshold(c_i_target)
+                # c_i_target=c_i_target[index_i]
+                # c_i = c_i[index_i]
 
-                c_j_target = getTargetDis(c_j)
-                index_j = exceedThreshold(c_j_target)
-                c_j_target = c_j_target[index_j]
-                c_j = c_j[index_j]
-                loss_KL = loss_function(c_i.log(), c_i_target) / c_i.shape[0] + loss_function(c_j.log(), c_j_target) / c_j.shape[0]
+                # c_j_target = getTargetDis(c_j)
+                # index_j = exceedThreshold(c_j_target)
+                # c_j_target = c_j_target[index_j]
+                # c_j = c_j[index_j]
+                # loss_KL = loss_function(c_i.log(), c_i_target) / c_i.shape[0] + loss_function(c_j.log(), c_j_target) / c_j.shape[0]
                 
-                # deltaNorm = getModelUpdateNorm(agg.model.state_dict (), model)
-                # loss_blur = args.miu*max(0, deltaNorm-math.pow(args.clip_bound, 2))
+                deltaNorm = getModelUpdateNorm(agg.model.state_dict (), model)
+                loss_blur = args.miu*max(0, deltaNorm-math.pow(args.clip_bound, 2))
 
-                loss = loss_instance + loss_cluster + args.loss_KL*loss_KL
+                # loss = loss_instance + loss_cluster + args.loss_KL*loss_KL +  + loss_blur
+                loss = loss_instance + loss_cluster + loss_blur
                 # loss = loss_instance + loss_cluster + loss_blur
         
                 loss.backward()
@@ -356,58 +360,58 @@ def train(agg, round):
     
 
 
-        for i in range(len(contrasive_pair)-smooth_step, len(contrasive_pair)):
-            pair = contrasive_pair[pair_index[i]]
-            x_i = x_list[pair[0]].to(device)
-            x_j = x_list[pair[1]].to(device) 
+        # for i in range(len(contrasive_pair)-smooth_step, len(contrasive_pair)):
+        #     pair = contrasive_pair[pair_index[i]]
+        #     x_i = x_list[pair[0]].to(device)
+        #     x_j = x_list[pair[1]].to(device) 
 
-            with torch.no_grad():
-                original_param={}
-                sum_grad= {}
-                for name, param in model.named_parameters ():
-                    if param.requires_grad:
-                        original_param[name] = param.data.clone().cpu()
-                        sum_grad[name] = torch.zeros_like(param).cpu()
+        #     with torch.no_grad():
+        #         original_param={}
+        #         sum_grad= {}
+        #         for name, param in model.named_parameters ():
+        #             if param.requires_grad:
+        #                 original_param[name] = param.data.clone().cpu()
+        #                 sum_grad[name] = torch.zeros_like(param).cpu()
             
-            for j in range(args.smooth_K):
-                if j>0:
-                    for name, param in model.named_parameters ():
-                        if not param.requires_grad:
-                            continue
-                        param.data = original_param[name] + args.smooth_loss_radius * torch.FloatTensor(param.size()).normal_(0, sigma * float(args.clip_bound) / math.sqrt(args.n_clients)) / args.n_clients
-                        param.data = param.data.to(device)
+        #     for j in range(args.smooth_K):
+        #         if j>0:
+        #             for name, param in model.named_parameters ():
+        #                 if not param.requires_grad:
+        #                     continue
+                        # param.data = original_param[name] + args.smooth_loss_radius * torch.FloatTensor(param.size()).normal_(0, sigma * float(args.clip_bound) / math.sqrt(args.n_clients)) / args.n_clients
+        #                 param.data = param.data.to(device)
                 
-                z_i, z_j, c_i, c_j = model(x_i, x_j)
-                loss_instance = criterion_instance(z_i, z_j)
-                loss_cluster = criterion_cluster(c_i, c_j)
-                deltaNorm = getModelUpdateNorm(agg.model.state_dict (), model)
-                loss_blur = args.miu*max(0, deltaNorm-math.pow(args.clip_bound, 2))
-                c_i_target = getTargetDis(c_i)
-                index_i = exceedThreshold(c_i_target)
-                c_i_target=c_i_target[index_i]
-                c_i = c_i[index_i]
+        #         z_i, z_j, c_i, c_j = model(x_i, x_j)
+        #         loss_instance = criterion_instance(z_i, z_j)
+        #         loss_cluster = criterion_cluster(c_i, c_j)
+        #         deltaNorm = getModelUpdateNorm(agg.model.state_dict (), model)
+        #         loss_blur = args.miu*max(0, deltaNorm-math.pow(args.clip_bound, 2))
+        #         c_i_target = getTargetDis(c_i)
+        #         index_i = exceedThreshold(c_i_target)
+        #         c_i_target=c_i_target[index_i]
+        #         c_i = c_i[index_i]
 
-                c_j_target = getTargetDis(c_j)
-                index_j = exceedThreshold(c_j_target)
-                c_j_target = c_j_target[index_j]
-                c_j = c_j[index_j]
-                loss_KL = loss_function(c_i.log(), c_i_target) / c_i.shape[0] + loss_function(c_j.log(), c_j_target) / c_j.shape[0]
-                loss = loss_instance + loss_cluster + loss_blur + args.loss_KL*loss_KL
-                loss.backward()
-                lossPerUser += loss.item()
-                for name, param in model.named_parameters ():
-                    if param.requires_grad:
-                        sum_grad[name] = sum_grad[name] + param.grad.cpu()
+        #         c_j_target = getTargetDis(c_j)
+        #         index_j = exceedThreshold(c_j_target)
+        #         c_j_target = c_j_target[index_j]
+        #         c_j = c_j[index_j]
+        #         loss_KL = loss_function(c_i.log(), c_i_target) / c_i.shape[0] + loss_function(c_j.log(), c_j_target) / c_j.shape[0]
+        #         loss = loss_instance + loss_cluster + loss_blur + args.loss_KL*loss_KL
+        #         loss.backward()
+        #         lossPerUser += loss.item()
+        #         for name, param in model.named_parameters ():
+        #             if param.requires_grad:
+        #                 sum_grad[name] = sum_grad[name] + param.grad.cpu()
                         
-                optimizer.zero_grad()
+        #         optimizer.zero_grad()
 
-            for name, param in model.named_parameters ():
-                if param.requires_grad:
-                    param.grad.data = torch.div(sum_grad[name], args.smooth_K).to(device)
-                    param.data = original_param[name].to(device)
+        #     for name, param in model.named_parameters ():
+        #         if param.requires_grad:
+        #             param.grad.data = torch.div(sum_grad[name], args.smooth_K).to(device)
+        #             param.data = original_param[name].to(device)
             
-            optimizer.step()
-            optimizer.zero_grad()
+        #     optimizer.step()
+        #     optimizer.zero_grad()
 
 
         getModelUpdate(modelUpdateDict, agg.model.state_dict (), model) # modelcopy - model 
@@ -420,7 +424,7 @@ def train(agg, round):
         agg.collect(modelUpdateDict) #共享内存
         print('Round: ', round, "User:", c, 'Train Loss: %.3f' % (lossPerUser/(true_epoch+smooth_step*args.smooth_K)))
       
-        if batch_idx>= 29:
+        if batch_idx>= 19:
             break
        
     if args.clip_bound > 1.9:
@@ -536,12 +540,12 @@ def decide_requires_grad(model):
             param.requires_grad_(True)
 
 
-def decide_requires_grad_fulltune(model):
-    for name, param in model.named_parameters():
-        if 'lora' in name :
-            param.requires_grad_(False)
-        else:
-            param.requires_grad_(True)
+# def decide_requires_grad_fulltune(model):
+#     for name, param in model.named_parameters():
+#         if 'lora' in name :
+#             param.requires_grad_(False)
+#         else:
+#             param.requires_grad_(True)
 
       
 
@@ -648,8 +652,8 @@ if __name__ == "__main__":
     print("sigma:", sigma)
     
 
-    # decide_requires_grad(model)
-    decide_requires_grad_fulltune(model)
+    decide_requires_grad(model)
+    # decide_requires_grad_fulltune(model)
 
     print('Number of total parameters: ', sum([p.numel() for p in model.parameters()]))
     print('Number of trainable p  arameters: ', sum([p.numel() for p in model.parameters() if p.requires_grad]))
@@ -657,12 +661,10 @@ if __name__ == "__main__":
     globalMaskDict={}
     # train
     for epoch in range(args.start_epoch, args.epochs):
-        testiid(epoch, agg.model)
-        # if epoch>args.start_epoch:
-        #     testiid(epoch, agg.model)
+        # testiid(epoch, agg.model)
+        if epoch>args.start_epoch:
+            testiid(epoch, agg.model)
         train(agg, epoch)
-        # if epoch % 5 ==0 and args.smooth_loss_radius > 0.2:
-        #     args.smooth_loss_radius = 0.9 * args.smooth_loss_radius
         save_model2(args, agg.model, epoch)
             
     save_model2(args, agg.model, args.epochs)

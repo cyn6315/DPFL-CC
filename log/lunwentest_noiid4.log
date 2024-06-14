@@ -1,8 +1,8 @@
 nohup: ignoring input
 cuda:4
-Namespace(batch_size=2400, bn_sparsity=0.9, classes_per_user=20, clip_bound=1.8, clipping_style='all-layer', cluster_project_lr=0.06, cluster_temperature=1.0, dataset='CIFAR-100', dataset_dir='/home/chenyannan/fast-differential-privacy-main/examples/image_classification/data', downsample_lr=0.05, epochs=50, epsilon=8, feature_dim=128, global_lr=1.06, image_size=224, instance_project_lr=0.05, instance_temperature=0.5, kl_threshold=0.5, linear_sparsity=0.9, local_epoch=4, loss_KL=1, mini_bs=120, miu=0.05, model_path='save/Cifar-100-DPFL-ResNet18-iid', momentum=0.5, n_clients=25, num_class=20, r_conv=6, r_proj=16, reload=False, resnet='ResNet34_lora', resnet_lr=0.12, sample_ratio=1, seed=17, smooth_K=6, smooth_step=0, start_epoch=0, test_image_size=256, weight_decay=1e-05, workers=8)
+Namespace(batch_size=1500, bn_sparsity=0.9, classes_per_user=4, clip_bound=1.8, clipping_style='all-layer', cluster_project_lr=0.03, cluster_temperature=1.0, dataset='CIFAR-10', dataset_dir='/home/chenyannan/fast-differential-privacy-main/examples/image_classification/data', downsample_lr=0.04, epochs=50, epsilon=8, feature_dim=128, global_lr=1.06, image_size=224, instance_project_lr=0.03, instance_temperature=0.5, kl_threshold=0.7, linear_sparsity=0.75, local_epoch=3, loss_KL=0.5, mini_bs=125, miu=0, model_path='save/Cifar-10-DPFL-ResNet18-noiid-classes_per_user4-noper', momentum=0.3, n_clients=40, num_class=10, r_conv=6, r_proj=16, reload=False, resnet='ResNet18_lora', resnet_lr=0.13, sample_ratio=1, seed=17, smooth_K=6, smooth_loss_radius=2, smooth_step=0, start_epoch=0, test_image_size=256, trans_lr=0.02, weight_decay=1e-05, workers=8)
 len label: 60000
-save/Cifar10/checkpoint_1000.tar
+save/Img-10-pretrain-transform/checkpoint_532.tar
 resnet.conv1.weight 9408 torch.Size([64, 3, 7, 7])
 resnet.conv1.lora_A 882 torch.Size([42, 21])
 resnet.conv1.lora_B 18816 torch.Size([448, 42])
@@ -24,12 +24,6 @@ resnet.layer1.1.bn1.bias 64 torch.Size([64])
 resnet.layer1.1.conv2.weight 36864 torch.Size([64, 64, 3, 3])
 resnet.layer1.1.bn2.weight 64 torch.Size([64])
 resnet.layer1.1.bn2.bias 64 torch.Size([64])
-resnet.layer1.2.conv1.weight 36864 torch.Size([64, 64, 3, 3])
-resnet.layer1.2.bn1.weight 64 torch.Size([64])
-resnet.layer1.2.bn1.bias 64 torch.Size([64])
-resnet.layer1.2.conv2.weight 36864 torch.Size([64, 64, 3, 3])
-resnet.layer1.2.bn2.weight 64 torch.Size([64])
-resnet.layer1.2.bn2.bias 64 torch.Size([64])
 resnet.layer2.0.conv1.weight 73728 torch.Size([128, 64, 3, 3])
 resnet.layer2.0.conv1.lora_A 3456 torch.Size([18, 192])
 resnet.layer2.0.conv1.lora_B 6912 torch.Size([384, 18])
@@ -51,18 +45,6 @@ resnet.layer2.1.bn1.bias 128 torch.Size([128])
 resnet.layer2.1.conv2.weight 147456 torch.Size([128, 128, 3, 3])
 resnet.layer2.1.bn2.weight 128 torch.Size([128])
 resnet.layer2.1.bn2.bias 128 torch.Size([128])
-resnet.layer2.2.conv1.weight 147456 torch.Size([128, 128, 3, 3])
-resnet.layer2.2.bn1.weight 128 torch.Size([128])
-resnet.layer2.2.bn1.bias 128 torch.Size([128])
-resnet.layer2.2.conv2.weight 147456 torch.Size([128, 128, 3, 3])
-resnet.layer2.2.bn2.weight 128 torch.Size([128])
-resnet.layer2.2.bn2.bias 128 torch.Size([128])
-resnet.layer2.3.conv1.weight 147456 torch.Size([128, 128, 3, 3])
-resnet.layer2.3.bn1.weight 128 torch.Size([128])
-resnet.layer2.3.bn1.bias 128 torch.Size([128])
-resnet.layer2.3.conv2.weight 147456 torch.Size([128, 128, 3, 3])
-resnet.layer2.3.bn2.weight 128 torch.Size([128])
-resnet.layer2.3.bn2.bias 128 torch.Size([128])
 resnet.layer3.0.conv1.weight 294912 torch.Size([256, 128, 3, 3])
 resnet.layer3.0.conv1.lora_A 6912 torch.Size([18, 384])
 resnet.layer3.0.conv1.lora_B 13824 torch.Size([768, 18])
@@ -88,46 +70,6 @@ resnet.layer3.1.conv2.lora_A 13824 torch.Size([18, 768])
 resnet.layer3.1.conv2.lora_B 13824 torch.Size([768, 18])
 resnet.layer3.1.bn2.weight 256 torch.Size([256])
 resnet.layer3.1.bn2.bias 256 torch.Size([256])
-resnet.layer3.2.conv1.weight 589824 torch.Size([256, 256, 3, 3])
-resnet.layer3.2.conv1.lora_A 13824 torch.Size([18, 768])
-resnet.layer3.2.conv1.lora_B 13824 torch.Size([768, 18])
-resnet.layer3.2.bn1.weight 256 torch.Size([256])
-resnet.layer3.2.bn1.bias 256 torch.Size([256])
-resnet.layer3.2.conv2.weight 589824 torch.Size([256, 256, 3, 3])
-resnet.layer3.2.conv2.lora_A 13824 torch.Size([18, 768])
-resnet.layer3.2.conv2.lora_B 13824 torch.Size([768, 18])
-resnet.layer3.2.bn2.weight 256 torch.Size([256])
-resnet.layer3.2.bn2.bias 256 torch.Size([256])
-resnet.layer3.3.conv1.weight 589824 torch.Size([256, 256, 3, 3])
-resnet.layer3.3.conv1.lora_A 13824 torch.Size([18, 768])
-resnet.layer3.3.conv1.lora_B 13824 torch.Size([768, 18])
-resnet.layer3.3.bn1.weight 256 torch.Size([256])
-resnet.layer3.3.bn1.bias 256 torch.Size([256])
-resnet.layer3.3.conv2.weight 589824 torch.Size([256, 256, 3, 3])
-resnet.layer3.3.conv2.lora_A 13824 torch.Size([18, 768])
-resnet.layer3.3.conv2.lora_B 13824 torch.Size([768, 18])
-resnet.layer3.3.bn2.weight 256 torch.Size([256])
-resnet.layer3.3.bn2.bias 256 torch.Size([256])
-resnet.layer3.4.conv1.weight 589824 torch.Size([256, 256, 3, 3])
-resnet.layer3.4.conv1.lora_A 13824 torch.Size([18, 768])
-resnet.layer3.4.conv1.lora_B 13824 torch.Size([768, 18])
-resnet.layer3.4.bn1.weight 256 torch.Size([256])
-resnet.layer3.4.bn1.bias 256 torch.Size([256])
-resnet.layer3.4.conv2.weight 589824 torch.Size([256, 256, 3, 3])
-resnet.layer3.4.conv2.lora_A 13824 torch.Size([18, 768])
-resnet.layer3.4.conv2.lora_B 13824 torch.Size([768, 18])
-resnet.layer3.4.bn2.weight 256 torch.Size([256])
-resnet.layer3.4.bn2.bias 256 torch.Size([256])
-resnet.layer3.5.conv1.weight 589824 torch.Size([256, 256, 3, 3])
-resnet.layer3.5.conv1.lora_A 13824 torch.Size([18, 768])
-resnet.layer3.5.conv1.lora_B 13824 torch.Size([768, 18])
-resnet.layer3.5.bn1.weight 256 torch.Size([256])
-resnet.layer3.5.bn1.bias 256 torch.Size([256])
-resnet.layer3.5.conv2.weight 589824 torch.Size([256, 256, 3, 3])
-resnet.layer3.5.conv2.lora_A 13824 torch.Size([18, 768])
-resnet.layer3.5.conv2.lora_B 13824 torch.Size([768, 18])
-resnet.layer3.5.bn2.weight 256 torch.Size([256])
-resnet.layer3.5.bn2.bias 256 torch.Size([256])
 resnet.layer4.0.conv1.weight 1179648 torch.Size([512, 256, 3, 3])
 resnet.layer4.0.conv1.lora_A 13824 torch.Size([18, 768])
 resnet.layer4.0.conv1.lora_B 27648 torch.Size([1536, 18])
@@ -153,27 +95,102 @@ resnet.layer4.1.conv2.lora_A 27648 torch.Size([18, 1536])
 resnet.layer4.1.conv2.lora_B 27648 torch.Size([1536, 18])
 resnet.layer4.1.bn2.weight 512 torch.Size([512])
 resnet.layer4.1.bn2.bias 512 torch.Size([512])
-resnet.layer4.2.conv1.weight 2359296 torch.Size([512, 512, 3, 3])
-resnet.layer4.2.conv1.lora_A 27648 torch.Size([18, 1536])
-resnet.layer4.2.conv1.lora_B 27648 torch.Size([1536, 18])
-resnet.layer4.2.bn1.weight 512 torch.Size([512])
-resnet.layer4.2.bn1.bias 512 torch.Size([512])
-resnet.layer4.2.conv2.weight 2359296 torch.Size([512, 512, 3, 3])
-resnet.layer4.2.conv2.lora_A 27648 torch.Size([18, 1536])
-resnet.layer4.2.conv2.lora_B 27648 torch.Size([1536, 18])
-resnet.layer4.2.bn2.weight 512 torch.Size([512])
-resnet.layer4.2.bn2.bias 512 torch.Size([512])
 instance_projector.0.weight 262144 torch.Size([512, 512])
 instance_projector.0.bias 512 torch.Size([512])
 instance_projector.2.weight 65536 torch.Size([128, 512])
 instance_projector.2.bias 128 torch.Size([128])
-cluster_projector2.0.weight 262144 torch.Size([512, 512])
-cluster_projector2.0.bias 512 torch.Size([512])
-cluster_projector2.2.weight 10240 torch.Size([20, 512])
-cluster_projector2.2.bias 20 torch.Size([20])
+cluster_projector.0.weight 262144 torch.Size([512, 512])
+cluster_projector.0.bias 512 torch.Size([512])
+cluster_projector.2.weight 5120 torch.Size([10, 512])
+cluster_projector.2.bias 10 torch.Size([10])
 sigma: 3.67919921875
-Number of total parameters:  22634822
-Number of trainable p  arameters:  1367174
+Number of total parameters:  12189756
+Number of trainable p  arameters:  1022844
+Norm:  tensor(8.0810, device='cuda:4')
+Round:  0 User: 0 Train Loss: 7.651
+Norm:  tensor(5.9269, device='cuda:4')
+Round:  0 User: 1 Train Loss: 7.305
+Norm:  tensor(6.9547, device='cuda:4')
+Round:  0 User: 2 Train Loss: 7.503
+Norm:  tensor(7.0539, device='cuda:4')
+Round:  0 User: 3 Train Loss: 7.625
+Norm:  tensor(5.8424, device='cuda:4')
+Round:  0 User: 4 Train Loss: 7.455
+Norm:  tensor(6.6631, device='cuda:4')
+Round:  0 User: 5 Train Loss: 7.564
+Norm:  tensor(6.3755, device='cuda:4')
+Round:  0 User: 6 Train Loss: 7.554
+Norm:  tensor(6.3358, device='cuda:4')
+Round:  0 User: 7 Train Loss: 7.396
+Norm:  tensor(6.7756, device='cuda:4')
+Round:  0 User: 8 Train Loss: 7.445
+Norm:  tensor(7.1700, device='cuda:4')
+Round:  0 User: 9 Train Loss: 7.601
+clip_bound 1.6
+count 10
+updated norm:  tensor(1.4914, device='cuda:4')
+*********Round:  0 Train Loss: 7.510
 ### Creating features from model ###
-Step [0/25]	 Computing features...
-Global  NMI = 0.0055 ARI = 0.0014 F = 0.1732 ACC = 0.0507
+Step [0/40]	 Computing features...
+Global  NMI = 0.3736 ARI = 0.2741 F = 0.3639 ACC = 0.4833
+Average NMI = 0.3812 ARI = 0.3589 F = 0.5020 ACC = 0.5717
+Norm:  tensor(4.6456, device='cuda:4')
+Round:  1 User: 0 Train Loss: 7.143
+Norm:  tensor(3.9954, device='cuda:4')
+Round:  1 User: 1 Train Loss: 7.139
+Norm:  tensor(4.6502, device='cuda:4')
+Round:  1 User: 2 Train Loss: 7.263
+Norm:  tensor(4.4842, device='cuda:4')
+Round:  1 User: 3 Train Loss: 7.303
+Norm:  tensor(4.9513, device='cuda:4')
+Round:  1 User: 4 Train Loss: 7.418
+Norm:  tensor(4.6585, device='cuda:4')
+Round:  1 User: 5 Train Loss: 7.276
+Norm:  tensor(4.4899, device='cuda:4')
+Round:  1 User: 6 Train Loss: 7.226
+Norm:  tensor(4.2079, device='cuda:4')
+Round:  1 User: 7 Train Loss: 7.165
+Norm:  tensor(4.5448, device='cuda:4')
+Round:  1 User: 8 Train Loss: 7.213
+Norm:  tensor(5.2549, device='cuda:4')
+Round:  1 User: 9 Train Loss: 7.476
+clip_bound 1.6
+count 10
+updated norm:  tensor(1.1710, device='cuda:4')
+*********Round:  1 Train Loss: 7.262
+### Creating features from model ###
+Step [0/40]	 Computing features...
+Global  NMI = 0.3759 ARI = 0.3006 F = 0.3766 ACC = 0.4972
+Average NMI = 0.3830 ARI = 0.3665 F = 0.5023 ACC = 0.5502
+Norm:  tensor(3.5701, device='cuda:4')
+Round:  2 User: 0 Train Loss: 7.040
+Norm:  tensor(3.2841, device='cuda:4')
+Round:  2 User: 1 Train Loss: 7.031
+Norm:  tensor(3.5247, device='cuda:4')
+Round:  2 User: 2 Train Loss: 7.067
+Norm:  tensor(3.6394, device='cuda:4')
+Round:  2 User: 3 Train Loss: 7.219
+Norm:  tensor(3.7483, device='cuda:4')
+Round:  2 User: 4 Train Loss: 7.167
+Norm:  tensor(4.6039, device='cuda:4')
+Round:  2 User: 5 Train Loss: 7.256
+Norm:  tensor(3.8868, device='cuda:4')
+Round:  2 User: 6 Train Loss: 7.119
+Norm:  tensor(3.5983, device='cuda:4')
+Round:  2 User: 7 Train Loss: 7.002
+Norm:  tensor(3.4985, device='cuda:4')
+Round:  2 User: 8 Train Loss: 7.069
+Norm:  tensor(3.7174, device='cuda:4')
+Round:  2 User: 9 Train Loss: 7.184
+clip_bound 1.6
+count 10
+updated norm:  tensor(1.0298, device='cuda:4')
+*********Round:  2 Train Loss: 7.115
+### Creating features from model ###
+Step [0/40]	 Computing features...
+Global  NMI = 0.3799 ARI = 0.3037 F = 0.3759 ACC = 0.5133
+Average NMI = 0.3861 ARI = 0.3640 F = 0.4987 ACC = 0.5320
+Norm:  tensor(3.2296, device='cuda:4')
+Round:  3 User: 0 Train Loss: 7.033
+Norm:  tensor(2.9038, device='cuda:4')
+Round:  3 User: 1 Train Loss: 6.962

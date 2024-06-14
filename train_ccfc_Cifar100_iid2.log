@@ -1,0 +1,9 @@
+nohup: ignoring input
+cuda:5
+Namespace(batch_size=300, data_root='./datasets', exp_dir='./save/CCFC/Cifar100-fed', global_lr=1, image_size=224, k=20, latent_dim=256, lbd=0.01, lr=0.0005, mini_bs=150, n_clients=200, num_proj_layers=2, num_workers=6, p=0.0, pre_hidden_dim=64, proj_hidden_dim=512, resnet='ResNet18', sample_ratio=0.05, seed=66, test_image_size=256, trial='v2')
+Global  NMI = 0.2457 ARI = 0.1202 F = 0.1659 ACC = 0.2749
+Global  NMI = 0.2464 ARI = 0.1235 F = 0.1685 ACC = 0.2724
+Traceback (most recent call last):
+  File "CCFC_Cifar100.py", line 200, in <module>
+    Nets, agg, pseudo_labels = pretrain(Nets, args, Sample, Label, clientDataIndex, test_loader, ground_truth_all, n, trial_dir, device)
+TypeError: cannot unpack non-iterable NoneType object

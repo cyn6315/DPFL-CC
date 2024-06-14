@@ -1,0 +1,381 @@
+nohup: ignoring input
+cuda:1
+Namespace(batch_size=1500, data_root='./datasets', eta=0.01, exp_dir='./save/CCFC++/Cifar10', global_lr=1, image_size=224, k=10, latent_dim=256, lbd=0.005, lr=0.0005, mini_bs=125, n_clients=40, num_proj_layers=2, num_workers=6, p=0.0, pre_hidden_dim=64, proj_hidden_dim=512, resnet='ResNet18', sample_ratio=0.1, seed=66, test_image_size=256, trial='v0')
+loadpath save/CCFC++/Img/v0/model_pretrain_0_119.pt
+Global  NMI = 0.1542 ARI = 0.0756 F = 0.1987 ACC = 0.2068
+Global  NMI = 0.1565 ARI = 0.0793 F = 0.1829 ACC = 0.2399
+backbone.conv1.weight 9408 torch.Size([64, 3, 7, 7])
+backbone.bn1.weight 64 torch.Size([64])
+backbone.bn1.bias 64 torch.Size([64])
+backbone.layer1.0.conv1.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.0.bn1.weight 64 torch.Size([64])
+backbone.layer1.0.bn1.bias 64 torch.Size([64])
+backbone.layer1.0.conv2.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.0.bn2.weight 64 torch.Size([64])
+backbone.layer1.0.bn2.bias 64 torch.Size([64])
+backbone.layer1.1.conv1.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.1.bn1.weight 64 torch.Size([64])
+backbone.layer1.1.bn1.bias 64 torch.Size([64])
+backbone.layer1.1.conv2.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.1.bn2.weight 64 torch.Size([64])
+backbone.layer1.1.bn2.bias 64 torch.Size([64])
+backbone.layer2.0.conv1.weight 73728 torch.Size([128, 64, 3, 3])
+backbone.layer2.0.bn1.weight 128 torch.Size([128])
+backbone.layer2.0.bn1.bias 128 torch.Size([128])
+backbone.layer2.0.conv2.weight 147456 torch.Size([128, 128, 3, 3])
+backbone.layer2.0.bn2.weight 128 torch.Size([128])
+backbone.layer2.0.bn2.bias 128 torch.Size([128])
+backbone.layer2.0.downsample.0.weight 8192 torch.Size([128, 64, 1, 1])
+backbone.layer2.0.downsample.1.weight 128 torch.Size([128])
+backbone.layer2.0.downsample.1.bias 128 torch.Size([128])
+backbone.layer2.1.conv1.weight 147456 torch.Size([128, 128, 3, 3])
+backbone.layer2.1.bn1.weight 128 torch.Size([128])
+backbone.layer2.1.bn1.bias 128 torch.Size([128])
+backbone.layer2.1.conv2.weight 147456 torch.Size([128, 128, 3, 3])
+backbone.layer2.1.bn2.weight 128 torch.Size([128])
+backbone.layer2.1.bn2.bias 128 torch.Size([128])
+backbone.layer3.0.conv1.weight 294912 torch.Size([256, 128, 3, 3])
+backbone.layer3.0.bn1.weight 256 torch.Size([256])
+backbone.layer3.0.bn1.bias 256 torch.Size([256])
+backbone.layer3.0.conv2.weight 589824 torch.Size([256, 256, 3, 3])
+backbone.layer3.0.bn2.weight 256 torch.Size([256])
+backbone.layer3.0.bn2.bias 256 torch.Size([256])
+backbone.layer3.0.downsample.0.weight 32768 torch.Size([256, 128, 1, 1])
+backbone.layer3.0.downsample.1.weight 256 torch.Size([256])
+backbone.layer3.0.downsample.1.bias 256 torch.Size([256])
+backbone.layer3.1.conv1.weight 589824 torch.Size([256, 256, 3, 3])
+backbone.layer3.1.bn1.weight 256 torch.Size([256])
+backbone.layer3.1.bn1.bias 256 torch.Size([256])
+backbone.layer3.1.conv2.weight 589824 torch.Size([256, 256, 3, 3])
+backbone.layer3.1.bn2.weight 256 torch.Size([256])
+backbone.layer3.1.bn2.bias 256 torch.Size([256])
+backbone.layer4.0.conv1.weight 1179648 torch.Size([512, 256, 3, 3])
+backbone.layer4.0.bn1.weight 512 torch.Size([512])
+backbone.layer4.0.bn1.bias 512 torch.Size([512])
+backbone.layer4.0.conv2.weight 2359296 torch.Size([512, 512, 3, 3])
+backbone.layer4.0.bn2.weight 512 torch.Size([512])
+backbone.layer4.0.bn2.bias 512 torch.Size([512])
+backbone.layer4.0.downsample.0.weight 131072 torch.Size([512, 256, 1, 1])
+backbone.layer4.0.downsample.1.weight 512 torch.Size([512])
+backbone.layer4.0.downsample.1.bias 512 torch.Size([512])
+backbone.layer4.1.conv1.weight 2359296 torch.Size([512, 512, 3, 3])
+backbone.layer4.1.bn1.weight 512 torch.Size([512])
+backbone.layer4.1.bn1.bias 512 torch.Size([512])
+backbone.layer4.1.conv2.weight 2359296 torch.Size([512, 512, 3, 3])
+backbone.layer4.1.bn2.weight 512 torch.Size([512])
+backbone.layer4.1.bn2.bias 512 torch.Size([512])
+projector.layer1.0.weight 262144 torch.Size([512, 512])
+projector.layer1.0.bias 512 torch.Size([512])
+projector.layer1.1.weight 512 torch.Size([512])
+projector.layer1.1.bias 512 torch.Size([512])
+projector.layer2.0.weight 262144 torch.Size([512, 512])
+projector.layer2.0.bias 512 torch.Size([512])
+projector.layer2.1.weight 512 torch.Size([512])
+projector.layer2.1.bias 512 torch.Size([512])
+projector.layer3.0.weight 131072 torch.Size([256, 512])
+projector.layer3.0.bias 256 torch.Size([256])
+predictor.layer1.0.weight 16384 torch.Size([64, 256])
+predictor.layer1.0.bias 64 torch.Size([64])
+predictor.layer1.1.weight 64 torch.Size([64])
+predictor.layer1.1.bias 64 torch.Size([64])
+predictor.layer2.weight 16384 torch.Size([256, 64])
+predictor.layer2.bias 256 torch.Size([256])
+count 4
+Round:  0 Train Loss: -1.365
+count 4
+Round:  1 Train Loss: -1.512
+count 4
+Round:  2 Train Loss: -1.600
+count 4
+Round:  3 Train Loss: -1.635
+count 4
+Round:  4 Train Loss: -1.663
+count 4
+Round:  5 Train Loss: -1.652
+count 4
+Round:  6 Train Loss: -1.660
+count 4
+Round:  7 Train Loss: -1.675
+count 4
+Round:  8 Train Loss: -1.671
+count 4
+Round:  9 Train Loss: -1.676
+centeral clustering:
+Global  NMI = 0.2602 ARI = 0.1642 F = 0.2525 ACC = 0.3370
+count 4
+Round:  10 Train Loss: -1.689
+count 4
+Round:  11 Train Loss: -1.683
+count 4
+Round:  12 Train Loss: -1.683
+count 4
+Round:  13 Train Loss: -1.686
+count 4
+Round:  14 Train Loss: -1.683
+count 4
+Round:  15 Train Loss: -1.673
+count 4
+Round:  16 Train Loss: -1.685
+count 4
+Round:  17 Train Loss: -1.678
+count 4
+Round:  18 Train Loss: -1.661
+count 4
+Round:  19 Train Loss: -1.670
+centeral clustering:
+Global  NMI = 0.2720 ARI = 0.1715 F = 0.2575 ACC = 0.3423
+count 4
+Round:  20 Train Loss: -1.668
+count 4
+Round:  21 Train Loss: -1.668
+count 4
+Round:  22 Train Loss: -1.664
+count 4
+Round:  23 Train Loss: -1.676
+count 4
+Round:  24 Train Loss: -1.689
+count 4
+Round:  25 Train Loss: -1.668
+count 4
+Round:  26 Train Loss: -1.673
+count 4
+Round:  27 Train Loss: -1.680
+count 4
+Round:  28 Train Loss: -1.684
+count 4
+Round:  29 Train Loss: -1.671
+centeral clustering:
+Global  NMI = 0.2758 ARI = 0.1708 F = 0.2562 ACC = 0.3357
+count 4
+Round:  30 Train Loss: -1.676
+count 4
+Round:  31 Train Loss: -1.683
+count 4
+Round:  32 Train Loss: -1.670
+count 4
+Round:  33 Train Loss: -1.677
+count 4
+Round:  34 Train Loss: -1.685
+count 4
+Round:  35 Train Loss: -1.692
+count 4
+Round:  36 Train Loss: -1.684
+count 4
+Round:  37 Train Loss: -1.704
+count 4
+Round:  38 Train Loss: -1.705
+count 4
+Round:  39 Train Loss: -1.710
+centeral clustering:
+Global  NMI = 0.2848 ARI = 0.1754 F = 0.2643 ACC = 0.3417
+Global  NMI = 0.2870 ARI = 0.1790 F = 0.2693 ACC = 0.3456
+count 4
+Round:  40 Train Loss: -1.703
+count 4
+Round:  41 Train Loss: -1.700
+count 4
+Round:  42 Train Loss: -1.702
+count 4
+Round:  43 Train Loss: -1.703
+count 4
+Round:  44 Train Loss: -1.693
+count 4
+Round:  45 Train Loss: -1.692
+count 4
+Round:  46 Train Loss: -1.706
+count 4
+Round:  47 Train Loss: -1.716
+count 4
+Round:  48 Train Loss: -1.714
+count 4
+Round:  49 Train Loss: -1.715
+centeral clustering:
+Global  NMI = 0.2790 ARI = 0.1694 F = 0.2615 ACC = 0.3376
+count 4
+Round:  50 Train Loss: -1.716
+count 4
+Round:  51 Train Loss: -1.711
+count 4
+Round:  52 Train Loss: -1.725
+count 4
+Round:  53 Train Loss: -1.710
+count 4
+Round:  54 Train Loss: -1.724
+count 4
+Round:  55 Train Loss: -1.736
+count 4
+Round:  56 Train Loss: -1.727
+count 4
+Round:  57 Train Loss: -1.719
+count 4
+Round:  58 Train Loss: -1.728
+count 4
+Round:  59 Train Loss: -1.721
+centeral clustering:
+Global  NMI = 0.2770 ARI = 0.1675 F = 0.2582 ACC = 0.3368
+count 4
+Round:  60 Train Loss: -1.731
+count 4
+Round:  61 Train Loss: -1.722
+count 4
+Round:  62 Train Loss: -1.723
+count 4
+Round:  63 Train Loss: -1.724
+count 4
+Round:  64 Train Loss: -1.728
+count 4
+Round:  65 Train Loss: -1.731
+count 4
+Round:  66 Train Loss: -1.728
+count 4
+Round:  67 Train Loss: -1.736
+count 4
+Round:  68 Train Loss: -1.734
+count 4
+Round:  69 Train Loss: -1.727
+centeral clustering:
+Global  NMI = 0.2977 ARI = 0.1843 F = 0.2702 ACC = 0.3701
+count 4
+Round:  70 Train Loss: -1.736
+count 4
+Round:  71 Train Loss: -1.725
+count 4
+Round:  72 Train Loss: -1.734
+count 4
+Round:  73 Train Loss: -1.738
+count 4
+Round:  74 Train Loss: -1.727
+count 4
+Round:  75 Train Loss: -1.729
+count 4
+Round:  76 Train Loss: -1.731
+count 4
+Round:  77 Train Loss: -1.737
+count 4
+Round:  78 Train Loss: -1.726
+count 4
+Round:  79 Train Loss: -1.728
+centeral clustering:
+Global  NMI = 0.3130 ARI = 0.2009 F = 0.2847 ACC = 0.4019
+Global  NMI = 0.3134 ARI = 0.2011 F = 0.2847 ACC = 0.4054
+count 4
+Round:  80 Train Loss: -1.735
+count 4
+Round:  81 Train Loss: -1.743
+count 4
+Round:  82 Train Loss: -1.724
+count 4
+Round:  83 Train Loss: -1.742
+count 4
+Round:  84 Train Loss: -1.741
+count 4
+Round:  85 Train Loss: -1.743
+count 4
+Round:  86 Train Loss: -1.737
+count 4
+Round:  87 Train Loss: -1.745
+count 4
+Round:  88 Train Loss: -1.743
+count 4
+Round:  89 Train Loss: -1.741
+centeral clustering:
+Global  NMI = 0.3283 ARI = 0.2113 F = 0.2944 ACC = 0.4178
+count 4
+Round:  90 Train Loss: -1.742
+count 4
+Round:  91 Train Loss: -1.737
+count 4
+Round:  92 Train Loss: -1.749
+count 4
+Round:  93 Train Loss: -1.739
+count 4
+Round:  94 Train Loss: -1.747
+count 4
+Round:  95 Train Loss: -1.751
+count 4
+Round:  96 Train Loss: -1.752
+count 4
+Round:  97 Train Loss: -1.753
+count 4
+Round:  98 Train Loss: -1.742
+count 4
+Round:  99 Train Loss: -1.745
+centeral clustering:
+Global  NMI = 0.3269 ARI = 0.2050 F = 0.2890 ACC = 0.4118
+count 4
+Round:  100 Train Loss: -1.737
+count 4
+Round:  101 Train Loss: -1.734
+count 4
+Round:  102 Train Loss: -1.737
+count 4
+Round:  103 Train Loss: -1.735
+count 4
+Round:  104 Train Loss: -1.745
+count 4
+Round:  105 Train Loss: -1.755
+count 4
+Round:  106 Train Loss: -1.753
+count 4
+Round:  107 Train Loss: -1.745
+count 4
+Round:  108 Train Loss: -1.754
+count 4
+Round:  109 Train Loss: -1.744
+centeral clustering:
+Global  NMI = 0.3326 ARI = 0.2125 F = 0.2940 ACC = 0.4118
+count 4
+Round:  110 Train Loss: -1.767
+count 4
+Round:  111 Train Loss: -1.768
+count 4
+Round:  112 Train Loss: -1.749
+count 4
+Round:  113 Train Loss: -1.759
+count 4
+Round:  114 Train Loss: -1.760
+count 4
+Round:  115 Train Loss: -1.752
+count 4
+Round:  116 Train Loss: -1.758
+count 4
+Round:  117 Train Loss: -1.761
+count 4
+Round:  118 Train Loss: -1.758
+count 4
+Round:  119 Train Loss: -1.758
+centeral clustering:
+Global  NMI = 0.3363 ARI = 0.2153 F = 0.2987 ACC = 0.4140
+Global  NMI = 0.3370 ARI = 0.2141 F = 0.2994 ACC = 0.4130
+count 4
+Round:  120 Train Loss: -1.771
+count 4
+Round:  121 Train Loss: -1.763
+count 4
+Round:  122 Train Loss: -1.753
+count 4
+Round:  123 Train Loss: -1.767
+count 4
+Round:  124 Train Loss: -1.768
+count 4
+Round:  125 Train Loss: -1.769
+count 4
+Round:  126 Train Loss: -1.761
+count 4
+Round:  127 Train Loss: -1.777
+count 4
+Round:  128 Train Loss: -1.757
+count 4
+Round:  129 Train Loss: -1.765
+centeral clustering:
+Global  NMI = 0.3516 ARI = 0.2347 F = 0.3139 ACC = 0.4276
+count 4
+Round:  130 Train Loss: -1.777
+count 4
+Round:  131 Train Loss: -1.778
+count 4
+Round:  132 Train Loss: -1.772
+count 4
+Round:  133 Train Loss: -1.782
+count 4
+Round:  134 Train Loss: -1.776

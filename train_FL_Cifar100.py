@@ -164,7 +164,7 @@ def setParaFromChekpoint(model, checkpoint):
 class Aggregator:
     def __init__(self, device):
         res = resnet.get_resnet(args.resnet, args.r_conv)
-        model = network.Network(res, args.feature_dim, args.num_class, args.r_proj)
+        model = network.Network_perCluster(res, args.feature_dim, args.num_class, args.r_proj)
         model = ModuleValidator.fix(model)
         name="save/Cifar-10-DPFL-ResNet18-blur-lus-kl-threshold-lorabegin/checkpoint_51.tar"
         # name='save/Img-10-pretrain-transform/checkpoint_532.tar'
@@ -179,6 +179,7 @@ class Aggregator:
         self.modelUpdate={}
         decide_requires_grad(self.model)
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=args.global_lr, momentum=args.momentum)
+        # self.optimizer = torch.optim.Adam(self.model.parameters(), lr=args.global_lr)
 
     def update(self):
         print("count",self.count )
@@ -196,8 +197,9 @@ class Aggregator:
                     dtype=self.modelUpdate[name].dtype,
                 )
                 updated = torch.div(self.modelUpdate[name], self.count)
-                # param.data = param.data + args.global_lr*(updated + torch.div(noise, 600))
-                param.grad = updated + torch.div(noise, 1000)
+                # param.data = param.data + args.global_lr*(updated + torch.div(noise, 400))
+                param.grad = updated + torch.div(noise, 400)
+                # param.grad = updated
                 if normSum == 0:
                     normSum = torch.sum(torch.pow(updated, exponent=2))
                 else:
@@ -309,7 +311,24 @@ def train(agg, round):
     train_loss = 0
     normlist=[]
     loss_function = torch.nn.KLDivLoss(size_average=False)
-    for batch_idx, (x_list, y_label) in enumerate(dataLoader):
+    totalIndex=np.array(range(args.n_clients))
+    np.random.shuffle(totalIndex)
+    sampleClients=int(args.n_clients*args.sample_ratio)
+    clients_sampled = list(totalIndex[0:sampleClients])
+    clients_sampled.sort()
+    indices = []
+    for c in clients_sampled:
+        indices.extend(clientDataIndex[c])
+    dataset_round = Cifar100Dataset(Sample[indices], Label[indices], transformation)
+    dataLoader_round = DataLoader(
+            dataset_round,
+            batch_size=args.batch_size,
+            shuffle=False,
+            drop_last=True,
+            num_workers=args.workers,
+            pin_memory=True,
+        )
+    for batch_idx, (x_list, y_label) in enumerate(dataLoader_round):
         c=batch_idx
         model.train()
         setParaFromAgg(model, agg.model.state_dict())
@@ -361,6 +380,7 @@ def train(agg, round):
                 # index_j = exceedThreshold(c_j_target)
                 # c_j_target = c_j_target[index_j]
                 # c_j = c_j[index_j]
+
                 # loss_KL=0
                 # if c_i.shape[0]>0:
                 #     loss_KL+=loss_function(c_i.log(), c_i_target) / c_i.shape[0]
@@ -368,8 +388,15 @@ def train(agg, round):
                 #     loss_KL+=loss_function(c_j.log(), c_j_target) / c_j.shape[0]
                 # deltaNorm = getModelUpdateNorm(agg.model.state_dict (), model, clientsSavedParams[c])
                 # loss_blur = max(0, deltaNorm-math.pow(args.clip_bound, 2))
+                with torch.no_grad():
+                    z_i_g = agg.model.forward_instance(x_i)
+                    z_j_g = agg.model.forward_instance(x_j)
+  
+                loss_zhengze = torch.sum(torch.pow((z_i - z_i_g), exponent=2))/len(z_i)+\
+                  torch.sum(torch.pow((z_j - z_j_g), exponent=2))/len(z_i)
                 # loss = loss_instance + loss_cluster + args.miu*loss_blur + args.loss_KL*loss_KL
-                loss = loss_instance + loss_cluster 
+                # loss = loss_instance + loss_cluster + args.loss_KL*loss_KL
+                loss = loss_instance + loss_cluster + args.miu*loss_zhengze
                 loss.backward()
                 lossPerUser += loss.item()
                 # print(loss_instance, loss_cluster)
@@ -382,10 +409,10 @@ def train(agg, round):
         clipGrad(modelUpdateDict, normSum)
         train_loss+=lossPerUser
         agg.collect(modelUpdateDict) #共享内存
-        print('Round: ', round, "User:", c, 'Train Loss: %.3f' % (lossPerUser/true_epoch))
+        print('Round: ', round, "User:", clients_sampled[batch_idx], 'Train Loss: %.3f' % (lossPerUser/true_epoch))
       
-        # if batch_idx>= 10:
-        #     break
+        if batch_idx>= 19:
+            break
        
     if args.clip_bound > 1.9:
         args.clip_bound=args.clip_bound - 0.8
@@ -519,32 +546,33 @@ def testiid(testmodel):
 
     print("### Creating features from model ###")
     X, Y = inference(data_loader, testmodel, device)
-    super_label = [
-        [72, 4, 95, 30, 55],
-        [73, 32, 67, 91, 1],
-        [92, 70, 82, 54, 62],
-        [16, 61, 9, 10, 28],
-        [51, 0, 53, 57, 83],
-        [40, 39, 22, 87, 86],
-        [20, 25, 94, 84, 5],
-        [14, 24, 6, 7, 18],
-        [43, 97, 42, 3, 88],
-        [37, 17, 76, 12, 68],
-        [49, 33, 71, 23, 60],
-        [15, 21, 19, 31, 38],
-        [75, 63, 66, 64, 34],
-        [77, 26, 45, 99, 79],
-        [11, 2, 35, 46, 98],
-        [29, 93, 27, 78, 44],
-        [65, 50, 74, 36, 80],
-        [56, 52, 47, 59, 96],
-        [8, 58, 90, 13, 48],
-        [81, 69, 41, 89, 85],
-    ]
-    Y_copy = copy.copy(Y)
-    for i in range(20):
-        for j in super_label[i]:
-            Y[Y_copy == j] = i
+    # super_label = [
+    #     [72, 4, 95, 30, 55],
+    #     [73, 32, 67, 91, 1],
+    #     [92, 70, 82, 54, 62],
+    #     [16, 61, 9, 10, 28],
+    #     [51, 0, 53, 57, 83],
+    #     [40, 39, 22, 87, 86],
+    #     [20, 25, 94, 84, 5],
+    #     [14, 24, 6, 7, 18],
+    #     [43, 97, 42, 3, 88],
+    #     [37, 17, 76, 12, 68],
+    #     [49, 33, 71, 23, 60],
+    #     [15, 21, 19, 31, 38],
+    #     [75, 63, 66, 64, 34],
+    #     [77, 26, 45, 99, 79],
+    #     [11, 2, 35, 46, 98],
+    #     [29, 93, 27, 78, 44],
+    #     [65, 50, 74, 36, 80],
+    #     [56, 52, 47, 59, 96],
+    #     [8, 58, 90, 13, 48],
+    #     [81, 69, 41, 89, 85],
+    # ]
+    # Y_copy = copy.copy(Y)
+    # for i in range(20):
+    #     for j in super_label[i]:
+    #         Y[Y_copy == j] = i
+    print(Y, X)
     nmi, ari, f, acc = evaluation.evaluate(Y, X)
     print('Global '+' NMI = {:.4f} ARI = {:.4f} F = {:.4f} ACC = {:.4f}'.format(nmi, ari, f, acc))
 
@@ -613,7 +641,7 @@ def saveClientsParams(model, keepLocal):
 if __name__ == "__main__":
     import warnings
     warnings.filterwarnings("ignore")
-    device= torch.device("cuda:1")
+    device= torch.device("cuda:4")
     print(device)
     parser = argparse.ArgumentParser()
     config = yaml_config_hook("config/config_DP_FL_Cifar100.yaml")
@@ -629,10 +657,10 @@ if __name__ == "__main__":
     torch.cuda.manual_seed(args.seed)
     np.random.seed(args.seed)
 
-    cpu_num = 5 # 这里设置成你想运行的CPU个数
-    os.environ["OMP_NUM_THREADS"] = str(cpu_num)  # noqa
-    os.environ["MKL_NUM_THREADS"] = str(cpu_num) # noqa
-    torch.set_num_threads(cpu_num )
+    # cpu_num = 5 # 这里设置成你想运行的CPU个数
+    # os.environ["OMP_NUM_THREADS"] = str(cpu_num)  # noqa
+    # os.environ["MKL_NUM_THREADS"] = str(cpu_num) # noqa
+    # torch.set_num_threads(cpu_num )
     
 
     # createIIDTrainAndTestDataset()
@@ -648,11 +676,40 @@ if __name__ == "__main__":
 
     with open("./datasets/cifar100/Sample", "rb") as f:
         Sample = pickle.load(f)
-    with open("./datasets/cifar100/Label", "rb") as f:
+    with open("./datasets/cifar100/Label20", "rb") as f:
         Label = pickle.load(f)
-    
-    print("len label:",len(Label))
 
+    # super_label = [
+    #     [72, 4, 95, 30, 55],
+    #     [73, 32, 67, 91, 1],
+    #     [92, 70, 82, 54, 62],
+    #     [16, 61, 9, 10, 28],
+    #     [51, 0, 53, 57, 83],
+    #     [40, 39, 22, 87, 86],
+    #     [20, 25, 94, 84, 5],
+    #     [14, 24, 6, 7, 18],
+    #     [43, 97, 42, 3, 88],
+    #     [37, 17, 76, 12, 68],
+    #     [49, 33, 71, 23, 60],
+    #     [15, 21, 19, 31, 38],
+    #     [75, 63, 66, 64, 34],
+    #     [77, 26, 45, 99, 79],
+    #     [11, 2, 35, 46, 98],
+    #     [29, 93, 27, 78, 44],
+    #     [65, 50, 74, 36, 80],
+    #     [56, 52, 47, 59, 96],
+    #     [8, 58, 90, 13, 48],
+    #     [81, 69, 41, 89, 85],
+    # ]
+    # Label = Label.detach().cpu().numpy()
+    # Y_copy = copy.copy(Label)
+    # for i in range(20):
+    #     for j in super_label[i]:
+    #         Label[Y_copy == j] = i
+    # Label=torch.from_numpy(Label).cpu()
+    # with open("./datasets/cifar100/Label20", "wb") as f:
+    #     pickle.dump(Label, f) 
+    
     s = 0.5
     mean=[0.5071, 0.4867, 0.4408]
     std=[0.2675, 0.2565, 0.2761]
@@ -667,15 +724,15 @@ if __name__ == "__main__":
     transformation.append(torchvision.transforms.Normalize(mean=mean, std=std))
     transformation = torchvision.transforms.Compose(transformation)
 
-    dataset = Cifar100Dataset(Sample, Label, transformation)
-    dataLoader = DataLoader(
-            dataset,
-            batch_size=args.batch_size,
-            shuffle=False,
-            drop_last=True,
-            num_workers=args.workers,
-            pin_memory=True,
-        )
+    # dataset = Cifar100Dataset(Sample, Label, transformation)
+    # dataLoader = DataLoader(
+    #         dataset,
+    #         batch_size=args.batch_size,
+    #         shuffle=False,
+    #         drop_last=True,
+    #         num_workers=args.workers,
+    #         pin_memory=True,
+    #     )
     
 
     # clientDataIndex = createclientDataIndex("./datasets/cifar10/Sample_noiid_class"+str(args.classes_per_user))
@@ -687,14 +744,14 @@ if __name__ == "__main__":
     criterion_cluster = contrastive_loss.ClusterLoss(args.num_class, args.cluster_temperature, device).to(device)
 
     agg = Aggregator(device)
-    loadpath="save/Cifar-100-DPFL-ResNet18-iid"
-    model_fp = os.path.join(loadpath, "checkpoint_{}.tar".format(0))
+    loadpath="save/Cifar-100-DPFL-ResNet18-client200"
+    model_fp = os.path.join(loadpath, "checkpoint_{}.tar".format(19))
     checkpoint = torch.load(model_fp, map_location=device)
     agg.model.load_state_dict(checkpoint['net'], strict=False)
     print(loadpath)
 
     res = resnet.get_resnet(args.resnet, args.r_conv)
-    model = network.Network(res, args.feature_dim, args.num_class, args.r_proj)
+    model = network.Network_perCluster(res, args.feature_dim, args.num_class, args.r_proj)
     model = ModuleValidator.fix(model)
     model = model.to(device)
 
@@ -721,12 +778,14 @@ if __name__ == "__main__":
         clientsSavedParams[c] = saveClientsParams(agg.model, localParams)
 
     # train
+    testiid(agg.model)
     for epoch in range(args.start_epoch, args.epochs):
-        testiid(agg.model)
         # if epoch>args.start_epoch:
         #     testiid(agg.model)
         train(agg, epoch)
-        save_model2(args, agg.model, epoch)
+        testiid(agg.model)
+        if (epoch+1)%1==0:
+            save_model2(args, agg.model, epoch)
             
     save_model2(args, agg.model, args.epochs)
     testiid(agg.model)

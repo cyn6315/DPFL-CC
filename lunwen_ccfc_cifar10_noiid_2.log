@@ -1,0 +1,180 @@
+nohup: ignoring input
+cuda:4
+Namespace(batch_size=1500, classes_per_user=4, data_root='./datasets', exp_dir='./save/CCFC/cifar10-noiid', global_lr=1, image_size=224, k=10, latent_dim=256, lbd=0.1, lr=0.0005, mini_bs=125, n_clients=40, num_proj_layers=2, num_workers=6, p=0.0, pre_hidden_dim=64, proj_hidden_dim=512, resnet='ResNet18', sample_ratio=0.8, seed=66, test_image_size=256, trial='v0')
+save/CCFC/cifar10-noiid/v0/model_pretrain_0_79.pt
+Global  NMI = 0.3519 ARI = 0.2288 F = 0.3337 ACC = 0.4350
+backbone.conv1.weight 9408 torch.Size([64, 3, 7, 7])
+backbone.bn1.weight 64 torch.Size([64])
+backbone.bn1.bias 64 torch.Size([64])
+backbone.layer1.0.conv1.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.0.bn1.weight 64 torch.Size([64])
+backbone.layer1.0.bn1.bias 64 torch.Size([64])
+backbone.layer1.0.conv2.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.0.bn2.weight 64 torch.Size([64])
+backbone.layer1.0.bn2.bias 64 torch.Size([64])
+backbone.layer1.1.conv1.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.1.bn1.weight 64 torch.Size([64])
+backbone.layer1.1.bn1.bias 64 torch.Size([64])
+backbone.layer1.1.conv2.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.1.bn2.weight 64 torch.Size([64])
+backbone.layer1.1.bn2.bias 64 torch.Size([64])
+backbone.layer2.0.conv1.weight 73728 torch.Size([128, 64, 3, 3])
+backbone.layer2.0.bn1.weight 128 torch.Size([128])
+backbone.layer2.0.bn1.bias 128 torch.Size([128])
+backbone.layer2.0.conv2.weight 147456 torch.Size([128, 128, 3, 3])
+backbone.layer2.0.bn2.weight 128 torch.Size([128])
+backbone.layer2.0.bn2.bias 128 torch.Size([128])
+backbone.layer2.0.downsample.0.weight 8192 torch.Size([128, 64, 1, 1])
+backbone.layer2.0.downsample.1.weight 128 torch.Size([128])
+backbone.layer2.0.downsample.1.bias 128 torch.Size([128])
+backbone.layer2.1.conv1.weight 147456 torch.Size([128, 128, 3, 3])
+backbone.layer2.1.bn1.weight 128 torch.Size([128])
+backbone.layer2.1.bn1.bias 128 torch.Size([128])
+backbone.layer2.1.conv2.weight 147456 torch.Size([128, 128, 3, 3])
+backbone.layer2.1.bn2.weight 128 torch.Size([128])
+backbone.layer2.1.bn2.bias 128 torch.Size([128])
+backbone.layer3.0.conv1.weight 294912 torch.Size([256, 128, 3, 3])
+backbone.layer3.0.bn1.weight 256 torch.Size([256])
+backbone.layer3.0.bn1.bias 256 torch.Size([256])
+backbone.layer3.0.conv2.weight 589824 torch.Size([256, 256, 3, 3])
+backbone.layer3.0.bn2.weight 256 torch.Size([256])
+backbone.layer3.0.bn2.bias 256 torch.Size([256])
+backbone.layer3.0.downsample.0.weight 32768 torch.Size([256, 128, 1, 1])
+backbone.layer3.0.downsample.1.weight 256 torch.Size([256])
+backbone.layer3.0.downsample.1.bias 256 torch.Size([256])
+backbone.layer3.1.conv1.weight 589824 torch.Size([256, 256, 3, 3])
+backbone.layer3.1.bn1.weight 256 torch.Size([256])
+backbone.layer3.1.bn1.bias 256 torch.Size([256])
+backbone.layer3.1.conv2.weight 589824 torch.Size([256, 256, 3, 3])
+backbone.layer3.1.bn2.weight 256 torch.Size([256])
+backbone.layer3.1.bn2.bias 256 torch.Size([256])
+backbone.layer4.0.conv1.weight 1179648 torch.Size([512, 256, 3, 3])
+backbone.layer4.0.bn1.weight 512 torch.Size([512])
+backbone.layer4.0.bn1.bias 512 torch.Size([512])
+backbone.layer4.0.conv2.weight 2359296 torch.Size([512, 512, 3, 3])
+backbone.layer4.0.bn2.weight 512 torch.Size([512])
+backbone.layer4.0.bn2.bias 512 torch.Size([512])
+backbone.layer4.0.downsample.0.weight 131072 torch.Size([512, 256, 1, 1])
+backbone.layer4.0.downsample.1.weight 512 torch.Size([512])
+backbone.layer4.0.downsample.1.bias 512 torch.Size([512])
+backbone.layer4.1.conv1.weight 2359296 torch.Size([512, 512, 3, 3])
+backbone.layer4.1.bn1.weight 512 torch.Size([512])
+backbone.layer4.1.bn1.bias 512 torch.Size([512])
+backbone.layer4.1.conv2.weight 2359296 torch.Size([512, 512, 3, 3])
+backbone.layer4.1.bn2.weight 512 torch.Size([512])
+backbone.layer4.1.bn2.bias 512 torch.Size([512])
+projector.layer1.0.weight 262144 torch.Size([512, 512])
+projector.layer1.0.bias 512 torch.Size([512])
+projector.layer1.1.weight 512 torch.Size([512])
+projector.layer1.1.bias 512 torch.Size([512])
+projector.layer2.0.weight 262144 torch.Size([512, 512])
+projector.layer2.0.bias 512 torch.Size([512])
+projector.layer2.1.weight 512 torch.Size([512])
+projector.layer2.1.bias 512 torch.Size([512])
+projector.layer3.0.weight 131072 torch.Size([256, 512])
+projector.layer3.0.bias 256 torch.Size([256])
+predictor.layer1.0.weight 16384 torch.Size([64, 256])
+predictor.layer1.0.bias 64 torch.Size([64])
+predictor.layer1.1.weight 64 torch.Size([64])
+predictor.layer1.1.bias 64 torch.Size([64])
+predictor.layer2.weight 16384 torch.Size([256, 64])
+predictor.layer2.bias 256 torch.Size([256])
+count 32
+Round:  0 Train Loss: -1.933
+count 32
+Round:  1 Train Loss: -1.933
+count 32
+Round:  2 Train Loss: -1.927
+count 32
+Round:  3 Train Loss: -1.936
+count 32
+Round:  4 Train Loss: -1.941
+Global  NMI = 0.3622 ARI = 0.2340 F = 0.3339 ACC = 0.4658
+count 32
+Round:  5 Train Loss: -1.934
+count 32
+Round:  6 Train Loss: -1.933
+count 32
+Round:  7 Train Loss: -1.935
+count 32
+Round:  8 Train Loss: -1.937
+count 32
+Round:  9 Train Loss: -1.934
+Global  NMI = 0.3426 ARI = 0.1922 F = 0.3166 ACC = 0.4095
+count 32
+Round:  10 Train Loss: -1.934
+count 32
+Round:  11 Train Loss: -1.930
+count 32
+Round:  12 Train Loss: -1.935
+count 32
+Round:  13 Train Loss: -1.938
+count 32
+Round:  14 Train Loss: -1.929
+Global  NMI = 0.3443 ARI = 0.1940 F = 0.3254 ACC = 0.3991
+count 32
+Round:  15 Train Loss: -1.936
+count 32
+Round:  16 Train Loss: -1.935
+count 32
+Round:  17 Train Loss: -1.935
+count 32
+Round:  18 Train Loss: -1.940
+count 32
+Round:  19 Train Loss: -1.939
+Global  NMI = 0.3437 ARI = 0.2031 F = 0.3308 ACC = 0.4074
+count 32
+Round:  20 Train Loss: -1.938
+count 32
+Round:  21 Train Loss: -1.938
+count 32
+Round:  22 Train Loss: -1.935
+count 32
+Round:  23 Train Loss: -1.936
+count 32
+Round:  24 Train Loss: -1.935
+Global  NMI = 0.3297 ARI = 0.1755 F = 0.3177 ACC = 0.3738
+count 32
+Round:  25 Train Loss: -1.936
+count 32
+Round:  26 Train Loss: -1.940
+count 32
+Round:  27 Train Loss: -1.943
+count 32
+Round:  28 Train Loss: -1.934
+count 32
+Round:  29 Train Loss: -1.943
+Global  NMI = 0.3365 ARI = 0.1791 F = 0.3221 ACC = 0.3772
+count 32
+Round:  30 Train Loss: -1.939
+count 32
+Round:  31 Train Loss: -1.935
+count 32
+Round:  32 Train Loss: -1.936
+count 32
+Round:  33 Train Loss: -1.936
+count 32
+Round:  34 Train Loss: -1.941
+Global  NMI = 0.3240 ARI = 0.1737 F = 0.3205 ACC = 0.3593
+count 32
+Round:  35 Train Loss: -1.939
+count 32
+Round:  36 Train Loss: -1.948
+count 32
+Round:  37 Train Loss: -1.935
+count 32
+Round:  38 Train Loss: -1.939
+count 32
+Round:  39 Train Loss: -1.938
+Global  NMI = 0.3498 ARI = 0.2175 F = 0.3408 ACC = 0.4228
+count 32
+Round:  40 Train Loss: -1.946
+count 32
+Round:  41 Train Loss: -1.939
+count 32
+Round:  42 Train Loss: -1.943
+count 32
+Round:  43 Train Loss: -1.949
+count 32
+Round:  44 Train Loss: -1.939
+Global  NMI = 0.3364 ARI = 0.1951 F = 0.3246 ACC = 0.3992

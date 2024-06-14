@@ -1,0 +1,51 @@
+# general
+seed: 17
+workers: 8
+dataset_dir: "/home/chenyannan/fast-differential-privacy-main/examples/image_classification/data"
+
+
+# train options
+batch_size: 1500
+mini_bs: 150
+image_size: 224
+test_image_size: 256
+start_epoch: 0
+epochs: 50
+local_epoch: 4
+dataset: "CIFAR-10" # CIFAR-10 / CIFAR-100 / STL-10 / ImageNet-10 / ImageNet-dogs / tiny-ImageNet
+epsilon: 2
+clip_bound: 1.8
+clipping_style: "all-layer"
+n_clients: 40
+sample_ratio: 1
+r_conv: 6
+r_proj: 16
+
+
+# model options
+resnet: "ResNet18_lora" # ResNet18 / ResNet34 / ResNet50 / ResNet18_Adapter/ ResNet18_lora
+feature_dim: 128
+model_path: "save/Cifar-10-DPFL-ResNet18-epsilon"
+reload: False
+
+# loss options
+trans_lr: 0.02
+instance_project_lr: 0.03
+cluster_project_lr: 0.03
+resnet_lr: 0.13
+downsample_lr: 0.04
+global_lr: 1.06
+weight_decay: 0.00001
+instance_temperature: 0.5
+cluster_temperature: 1.0
+momentum: 0.3
+miu: 0.05
+bn_sparsity: 0.9
+linear_sparsity: 0.75
+smooth_K: 6
+smooth_loss_radius: 2
+smooth_step: 0
+loss_KL: 0.5
+kl_threshold: 0.7
+num_class: 10
+classes_per_user: 10

@@ -1,0 +1,1259 @@
+nohup: ignoring input
+cuda:2
+Namespace(batch_size=3000, bn_sparsity=0.9, classes_per_user=10, clip_bound=1.8, clipping_style='all-layer', cluster_project_lr=0.03, cluster_temperature=1.0, dataset='CIFAR-10', dataset_dir='/home/chenyannan/fast-differential-privacy-main/examples/image_classification/data', downsample_lr=0.04, epochs=50, epsilon=8, feature_dim=128, global_lr=1.06, image_size=224, instance_project_lr=0.03, instance_temperature=0.5, kl_threshold=0.7, learning_rate=0.05, linear_sparsity=0.75, local_epoch=2, loss_KL=0.5, mini_bs=300, miu=0.05, miuh=0, miuw=0, model_path='save/Cifar-10-DPFL-ResNet18-noiid-classes_per_user6-noper', momentum=0.3, n_clients=20, num_class=10, r_conv=6, r_proj=16, reload=False, resnet='ResNet18_lora', resnet_lr=0.13, sample_ratio=1, seed=17, smooth_K=6, smooth_loss_radius=2, smooth_step=0, start_epoch=0, test_image_size=256, thou=0.1, trans_lr=0.02, weight_decay=1e-05, workers=8)
+sigma: 3.67919921875
+W.weight 5120 torch.Size([10, 512])
+H.weight 600000 torch.Size([60000, 10])
+tensor([5, 3, 1,  ..., 5, 0, 8]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.0003 ARI = 0.0000 F = 0.1076 ACC = 0.1051
+Round:  0 User: 0 Train Loss: 720.222
+Round:  0 User: 1 Train Loss: 715.316
+Round:  0 User: 2 Train Loss: 728.515
+Round:  0 User: 3 Train Loss: 715.362
+Round:  0 User: 4 Train Loss: 721.847
+Round:  0 User: 5 Train Loss: 713.868
+Round:  0 User: 6 Train Loss: 728.911
+Round:  0 User: 7 Train Loss: 725.861
+Round:  0 User: 8 Train Loss: 720.375
+Round:  0 User: 9 Train Loss: 717.100
+Round:  0 User: 10 Train Loss: 716.897
+Round:  0 User: 11 Train Loss: 719.683
+Round:  0 User: 12 Train Loss: 712.025
+Round:  0 User: 13 Train Loss: 725.413
+Round:  0 User: 14 Train Loss: 720.750
+Round:  0 User: 15 Train Loss: 717.071
+Round:  0 User: 16 Train Loss: 723.054
+Round:  0 User: 17 Train Loss: 714.815
+Round:  0 User: 18 Train Loss: 723.678
+Round:  0 User: 19 Train Loss: 722.764
+count 20
+updated norm:  tensor(73.1054, device='cuda:2')
+tensor([8, 8, 8,  ..., 9, 0, 8]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.0055 ARI = 0.0022 F = 0.1141 ACC = 0.1209
+Round:  1 User: 0 Train Loss: 566.060
+Round:  1 User: 1 Train Loss: 558.592
+Round:  1 User: 2 Train Loss: 573.483
+Round:  1 User: 3 Train Loss: 553.079
+Round:  1 User: 4 Train Loss: 565.636
+Round:  1 User: 5 Train Loss: 552.514
+Round:  1 User: 6 Train Loss: 570.936
+Round:  1 User: 7 Train Loss: 558.530
+Round:  1 User: 8 Train Loss: 565.559
+Round:  1 User: 9 Train Loss: 557.198
+Round:  1 User: 10 Train Loss: 567.962
+Round:  1 User: 11 Train Loss: 564.034
+Round:  1 User: 12 Train Loss: 551.085
+Round:  1 User: 13 Train Loss: 583.658
+Round:  1 User: 14 Train Loss: 568.617
+Round:  1 User: 15 Train Loss: 559.828
+Round:  1 User: 16 Train Loss: 570.638
+Round:  1 User: 17 Train Loss: 572.218
+Round:  1 User: 18 Train Loss: 563.013
+Round:  1 User: 19 Train Loss: 574.404
+count 20
+updated norm:  tensor(33.5959, device='cuda:2')
+tensor([8, 8, 8,  ..., 9, 8, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.0155 ARI = 0.0014 F = 0.1773 ACC = 0.1217
+Round:  2 User: 0 Train Loss: 440.277
+Round:  2 User: 1 Train Loss: 444.370
+Round:  2 User: 2 Train Loss: 442.090
+Round:  2 User: 3 Train Loss: 437.307
+Round:  2 User: 4 Train Loss: 441.888
+Round:  2 User: 5 Train Loss: 444.591
+Round:  2 User: 6 Train Loss: 442.328
+Round:  2 User: 7 Train Loss: 444.447
+Round:  2 User: 8 Train Loss: 438.928
+Round:  2 User: 9 Train Loss: 442.183
+Round:  2 User: 10 Train Loss: 439.857
+Round:  2 User: 11 Train Loss: 443.224
+Round:  2 User: 12 Train Loss: 440.644
+Round:  2 User: 13 Train Loss: 442.315
+Round:  2 User: 14 Train Loss: 438.763
+Round:  2 User: 15 Train Loss: 440.017
+Round:  2 User: 16 Train Loss: 442.026
+Round:  2 User: 17 Train Loss: 444.135
+Round:  2 User: 18 Train Loss: 441.911
+Round:  2 User: 19 Train Loss: 441.857
+count 20
+updated norm:  tensor(34.5165, device='cuda:2')
+tensor([8, 8, 8,  ..., 8, 8, 8]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.0145 ARI = 0.0002 F = 0.3075 ACC = 0.1085
+Round:  3 User: 0 Train Loss: 384.467
+Round:  3 User: 1 Train Loss: 392.031
+Round:  3 User: 2 Train Loss: 392.385
+Round:  3 User: 3 Train Loss: 381.693
+Round:  3 User: 4 Train Loss: 385.881
+Round:  3 User: 5 Train Loss: 390.014
+Round:  3 User: 6 Train Loss: 388.766
+Round:  3 User: 7 Train Loss: 389.849
+Round:  3 User: 8 Train Loss: 388.998
+Round:  3 User: 9 Train Loss: 384.541
+Round:  3 User: 10 Train Loss: 384.427
+Round:  3 User: 11 Train Loss: 388.330
+Round:  3 User: 12 Train Loss: 381.796
+Round:  3 User: 13 Train Loss: 393.989
+Round:  3 User: 14 Train Loss: 381.829
+Round:  3 User: 15 Train Loss: 386.079
+Round:  3 User: 16 Train Loss: 385.109
+Round:  3 User: 17 Train Loss: 392.157
+Round:  3 User: 18 Train Loss: 383.027
+Round:  3 User: 19 Train Loss: 385.389
+count 20
+updated norm:  tensor(19.0170, device='cuda:2')
+tensor([8, 8, 8,  ..., 0, 8, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.0364 ARI = 0.0044 F = 0.1793 ACC = 0.1368
+Round:  4 User: 0 Train Loss: 391.434
+Round:  4 User: 1 Train Loss: 395.476
+Round:  4 User: 2 Train Loss: 398.530
+Round:  4 User: 3 Train Loss: 387.686
+Round:  4 User: 4 Train Loss: 391.841
+Round:  4 User: 5 Train Loss: 392.144
+Round:  4 User: 6 Train Loss: 396.423
+Round:  4 User: 7 Train Loss: 397.653
+Round:  4 User: 8 Train Loss: 395.784
+Round:  4 User: 9 Train Loss: 389.910
+Round:  4 User: 10 Train Loss: 388.374
+Round:  4 User: 11 Train Loss: 391.668
+Round:  4 User: 12 Train Loss: 387.020
+Round:  4 User: 13 Train Loss: 397.384
+Round:  4 User: 14 Train Loss: 390.980
+Round:  4 User: 15 Train Loss: 392.793
+Round:  4 User: 16 Train Loss: 392.126
+Round:  4 User: 17 Train Loss: 394.957
+Round:  4 User: 18 Train Loss: 389.541
+Round:  4 User: 19 Train Loss: 390.865
+count 20
+updated norm:  tensor(32.4245, device='cuda:2')
+tensor([8, 8, 8,  ..., 8, 8, 8]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.0072 ARI = 0.0000 F = 0.3130 ACC = 0.1040
+Round:  5 User: 0 Train Loss: 286.764
+Round:  5 User: 1 Train Loss: 289.356
+Round:  5 User: 2 Train Loss: 291.359
+Round:  5 User: 3 Train Loss: 283.795
+Round:  5 User: 4 Train Loss: 287.218
+Round:  5 User: 5 Train Loss: 287.622
+Round:  5 User: 6 Train Loss: 290.993
+Round:  5 User: 7 Train Loss: 292.238
+Round:  5 User: 8 Train Loss: 289.949
+Round:  5 User: 9 Train Loss: 285.911
+Round:  5 User: 10 Train Loss: 284.193
+Round:  5 User: 11 Train Loss: 286.389
+Round:  5 User: 12 Train Loss: 284.146
+Round:  5 User: 13 Train Loss: 290.081
+Round:  5 User: 14 Train Loss: 286.993
+Round:  5 User: 15 Train Loss: 287.643
+Round:  5 User: 16 Train Loss: 287.436
+Round:  5 User: 17 Train Loss: 288.629
+Round:  5 User: 18 Train Loss: 286.736
+Round:  5 User: 19 Train Loss: 286.776
+count 20
+updated norm:  tensor(6.2817, device='cuda:2')
+tensor([2, 0, 3,  ..., 8, 8, 8]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.0557 ARI = 0.0052 F = 0.2259 ACC = 0.1432
+Round:  6 User: 0 Train Loss: 290.947
+Round:  6 User: 1 Train Loss: 292.993
+Round:  6 User: 2 Train Loss: 294.145
+Round:  6 User: 3 Train Loss: 288.290
+Round:  6 User: 4 Train Loss: 291.846
+Round:  6 User: 5 Train Loss: 292.343
+Round:  6 User: 6 Train Loss: 294.740
+Round:  6 User: 7 Train Loss: 296.048
+Round:  6 User: 8 Train Loss: 293.428
+Round:  6 User: 9 Train Loss: 290.618
+Round:  6 User: 10 Train Loss: 288.829
+Round:  6 User: 11 Train Loss: 290.682
+Round:  6 User: 12 Train Loss: 289.331
+Round:  6 User: 13 Train Loss: 292.889
+Round:  6 User: 14 Train Loss: 291.616
+Round:  6 User: 15 Train Loss: 291.601
+Round:  6 User: 16 Train Loss: 291.845
+Round:  6 User: 17 Train Loss: 292.284
+Round:  6 User: 18 Train Loss: 292.228
+Round:  6 User: 19 Train Loss: 291.628
+count 20
+updated norm:  tensor(9.9633, device='cuda:2')
+tensor([8, 8, 8,  ..., 8, 8, 8]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.0098 ARI = 0.0001 F = 0.3133 ACC = 0.1052
+Round:  7 User: 0 Train Loss: 209.246
+Round:  7 User: 1 Train Loss: 210.825
+Round:  7 User: 2 Train Loss: 211.627
+Round:  7 User: 3 Train Loss: 206.800
+Round:  7 User: 4 Train Loss: 209.482
+Round:  7 User: 5 Train Loss: 209.153
+Round:  7 User: 6 Train Loss: 211.308
+Round:  7 User: 7 Train Loss: 212.894
+Round:  7 User: 8 Train Loss: 211.482
+Round:  7 User: 9 Train Loss: 208.245
+Round:  7 User: 10 Train Loss: 207.343
+Round:  7 User: 11 Train Loss: 208.548
+Round:  7 User: 12 Train Loss: 207.081
+Round:  7 User: 13 Train Loss: 211.367
+Round:  7 User: 14 Train Loss: 208.476
+Round:  7 User: 15 Train Loss: 209.706
+Round:  7 User: 16 Train Loss: 209.052
+Round:  7 User: 17 Train Loss: 209.511
+Round:  7 User: 18 Train Loss: 208.888
+Round:  7 User: 19 Train Loss: 209.119
+count 20
+updated norm:  tensor(4.9881, device='cuda:2')
+tensor([8, 8, 8,  ..., 8, 8, 8]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.0303 ARI = 0.0007 F = 0.3069 ACC = 0.1153
+Round:  8 User: 0 Train Loss: 203.353
+Round:  8 User: 1 Train Loss: 204.484
+Round:  8 User: 2 Train Loss: 204.789
+Round:  8 User: 3 Train Loss: 200.934
+Round:  8 User: 4 Train Loss: 203.752
+Round:  8 User: 5 Train Loss: 203.213
+Round:  8 User: 6 Train Loss: 204.970
+Round:  8 User: 7 Train Loss: 206.239
+Round:  8 User: 8 Train Loss: 205.084
+Round:  8 User: 9 Train Loss: 202.148
+Round:  8 User: 10 Train Loss: 201.507
+Round:  8 User: 11 Train Loss: 202.533
+Round:  8 User: 12 Train Loss: 201.559
+Round:  8 User: 13 Train Loss: 205.146
+Round:  8 User: 14 Train Loss: 202.554
+Round:  8 User: 15 Train Loss: 203.569
+Round:  8 User: 16 Train Loss: 203.384
+Round:  8 User: 17 Train Loss: 203.492
+Round:  8 User: 18 Train Loss: 203.165
+Round:  8 User: 19 Train Loss: 203.519
+count 20
+updated norm:  tensor(5.5903, device='cuda:2')
+tensor([8, 8, 8,  ..., 8, 8, 8]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.0547 ARI = 0.0029 F = 0.3002 ACC = 0.1282
+Round:  9 User: 0 Train Loss: 213.929
+Round:  9 User: 1 Train Loss: 216.317
+Round:  9 User: 2 Train Loss: 217.660
+Round:  9 User: 3 Train Loss: 211.386
+Round:  9 User: 4 Train Loss: 214.427
+Round:  9 User: 5 Train Loss: 214.408
+Round:  9 User: 6 Train Loss: 216.768
+Round:  9 User: 7 Train Loss: 218.447
+Round:  9 User: 8 Train Loss: 217.229
+Round:  9 User: 9 Train Loss: 213.451
+Round:  9 User: 10 Train Loss: 212.144
+Round:  9 User: 11 Train Loss: 213.384
+Round:  9 User: 12 Train Loss: 211.361
+Round:  9 User: 13 Train Loss: 216.505
+Round:  9 User: 14 Train Loss: 213.474
+Round:  9 User: 15 Train Loss: 214.710
+Round:  9 User: 16 Train Loss: 213.517
+Round:  9 User: 17 Train Loss: 214.808
+Round:  9 User: 18 Train Loss: 213.495
+Round:  9 User: 19 Train Loss: 213.315
+count 20
+updated norm:  tensor(6.6468, device='cuda:2')
+tensor([8, 8, 8,  ..., 8, 8, 8]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.1018 ARI = 0.0127 F = 0.2928 ACC = 0.1532
+Round:  10 User: 0 Train Loss: 210.452
+Round:  10 User: 1 Train Loss: 211.008
+Round:  10 User: 2 Train Loss: 211.624
+Round:  10 User: 3 Train Loss: 208.104
+Round:  10 User: 4 Train Loss: 210.444
+Round:  10 User: 5 Train Loss: 210.157
+Round:  10 User: 6 Train Loss: 211.723
+Round:  10 User: 7 Train Loss: 213.459
+Round:  10 User: 8 Train Loss: 211.548
+Round:  10 User: 9 Train Loss: 209.688
+Round:  10 User: 10 Train Loss: 208.698
+Round:  10 User: 11 Train Loss: 209.668
+Round:  10 User: 12 Train Loss: 208.562
+Round:  10 User: 13 Train Loss: 211.938
+Round:  10 User: 14 Train Loss: 208.981
+Round:  10 User: 15 Train Loss: 210.811
+Round:  10 User: 16 Train Loss: 209.909
+Round:  10 User: 17 Train Loss: 210.104
+Round:  10 User: 18 Train Loss: 209.961
+Round:  10 User: 19 Train Loss: 210.538
+count 20
+updated norm:  tensor(9.1076, device='cuda:2')
+tensor([8, 8, 8,  ..., 8, 8, 8]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.1447 ARI = 0.0304 F = 0.2915 ACC = 0.1783
+Round:  11 User: 0 Train Loss: 240.534
+Round:  11 User: 1 Train Loss: 241.734
+Round:  11 User: 2 Train Loss: 243.030
+Round:  11 User: 3 Train Loss: 238.018
+Round:  11 User: 4 Train Loss: 240.871
+Round:  11 User: 5 Train Loss: 240.779
+Round:  11 User: 6 Train Loss: 242.732
+Round:  11 User: 7 Train Loss: 244.493
+Round:  11 User: 8 Train Loss: 242.362
+Round:  11 User: 9 Train Loss: 240.293
+Round:  11 User: 10 Train Loss: 238.659
+Round:  11 User: 11 Train Loss: 239.968
+Round:  11 User: 12 Train Loss: 238.540
+Round:  11 User: 13 Train Loss: 242.382
+Round:  11 User: 14 Train Loss: 239.254
+Round:  11 User: 15 Train Loss: 240.920
+Round:  11 User: 16 Train Loss: 239.996
+Round:  11 User: 17 Train Loss: 240.774
+Round:  11 User: 18 Train Loss: 240.358
+Round:  11 User: 19 Train Loss: 240.453
+count 20
+updated norm:  tensor(12.0488, device='cuda:2')
+tensor([8, 8, 8,  ..., 0, 8, 8]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.1779 ARI = 0.0520 F = 0.2928 ACC = 0.1956
+Round:  12 User: 0 Train Loss: 263.137
+Round:  12 User: 1 Train Loss: 263.828
+Round:  12 User: 2 Train Loss: 264.555
+Round:  12 User: 3 Train Loss: 260.686
+Round:  12 User: 4 Train Loss: 263.515
+Round:  12 User: 5 Train Loss: 263.367
+Round:  12 User: 6 Train Loss: 264.803
+Round:  12 User: 7 Train Loss: 266.414
+Round:  12 User: 8 Train Loss: 264.011
+Round:  12 User: 9 Train Loss: 263.178
+Round:  12 User: 10 Train Loss: 261.617
+Round:  12 User: 11 Train Loss: 262.503
+Round:  12 User: 12 Train Loss: 261.726
+Round:  12 User: 13 Train Loss: 264.667
+Round:  12 User: 14 Train Loss: 261.509
+Round:  12 User: 15 Train Loss: 263.373
+Round:  12 User: 16 Train Loss: 262.470
+Round:  12 User: 17 Train Loss: 263.211
+Round:  12 User: 18 Train Loss: 263.226
+Round:  12 User: 19 Train Loss: 263.597
+count 20
+updated norm:  tensor(14.9729, device='cuda:2')
+tensor([8, 8, 8,  ..., 0, 8, 2]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.1999 ARI = 0.0699 F = 0.2963 ACC = 0.2049
+Round:  13 User: 0 Train Loss: 281.874
+Round:  13 User: 1 Train Loss: 282.413
+Round:  13 User: 2 Train Loss: 282.966
+Round:  13 User: 3 Train Loss: 279.144
+Round:  13 User: 4 Train Loss: 282.283
+Round:  13 User: 5 Train Loss: 282.002
+Round:  13 User: 6 Train Loss: 283.831
+Round:  13 User: 7 Train Loss: 284.945
+Round:  13 User: 8 Train Loss: 282.633
+Round:  13 User: 9 Train Loss: 281.631
+Round:  13 User: 10 Train Loss: 280.104
+Round:  13 User: 11 Train Loss: 280.876
+Round:  13 User: 12 Train Loss: 280.419
+Round:  13 User: 13 Train Loss: 283.539
+Round:  13 User: 14 Train Loss: 280.220
+Round:  13 User: 15 Train Loss: 281.788
+Round:  13 User: 16 Train Loss: 281.412
+Round:  13 User: 17 Train Loss: 282.109
+Round:  13 User: 18 Train Loss: 282.201
+Round:  13 User: 19 Train Loss: 282.316
+count 20
+updated norm:  tensor(18.0306, device='cuda:2')
+tensor([8, 8, 2,  ..., 0, 8, 2]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2198 ARI = 0.0925 F = 0.2966 ACC = 0.2163
+Round:  14 User: 0 Train Loss: 270.589
+Round:  14 User: 1 Train Loss: 272.195
+Round:  14 User: 2 Train Loss: 272.928
+Round:  14 User: 3 Train Loss: 267.523
+Round:  14 User: 4 Train Loss: 271.117
+Round:  14 User: 5 Train Loss: 271.004
+Round:  14 User: 6 Train Loss: 273.707
+Round:  14 User: 7 Train Loss: 274.531
+Round:  14 User: 8 Train Loss: 272.910
+Round:  14 User: 9 Train Loss: 270.379
+Round:  14 User: 10 Train Loss: 268.457
+Round:  14 User: 11 Train Loss: 269.519
+Round:  14 User: 12 Train Loss: 268.905
+Round:  14 User: 13 Train Loss: 272.864
+Round:  14 User: 14 Train Loss: 269.922
+Round:  14 User: 15 Train Loss: 270.858
+Round:  14 User: 16 Train Loss: 270.548
+Round:  14 User: 17 Train Loss: 271.835
+Round:  14 User: 18 Train Loss: 270.925
+Round:  14 User: 19 Train Loss: 270.774
+count 20
+updated norm:  tensor(18.3600, device='cuda:2')
+tensor([8, 8, 2,  ..., 3, 4, 2]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2293 ARI = 0.1068 F = 0.2957 ACC = 0.2258
+Round:  15 User: 0 Train Loss: 272.227
+Round:  15 User: 1 Train Loss: 271.853
+Round:  15 User: 2 Train Loss: 272.548
+Round:  15 User: 3 Train Loss: 269.943
+Round:  15 User: 4 Train Loss: 272.288
+Round:  15 User: 5 Train Loss: 272.076
+Round:  15 User: 6 Train Loss: 273.099
+Round:  15 User: 7 Train Loss: 274.654
+Round:  15 User: 8 Train Loss: 271.856
+Round:  15 User: 9 Train Loss: 272.149
+Round:  15 User: 10 Train Loss: 270.846
+Round:  15 User: 11 Train Loss: 271.533
+Round:  15 User: 12 Train Loss: 270.811
+Round:  15 User: 13 Train Loss: 273.313
+Round:  15 User: 14 Train Loss: 269.771
+Round:  15 User: 15 Train Loss: 272.339
+Round:  15 User: 16 Train Loss: 271.079
+Round:  15 User: 17 Train Loss: 271.496
+Round:  15 User: 18 Train Loss: 272.177
+Round:  15 User: 19 Train Loss: 272.748
+count 20
+updated norm:  tensor(16.7533, device='cuda:2')
+tensor([8, 8, 2,  ..., 3, 4, 2]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2313 ARI = 0.1078 F = 0.2954 ACC = 0.2270
+Round:  16 User: 0 Train Loss: 268.001
+Round:  16 User: 1 Train Loss: 268.519
+Round:  16 User: 2 Train Loss: 269.138
+Round:  16 User: 3 Train Loss: 265.087
+Round:  16 User: 4 Train Loss: 268.360
+Round:  16 User: 5 Train Loss: 268.033
+Round:  16 User: 6 Train Loss: 270.374
+Round:  16 User: 7 Train Loss: 270.720
+Round:  16 User: 8 Train Loss: 269.044
+Round:  16 User: 9 Train Loss: 267.741
+Round:  16 User: 10 Train Loss: 266.230
+Round:  16 User: 11 Train Loss: 266.898
+Round:  16 User: 12 Train Loss: 266.560
+Round:  16 User: 13 Train Loss: 269.885
+Round:  16 User: 14 Train Loss: 266.207
+Round:  16 User: 15 Train Loss: 267.801
+Round:  16 User: 16 Train Loss: 267.234
+Round:  16 User: 17 Train Loss: 268.270
+Round:  16 User: 18 Train Loss: 268.518
+Round:  16 User: 19 Train Loss: 268.235
+count 20
+updated norm:  tensor(16.8001, device='cuda:2')
+tensor([2, 8, 2,  ..., 3, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2377 ARI = 0.1249 F = 0.2911 ACC = 0.2400
+Round:  17 User: 0 Train Loss: 230.279
+Round:  17 User: 1 Train Loss: 229.652
+Round:  17 User: 2 Train Loss: 230.275
+Round:  17 User: 3 Train Loss: 228.079
+Round:  17 User: 4 Train Loss: 229.638
+Round:  17 User: 5 Train Loss: 229.462
+Round:  17 User: 6 Train Loss: 230.282
+Round:  17 User: 7 Train Loss: 232.626
+Round:  17 User: 8 Train Loss: 230.081
+Round:  17 User: 9 Train Loss: 229.453
+Round:  17 User: 10 Train Loss: 228.429
+Round:  17 User: 11 Train Loss: 229.333
+Round:  17 User: 12 Train Loss: 228.250
+Round:  17 User: 13 Train Loss: 230.708
+Round:  17 User: 14 Train Loss: 227.398
+Round:  17 User: 15 Train Loss: 230.493
+Round:  17 User: 16 Train Loss: 228.896
+Round:  17 User: 17 Train Loss: 229.171
+Round:  17 User: 18 Train Loss: 229.417
+Round:  17 User: 19 Train Loss: 230.115
+count 20
+updated norm:  tensor(11.8175, device='cuda:2')
+tensor([2, 8, 2,  ..., 3, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2370 ARI = 0.1234 F = 0.2883 ACC = 0.2425
+Round:  18 User: 0 Train Loss: 239.196
+Round:  18 User: 1 Train Loss: 240.315
+Round:  18 User: 2 Train Loss: 241.318
+Round:  18 User: 3 Train Loss: 235.964
+Round:  18 User: 4 Train Loss: 239.615
+Round:  18 User: 5 Train Loss: 239.855
+Round:  18 User: 6 Train Loss: 242.333
+Round:  18 User: 7 Train Loss: 242.727
+Round:  18 User: 8 Train Loss: 240.998
+Round:  18 User: 9 Train Loss: 239.344
+Round:  18 User: 10 Train Loss: 237.226
+Round:  18 User: 11 Train Loss: 238.258
+Round:  18 User: 12 Train Loss: 237.454
+Round:  18 User: 13 Train Loss: 241.238
+Round:  18 User: 14 Train Loss: 238.023
+Round:  18 User: 15 Train Loss: 239.208
+Round:  18 User: 16 Train Loss: 238.603
+Round:  18 User: 17 Train Loss: 240.043
+Round:  18 User: 18 Train Loss: 239.930
+Round:  18 User: 19 Train Loss: 239.382
+count 20
+updated norm:  tensor(11.0700, device='cuda:2')
+tensor([2, 8, 2,  ..., 3, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2386 ARI = 0.1289 F = 0.2851 ACC = 0.2491
+Round:  19 User: 0 Train Loss: 207.505
+Round:  19 User: 1 Train Loss: 207.592
+Round:  19 User: 2 Train Loss: 208.187
+Round:  19 User: 3 Train Loss: 204.623
+Round:  19 User: 4 Train Loss: 207.691
+Round:  19 User: 5 Train Loss: 207.448
+Round:  19 User: 6 Train Loss: 209.269
+Round:  19 User: 7 Train Loss: 209.709
+Round:  19 User: 8 Train Loss: 208.487
+Round:  19 User: 9 Train Loss: 206.773
+Round:  19 User: 10 Train Loss: 205.421
+Round:  19 User: 11 Train Loss: 206.379
+Round:  19 User: 12 Train Loss: 205.847
+Round:  19 User: 13 Train Loss: 208.741
+Round:  19 User: 14 Train Loss: 205.909
+Round:  19 User: 15 Train Loss: 207.285
+Round:  19 User: 16 Train Loss: 206.708
+Round:  19 User: 17 Train Loss: 207.491
+Round:  19 User: 18 Train Loss: 207.765
+Round:  19 User: 19 Train Loss: 207.637
+count 20
+updated norm:  tensor(7.4024, device='cuda:2')
+tensor([2, 8, 2,  ..., 3, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2372 ARI = 0.1311 F = 0.2796 ACC = 0.2561
+Round:  20 User: 0 Train Loss: 203.487
+Round:  20 User: 1 Train Loss: 203.919
+Round:  20 User: 2 Train Loss: 204.917
+Round:  20 User: 3 Train Loss: 200.750
+Round:  20 User: 4 Train Loss: 203.150
+Round:  20 User: 5 Train Loss: 203.404
+Round:  20 User: 6 Train Loss: 205.156
+Round:  20 User: 7 Train Loss: 206.659
+Round:  20 User: 8 Train Loss: 204.391
+Round:  20 User: 9 Train Loss: 203.165
+Round:  20 User: 10 Train Loss: 201.399
+Round:  20 User: 11 Train Loss: 202.739
+Round:  20 User: 12 Train Loss: 201.547
+Round:  20 User: 13 Train Loss: 204.420
+Round:  20 User: 14 Train Loss: 201.216
+Round:  20 User: 15 Train Loss: 203.701
+Round:  20 User: 16 Train Loss: 202.232
+Round:  20 User: 17 Train Loss: 203.221
+Round:  20 User: 18 Train Loss: 203.361
+Round:  20 User: 19 Train Loss: 203.403
+count 20
+updated norm:  tensor(7.2088, device='cuda:2')
+tensor([2, 1, 2,  ..., 3, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2352 ARI = 0.1312 F = 0.2750 ACC = 0.2609
+Round:  21 User: 0 Train Loss: 182.191
+Round:  21 User: 1 Train Loss: 181.981
+Round:  21 User: 2 Train Loss: 182.620
+Round:  21 User: 3 Train Loss: 179.667
+Round:  21 User: 4 Train Loss: 182.028
+Round:  21 User: 5 Train Loss: 181.898
+Round:  21 User: 6 Train Loss: 183.211
+Round:  21 User: 7 Train Loss: 184.165
+Round:  21 User: 8 Train Loss: 182.791
+Round:  21 User: 9 Train Loss: 181.182
+Round:  21 User: 10 Train Loss: 180.099
+Round:  21 User: 11 Train Loss: 181.171
+Round:  21 User: 12 Train Loss: 180.505
+Round:  21 User: 13 Train Loss: 182.782
+Round:  21 User: 14 Train Loss: 180.274
+Round:  21 User: 15 Train Loss: 182.336
+Round:  21 User: 16 Train Loss: 181.157
+Round:  21 User: 17 Train Loss: 181.619
+Round:  21 User: 18 Train Loss: 181.937
+Round:  21 User: 19 Train Loss: 182.268
+count 20
+updated norm:  tensor(6.3004, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2346 ARI = 0.1327 F = 0.2705 ACC = 0.2677
+Round:  22 User: 0 Train Loss: 176.676
+Round:  22 User: 1 Train Loss: 176.743
+Round:  22 User: 2 Train Loss: 177.448
+Round:  22 User: 3 Train Loss: 174.139
+Round:  22 User: 4 Train Loss: 176.443
+Round:  22 User: 5 Train Loss: 176.436
+Round:  22 User: 6 Train Loss: 177.953
+Round:  22 User: 7 Train Loss: 179.097
+Round:  22 User: 8 Train Loss: 177.388
+Round:  22 User: 9 Train Loss: 175.962
+Round:  22 User: 10 Train Loss: 174.637
+Round:  22 User: 11 Train Loss: 175.786
+Round:  22 User: 12 Train Loss: 174.911
+Round:  22 User: 13 Train Loss: 177.339
+Round:  22 User: 14 Train Loss: 174.596
+Round:  22 User: 15 Train Loss: 176.869
+Round:  22 User: 16 Train Loss: 175.461
+Round:  22 User: 17 Train Loss: 176.246
+Round:  22 User: 18 Train Loss: 176.582
+Round:  22 User: 19 Train Loss: 176.755
+count 20
+updated norm:  tensor(6.7169, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2354 ARI = 0.1354 F = 0.2670 ACC = 0.2754
+Round:  23 User: 0 Train Loss: 165.329
+Round:  23 User: 1 Train Loss: 165.253
+Round:  23 User: 2 Train Loss: 165.770
+Round:  23 User: 3 Train Loss: 162.949
+Round:  23 User: 4 Train Loss: 165.189
+Round:  23 User: 5 Train Loss: 164.925
+Round:  23 User: 6 Train Loss: 166.299
+Round:  23 User: 7 Train Loss: 167.282
+Round:  23 User: 8 Train Loss: 165.956
+Round:  23 User: 9 Train Loss: 164.362
+Round:  23 User: 10 Train Loss: 163.326
+Round:  23 User: 11 Train Loss: 164.335
+Round:  23 User: 12 Train Loss: 163.739
+Round:  23 User: 13 Train Loss: 165.893
+Round:  23 User: 14 Train Loss: 163.431
+Round:  23 User: 15 Train Loss: 165.474
+Round:  23 User: 16 Train Loss: 164.207
+Round:  23 User: 17 Train Loss: 164.859
+Round:  23 User: 18 Train Loss: 165.208
+Round:  23 User: 19 Train Loss: 165.486
+count 20
+updated norm:  tensor(7.1337, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2363 ARI = 0.1386 F = 0.2633 ACC = 0.2821
+Round:  24 User: 0 Train Loss: 159.496
+Round:  24 User: 1 Train Loss: 159.477
+Round:  24 User: 2 Train Loss: 159.876
+Round:  24 User: 3 Train Loss: 157.167
+Round:  24 User: 4 Train Loss: 159.467
+Round:  24 User: 5 Train Loss: 159.090
+Round:  24 User: 6 Train Loss: 160.526
+Round:  24 User: 7 Train Loss: 161.317
+Round:  24 User: 8 Train Loss: 160.134
+Round:  24 User: 9 Train Loss: 158.374
+Round:  24 User: 10 Train Loss: 157.499
+Round:  24 User: 11 Train Loss: 158.484
+Round:  24 User: 12 Train Loss: 158.021
+Round:  24 User: 13 Train Loss: 160.152
+Round:  24 User: 14 Train Loss: 157.778
+Round:  24 User: 15 Train Loss: 159.632
+Round:  24 User: 16 Train Loss: 158.564
+Round:  24 User: 17 Train Loss: 159.195
+Round:  24 User: 18 Train Loss: 159.427
+Round:  24 User: 19 Train Loss: 159.710
+count 20
+updated norm:  tensor(7.6458, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2388 ARI = 0.1442 F = 0.2614 ACC = 0.2890
+Round:  25 User: 0 Train Loss: 164.766
+Round:  25 User: 1 Train Loss: 165.773
+Round:  25 User: 2 Train Loss: 166.156
+Round:  25 User: 3 Train Loss: 162.474
+Round:  25 User: 4 Train Loss: 165.415
+Round:  25 User: 5 Train Loss: 164.948
+Round:  25 User: 6 Train Loss: 166.990
+Round:  25 User: 7 Train Loss: 167.421
+Round:  25 User: 8 Train Loss: 165.917
+Round:  25 User: 9 Train Loss: 163.790
+Round:  25 User: 10 Train Loss: 163.007
+Round:  25 User: 11 Train Loss: 164.046
+Round:  25 User: 12 Train Loss: 163.572
+Round:  25 User: 13 Train Loss: 165.953
+Round:  25 User: 14 Train Loss: 163.716
+Round:  25 User: 15 Train Loss: 165.284
+Round:  25 User: 16 Train Loss: 164.405
+Round:  25 User: 17 Train Loss: 165.704
+Round:  25 User: 18 Train Loss: 165.316
+Round:  25 User: 19 Train Loss: 165.275
+count 20
+updated norm:  tensor(8.1347, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2423 ARI = 0.1507 F = 0.2613 ACC = 0.3003
+Round:  26 User: 0 Train Loss: 183.795
+Round:  26 User: 1 Train Loss: 186.114
+Round:  26 User: 2 Train Loss: 187.156
+Round:  26 User: 3 Train Loss: 181.652
+Round:  26 User: 4 Train Loss: 185.196
+Round:  26 User: 5 Train Loss: 185.244
+Round:  26 User: 6 Train Loss: 187.811
+Round:  26 User: 7 Train Loss: 187.999
+Round:  26 User: 8 Train Loss: 185.550
+Round:  26 User: 9 Train Loss: 183.555
+Round:  26 User: 10 Train Loss: 182.579
+Round:  26 User: 11 Train Loss: 183.655
+Round:  26 User: 12 Train Loss: 182.776
+Round:  26 User: 13 Train Loss: 185.512
+Round:  26 User: 14 Train Loss: 183.550
+Round:  26 User: 15 Train Loss: 185.198
+Round:  26 User: 16 Train Loss: 183.844
+Round:  26 User: 17 Train Loss: 186.345
+Round:  26 User: 18 Train Loss: 185.516
+Round:  26 User: 19 Train Loss: 184.883
+count 20
+updated norm:  tensor(8.6558, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2447 ARI = 0.1552 F = 0.2628 ACC = 0.3067
+Round:  27 User: 0 Train Loss: 193.943
+Round:  27 User: 1 Train Loss: 194.261
+Round:  27 User: 2 Train Loss: 196.171
+Round:  27 User: 3 Train Loss: 191.744
+Round:  27 User: 4 Train Loss: 193.948
+Round:  27 User: 5 Train Loss: 194.750
+Round:  27 User: 6 Train Loss: 196.242
+Round:  27 User: 7 Train Loss: 197.117
+Round:  27 User: 8 Train Loss: 194.420
+Round:  27 User: 9 Train Loss: 193.743
+Round:  27 User: 10 Train Loss: 192.135
+Round:  27 User: 11 Train Loss: 193.503
+Round:  27 User: 12 Train Loss: 192.204
+Round:  27 User: 13 Train Loss: 194.484
+Round:  27 User: 14 Train Loss: 192.397
+Round:  27 User: 15 Train Loss: 194.921
+Round:  27 User: 16 Train Loss: 193.017
+Round:  27 User: 17 Train Loss: 194.468
+Round:  27 User: 18 Train Loss: 194.742
+Round:  27 User: 19 Train Loss: 194.481
+count 20
+updated norm:  tensor(8.2858, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2494 ARI = 0.1586 F = 0.2669 ACC = 0.3098
+Round:  28 User: 0 Train Loss: 174.421
+Round:  28 User: 1 Train Loss: 173.192
+Round:  28 User: 2 Train Loss: 174.265
+Round:  28 User: 3 Train Loss: 172.227
+Round:  28 User: 4 Train Loss: 173.588
+Round:  28 User: 5 Train Loss: 173.923
+Round:  28 User: 6 Train Loss: 174.271
+Round:  28 User: 7 Train Loss: 175.692
+Round:  28 User: 8 Train Loss: 174.152
+Round:  28 User: 9 Train Loss: 173.502
+Round:  28 User: 10 Train Loss: 172.588
+Round:  28 User: 11 Train Loss: 173.639
+Round:  28 User: 12 Train Loss: 172.702
+Round:  28 User: 13 Train Loss: 174.345
+Round:  28 User: 14 Train Loss: 172.240
+Round:  28 User: 15 Train Loss: 174.723
+Round:  28 User: 16 Train Loss: 172.950
+Round:  28 User: 17 Train Loss: 173.046
+Round:  28 User: 18 Train Loss: 173.651
+Round:  28 User: 19 Train Loss: 174.283
+count 20
+updated norm:  tensor(7.1707, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2530 ARI = 0.1619 F = 0.2697 ACC = 0.3121
+Round:  29 User: 0 Train Loss: 163.474
+Round:  29 User: 1 Train Loss: 163.109
+Round:  29 User: 2 Train Loss: 163.660
+Round:  29 User: 3 Train Loss: 161.230
+Round:  29 User: 4 Train Loss: 163.566
+Round:  29 User: 5 Train Loss: 162.857
+Round:  29 User: 6 Train Loss: 163.807
+Round:  29 User: 7 Train Loss: 164.884
+Round:  29 User: 8 Train Loss: 163.662
+Round:  29 User: 9 Train Loss: 162.530
+Round:  29 User: 10 Train Loss: 161.870
+Round:  29 User: 11 Train Loss: 162.916
+Round:  29 User: 12 Train Loss: 162.287
+Round:  29 User: 13 Train Loss: 163.818
+Round:  29 User: 14 Train Loss: 161.983
+Round:  29 User: 15 Train Loss: 163.797
+Round:  29 User: 16 Train Loss: 162.566
+Round:  29 User: 17 Train Loss: 163.175
+Round:  29 User: 18 Train Loss: 162.954
+Round:  29 User: 19 Train Loss: 163.757
+count 20
+updated norm:  tensor(6.2897, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2536 ARI = 0.1643 F = 0.2699 ACC = 0.3147
+Round:  30 User: 0 Train Loss: 165.363
+Round:  30 User: 1 Train Loss: 165.760
+Round:  30 User: 2 Train Loss: 166.553
+Round:  30 User: 3 Train Loss: 163.262
+Round:  30 User: 4 Train Loss: 165.860
+Round:  30 User: 5 Train Loss: 165.291
+Round:  30 User: 6 Train Loss: 166.657
+Round:  30 User: 7 Train Loss: 167.468
+Round:  30 User: 8 Train Loss: 165.939
+Round:  30 User: 9 Train Loss: 164.605
+Round:  30 User: 10 Train Loss: 163.946
+Round:  30 User: 11 Train Loss: 164.864
+Round:  30 User: 12 Train Loss: 164.144
+Round:  30 User: 13 Train Loss: 166.093
+Round:  30 User: 14 Train Loss: 164.288
+Round:  30 User: 15 Train Loss: 166.043
+Round:  30 User: 16 Train Loss: 164.669
+Round:  30 User: 17 Train Loss: 165.938
+Round:  30 User: 18 Train Loss: 165.569
+Round:  30 User: 19 Train Loss: 165.844
+count 20
+updated norm:  tensor(5.5272, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2537 ARI = 0.1657 F = 0.2699 ACC = 0.3166
+Round:  31 User: 0 Train Loss: 168.590
+Round:  31 User: 1 Train Loss: 168.868
+Round:  31 User: 2 Train Loss: 170.021
+Round:  31 User: 3 Train Loss: 166.552
+Round:  31 User: 4 Train Loss: 168.855
+Round:  31 User: 5 Train Loss: 168.613
+Round:  31 User: 6 Train Loss: 170.092
+Round:  31 User: 7 Train Loss: 170.967
+Round:  31 User: 8 Train Loss: 169.103
+Round:  31 User: 9 Train Loss: 167.943
+Round:  31 User: 10 Train Loss: 167.092
+Round:  31 User: 11 Train Loss: 168.253
+Round:  31 User: 12 Train Loss: 167.327
+Round:  31 User: 13 Train Loss: 169.330
+Round:  31 User: 14 Train Loss: 167.343
+Round:  31 User: 15 Train Loss: 169.268
+Round:  31 User: 16 Train Loss: 167.980
+Round:  31 User: 17 Train Loss: 169.246
+Round:  31 User: 18 Train Loss: 168.807
+Round:  31 User: 19 Train Loss: 169.122
+count 20
+updated norm:  tensor(4.8670, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2530 ARI = 0.1664 F = 0.2699 ACC = 0.3176
+Round:  32 User: 0 Train Loss: 166.353
+Round:  32 User: 1 Train Loss: 166.580
+Round:  32 User: 2 Train Loss: 167.731
+Round:  32 User: 3 Train Loss: 164.404
+Round:  32 User: 4 Train Loss: 166.567
+Round:  32 User: 5 Train Loss: 166.475
+Round:  32 User: 6 Train Loss: 167.742
+Round:  32 User: 7 Train Loss: 168.692
+Round:  32 User: 8 Train Loss: 166.825
+Round:  32 User: 9 Train Loss: 165.654
+Round:  32 User: 10 Train Loss: 164.969
+Round:  32 User: 11 Train Loss: 165.991
+Round:  32 User: 12 Train Loss: 164.946
+Round:  32 User: 13 Train Loss: 167.080
+Round:  32 User: 14 Train Loss: 165.114
+Round:  32 User: 15 Train Loss: 167.126
+Round:  32 User: 16 Train Loss: 165.631
+Round:  32 User: 17 Train Loss: 166.798
+Round:  32 User: 18 Train Loss: 166.584
+Round:  32 User: 19 Train Loss: 166.787
+count 20
+updated norm:  tensor(4.4788, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2536 ARI = 0.1679 F = 0.2710 ACC = 0.3184
+Round:  33 User: 0 Train Loss: 165.784
+Round:  33 User: 1 Train Loss: 165.936
+Round:  33 User: 2 Train Loss: 167.151
+Round:  33 User: 3 Train Loss: 163.764
+Round:  33 User: 4 Train Loss: 165.916
+Round:  33 User: 5 Train Loss: 165.720
+Round:  33 User: 6 Train Loss: 167.153
+Round:  33 User: 7 Train Loss: 168.129
+Round:  33 User: 8 Train Loss: 166.141
+Round:  33 User: 9 Train Loss: 165.090
+Round:  33 User: 10 Train Loss: 164.304
+Round:  33 User: 11 Train Loss: 165.544
+Round:  33 User: 12 Train Loss: 164.456
+Round:  33 User: 13 Train Loss: 166.465
+Round:  33 User: 14 Train Loss: 164.418
+Round:  33 User: 15 Train Loss: 166.449
+Round:  33 User: 16 Train Loss: 165.113
+Round:  33 User: 17 Train Loss: 166.340
+Round:  33 User: 18 Train Loss: 165.860
+Round:  33 User: 19 Train Loss: 166.268
+count 20
+updated norm:  tensor(4.2169, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2526 ARI = 0.1676 F = 0.2705 ACC = 0.3176
+Round:  34 User: 0 Train Loss: 162.936
+Round:  34 User: 1 Train Loss: 163.143
+Round:  34 User: 2 Train Loss: 164.235
+Round:  34 User: 3 Train Loss: 161.033
+Round:  34 User: 4 Train Loss: 163.179
+Round:  34 User: 5 Train Loss: 162.967
+Round:  34 User: 6 Train Loss: 164.189
+Round:  34 User: 7 Train Loss: 165.194
+Round:  34 User: 8 Train Loss: 163.321
+Round:  34 User: 9 Train Loss: 162.174
+Round:  34 User: 10 Train Loss: 161.627
+Round:  34 User: 11 Train Loss: 162.594
+Round:  34 User: 12 Train Loss: 161.511
+Round:  34 User: 13 Train Loss: 163.672
+Round:  34 User: 14 Train Loss: 161.664
+Round:  34 User: 15 Train Loss: 163.710
+Round:  34 User: 16 Train Loss: 162.169
+Round:  34 User: 17 Train Loss: 163.352
+Round:  34 User: 18 Train Loss: 163.080
+Round:  34 User: 19 Train Loss: 163.341
+count 20
+updated norm:  tensor(4.2490, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2521 ARI = 0.1677 F = 0.2701 ACC = 0.3170
+Round:  35 User: 0 Train Loss: 163.534
+Round:  35 User: 1 Train Loss: 163.752
+Round:  35 User: 2 Train Loss: 165.026
+Round:  35 User: 3 Train Loss: 161.547
+Round:  35 User: 4 Train Loss: 163.718
+Round:  35 User: 5 Train Loss: 163.484
+Round:  35 User: 6 Train Loss: 164.994
+Round:  35 User: 7 Train Loss: 165.956
+Round:  35 User: 8 Train Loss: 163.848
+Round:  35 User: 9 Train Loss: 162.846
+Round:  35 User: 10 Train Loss: 162.099
+Round:  35 User: 11 Train Loss: 163.362
+Round:  35 User: 12 Train Loss: 162.211
+Round:  35 User: 13 Train Loss: 164.270
+Round:  35 User: 14 Train Loss: 162.186
+Round:  35 User: 15 Train Loss: 164.226
+Round:  35 User: 16 Train Loss: 162.893
+Round:  35 User: 17 Train Loss: 164.258
+Round:  35 User: 18 Train Loss: 163.593
+Round:  35 User: 19 Train Loss: 164.065
+count 20
+updated norm:  tensor(4.2599, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2512 ARI = 0.1670 F = 0.2689 ACC = 0.3162
+Round:  36 User: 0 Train Loss: 161.015
+Round:  36 User: 1 Train Loss: 161.250
+Round:  36 User: 2 Train Loss: 162.368
+Round:  36 User: 3 Train Loss: 159.180
+Round:  36 User: 4 Train Loss: 161.314
+Round:  36 User: 5 Train Loss: 161.092
+Round:  36 User: 6 Train Loss: 162.295
+Round:  36 User: 7 Train Loss: 163.302
+Round:  36 User: 8 Train Loss: 161.393
+Round:  36 User: 9 Train Loss: 160.245
+Round:  36 User: 10 Train Loss: 159.770
+Round:  36 User: 11 Train Loss: 160.711
+Round:  36 User: 12 Train Loss: 159.582
+Round:  36 User: 13 Train Loss: 161.816
+Round:  36 User: 14 Train Loss: 159.762
+Round:  36 User: 15 Train Loss: 161.801
+Round:  36 User: 16 Train Loss: 160.275
+Round:  36 User: 17 Train Loss: 161.472
+Round:  36 User: 18 Train Loss: 161.170
+Round:  36 User: 19 Train Loss: 161.452
+count 20
+updated norm:  tensor(4.4383, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 3, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2498 ARI = 0.1668 F = 0.2683 ACC = 0.3150
+Round:  37 User: 0 Train Loss: 162.144
+Round:  37 User: 1 Train Loss: 162.401
+Round:  37 User: 2 Train Loss: 163.765
+Round:  37 User: 3 Train Loss: 160.176
+Round:  37 User: 4 Train Loss: 162.354
+Round:  37 User: 5 Train Loss: 162.139
+Round:  37 User: 6 Train Loss: 163.691
+Round:  37 User: 7 Train Loss: 164.637
+Round:  37 User: 8 Train Loss: 162.422
+Round:  37 User: 9 Train Loss: 161.472
+Round:  37 User: 10 Train Loss: 160.728
+Round:  37 User: 11 Train Loss: 162.045
+Round:  37 User: 12 Train Loss: 160.811
+Round:  37 User: 13 Train Loss: 162.925
+Round:  37 User: 14 Train Loss: 160.826
+Round:  37 User: 15 Train Loss: 162.834
+Round:  37 User: 16 Train Loss: 161.552
+Round:  37 User: 17 Train Loss: 162.984
+Round:  37 User: 18 Train Loss: 162.190
+Round:  37 User: 19 Train Loss: 162.715
+count 20
+updated norm:  tensor(4.4542, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 0, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2495 ARI = 0.1671 F = 0.2680 ACC = 0.3145
+Round:  38 User: 0 Train Loss: 159.277
+Round:  38 User: 1 Train Loss: 159.514
+Round:  38 User: 2 Train Loss: 160.627
+Round:  38 User: 3 Train Loss: 157.483
+Round:  38 User: 4 Train Loss: 159.611
+Round:  38 User: 5 Train Loss: 159.358
+Round:  38 User: 6 Train Loss: 160.525
+Round:  38 User: 7 Train Loss: 161.527
+Round:  38 User: 8 Train Loss: 159.635
+Round:  38 User: 9 Train Loss: 158.484
+Round:  38 User: 10 Train Loss: 158.075
+Round:  38 User: 11 Train Loss: 158.986
+Round:  38 User: 12 Train Loss: 157.826
+Round:  38 User: 13 Train Loss: 160.118
+Round:  38 User: 14 Train Loss: 158.042
+Round:  38 User: 15 Train Loss: 160.040
+Round:  38 User: 16 Train Loss: 158.546
+Round:  38 User: 17 Train Loss: 159.722
+Round:  38 User: 18 Train Loss: 159.425
+Round:  38 User: 19 Train Loss: 159.713
+count 20
+updated norm:  tensor(4.5385, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 0, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2495 ARI = 0.1676 F = 0.2680 ACC = 0.3137
+Round:  39 User: 0 Train Loss: 160.326
+Round:  39 User: 1 Train Loss: 160.613
+Round:  39 User: 2 Train Loss: 162.035
+Round:  39 User: 3 Train Loss: 158.348
+Round:  39 User: 4 Train Loss: 160.558
+Round:  39 User: 5 Train Loss: 160.314
+Round:  39 User: 6 Train Loss: 161.903
+Round:  39 User: 7 Train Loss: 162.823
+Round:  39 User: 8 Train Loss: 160.543
+Round:  39 User: 9 Train Loss: 159.662
+Round:  39 User: 10 Train Loss: 158.909
+Round:  39 User: 11 Train Loss: 160.262
+Round:  39 User: 12 Train Loss: 158.984
+Round:  39 User: 13 Train Loss: 161.123
+Round:  39 User: 14 Train Loss: 159.022
+Round:  39 User: 15 Train Loss: 160.993
+Round:  39 User: 16 Train Loss: 159.746
+Round:  39 User: 17 Train Loss: 161.263
+Round:  39 User: 18 Train Loss: 160.334
+Round:  39 User: 19 Train Loss: 160.907
+count 20
+updated norm:  tensor(4.3876, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 0, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2481 ARI = 0.1668 F = 0.2667 ACC = 0.3126
+Round:  40 User: 0 Train Loss: 156.668
+Round:  40 User: 1 Train Loss: 156.919
+Round:  40 User: 2 Train Loss: 157.987
+Round:  40 User: 3 Train Loss: 154.909
+Round:  40 User: 4 Train Loss: 157.048
+Round:  40 User: 5 Train Loss: 156.724
+Round:  40 User: 6 Train Loss: 157.852
+Round:  40 User: 7 Train Loss: 158.834
+Round:  40 User: 8 Train Loss: 157.015
+Round:  40 User: 9 Train Loss: 155.858
+Round:  40 User: 10 Train Loss: 155.493
+Round:  40 User: 11 Train Loss: 156.359
+Round:  40 User: 12 Train Loss: 155.214
+Round:  40 User: 13 Train Loss: 157.532
+Round:  40 User: 14 Train Loss: 155.429
+Round:  40 User: 15 Train Loss: 157.394
+Round:  40 User: 16 Train Loss: 155.915
+Round:  40 User: 17 Train Loss: 157.081
+Round:  40 User: 18 Train Loss: 156.816
+Round:  40 User: 19 Train Loss: 157.099
+count 20
+updated norm:  tensor(4.2866, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 0, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2485 ARI = 0.1673 F = 0.2668 ACC = 0.3123
+Round:  41 User: 0 Train Loss: 157.270
+Round:  41 User: 1 Train Loss: 157.584
+Round:  41 User: 2 Train Loss: 159.031
+Round:  41 User: 3 Train Loss: 155.295
+Round:  41 User: 4 Train Loss: 157.538
+Round:  41 User: 5 Train Loss: 157.238
+Round:  41 User: 6 Train Loss: 158.831
+Round:  41 User: 7 Train Loss: 159.719
+Round:  41 User: 8 Train Loss: 157.454
+Round:  41 User: 9 Train Loss: 156.633
+Round:  41 User: 10 Train Loss: 155.854
+Round:  41 User: 11 Train Loss: 157.233
+Round:  41 User: 12 Train Loss: 155.939
+Round:  41 User: 13 Train Loss: 158.061
+Round:  41 User: 14 Train Loss: 155.963
+Round:  41 User: 15 Train Loss: 157.896
+Round:  41 User: 16 Train Loss: 156.680
+Round:  41 User: 17 Train Loss: 158.236
+Round:  41 User: 18 Train Loss: 157.257
+Round:  41 User: 19 Train Loss: 157.861
+count 20
+updated norm:  tensor(3.9405, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 0, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2479 ARI = 0.1673 F = 0.2663 ACC = 0.3120
+Round:  42 User: 0 Train Loss: 152.818
+Round:  42 User: 1 Train Loss: 153.057
+Round:  42 User: 2 Train Loss: 154.050
+Round:  42 User: 3 Train Loss: 151.086
+Round:  42 User: 4 Train Loss: 153.222
+Round:  42 User: 5 Train Loss: 152.818
+Round:  42 User: 6 Train Loss: 153.886
+Round:  42 User: 7 Train Loss: 154.843
+Round:  42 User: 8 Train Loss: 153.180
+Round:  42 User: 9 Train Loss: 152.010
+Round:  42 User: 10 Train Loss: 151.652
+Round:  42 User: 11 Train Loss: 152.490
+Round:  42 User: 12 Train Loss: 151.381
+Round:  42 User: 13 Train Loss: 153.665
+Round:  42 User: 14 Train Loss: 151.554
+Round:  42 User: 15 Train Loss: 153.467
+Round:  42 User: 16 Train Loss: 152.034
+Round:  42 User: 17 Train Loss: 153.125
+Round:  42 User: 18 Train Loss: 152.965
+Round:  42 User: 19 Train Loss: 153.240
+count 20
+updated norm:  tensor(3.7198, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 0, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2493 ARI = 0.1689 F = 0.2676 ACC = 0.3122
+Round:  43 User: 0 Train Loss: 152.759
+Round:  43 User: 1 Train Loss: 153.034
+Round:  43 User: 2 Train Loss: 154.423
+Round:  43 User: 3 Train Loss: 150.779
+Round:  43 User: 4 Train Loss: 153.052
+Round:  43 User: 5 Train Loss: 152.632
+Round:  43 User: 6 Train Loss: 154.169
+Round:  43 User: 7 Train Loss: 155.024
+Round:  43 User: 8 Train Loss: 152.909
+Round:  43 User: 9 Train Loss: 152.124
+Round:  43 User: 10 Train Loss: 151.351
+Round:  43 User: 11 Train Loss: 152.698
+Round:  43 User: 12 Train Loss: 151.438
+Round:  43 User: 13 Train Loss: 153.494
+Round:  43 User: 14 Train Loss: 151.422
+Round:  43 User: 15 Train Loss: 153.312
+Round:  43 User: 16 Train Loss: 152.117
+Round:  43 User: 17 Train Loss: 153.631
+Round:  43 User: 18 Train Loss: 152.692
+Round:  43 User: 19 Train Loss: 153.313
+count 20
+updated norm:  tensor(3.2671, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 0, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2487 ARI = 0.1688 F = 0.2670 ACC = 0.3116
+Round:  44 User: 0 Train Loss: 148.062
+Round:  44 User: 1 Train Loss: 148.253
+Round:  44 User: 2 Train Loss: 149.122
+Round:  44 User: 3 Train Loss: 146.317
+Round:  44 User: 4 Train Loss: 148.460
+Round:  44 User: 5 Train Loss: 147.928
+Round:  44 User: 6 Train Loss: 148.953
+Round:  44 User: 7 Train Loss: 149.865
+Round:  44 User: 8 Train Loss: 148.399
+Round:  44 User: 9 Train Loss: 147.222
+Round:  44 User: 10 Train Loss: 146.870
+Round:  44 User: 11 Train Loss: 147.670
+Round:  44 User: 12 Train Loss: 146.651
+Round:  44 User: 13 Train Loss: 148.849
+Round:  44 User: 14 Train Loss: 146.739
+Round:  44 User: 15 Train Loss: 148.599
+Round:  44 User: 16 Train Loss: 147.224
+Round:  44 User: 17 Train Loss: 148.249
+Round:  44 User: 18 Train Loss: 148.150
+Round:  44 User: 19 Train Loss: 148.443
+count 20
+updated norm:  tensor(3.0529, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 0, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2487 ARI = 0.1688 F = 0.2668 ACC = 0.3110
+Round:  45 User: 0 Train Loss: 147.563
+Round:  45 User: 1 Train Loss: 147.809
+Round:  45 User: 2 Train Loss: 149.061
+Round:  45 User: 3 Train Loss: 145.600
+Round:  45 User: 4 Train Loss: 147.897
+Round:  45 User: 5 Train Loss: 147.327
+Round:  45 User: 6 Train Loss: 148.800
+Round:  45 User: 7 Train Loss: 149.592
+Round:  45 User: 8 Train Loss: 147.699
+Round:  45 User: 9 Train Loss: 146.889
+Round:  45 User: 10 Train Loss: 146.162
+Round:  45 User: 11 Train Loss: 147.403
+Round:  45 User: 12 Train Loss: 146.266
+Round:  45 User: 13 Train Loss: 148.259
+Round:  45 User: 14 Train Loss: 146.192
+Round:  45 User: 15 Train Loss: 148.049
+Round:  45 User: 16 Train Loss: 146.845
+Round:  45 User: 17 Train Loss: 148.312
+Round:  45 User: 18 Train Loss: 147.471
+Round:  45 User: 19 Train Loss: 148.077
+count 20
+updated norm:  tensor(2.6052, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 0, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2483 ARI = 0.1679 F = 0.2656 ACC = 0.3103
+Round:  46 User: 0 Train Loss: 143.568
+Round:  46 User: 1 Train Loss: 143.827
+Round:  46 User: 2 Train Loss: 144.623
+Round:  46 User: 3 Train Loss: 141.832
+Round:  46 User: 4 Train Loss: 143.982
+Round:  46 User: 5 Train Loss: 143.398
+Round:  46 User: 6 Train Loss: 144.483
+Round:  46 User: 7 Train Loss: 145.293
+Round:  46 User: 8 Train Loss: 143.946
+Round:  46 User: 9 Train Loss: 142.743
+Round:  46 User: 10 Train Loss: 142.341
+Round:  46 User: 11 Train Loss: 143.134
+Round:  46 User: 12 Train Loss: 142.211
+Round:  46 User: 13 Train Loss: 144.371
+Round:  46 User: 14 Train Loss: 142.221
+Round:  46 User: 15 Train Loss: 144.027
+Round:  46 User: 16 Train Loss: 142.724
+Round:  46 User: 17 Train Loss: 143.782
+Round:  46 User: 18 Train Loss: 143.687
+Round:  46 User: 19 Train Loss: 143.978
+count 20
+updated norm:  tensor(2.5313, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 0, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2487 ARI = 0.1684 F = 0.2657 ACC = 0.3105
+Round:  47 User: 0 Train Loss: 143.173
+Round:  47 User: 1 Train Loss: 143.430
+Round:  47 User: 2 Train Loss: 144.560
+Round:  47 User: 3 Train Loss: 141.278
+Round:  47 User: 4 Train Loss: 143.509
+Round:  47 User: 5 Train Loss: 142.941
+Round:  47 User: 6 Train Loss: 144.342
+Round:  47 User: 7 Train Loss: 145.052
+Round:  47 User: 8 Train Loss: 143.417
+Round:  47 User: 9 Train Loss: 142.497
+Round:  47 User: 10 Train Loss: 141.779
+Round:  47 User: 11 Train Loss: 142.954
+Round:  47 User: 12 Train Loss: 141.889
+Round:  47 User: 13 Train Loss: 143.907
+Round:  47 User: 14 Train Loss: 141.802
+Round:  47 User: 15 Train Loss: 143.589
+Round:  47 User: 16 Train Loss: 142.422
+Round:  47 User: 17 Train Loss: 143.731
+Round:  47 User: 18 Train Loss: 143.172
+Round:  47 User: 19 Train Loss: 143.689
+count 20
+updated norm:  tensor(2.2852, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 0, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2494 ARI = 0.1701 F = 0.2668 ACC = 0.3121
+Round:  48 User: 0 Train Loss: 140.592
+Round:  48 User: 1 Train Loss: 140.844
+Round:  48 User: 2 Train Loss: 141.680
+Round:  48 User: 3 Train Loss: 138.817
+Round:  48 User: 4 Train Loss: 140.898
+Round:  48 User: 5 Train Loss: 140.449
+Round:  48 User: 6 Train Loss: 141.593
+Round:  48 User: 7 Train Loss: 142.311
+Round:  48 User: 8 Train Loss: 141.067
+Round:  48 User: 9 Train Loss: 139.820
+Round:  48 User: 10 Train Loss: 139.270
+Round:  48 User: 11 Train Loss: 140.214
+Round:  48 User: 12 Train Loss: 139.237
+Round:  48 User: 13 Train Loss: 141.412
+Round:  48 User: 14 Train Loss: 139.226
+Round:  48 User: 15 Train Loss: 140.924
+Round:  48 User: 16 Train Loss: 139.791
+Round:  48 User: 17 Train Loss: 140.729
+Round:  48 User: 18 Train Loss: 140.762
+Round:  48 User: 19 Train Loss: 141.041
+count 20
+updated norm:  tensor(2.4929, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 0, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2506 ARI = 0.1724 F = 0.2688 ACC = 0.3136
+Round:  49 User: 0 Train Loss: 140.207
+Round:  49 User: 1 Train Loss: 140.483
+Round:  49 User: 2 Train Loss: 141.556
+Round:  49 User: 3 Train Loss: 138.295
+Round:  49 User: 4 Train Loss: 140.399
+Round:  49 User: 5 Train Loss: 140.046
+Round:  49 User: 6 Train Loss: 141.419
+Round:  49 User: 7 Train Loss: 142.073
+Round:  49 User: 8 Train Loss: 140.638
+Round:  49 User: 9 Train Loss: 139.545
+Round:  49 User: 10 Train Loss: 138.794
+Round:  49 User: 11 Train Loss: 139.939
+Round:  49 User: 12 Train Loss: 138.847
+Round:  49 User: 13 Train Loss: 141.029
+Round:  49 User: 14 Train Loss: 138.799
+Round:  49 User: 15 Train Loss: 140.520
+Round:  49 User: 16 Train Loss: 139.432
+Round:  49 User: 17 Train Loss: 140.541
+Round:  49 User: 18 Train Loss: 140.330
+Round:  49 User: 19 Train Loss: 140.728
+count 20
+updated norm:  tensor(2.4552, device='cuda:2')
+tensor([2, 0, 2,  ..., 0, 0, 3]) [1 3 9 ... 0 5 9]
+### Creating features from model ###
+Global  NMI = 0.2497 ARI = 0.1721 F = 0.2682 ACC = 0.3144

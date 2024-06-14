@@ -1,0 +1,895 @@
+nohup: ignoring input
+cuda:3
+Namespace(batch_size=1496, bn_sparsity=0.9, classes_per_user=8, clip_bound=1.8, clipping_style='all-layer', cluster_project_lr=0.04, cluster_temperature=1.0, dataset='CIFAR-10', dataset_dir='/home/chenyannan/fast-differential-privacy-main/examples/image_classification/data', downsample_lr=0.04, epochs=40, epsilon=8, feature_dim=128, global_lr=1.06, image_size=224, instance_project_lr=0.04, instance_temperature=0.5, kl_threshold=0.7, linear_sparsity=0.75, local_epoch=3, loss_KL=0.5, mini_bs=136, miu=0, model_path='save/Cifar-100-DPFL-ResNet18-noiid-classes_per_user8-num_class8-per2', momentum=0.3, n_clients=40, num_class=8, r_conv=6, r_proj=16, reload=False, resnet='ResNet18_lora', resnet_lr=0.1, sample_ratio=1, seed=17, smooth_K=6, smooth_loss_radius=2, smooth_step=0, start_epoch=31, test_image_size=256, trans_lr=0.02, weight_decay=1e-05, workers=8)
+59840 59840
+save/Cifar-10-DPFL-ResNet18-blur-lus-kl-threshold-lorabegin/checkpoint_51.tar
+save/Cifar-100-DPFL-ResNet18-noiid-classes_per_user8-num_class8-per2
+resnet.conv1.weight 9408 torch.Size([64, 3, 7, 7])
+resnet.conv1.lora_A 882 torch.Size([42, 21])
+resnet.conv1.lora_B 18816 torch.Size([448, 42])
+resnet.bn1.weight 64 torch.Size([64])
+resnet.bn1.bias 64 torch.Size([64])
+resnet.layer1.0.conv1.weight 36864 torch.Size([64, 64, 3, 3])
+resnet.layer1.0.conv1.lora_A 3456 torch.Size([18, 192])
+resnet.layer1.0.conv1.lora_B 3456 torch.Size([192, 18])
+resnet.layer1.0.bn1.weight 64 torch.Size([64])
+resnet.layer1.0.bn1.bias 64 torch.Size([64])
+resnet.layer1.0.conv2.weight 36864 torch.Size([64, 64, 3, 3])
+resnet.layer1.0.conv2.lora_A 3456 torch.Size([18, 192])
+resnet.layer1.0.conv2.lora_B 3456 torch.Size([192, 18])
+resnet.layer1.0.bn2.weight 64 torch.Size([64])
+resnet.layer1.0.bn2.bias 64 torch.Size([64])
+resnet.layer1.1.conv1.weight 36864 torch.Size([64, 64, 3, 3])
+resnet.layer1.1.bn1.weight 64 torch.Size([64])
+resnet.layer1.1.bn1.bias 64 torch.Size([64])
+resnet.layer1.1.conv2.weight 36864 torch.Size([64, 64, 3, 3])
+resnet.layer1.1.bn2.weight 64 torch.Size([64])
+resnet.layer1.1.bn2.bias 64 torch.Size([64])
+resnet.layer2.0.conv1.weight 73728 torch.Size([128, 64, 3, 3])
+resnet.layer2.0.conv1.lora_A 3456 torch.Size([18, 192])
+resnet.layer2.0.conv1.lora_B 6912 torch.Size([384, 18])
+resnet.layer2.0.bn1.weight 128 torch.Size([128])
+resnet.layer2.0.bn1.bias 128 torch.Size([128])
+resnet.layer2.0.conv2.weight 147456 torch.Size([128, 128, 3, 3])
+resnet.layer2.0.conv2.lora_A 6912 torch.Size([18, 384])
+resnet.layer2.0.conv2.lora_B 6912 torch.Size([384, 18])
+resnet.layer2.0.bn2.weight 128 torch.Size([128])
+resnet.layer2.0.bn2.bias 128 torch.Size([128])
+resnet.layer2.0.downsample.0.weight 8192 torch.Size([128, 64, 1, 1])
+resnet.layer2.0.downsample.0.lora_A 2304 torch.Size([36, 64])
+resnet.layer2.0.downsample.0.lora_B 4608 torch.Size([128, 36])
+resnet.layer2.0.downsample.1.weight 128 torch.Size([128])
+resnet.layer2.0.downsample.1.bias 128 torch.Size([128])
+resnet.layer2.1.conv1.weight 147456 torch.Size([128, 128, 3, 3])
+resnet.layer2.1.bn1.weight 128 torch.Size([128])
+resnet.layer2.1.bn1.bias 128 torch.Size([128])
+resnet.layer2.1.conv2.weight 147456 torch.Size([128, 128, 3, 3])
+resnet.layer2.1.bn2.weight 128 torch.Size([128])
+resnet.layer2.1.bn2.bias 128 torch.Size([128])
+resnet.layer3.0.conv1.weight 294912 torch.Size([256, 128, 3, 3])
+resnet.layer3.0.conv1.lora_A 6912 torch.Size([18, 384])
+resnet.layer3.0.conv1.lora_B 13824 torch.Size([768, 18])
+resnet.layer3.0.bn1.weight 256 torch.Size([256])
+resnet.layer3.0.bn1.bias 256 torch.Size([256])
+resnet.layer3.0.conv2.weight 589824 torch.Size([256, 256, 3, 3])
+resnet.layer3.0.conv2.lora_A 13824 torch.Size([18, 768])
+resnet.layer3.0.conv2.lora_B 13824 torch.Size([768, 18])
+resnet.layer3.0.bn2.weight 256 torch.Size([256])
+resnet.layer3.0.bn2.bias 256 torch.Size([256])
+resnet.layer3.0.downsample.0.weight 32768 torch.Size([256, 128, 1, 1])
+resnet.layer3.0.downsample.0.lora_A 4608 torch.Size([36, 128])
+resnet.layer3.0.downsample.0.lora_B 9216 torch.Size([256, 36])
+resnet.layer3.0.downsample.1.weight 256 torch.Size([256])
+resnet.layer3.0.downsample.1.bias 256 torch.Size([256])
+resnet.layer3.1.conv1.weight 589824 torch.Size([256, 256, 3, 3])
+resnet.layer3.1.conv1.lora_A 13824 torch.Size([18, 768])
+resnet.layer3.1.conv1.lora_B 13824 torch.Size([768, 18])
+resnet.layer3.1.bn1.weight 256 torch.Size([256])
+resnet.layer3.1.bn1.bias 256 torch.Size([256])
+resnet.layer3.1.conv2.weight 589824 torch.Size([256, 256, 3, 3])
+resnet.layer3.1.conv2.lora_A 13824 torch.Size([18, 768])
+resnet.layer3.1.conv2.lora_B 13824 torch.Size([768, 18])
+resnet.layer3.1.bn2.weight 256 torch.Size([256])
+resnet.layer3.1.bn2.bias 256 torch.Size([256])
+resnet.layer4.0.conv1.weight 1179648 torch.Size([512, 256, 3, 3])
+resnet.layer4.0.conv1.lora_A 13824 torch.Size([18, 768])
+resnet.layer4.0.conv1.lora_B 27648 torch.Size([1536, 18])
+resnet.layer4.0.bn1.weight 512 torch.Size([512])
+resnet.layer4.0.bn1.bias 512 torch.Size([512])
+resnet.layer4.0.conv2.weight 2359296 torch.Size([512, 512, 3, 3])
+resnet.layer4.0.conv2.lora_A 27648 torch.Size([18, 1536])
+resnet.layer4.0.conv2.lora_B 27648 torch.Size([1536, 18])
+resnet.layer4.0.bn2.weight 512 torch.Size([512])
+resnet.layer4.0.bn2.bias 512 torch.Size([512])
+resnet.layer4.0.downsample.0.weight 131072 torch.Size([512, 256, 1, 1])
+resnet.layer4.0.downsample.0.lora_A 9216 torch.Size([36, 256])
+resnet.layer4.0.downsample.0.lora_B 18432 torch.Size([512, 36])
+resnet.layer4.0.downsample.1.weight 512 torch.Size([512])
+resnet.layer4.0.downsample.1.bias 512 torch.Size([512])
+resnet.layer4.1.conv1.weight 2359296 torch.Size([512, 512, 3, 3])
+resnet.layer4.1.conv1.lora_A 27648 torch.Size([18, 1536])
+resnet.layer4.1.conv1.lora_B 27648 torch.Size([1536, 18])
+resnet.layer4.1.bn1.weight 512 torch.Size([512])
+resnet.layer4.1.bn1.bias 512 torch.Size([512])
+resnet.layer4.1.conv2.weight 2359296 torch.Size([512, 512, 3, 3])
+resnet.layer4.1.conv2.lora_A 27648 torch.Size([18, 1536])
+resnet.layer4.1.conv2.lora_B 27648 torch.Size([1536, 18])
+resnet.layer4.1.bn2.weight 512 torch.Size([512])
+resnet.layer4.1.bn2.bias 512 torch.Size([512])
+instance_projector.0.weight 262144 torch.Size([512, 512])
+instance_projector.0.bias 512 torch.Size([512])
+instance_projector.2.weight 65536 torch.Size([128, 512])
+instance_projector.2.bias 128 torch.Size([128])
+cluster_projector2.0.weight 262144 torch.Size([512, 512])
+cluster_projector2.0.bias 512 torch.Size([512])
+cluster_projector2.2.weight 4096 torch.Size([8, 512])
+cluster_projector2.2.bias 8 torch.Size([8])
+sigma: 3.291015625
+Number of total parameters:  12188730
+Number of trainable p  arameters:  1021818
+### Creating features from model ###
+########### begin kmeans ##########
+Global  NMI = 0.2202 ARI = 0.1132 F = 0.1612 ACC = 0.2652
+Norm:  tensor(0.7581, device='cuda:3')
+Round:  31 User: 0 Train Loss: 6.289
+Norm:  tensor(0.8465, device='cuda:3')
+Round:  31 User: 1 Train Loss: 6.325
+Norm:  tensor(0.8002, device='cuda:3')
+Round:  31 User: 2 Train Loss: 6.290
+Norm:  tensor(0.9288, device='cuda:3')
+Round:  31 User: 3 Train Loss: 6.414
+Norm:  tensor(0.8837, device='cuda:3')
+Round:  31 User: 4 Train Loss: 6.251
+Norm:  tensor(0.8963, device='cuda:3')
+Round:  31 User: 5 Train Loss: 6.336
+Norm:  tensor(0.7640, device='cuda:3')
+Round:  31 User: 6 Train Loss: 6.243
+Norm:  tensor(0.7804, device='cuda:3')
+Round:  31 User: 7 Train Loss: 6.270
+Norm:  tensor(0.8359, device='cuda:3')
+Round:  31 User: 8 Train Loss: 6.299
+Norm:  tensor(0.8808, device='cuda:3')
+Round:  31 User: 9 Train Loss: 6.320
+Norm:  tensor(0.8058, device='cuda:3')
+Round:  31 User: 10 Train Loss: 6.315
+Norm:  tensor(0.7660, device='cuda:3')
+Round:  31 User: 11 Train Loss: 6.302
+Norm:  tensor(0.8573, device='cuda:3')
+Round:  31 User: 12 Train Loss: 6.345
+Norm:  tensor(0.7699, device='cuda:3')
+Round:  31 User: 13 Train Loss: 6.262
+Norm:  tensor(0.7732, device='cuda:3')
+Round:  31 User: 14 Train Loss: 6.269
+Norm:  tensor(0.7303, device='cuda:3')
+Round:  31 User: 15 Train Loss: 6.274
+Norm:  tensor(0.7906, device='cuda:3')
+Round:  31 User: 16 Train Loss: 6.262
+Norm:  tensor(0.8526, device='cuda:3')
+Round:  31 User: 17 Train Loss: 6.310
+Norm:  tensor(0.8105, device='cuda:3')
+Round:  31 User: 18 Train Loss: 6.301
+Norm:  tensor(0.7713, device='cuda:3')
+Round:  31 User: 19 Train Loss: 6.234
+Norm:  tensor(0.8380, device='cuda:3')
+Round:  31 User: 20 Train Loss: 6.325
+Norm:  tensor(0.8267, device='cuda:3')
+Round:  31 User: 21 Train Loss: 6.343
+Norm:  tensor(0.7196, device='cuda:3')
+Round:  31 User: 22 Train Loss: 6.243
+Norm:  tensor(0.7928, device='cuda:3')
+Round:  31 User: 23 Train Loss: 6.276
+Norm:  tensor(0.9320, device='cuda:3')
+Round:  31 User: 24 Train Loss: 6.363
+Norm:  tensor(0.7934, device='cuda:3')
+Round:  31 User: 25 Train Loss: 6.318
+Norm:  tensor(0.7738, device='cuda:3')
+Round:  31 User: 26 Train Loss: 6.296
+Norm:  tensor(0.8393, device='cuda:3')
+Round:  31 User: 27 Train Loss: 6.286
+Norm:  tensor(0.7903, device='cuda:3')
+Round:  31 User: 28 Train Loss: 6.297
+Norm:  tensor(0.7967, device='cuda:3')
+Round:  31 User: 29 Train Loss: 6.292
+Norm:  tensor(0.8111, device='cuda:3')
+Round:  31 User: 30 Train Loss: 6.292
+Norm:  tensor(0.8775, device='cuda:3')
+Round:  31 User: 31 Train Loss: 6.342
+Norm:  tensor(0.7370, device='cuda:3')
+Round:  31 User: 32 Train Loss: 6.258
+Norm:  tensor(0.7938, device='cuda:3')
+Round:  31 User: 33 Train Loss: 6.316
+Norm:  tensor(0.8008, device='cuda:3')
+Round:  31 User: 34 Train Loss: 6.332
+Norm:  tensor(0.9153, device='cuda:3')
+Round:  31 User: 35 Train Loss: 6.337
+Norm:  tensor(0.7667, device='cuda:3')
+Round:  31 User: 36 Train Loss: 6.270
+Norm:  tensor(0.7233, device='cuda:3')
+Round:  31 User: 37 Train Loss: 6.289
+Norm:  tensor(0.7705, device='cuda:3')
+Round:  31 User: 38 Train Loss: 6.258
+Norm:  tensor(0.8519, device='cuda:3')
+Round:  31 User: 39 Train Loss: 6.341
+clip_bound 0.6113152772188186
+count 40
+updated norm:  tensor(0.1908, device='cuda:3')
+*********Round:  31 Train Loss: 6.300
+### Creating features from model ###
+########### begin kmeans ##########
+Global  NMI = 0.2185 ARI = 0.1116 F = 0.1584 ACC = 0.2670
+Norm:  tensor(0.7472, device='cuda:3')
+Round:  32 User: 0 Train Loss: 6.303
+Norm:  tensor(0.7637, device='cuda:3')
+Round:  32 User: 1 Train Loss: 6.265
+Norm:  tensor(0.8159, device='cuda:3')
+Round:  32 User: 2 Train Loss: 6.286
+Norm:  tensor(1.0911, device='cuda:3')
+Round:  32 User: 3 Train Loss: 6.477
+Norm:  tensor(0.8326, device='cuda:3')
+Round:  32 User: 4 Train Loss: 6.268
+Norm:  tensor(0.7400, device='cuda:3')
+Round:  32 User: 5 Train Loss: 6.290
+Norm:  tensor(0.7606, device='cuda:3')
+Round:  32 User: 6 Train Loss: 6.255
+Norm:  tensor(0.7958, device='cuda:3')
+Round:  32 User: 7 Train Loss: 6.271
+Norm:  tensor(0.7815, device='cuda:3')
+Round:  32 User: 8 Train Loss: 6.296
+Norm:  tensor(0.7920, device='cuda:3')
+Round:  32 User: 9 Train Loss: 6.264
+Norm:  tensor(0.8010, device='cuda:3')
+Round:  32 User: 10 Train Loss: 6.309
+Norm:  tensor(0.7653, device='cuda:3')
+Round:  32 User: 11 Train Loss: 6.308
+Norm:  tensor(0.8103, device='cuda:3')
+Round:  32 User: 12 Train Loss: 6.342
+Norm:  tensor(0.8096, device='cuda:3')
+Round:  32 User: 13 Train Loss: 6.296
+Norm:  tensor(0.8324, device='cuda:3')
+Round:  32 User: 14 Train Loss: 6.289
+Norm:  tensor(0.7618, device='cuda:3')
+Round:  32 User: 15 Train Loss: 6.280
+Norm:  tensor(0.7513, device='cuda:3')
+Round:  32 User: 16 Train Loss: 6.256
+Norm:  tensor(0.8541, device='cuda:3')
+Round:  32 User: 17 Train Loss: 6.312
+Norm:  tensor(0.8387, device='cuda:3')
+Round:  32 User: 18 Train Loss: 6.295
+Norm:  tensor(0.7545, device='cuda:3')
+Round:  32 User: 19 Train Loss: 6.234
+Norm:  tensor(0.8245, device='cuda:3')
+Round:  32 User: 20 Train Loss: 6.295
+Norm:  tensor(0.9462, device='cuda:3')
+Round:  32 User: 21 Train Loss: 6.370
+Norm:  tensor(0.7641, device='cuda:3')
+Round:  32 User: 22 Train Loss: 6.302
+Norm:  tensor(0.7726, device='cuda:3')
+Round:  32 User: 23 Train Loss: 6.284
+Norm:  tensor(0.8403, device='cuda:3')
+Round:  32 User: 24 Train Loss: 6.335
+Norm:  tensor(0.8221, device='cuda:3')
+Round:  32 User: 25 Train Loss: 6.293
+Norm:  tensor(0.7420, device='cuda:3')
+Round:  32 User: 26 Train Loss: 6.266
+Norm:  tensor(0.7942, device='cuda:3')
+Round:  32 User: 27 Train Loss: 6.288
+Norm:  tensor(0.7943, device='cuda:3')
+Round:  32 User: 28 Train Loss: 6.280
+Norm:  tensor(0.7432, device='cuda:3')
+Round:  32 User: 29 Train Loss: 6.289
+Norm:  tensor(0.8012, device='cuda:3')
+Round:  32 User: 30 Train Loss: 6.268
+Norm:  tensor(0.8950, device='cuda:3')
+Round:  32 User: 31 Train Loss: 6.362
+Norm:  tensor(0.7491, device='cuda:3')
+Round:  32 User: 32 Train Loss: 6.262
+Norm:  tensor(0.7739, device='cuda:3')
+Round:  32 User: 33 Train Loss: 6.323
+Norm:  tensor(0.8026, device='cuda:3')
+Round:  32 User: 34 Train Loss: 6.323
+Norm:  tensor(0.8606, device='cuda:3')
+Round:  32 User: 35 Train Loss: 6.339
+Norm:  tensor(0.8085, device='cuda:3')
+Round:  32 User: 36 Train Loss: 6.313
+Norm:  tensor(0.7942, device='cuda:3')
+Round:  32 User: 37 Train Loss: 6.326
+Norm:  tensor(0.7371, device='cuda:3')
+Round:  32 User: 38 Train Loss: 6.243
+Norm:  tensor(0.8084, device='cuda:3')
+Round:  32 User: 39 Train Loss: 6.289
+clip_bound 0.6043322175741195
+count 40
+updated norm:  tensor(0.1431, device='cuda:3')
+*********Round:  32 Train Loss: 6.299
+### Creating features from model ###
+########### begin kmeans ##########
+Global  NMI = 0.2320 ARI = 0.1196 F = 0.1690 ACC = 0.2901
+Norm:  tensor(0.7978, device='cuda:3')
+Round:  33 User: 0 Train Loss: 6.310
+Norm:  tensor(0.7902, device='cuda:3')
+Round:  33 User: 1 Train Loss: 6.288
+Norm:  tensor(0.7825, device='cuda:3')
+Round:  33 User: 2 Train Loss: 6.275
+Norm:  tensor(0.9276, device='cuda:3')
+Round:  33 User: 3 Train Loss: 6.391
+Norm:  tensor(0.8174, device='cuda:3')
+Round:  33 User: 4 Train Loss: 6.244
+Norm:  tensor(0.7934, device='cuda:3')
+Round:  33 User: 5 Train Loss: 6.294
+Norm:  tensor(0.7708, device='cuda:3')
+Round:  33 User: 6 Train Loss: 6.271
+Norm:  tensor(0.7859, device='cuda:3')
+Round:  33 User: 7 Train Loss: 6.271
+Norm:  tensor(0.7866, device='cuda:3')
+Round:  33 User: 8 Train Loss: 6.279
+Norm:  tensor(0.7909, device='cuda:3')
+Round:  33 User: 9 Train Loss: 6.299
+Norm:  tensor(0.7765, device='cuda:3')
+Round:  33 User: 10 Train Loss: 6.305
+Norm:  tensor(0.8461, device='cuda:3')
+Round:  33 User: 11 Train Loss: 6.298
+Norm:  tensor(0.7932, device='cuda:3')
+Round:  33 User: 12 Train Loss: 6.304
+Norm:  tensor(0.7472, device='cuda:3')
+Round:  33 User: 13 Train Loss: 6.249
+Norm:  tensor(0.7865, device='cuda:3')
+Round:  33 User: 14 Train Loss: 6.259
+Norm:  tensor(0.7778, device='cuda:3')
+Round:  33 User: 15 Train Loss: 6.246
+Norm:  tensor(0.8251, device='cuda:3')
+Round:  33 User: 16 Train Loss: 6.288
+Norm:  tensor(0.8435, device='cuda:3')
+Round:  33 User: 17 Train Loss: 6.344
+Norm:  tensor(0.8278, device='cuda:3')
+Round:  33 User: 18 Train Loss: 6.295
+Norm:  tensor(0.7388, device='cuda:3')
+Round:  33 User: 19 Train Loss: 6.229
+Norm:  tensor(0.8237, device='cuda:3')
+Round:  33 User: 20 Train Loss: 6.314
+Norm:  tensor(0.8670, device='cuda:3')
+Round:  33 User: 21 Train Loss: 6.322
+Norm:  tensor(0.7560, device='cuda:3')
+Round:  33 User: 22 Train Loss: 6.270
+Norm:  tensor(0.7803, device='cuda:3')
+Round:  33 User: 23 Train Loss: 6.269
+Norm:  tensor(0.8172, device='cuda:3')
+Round:  33 User: 24 Train Loss: 6.331
+Norm:  tensor(0.7605, device='cuda:3')
+Round:  33 User: 25 Train Loss: 6.301
+Norm:  tensor(0.7271, device='cuda:3')
+Round:  33 User: 26 Train Loss: 6.314
+Norm:  tensor(0.7622, device='cuda:3')
+Round:  33 User: 27 Train Loss: 6.291
+Norm:  tensor(0.7983, device='cuda:3')
+Round:  33 User: 28 Train Loss: 6.264
+Norm:  tensor(0.8172, device='cuda:3')
+Round:  33 User: 29 Train Loss: 6.311
+Norm:  tensor(0.7585, device='cuda:3')
+Round:  33 User: 30 Train Loss: 6.265
+Norm:  tensor(0.9090, device='cuda:3')
+Round:  33 User: 31 Train Loss: 6.363
+Norm:  tensor(0.7695, device='cuda:3')
+Round:  33 User: 32 Train Loss: 6.263
+Norm:  tensor(0.7747, device='cuda:3')
+Round:  33 User: 33 Train Loss: 6.298
+Norm:  tensor(0.7983, device='cuda:3')
+Round:  33 User: 34 Train Loss: 6.269
+Norm:  tensor(0.9212, device='cuda:3')
+Round:  33 User: 35 Train Loss: 6.377
+Norm:  tensor(0.8478, device='cuda:3')
+Round:  33 User: 36 Train Loss: 6.266
+Norm:  tensor(0.7669, device='cuda:3')
+Round:  33 User: 37 Train Loss: 6.285
+Norm:  tensor(0.7465, device='cuda:3')
+Round:  33 User: 38 Train Loss: 6.251
+Norm:  tensor(0.7441, device='cuda:3')
+Round:  33 User: 39 Train Loss: 6.282
+clip_bound 0.5987903743982315
+count 40
+updated norm:  tensor(0.1405, device='cuda:3')
+*********Round:  33 Train Loss: 6.291
+### Creating features from model ###
+########### begin kmeans ##########
+Global  NMI = 0.2250 ARI = 0.1163 F = 0.1638 ACC = 0.2782
+Norm:  tensor(0.7631, device='cuda:3')
+Round:  34 User: 0 Train Loss: 6.300
+Norm:  tensor(0.7249, device='cuda:3')
+Round:  34 User: 1 Train Loss: 6.276
+Norm:  tensor(0.7817, device='cuda:3')
+Round:  34 User: 2 Train Loss: 6.255
+Norm:  tensor(0.8809, device='cuda:3')
+Round:  34 User: 3 Train Loss: 6.388
+Norm:  tensor(0.8238, device='cuda:3')
+Round:  34 User: 4 Train Loss: 6.257
+Norm:  tensor(0.7775, device='cuda:3')
+Round:  34 User: 5 Train Loss: 6.279
+Norm:  tensor(0.7840, device='cuda:3')
+Round:  34 User: 6 Train Loss: 6.290
+Norm:  tensor(0.7534, device='cuda:3')
+Round:  34 User: 7 Train Loss: 6.267
+Norm:  tensor(0.8221, device='cuda:3')
+Round:  34 User: 8 Train Loss: 6.324
+Norm:  tensor(0.7974, device='cuda:3')
+Round:  34 User: 9 Train Loss: 6.262
+Norm:  tensor(0.7767, device='cuda:3')
+Round:  34 User: 10 Train Loss: 6.259
+Norm:  tensor(0.8046, device='cuda:3')
+Round:  34 User: 11 Train Loss: 6.251
+Norm:  tensor(0.8639, device='cuda:3')
+Round:  34 User: 12 Train Loss: 6.346
+Norm:  tensor(0.7824, device='cuda:3')
+Round:  34 User: 13 Train Loss: 6.257
+Norm:  tensor(0.8779, device='cuda:3')
+Round:  34 User: 14 Train Loss: 6.316
+Norm:  tensor(0.7938, device='cuda:3')
+Round:  34 User: 15 Train Loss: 6.253
+Norm:  tensor(0.8087, device='cuda:3')
+Round:  34 User: 16 Train Loss: 6.258
+Norm:  tensor(1.0059, device='cuda:3')
+Round:  34 User: 17 Train Loss: 6.400
+Norm:  tensor(0.8064, device='cuda:3')
+Round:  34 User: 18 Train Loss: 6.303
+Norm:  tensor(0.7405, device='cuda:3')
+Round:  34 User: 19 Train Loss: 6.205
+Norm:  tensor(0.8342, device='cuda:3')
+Round:  34 User: 20 Train Loss: 6.306
+Norm:  tensor(0.9000, device='cuda:3')
+Round:  34 User: 21 Train Loss: 6.350
+Norm:  tensor(0.7749, device='cuda:3')
+Round:  34 User: 22 Train Loss: 6.267
+Norm:  tensor(0.7134, device='cuda:3')
+Round:  34 User: 23 Train Loss: 6.245
+Norm:  tensor(0.8114, device='cuda:3')
+Round:  34 User: 24 Train Loss: 6.317
+Norm:  tensor(0.7647, device='cuda:3')
+Round:  34 User: 25 Train Loss: 6.296
+Norm:  tensor(0.7872, device='cuda:3')
+Round:  34 User: 26 Train Loss: 6.313
+Norm:  tensor(0.7697, device='cuda:3')
+Round:  34 User: 27 Train Loss: 6.268
+Norm:  tensor(0.7757, device='cuda:3')
+Round:  34 User: 28 Train Loss: 6.278
+Norm:  tensor(0.8335, device='cuda:3')
+Round:  34 User: 29 Train Loss: 6.307
+Norm:  tensor(0.7406, device='cuda:3')
+Round:  34 User: 30 Train Loss: 6.250
+Norm:  tensor(0.8509, device='cuda:3')
+Round:  34 User: 31 Train Loss: 6.317
+Norm:  tensor(0.7790, device='cuda:3')
+Round:  34 User: 32 Train Loss: 6.264
+Norm:  tensor(0.7702, device='cuda:3')
+Round:  34 User: 33 Train Loss: 6.257
+Norm:  tensor(0.8300, device='cuda:3')
+Round:  34 User: 34 Train Loss: 6.286
+Norm:  tensor(0.8613, device='cuda:3')
+Round:  34 User: 35 Train Loss: 6.312
+Norm:  tensor(0.7870, device='cuda:3')
+Round:  34 User: 36 Train Loss: 6.282
+Norm:  tensor(0.7601, device='cuda:3')
+Round:  34 User: 37 Train Loss: 6.282
+Norm:  tensor(0.7845, device='cuda:3')
+Round:  34 User: 38 Train Loss: 6.288
+Norm:  tensor(0.7788, device='cuda:3')
+Round:  34 User: 39 Train Loss: 6.270
+clip_bound 0.601916602253914
+count 40
+updated norm:  tensor(0.1377, device='cuda:3')
+*********Round:  34 Train Loss: 6.288
+### Creating features from model ###
+########### begin kmeans ##########
+Global  NMI = 0.2241 ARI = 0.1128 F = 0.1602 ACC = 0.2785
+Norm:  tensor(0.7784, device='cuda:3')
+Round:  35 User: 0 Train Loss: 6.315
+Norm:  tensor(0.7949, device='cuda:3')
+Round:  35 User: 1 Train Loss: 6.294
+Norm:  tensor(0.7714, device='cuda:3')
+Round:  35 User: 2 Train Loss: 6.253
+Norm:  tensor(1.0283, device='cuda:3')
+Round:  35 User: 3 Train Loss: 6.418
+Norm:  tensor(0.8280, device='cuda:3')
+Round:  35 User: 4 Train Loss: 6.227
+Norm:  tensor(0.7670, device='cuda:3')
+Round:  35 User: 5 Train Loss: 6.299
+Norm:  tensor(0.7742, device='cuda:3')
+Round:  35 User: 6 Train Loss: 6.248
+Norm:  tensor(0.7502, device='cuda:3')
+Round:  35 User: 7 Train Loss: 6.252
+Norm:  tensor(0.7722, device='cuda:3')
+Round:  35 User: 8 Train Loss: 6.281
+Norm:  tensor(0.7997, device='cuda:3')
+Round:  35 User: 9 Train Loss: 6.301
+Norm:  tensor(0.7861, device='cuda:3')
+Round:  35 User: 10 Train Loss: 6.257
+Norm:  tensor(0.8537, device='cuda:3')
+Round:  35 User: 11 Train Loss: 6.309
+Norm:  tensor(0.7990, device='cuda:3')
+Round:  35 User: 12 Train Loss: 6.326
+Norm:  tensor(0.7797, device='cuda:3')
+Round:  35 User: 13 Train Loss: 6.251
+Norm:  tensor(0.7361, device='cuda:3')
+Round:  35 User: 14 Train Loss: 6.255
+Norm:  tensor(0.8659, device='cuda:3')
+Round:  35 User: 15 Train Loss: 6.293
+Norm:  tensor(0.8085, device='cuda:3')
+Round:  35 User: 16 Train Loss: 6.257
+Norm:  tensor(0.9030, device='cuda:3')
+Round:  35 User: 17 Train Loss: 6.337
+Norm:  tensor(0.8612, device='cuda:3')
+Round:  35 User: 18 Train Loss: 6.332
+Norm:  tensor(0.7194, device='cuda:3')
+Round:  35 User: 19 Train Loss: 6.224
+Norm:  tensor(0.9151, device='cuda:3')
+Round:  35 User: 20 Train Loss: 6.343
+Norm:  tensor(0.8643, device='cuda:3')
+Round:  35 User: 21 Train Loss: 6.328
+Norm:  tensor(0.7396, device='cuda:3')
+Round:  35 User: 22 Train Loss: 6.260
+Norm:  tensor(0.8181, device='cuda:3')
+Round:  35 User: 23 Train Loss: 6.277
+Norm:  tensor(0.8653, device='cuda:3')
+Round:  35 User: 24 Train Loss: 6.352
+Norm:  tensor(0.8308, device='cuda:3')
+Round:  35 User: 25 Train Loss: 6.327
+Norm:  tensor(0.7758, device='cuda:3')
+Round:  35 User: 26 Train Loss: 6.270
+Norm:  tensor(0.7814, device='cuda:3')
+Round:  35 User: 27 Train Loss: 6.315
+Norm:  tensor(0.7480, device='cuda:3')
+Round:  35 User: 28 Train Loss: 6.282
+Norm:  tensor(0.7664, device='cuda:3')
+Round:  35 User: 29 Train Loss: 6.292
+Norm:  tensor(0.7643, device='cuda:3')
+Round:  35 User: 30 Train Loss: 6.244
+Norm:  tensor(0.8823, device='cuda:3')
+Round:  35 User: 31 Train Loss: 6.342
+Norm:  tensor(0.7907, device='cuda:3')
+Round:  35 User: 32 Train Loss: 6.293
+Norm:  tensor(0.7794, device='cuda:3')
+Round:  35 User: 33 Train Loss: 6.273
+Norm:  tensor(0.8481, device='cuda:3')
+Round:  35 User: 34 Train Loss: 6.312
+Norm:  tensor(0.9764, device='cuda:3')
+Round:  35 User: 35 Train Loss: 6.364
+Norm:  tensor(0.7321, device='cuda:3')
+Round:  35 User: 36 Train Loss: 6.242
+Norm:  tensor(0.7819, device='cuda:3')
+Round:  35 User: 37 Train Loss: 6.265
+Norm:  tensor(0.7848, device='cuda:3')
+Round:  35 User: 38 Train Loss: 6.265
+Norm:  tensor(0.8263, device='cuda:3')
+Round:  35 User: 39 Train Loss: 6.286
+clip_bound 0.6111957281827927
+count 40
+updated norm:  tensor(0.1396, device='cuda:3')
+*********Round:  35 Train Loss: 6.292
+### Creating features from model ###
+########### begin kmeans ##########
+Global  NMI = 0.2234 ARI = 0.1129 F = 0.1605 ACC = 0.2674
+Norm:  tensor(0.7955, device='cuda:3')
+Round:  36 User: 0 Train Loss: 6.326
+Norm:  tensor(0.7537, device='cuda:3')
+Round:  36 User: 1 Train Loss: 6.274
+Norm:  tensor(0.8099, device='cuda:3')
+Round:  36 User: 2 Train Loss: 6.282
+Norm:  tensor(0.8740, device='cuda:3')
+Round:  36 User: 3 Train Loss: 6.376
+Norm:  tensor(0.7991, device='cuda:3')
+Round:  36 User: 4 Train Loss: 6.232
+Norm:  tensor(0.7675, device='cuda:3')
+Round:  36 User: 5 Train Loss: 6.282
+Norm:  tensor(0.7479, device='cuda:3')
+Round:  36 User: 6 Train Loss: 6.268
+Norm:  tensor(0.7700, device='cuda:3')
+Round:  36 User: 7 Train Loss: 6.261
+Norm:  tensor(0.8088, device='cuda:3')
+Round:  36 User: 8 Train Loss: 6.331
+Norm:  tensor(0.7780, device='cuda:3')
+Round:  36 User: 9 Train Loss: 6.276
+Norm:  tensor(0.7932, device='cuda:3')
+Round:  36 User: 10 Train Loss: 6.262
+Norm:  tensor(0.7824, device='cuda:3')
+Round:  36 User: 11 Train Loss: 6.269
+Norm:  tensor(0.8204, device='cuda:3')
+Round:  36 User: 12 Train Loss: 6.292
+Norm:  tensor(0.7346, device='cuda:3')
+Round:  36 User: 13 Train Loss: 6.231
+Norm:  tensor(0.7810, device='cuda:3')
+Round:  36 User: 14 Train Loss: 6.270
+Norm:  tensor(0.8009, device='cuda:3')
+Round:  36 User: 15 Train Loss: 6.281
+Norm:  tensor(0.7732, device='cuda:3')
+Round:  36 User: 16 Train Loss: 6.257
+Norm:  tensor(0.8696, device='cuda:3')
+Round:  36 User: 17 Train Loss: 6.348
+Norm:  tensor(0.8396, device='cuda:3')
+Round:  36 User: 18 Train Loss: 6.315
+Norm:  tensor(0.7457, device='cuda:3')
+Round:  36 User: 19 Train Loss: 6.230
+Norm:  tensor(0.8220, device='cuda:3')
+Round:  36 User: 20 Train Loss: 6.301
+Norm:  tensor(0.8515, device='cuda:3')
+Round:  36 User: 21 Train Loss: 6.332
+Norm:  tensor(0.7192, device='cuda:3')
+Round:  36 User: 22 Train Loss: 6.243
+Norm:  tensor(0.7413, device='cuda:3')
+Round:  36 User: 23 Train Loss: 6.269
+Norm:  tensor(0.8508, device='cuda:3')
+Round:  36 User: 24 Train Loss: 6.320
+Norm:  tensor(0.7824, device='cuda:3')
+Round:  36 User: 25 Train Loss: 6.271
+Norm:  tensor(0.7571, device='cuda:3')
+Round:  36 User: 26 Train Loss: 6.250
+Norm:  tensor(0.7808, device='cuda:3')
+Round:  36 User: 27 Train Loss: 6.270
+Norm:  tensor(0.8064, device='cuda:3')
+Round:  36 User: 28 Train Loss: 6.300
+Norm:  tensor(0.7752, device='cuda:3')
+Round:  36 User: 29 Train Loss: 6.264
+Norm:  tensor(0.7714, device='cuda:3')
+Round:  36 User: 30 Train Loss: 6.238
+Norm:  tensor(0.8646, device='cuda:3')
+Round:  36 User: 31 Train Loss: 6.331
+Norm:  tensor(0.7746, device='cuda:3')
+Round:  36 User: 32 Train Loss: 6.284
+Norm:  tensor(0.8006, device='cuda:3')
+Round:  36 User: 33 Train Loss: 6.305
+Norm:  tensor(0.7790, device='cuda:3')
+Round:  36 User: 34 Train Loss: 6.262
+Norm:  tensor(0.8885, device='cuda:3')
+Round:  36 User: 35 Train Loss: 6.344
+Norm:  tensor(0.7621, device='cuda:3')
+Round:  36 User: 36 Train Loss: 6.265
+Norm:  tensor(0.7761, device='cuda:3')
+Round:  36 User: 37 Train Loss: 6.280
+Norm:  tensor(0.7735, device='cuda:3')
+Round:  36 User: 38 Train Loss: 6.247
+Norm:  tensor(0.7322, device='cuda:3')
+Round:  36 User: 39 Train Loss: 6.253
+clip_bound 0.591359408199787
+count 40
+updated norm:  tensor(0.1372, device='cuda:3')
+*********Round:  36 Train Loss: 6.282
+### Creating features from model ###
+########### begin kmeans ##########
+Global  NMI = 0.2280 ARI = 0.1150 F = 0.1640 ACC = 0.2729
+Norm:  tensor(0.8122, device='cuda:3')
+Round:  37 User: 0 Train Loss: 6.275
+Norm:  tensor(0.7371, device='cuda:3')
+Round:  37 User: 1 Train Loss: 6.253
+Norm:  tensor(0.7554, device='cuda:3')
+Round:  37 User: 2 Train Loss: 6.259
+Norm:  tensor(0.8596, device='cuda:3')
+Round:  37 User: 3 Train Loss: 6.355
+Norm:  tensor(0.8642, device='cuda:3')
+Round:  37 User: 4 Train Loss: 6.256
+Norm:  tensor(0.7665, device='cuda:3')
+Round:  37 User: 5 Train Loss: 6.264
+Norm:  tensor(0.7283, device='cuda:3')
+Round:  37 User: 6 Train Loss: 6.269
+Norm:  tensor(0.7805, device='cuda:3')
+Round:  37 User: 7 Train Loss: 6.275
+Norm:  tensor(0.7985, device='cuda:3')
+Round:  37 User: 8 Train Loss: 6.295
+Norm:  tensor(0.8510, device='cuda:3')
+Round:  37 User: 9 Train Loss: 6.307
+Norm:  tensor(0.7664, device='cuda:3')
+Round:  37 User: 10 Train Loss: 6.262
+Norm:  tensor(0.7608, device='cuda:3')
+Round:  37 User: 11 Train Loss: 6.263
+Norm:  tensor(0.8980, device='cuda:3')
+Round:  37 User: 12 Train Loss: 6.374
+Norm:  tensor(0.7688, device='cuda:3')
+Round:  37 User: 13 Train Loss: 6.248
+Norm:  tensor(0.7558, device='cuda:3')
+Round:  37 User: 14 Train Loss: 6.269
+Norm:  tensor(0.7779, device='cuda:3')
+Round:  37 User: 15 Train Loss: 6.279
+Norm:  tensor(0.7587, device='cuda:3')
+Round:  37 User: 16 Train Loss: 6.274
+Norm:  tensor(0.8260, device='cuda:3')
+Round:  37 User: 17 Train Loss: 6.344
+Norm:  tensor(0.8118, device='cuda:3')
+Round:  37 User: 18 Train Loss: 6.279
+Norm:  tensor(0.7642, device='cuda:3')
+Round:  37 User: 19 Train Loss: 6.237
+Norm:  tensor(0.8558, device='cuda:3')
+Round:  37 User: 20 Train Loss: 6.281
+Norm:  tensor(0.8716, device='cuda:3')
+Round:  37 User: 21 Train Loss: 6.345
+Norm:  tensor(0.7127, device='cuda:3')
+Round:  37 User: 22 Train Loss: 6.252
+Norm:  tensor(0.7279, device='cuda:3')
+Round:  37 User: 23 Train Loss: 6.252
+Norm:  tensor(0.8236, device='cuda:3')
+Round:  37 User: 24 Train Loss: 6.330
+Norm:  tensor(0.7951, device='cuda:3')
+Round:  37 User: 25 Train Loss: 6.275
+Norm:  tensor(0.7329, device='cuda:3')
+Round:  37 User: 26 Train Loss: 6.259
+Norm:  tensor(0.7147, device='cuda:3')
+Round:  37 User: 27 Train Loss: 6.268
+Norm:  tensor(0.7343, device='cuda:3')
+Round:  37 User: 28 Train Loss: 6.263
+Norm:  tensor(0.7887, device='cuda:3')
+Round:  37 User: 29 Train Loss: 6.293
+Norm:  tensor(0.7437, device='cuda:3')
+Round:  37 User: 30 Train Loss: 6.215
+Norm:  tensor(0.8453, device='cuda:3')
+Round:  37 User: 31 Train Loss: 6.341
+Norm:  tensor(0.7728, device='cuda:3')
+Round:  37 User: 32 Train Loss: 6.269
+Norm:  tensor(0.7556, device='cuda:3')
+Round:  37 User: 33 Train Loss: 6.284
+Norm:  tensor(0.8092, device='cuda:3')
+Round:  37 User: 34 Train Loss: 6.304
+Norm:  tensor(0.8442, device='cuda:3')
+Round:  37 User: 35 Train Loss: 6.300
+Norm:  tensor(0.7047, device='cuda:3')
+Round:  37 User: 36 Train Loss: 6.235
+Norm:  tensor(0.7357, device='cuda:3')
+Round:  37 User: 37 Train Loss: 6.281
+Norm:  tensor(0.8091, device='cuda:3')
+Round:  37 User: 38 Train Loss: 6.259
+Norm:  tensor(0.8183, device='cuda:3')
+Round:  37 User: 39 Train Loss: 6.332
+clip_bound 0.5859379529953004
+count 40
+updated norm:  tensor(0.1332, device='cuda:3')
+*********Round:  37 Train Loss: 6.282
+### Creating features from model ###
+########### begin kmeans ##########
+Global  NMI = 0.2302 ARI = 0.1196 F = 0.1666 ACC = 0.2882
+Norm:  tensor(0.7342, device='cuda:3')
+Round:  38 User: 0 Train Loss: 6.266
+Norm:  tensor(0.8055, device='cuda:3')
+Round:  38 User: 1 Train Loss: 6.301
+Norm:  tensor(0.7617, device='cuda:3')
+Round:  38 User: 2 Train Loss: 6.264
+Norm:  tensor(0.8967, device='cuda:3')
+Round:  38 User: 3 Train Loss: 6.387
+Norm:  tensor(0.7628, device='cuda:3')
+Round:  38 User: 4 Train Loss: 6.236
+Norm:  tensor(0.7921, device='cuda:3')
+Round:  38 User: 5 Train Loss: 6.283
+Norm:  tensor(0.7794, device='cuda:3')
+Round:  38 User: 6 Train Loss: 6.230
+Norm:  tensor(0.7240, device='cuda:3')
+Round:  38 User: 7 Train Loss: 6.254
+Norm:  tensor(0.8164, device='cuda:3')
+Round:  38 User: 8 Train Loss: 6.308
+Norm:  tensor(0.8051, device='cuda:3')
+Round:  38 User: 9 Train Loss: 6.310
+Norm:  tensor(0.7965, device='cuda:3')
+Round:  38 User: 10 Train Loss: 6.299
+Norm:  tensor(0.7698, device='cuda:3')
+Round:  38 User: 11 Train Loss: 6.261
+Norm:  tensor(0.8031, device='cuda:3')
+Round:  38 User: 12 Train Loss: 6.313
+Norm:  tensor(0.7868, device='cuda:3')
+Round:  38 User: 13 Train Loss: 6.286
+Norm:  tensor(0.7640, device='cuda:3')
+Round:  38 User: 14 Train Loss: 6.263
+Norm:  tensor(0.7775, device='cuda:3')
+Round:  38 User: 15 Train Loss: 6.258
+Norm:  tensor(0.7927, device='cuda:3')
+Round:  38 User: 16 Train Loss: 6.262
+Norm:  tensor(0.8406, device='cuda:3')
+Round:  38 User: 17 Train Loss: 6.333
+Norm:  tensor(0.8441, device='cuda:3')
+Round:  38 User: 18 Train Loss: 6.344
+Norm:  tensor(0.7299, device='cuda:3')
+Round:  38 User: 19 Train Loss: 6.236
+Norm:  tensor(0.8369, device='cuda:3')
+Round:  38 User: 20 Train Loss: 6.303
+Norm:  tensor(0.8633, device='cuda:3')
+Round:  38 User: 21 Train Loss: 6.346
+Norm:  tensor(0.7682, device='cuda:3')
+Round:  38 User: 22 Train Loss: 6.276
+Norm:  tensor(0.8172, device='cuda:3')
+Round:  38 User: 23 Train Loss: 6.292
+Norm:  tensor(0.8715, device='cuda:3')
+Round:  38 User: 24 Train Loss: 6.325
+Norm:  tensor(0.7686, device='cuda:3')
+Round:  38 User: 25 Train Loss: 6.276
+Norm:  tensor(0.8110, device='cuda:3')
+Round:  38 User: 26 Train Loss: 6.301
+Norm:  tensor(0.8092, device='cuda:3')
+Round:  38 User: 27 Train Loss: 6.293
+Norm:  tensor(0.7596, device='cuda:3')
+Round:  38 User: 28 Train Loss: 6.259
+Norm:  tensor(0.7727, device='cuda:3')
+Round:  38 User: 29 Train Loss: 6.272
+Norm:  tensor(0.7550, device='cuda:3')
+Round:  38 User: 30 Train Loss: 6.261
+Norm:  tensor(0.8625, device='cuda:3')
+Round:  38 User: 31 Train Loss: 6.333
+Norm:  tensor(0.7735, device='cuda:3')
+Round:  38 User: 32 Train Loss: 6.267
+Norm:  tensor(0.8235, device='cuda:3')
+Round:  38 User: 33 Train Loss: 6.277
+Norm:  tensor(0.8094, device='cuda:3')
+Round:  38 User: 34 Train Loss: 6.279
+Norm:  tensor(0.8294, device='cuda:3')
+Round:  38 User: 35 Train Loss: 6.303
+Norm:  tensor(0.8094, device='cuda:3')
+Round:  38 User: 36 Train Loss: 6.317
+Norm:  tensor(0.7400, device='cuda:3')
+Round:  38 User: 37 Train Loss: 6.269
+Norm:  tensor(0.8188, device='cuda:3')
+Round:  38 User: 38 Train Loss: 6.252
+Norm:  tensor(0.7680, device='cuda:3')
+Round:  38 User: 39 Train Loss: 6.291
+clip_bound 0.5962675198912621
+count 40
+updated norm:  tensor(0.1323, device='cuda:3')
+*********Round:  38 Train Loss: 6.287
+### Creating features from model ###
+########### begin kmeans ##########
+Global  NMI = 0.2281 ARI = 0.1210 F = 0.1675 ACC = 0.2927
+Norm:  tensor(0.8151, device='cuda:3')
+Round:  39 User: 0 Train Loss: 6.280
+Norm:  tensor(0.7527, device='cuda:3')
+Round:  39 User: 1 Train Loss: 6.246
+Norm:  tensor(0.8050, device='cuda:3')
+Round:  39 User: 2 Train Loss: 6.263
+Norm:  tensor(0.8843, device='cuda:3')
+Round:  39 User: 3 Train Loss: 6.374
+Norm:  tensor(0.8271, device='cuda:3')
+Round:  39 User: 4 Train Loss: 6.236
+Norm:  tensor(0.7917, device='cuda:3')
+Round:  39 User: 5 Train Loss: 6.282
+Norm:  tensor(0.7251, device='cuda:3')
+Round:  39 User: 6 Train Loss: 6.225
+Norm:  tensor(0.7555, device='cuda:3')
+Round:  39 User: 7 Train Loss: 6.272
+Norm:  tensor(0.7725, device='cuda:3')
+Round:  39 User: 8 Train Loss: 6.311
+Norm:  tensor(0.8264, device='cuda:3')
+Round:  39 User: 9 Train Loss: 6.297
+Norm:  tensor(0.7754, device='cuda:3')
+Round:  39 User: 10 Train Loss: 6.265
+Norm:  tensor(0.7455, device='cuda:3')
+Round:  39 User: 11 Train Loss: 6.269
+Norm:  tensor(0.7950, device='cuda:3')
+Round:  39 User: 12 Train Loss: 6.294
+Norm:  tensor(0.7727, device='cuda:3')
+Round:  39 User: 13 Train Loss: 6.244
+Norm:  tensor(0.7461, device='cuda:3')
+Round:  39 User: 14 Train Loss: 6.243
+Norm:  tensor(0.7668, device='cuda:3')
+Round:  39 User: 15 Train Loss: 6.278
+Norm:  tensor(0.8062, device='cuda:3')
+Round:  39 User: 16 Train Loss: 6.269
+Norm:  tensor(0.8143, device='cuda:3')
+Round:  39 User: 17 Train Loss: 6.316
+Norm:  tensor(0.7955, device='cuda:3')
+Round:  39 User: 18 Train Loss: 6.291
+Norm:  tensor(0.7525, device='cuda:3')
+Round:  39 User: 19 Train Loss: 6.218
+Norm:  tensor(0.8380, device='cuda:3')
+Round:  39 User: 20 Train Loss: 6.300
+Norm:  tensor(0.8469, device='cuda:3')
+Round:  39 User: 21 Train Loss: 6.315
+Norm:  tensor(0.6844, device='cuda:3')
+Round:  39 User: 22 Train Loss: 6.247
+Norm:  tensor(0.7155, device='cuda:3')
+Round:  39 User: 23 Train Loss: 6.245
+Norm:  tensor(0.8736, device='cuda:3')
+Round:  39 User: 24 Train Loss: 6.325
+Norm:  tensor(0.7400, device='cuda:3')
+Round:  39 User: 25 Train Loss: 6.272
+Norm:  tensor(0.8027, device='cuda:3')
+Round:  39 User: 26 Train Loss: 6.298
+Norm:  tensor(0.7619, device='cuda:3')
+Round:  39 User: 27 Train Loss: 6.267
+Norm:  tensor(0.9486, device='cuda:3')
+Round:  39 User: 28 Train Loss: 6.326
+Norm:  tensor(0.7359, device='cuda:3')
+Round:  39 User: 29 Train Loss: 6.269
+Norm:  tensor(0.8239, device='cuda:3')
+Round:  39 User: 30 Train Loss: 6.243
+Norm:  tensor(0.8597, device='cuda:3')
+Round:  39 User: 31 Train Loss: 6.320
+Norm:  tensor(0.7346, device='cuda:3')
+Round:  39 User: 32 Train Loss: 6.243
+Norm:  tensor(0.7580, device='cuda:3')
+Round:  39 User: 33 Train Loss: 6.268
+Norm:  tensor(0.7847, device='cuda:3')
+Round:  39 User: 34 Train Loss: 6.246
+Norm:  tensor(0.9171, device='cuda:3')
+Round:  39 User: 35 Train Loss: 6.332
+Norm:  tensor(0.7682, device='cuda:3')
+Round:  39 User: 36 Train Loss: 6.284
+Norm:  tensor(0.7434, device='cuda:3')
+Round:  39 User: 37 Train Loss: 6.269
+Norm:  tensor(0.7398, device='cuda:3')
+Round:  39 User: 38 Train Loss: 6.257
+Norm:  tensor(0.7851, device='cuda:3')
+Round:  39 User: 39 Train Loss: 6.284
+clip_bound 0.5896855950355531
+count 40
+updated norm:  tensor(0.1305, device='cuda:3')
+*********Round:  39 Train Loss: 6.277
+### Creating features from model ###
+########### begin kmeans ##########
+Global  NMI = 0.2217 ARI = 0.1168 F = 0.1629 ACC = 0.2646

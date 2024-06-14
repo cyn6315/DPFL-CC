@@ -17,6 +17,8 @@ import PIL
 from tqdm import tqdm 
 import math
 from collections import defaultdict
+from sklearn.cluster import SpectralClustering
+from sklearn.metrics.pairwise import euclidean_distances
 
 def save_model2(args, model, current_epoch):
     out = os.path.join(args.model_path, "checkpoint_{}.tar".format(current_epoch))
@@ -147,9 +149,9 @@ def createNoIIDTrainAndTestDataset():
             sample_noiid=torch.cat([sample_noiid, Sample[clientDataIndex[c]].clone()], dim=0)
             label_noiid=torch.cat([label_noiid, Label[clientDataIndex[c]].clone()], dim=0)
 
-    with open("./datasets/cifar10/Sample_noiid_class"+str(classes_per_user), "wb") as f:
+    with open("./datasets/cifar10/Sample_noiid_class"+str(classes_per_user)+"_"+str(args.n_clients), "wb") as f:
         pickle.dump(sample_noiid, f)  
-    with open("./datasets/cifar10/Label_noiid_class"+str(classes_per_user), "wb") as f:
+    with open("./datasets/cifar10/Label_noiid_class"+str(classes_per_user)+"_"+str(args.n_clients), "wb") as f:
         pickle.dump(label_noiid, f) 
 
 
@@ -165,7 +167,7 @@ def setParaFromChekpoint(model, checkpoint):
 class Aggregator:
     def __init__(self, device):
         res = resnet.get_resnet(args.resnet, args.r_conv)
-        model = network.Network(res, args.feature_dim, args.num_class, args.r_proj)
+        model = network.Network_perCluster(res, args.feature_dim, args.num_class, args.r_proj)
         model = ModuleValidator.fix(model)
         name='save/Img-10-pretrain-transform/checkpoint_532.tar'
         # name='save/Img-10-pretrain-transform-cluster/checkpoint_348.tar'
@@ -235,16 +237,16 @@ def getModelUpdateNorm(netcopy, net, localParams):
     for name, param in net.named_parameters ():
         if param.requires_grad and (name not in localParams):
             if flag==0:
-                normSum = torch.sum(torch.pow((netcopy[name] - param), exponent=2))
+                normSum = torch.sum(torch.pow((netcopy[name] - param.data), exponent=2))
                 flag=1
             else:
-                normSum += torch.sum(torch.pow((netcopy[name] - param), exponent=2))
+                normSum += torch.sum(torch.pow((netcopy[name] - param.data), exponent=2))
     return normSum
 
 
 def setParaFromAgg(model, agg):
     for name, param in model.named_parameters ():
-        param.data = torch.tensor(agg[name])
+        param.data = torch.tensor(agg[name].clone())
 
 
 def clipGrad(gradDict, normSum): 
@@ -276,7 +278,7 @@ def calculateMask(gradDict, modelUpdateDict):
 def saveGrad(model, gradDict):
     for name, param in model.named_parameters ():
         if param.requires_grad:
-            gradDict[name] = torch.tensor(param.grad.data)
+            gradDict[name] = torch.tensor(param.grad.data.clone())
 
 
 def maskModelUpdate(modelUpdateDict, maskDict):
@@ -345,7 +347,7 @@ def train(agg, round):
 
         pair_index=np.array(range(len(contrasive_pair)))
         np.random.shuffle(pair_index)
-
+        test_bubian={}
         for i in range(len(contrasive_pair)):
             pair = contrasive_pair[pair_index[i]]
             batch_num = int(args.batch_size/args.mini_bs)
@@ -360,23 +362,35 @@ def train(agg, round):
                 loss_instance = criterion_instance(z_i, z_j)
                 loss_cluster = criterion_cluster(c_i, c_j)
 
-                c_i_target = getTargetDis(c_i)
-                index_i = exceedThreshold(c_i_target)
-                c_i_target=c_i_target[index_i]
-                c_i = c_i[index_i]
+                # c_i_target = getTargetDis(c_i)
+                # index_i = exceedThreshold(c_i_target)
+                # c_i_target=c_i_target[index_i]
+                # c_i = c_i[index_i]
 
-                c_j_target = getTargetDis(c_j)
-                index_j = exceedThreshold(c_j_target)
-                c_j_target = c_j_target[index_j]
-                c_j = c_j[index_j]
-                loss_KL=0
-                if c_i.shape[0]>0:
-                    loss_KL+=loss_function(c_i.log(), c_i_target) / c_i.shape[0]
-                if c_j.shape[0]>0:
-                    loss_KL+=loss_function(c_j.log(), c_j_target) / c_j.shape[0]
-                deltaNorm = getModelUpdateNorm(agg.model.state_dict (), model, clientsSavedParams[c])
-                loss_blur = max(0, deltaNorm-math.pow(args.clip_bound, 2))
-                loss = loss_instance + loss_cluster + args.miu*loss_blur + args.loss_KL*loss_KL
+                # c_j_target = getTargetDis(c_j)
+                # index_j = exceedThreshold(c_j_target)
+                # c_j_target = c_j_target[index_j]
+                # c_j = c_j[index_j]
+                # loss_KL=0
+                # if c_i.shape[0]>0:
+                #     loss_KL+=loss_function(c_i.log(), c_i_target) / c_i.shape[0]
+                # if c_j.shape[0]>0:
+                #     loss_KL+=loss_function(c_j.log(), c_j_target) / c_j.shape[0]
+
+                with torch.no_grad():
+                    z_i_g = agg.model.forward_instance(x_i)
+                    z_j_g = agg.model.forward_instance(x_j)
+  
+                loss_zhengze = torch.sum(torch.pow((z_i - z_i_g), exponent=2))/len(z_i)+\
+                  torch.sum(torch.pow((z_j - z_j_g), exponent=2))/len(z_i)
+                # loss_blur = getModelUpdateNorm(agg.model.state_dict (), model, clientsSavedParams[c])
+                # print(loss_blur)
+                # print(loss_zhengze)
+                # if i==len(contrasive_pair)-1 and j==batch_num-1:
+                #     print("loss_zhengze:",loss_zhengze)
+                # print(loss_zhengze)
+                loss = loss_instance + loss_cluster + args.miu*loss_zhengze
+                # loss = loss_instance + loss_cluster
                 loss.backward()
                 lossPerUser += loss.item()
                 optimizer.step()
@@ -439,12 +453,141 @@ def calClusterCenters(feature_vector, predictlabel_vector, num_calss):
         cluster_i = feature_vector[np.where(np.array(predictlabel_vector)==i)[0]]
         if len(cluster_i)>0:
             center = np.sum(cluster_i, axis=0)/len(cluster_i)
+            quantization(center)
             center_list.append(np.array(center))
             center_label.append(i)
     return np.array(center_list), center_label
 
 
 def inference_kfed(loader, testmodel, device):
+    testmodel.eval()
+    client_local_predict={}
+    labels_vector = []
+    collect_local_centers=[]
+    client_index_collect ={}
+    client_index_now = 0
+    client_cluster_label = {}
+    for step, (x, y) in enumerate(loader):
+        feature_vector = []
+        predictlabel_vector = []
+        setParaFromSavedParams(testmodel, clientsSavedParams[step])
+        x = x.to(device)
+        with torch.no_grad():
+            r=math.ceil(args.batch_size/args.mini_bs)
+            for i in range(r):
+                if i==r-1:
+                    c = testmodel.forward_cluster(x[i*args.mini_bs:])
+                    c = c.detach()
+                    predictlabel_vector.extend(c.cpu().detach().numpy())
+                    feature = testmodel.forward_instance(x[i*args.mini_bs:])
+                else:
+                    c = testmodel.forward_cluster(x[i*args.mini_bs:(i+1)*args.mini_bs])
+                    c = c.detach()
+                    predictlabel_vector.extend(c.cpu().detach().numpy())
+                    feature = testmodel.forward_instance(x[i*args.mini_bs:(i+1)*args.mini_bs])
+                feature = feature.detach()
+                feature_vector.extend(feature.cpu().detach().numpy())
+            feature_vector = np.array(feature_vector)
+            predictlabel_vector = np.array(predictlabel_vector)
+            client_local_predict[step] = predictlabel_vector
+            local_centers, cluster_label = calClusterCenters(feature_vector, predictlabel_vector, args.num_class)
+            if True in np.isnan(local_centers):
+                print("nan", local_centers)
+            client_index_collect[step] = [client_index_now, client_index_now + len(local_centers)]
+            client_index_now = client_index_now + len(local_centers)
+            collect_local_centers.append(local_centers)
+            client_cluster_label[step] = cluster_label
+        labels_vector.extend(y.numpy())
+    print("########### begin kmeans ##########")
+    kmeans = KMeans(n_clusters=10)
+    collect_local_centers = np.concatenate(collect_local_centers, axis=0)
+    kmeans.fit(collect_local_centers)
+    global_label_pred = kmeans.labels_
+    global_results=[]
+    for c in range(args.n_clients):
+        client_global_label = global_label_pred[client_index_collect[c][0]: client_index_collect[c][1]]
+        client_local_label = client_local_predict[c]
+        preCluster = np.zeros(len(client_local_label), dtype=int)
+        if len(client_cluster_label[c])!=client_index_collect[c][1]-client_index_collect[c][0]:
+            print("false!!!")
+        for i in range(len(client_cluster_label[c])):
+            index=np.where(client_local_label==client_cluster_label[c][i])[0]
+            preCluster[index] = client_global_label[i]
+        preCluster=list(preCluster)
+        global_results.extend(preCluster)
+
+    labels_vector = np.array(labels_vector)
+    global_results = np.array(global_results)
+    return global_results, labels_vector
+
+lamda = 1000
+sushu = 2     
+def quantization(center):
+    for dim in range(len(center)):
+        if(center[dim]>=0):
+            center[dim]=math.floor(center[dim]*lamda)
+        else:
+            center[dim]=math.floor(center[dim]*lamda)
+
+
+def useri_receive(collect_local_centers, total_secrets, u):
+    data=[]
+    for i in range(args.n_clients):
+        for k in range(len(collect_local_centers[u])):
+            data.append(total_secrets[i][k][u])
+    data=np.array(data)
+
+    dis_maxtrix=[]
+    for i in range(len(data)):
+        dis_i_j=[]
+        for j in range(len(data)):
+            dis_i_j.append((data[i]-data[j])**2)
+        dis_maxtrix.append(dis_i_j)
+    return np.array(dis_maxtrix)
+
+
+def calsecret(collect_local_centers, total_center_num):
+    total_secrets={}
+    alpha = [i for i in range(1, args.n_clients+1)]
+    beta=[0, -1]
+    z=0.5 
+    total_distance={}
+    recover_num=4
+    for i in tqdm(range(args.n_clients)):
+        client_centers = collect_local_centers[i]
+        client_secrets={}
+        for j in range(len(client_centers)):
+            center = client_centers[j]
+            client_secrets[j] = []
+            for m in range(args.n_clients):
+                mul = (alpha[m]-beta[1])/(beta[0]-beta[1])
+                noise_mul =  (alpha[m]-beta[0])/(beta[1]-beta[0])
+                secret = np.array(center * mul)
+                client_secrets[j].append(secret)
+        total_secrets[i] = client_secrets
+    for i in range(args.n_clients):
+        total_distance[i]=useri_receive(collect_local_centers, total_secrets, i)
+        total_distance[i] = torch.tensor(total_distance[i])
+
+    from scipy.interpolate import lagrange
+    distance_pairwise=np.zeros((total_center_num, total_center_num))
+    for i in tqdm(range(total_center_num)):
+        for j in range(i+1, total_center_num):
+            secrets_set=torch.tensor([])
+            for k in range(recover_num):
+                secrets_set = torch.cat([secrets_set, total_distance[k][i][j].reshape(1,-1)],dim=0)
+            recover=[]
+            for col in range(128):
+                f = lagrange(alpha[:recover_num], secrets_set[:,col])
+                recover.append(f(beta[0]))
+            d = np.sqrt(np.sum(recover))
+            distance_pairwise[i][j] = d
+
+    with open("./datasets/cifar10/distance_pairwise", "wb") as f:
+        pickle.dump(distance_pairwise, f) 
+    return distance_pairwise
+
+def inference_kfed_spectral(loader, testmodel, device):
     testmodel.eval()
     client_local_predict={}
     labels_vector = []
@@ -477,11 +620,36 @@ def inference_kfed(loader, testmodel, device):
             collect_local_centers.append(local_centers)
             client_cluster_label[step] = cluster_label
         labels_vector.extend(y.numpy())
-    print("########### begin kmeans ##########")
-    kmeans = KMeans(n_clusters=10, max_iter=1000)
+    # for p in range(5):
+    #     print(np.sqrt(np.sum((collect_local_centers[0][0]-collect_local_centers[0][p])**2)))
+    # dis = calsecret(collect_local_centers, client_index_now)
+    with open("./datasets/cifar10/distance_pairwise", "rb") as f:
+        dis=pickle.load(f) 
+    print(dis)
+    dis = dis/max(dis)
+    sim = 1/(dis+1)
     collect_local_centers = np.concatenate(collect_local_centers, axis=0)
-    kmeans.fit(collect_local_centers)
-    global_label_pred = kmeans.labels_
+    # dis = euclidean_distances(collect_local_centers,collect_local_centers)
+    # sim = 1/(dis+1)
+
+    # sc = SpectralClustering(n_clusters=10, affinity='precomputed')
+    # print("########### begin SpectralClustering ##########")
+    # global_label_pred =sc.fit_predict(sim)
+    # print(global_label_pred)
+
+    from spectralcluster import SpectralClusterer
+
+    clusterer = SpectralClusterer(
+    min_clusters=10,
+    max_clusters=10,
+    autotune=None,
+    laplacian_type=None,
+    refinement_options=None,
+    custom_dist="cosine")
+
+    global_label_pred = clusterer.predict(collect_local_centers)
+    print(global_label_pred)
+
     global_results=[]
     for c in range(args.n_clients):
         client_global_label = global_label_pred[client_index_collect[c][0]: client_index_collect[c][1]]
@@ -498,7 +666,6 @@ def inference_kfed(loader, testmodel, device):
     labels_vector = np.array(labels_vector)
     global_results = np.array(global_results)
     return global_results, labels_vector
-
 
 def testiid(testmodel):
     nmiList, ariList, fList, accList= [],  [],  [], []
@@ -525,13 +692,13 @@ def testiid(testmodel):
 
     print("### Creating features from model ###")
     X, Y = inference(data_loader, testmodel, device)
-    nmi, ari, f, acc = evaluation.evaluateNoiid(Y, X)
+    nmi, ari, f, acc = evaluation.evaluate(Y, X)
     print('Global '+' NMI = {:.4f} ARI = {:.4f} F = {:.4f} ACC = {:.4f}'.format(nmi, ari, f, acc))
 
     for c in range(args.n_clients):
         client_X = np.array(X[np.array(clientDataIndex[c])])
         client_Y = np.array(Y[np.array(clientDataIndex[c])])
-        nmi, ari, f, acc = evaluation.evaluateNoiid(client_Y, client_X)
+        nmi, ari, f, acc = evaluation.evaluate(client_Y, client_X)
         nmiList.append(nmi)
         ariList.append(ari)
         fList.append(f)
@@ -562,9 +729,14 @@ def testNoiid(testmodel):
         num_workers=args.workers,
     )
 
+    # print("### Creating features from model ###")
+    # X, Y = inference_kfed_spectral(data_loader, testmodel, device)
+    # nmi, ari, f, acc = evaluation.evaluate(Y, X)
+    # print('Global '+' NMI = {:.4f} ARI = {:.4f} F = {:.4f} ACC = {:.4f}'.format(nmi, ari, f, acc))
+
     print("### Creating features from model ###")
     X, Y = inference_kfed(data_loader, testmodel, device)
-    nmi, ari, f, acc = evaluation.evaluateNoiid(Y, X)
+    nmi, ari, f, acc = evaluation.evaluate(Y, X)
     print('Global '+' NMI = {:.4f} ARI = {:.4f} F = {:.4f} ACC = {:.4f}'.format(nmi, ari, f, acc))
 
 
@@ -587,16 +759,16 @@ def saveClientsParams(model, keepLocal):
     for name, param in model.named_parameters ():
         for localParam in keepLocal:
             if localParam in name:
-                savedParams[name] = torch.tensor(param.data).cpu()
+                savedParams[name] = torch.tensor(param.data.clone()).cpu()
     return savedParams
 
 if __name__ == "__main__":
     import warnings
     warnings.filterwarnings("ignore")
-    device= torch.device("cuda:4")
+    device= torch.device("cuda:3")
     print(device)
     parser = argparse.ArgumentParser()
-    config = yaml_config_hook("config/config_DP_FL_Cifar_fix_adam.yaml")
+    config = yaml_config_hook("config/config_DP_FL_Cifar10_noiid.yaml")
     for k, v in config.items():
         parser.add_argument(f"--{k}", default=v, type=type(v))
     args = parser.parse_args()
@@ -609,21 +781,21 @@ if __name__ == "__main__":
     torch.cuda.manual_seed(args.seed)
     np.random.seed(args.seed)
 
-    cpu_num = 4 # 这里设置成你想运行的CPU个数
-    os.environ["OMP_NUM_THREADS"] = str(cpu_num)  # noqa
-    os.environ["MKL_NUM_THREADS"] = str(cpu_num) # noqa
-    torch.set_num_threads(cpu_num )
+    # cpu_num = 6 # 这里设置成你想运行的CPU个数
+    # os.environ["OMP_NUM_THREADS"] = str(cpu_num)  # noqa
+    # os.environ["MKL_NUM_THREADS"] = str(cpu_num) # noqa
+    # torch.set_num_threads(cpu_num )
     
 
     # createIIDTrainAndTestDataset()
     createNoIIDTrainAndTestDataset()
 
-    # prepare data
-    datasets=[]
+    # # prepare data
+    # datasets=[]
 
-    with open("./datasets/cifar10/Sample_noiid_class"+str(args.classes_per_user), "rb") as f:
+    with open("./datasets/cifar10/Sample_noiid_class"+str(args.classes_per_user)+"_"+str(args.n_clients), "rb") as f:
         Sample = pickle.load(f)
-    with open("./datasets/cifar10/Label_noiid_class"+str(args.classes_per_user), "rb") as f:
+    with open("./datasets/cifar10/Label_noiid_class"+str(args.classes_per_user)+"_"+str(args.n_clients), "rb") as f:
         Label = pickle.load(f)
     print("len label:",len(Label))
     # with open("./datasets/cifar10/Sample", "rb") as f:
@@ -666,7 +838,7 @@ if __name__ == "__main__":
             pin_memory=True,
         )
     
-    clientDataIndex = createclientDataIndex("./datasets/cifar10/Sample_noiid_class"+str(args.classes_per_user))
+    clientDataIndex = createclientDataIndex("./datasets/cifar10/Sample_noiid_class"+str(args.classes_per_user)+"_"+str(args.n_clients))
     # print(Label[clientDataIndex[0]], len(clientDataIndex[0]))
    
     # # optimizer / loss
@@ -675,14 +847,14 @@ if __name__ == "__main__":
     criterion_cluster = contrastive_loss.ClusterLoss(args.num_class, args.cluster_temperature, device).to(device)
 
     agg = Aggregator(device)
-    # loadpath="save/Cifar-10-DPFL-ResNet18-noiid-classes_per_user8-num_class10"
-    # model_fp = os.path.join(loadpath, "checkpoint_{}.tar".format(4))
+    # loadpath="save/Cifar-10-DPFL-ResNet18-noiid-classes_per_user4-num_class4-per-alpha0"
+    # model_fp = os.path.join(loadpath, "checkpoint_{}.tar".format(37))
     # checkpoint = torch.load(model_fp, map_location=device)
     # agg.model.load_state_dict(checkpoint['net'], strict=False)
     # print(loadpath)
 
     res = resnet.get_resnet(args.resnet, args.r_conv)
-    model = network.Network(res, args.feature_dim, args.num_class, args.r_proj)
+    model = network.Network_perCluster(res, args.feature_dim, args.num_class, args.r_proj)
     model = ModuleValidator.fix(model)
     model = model.to(device)
 
@@ -707,15 +879,21 @@ if __name__ == "__main__":
     for c in range(args.n_clients):
         clientsSavedParams[c] = saveClientsParams(agg.model, localParams)
 
+    # loadpath="save/Cifar-10-DPFL-ResNet18-noiid-classes_per_user4-num_class4-per-alpha0"
+    # model_fp = os.path.join(loadpath, "clientsSavedParams_{}.tar".format(37))
+    # clientsSavedParams = torch.load(model_fp, map_location=device)
+
+    
     # train
     for epoch in range(args.start_epoch, args.epochs):
         testNoiid(agg.model)
         # if epoch>args.start_epoch:
-        #     testNoiid(epoch, agg.model)
+        #     testNoiid(agg.model)
         train(agg, epoch)
         # if epoch % 5 ==0 and args.smooth_loss_radius > 0.2:
         #     args.smooth_loss_radius = 0.9 * args.smooth_loss_radius
-        save_model2(args, agg.model, epoch)
+        if epoch % 2 ==0:
+            save_model2(args, agg.model, epoch)
             
     save_model2(args, agg.model, args.epochs)
     testNoiid(agg.model)

@@ -474,15 +474,15 @@ class BasicBlock_lora(nn.Module):
 def get_resnet(name, r_conv):
     resnet18 = ResNet(block=BasicBlock, layers=[2, 2, 2, 2])
     resnet18_lora = ResNet_lora(block=BasicBlock, layers=[2, 2, 2, 2], r_conv=r_conv)
-    resnet34 = ResNet(block=BasicBlock, layers=[3, 4, 6, 3])
-    resnet34_lora = ResNet_lora(block=BasicBlock, layers=[3, 4, 6, 3], r_conv=r_conv)
+    # resnet34 = ResNet(block=BasicBlock, layers=[3, 4, 6, 3])
+    # resnet34_lora = ResNet_lora(block=BasicBlock, layers=[3, 4, 6, 3], r_conv=r_conv)
     # resnet50 = ResNet(block=Bottleneck, layers=[3, 4, 6, 3])
     # resnet18_adapter = ResNet_Adapter(block=BasicBlock, layers=[2, 2, 2, 2])
     resnets = {
         "ResNet18": resnet18,
         "ResNet18_lora": resnet18_lora,
-        "ResNet34": resnet34,
-        "ResNet34_lora":resnet34_lora,
+        # "ResNet34": resnet34,
+        # "ResNet34_lora":resnet34_lora,
         # "ResNet50": resnet50,
         # "ResNet18_Adapter": resnet18_adapter,
     }

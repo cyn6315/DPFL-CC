@@ -166,36 +166,37 @@ class Cutout(object):
         img = img * mask
 
         return img
-    
-class GaussianBlur:
-    def __init__(self, kernel_size, min=0.1, max=2.0):
-        self.min = min
-        self.max = max
-        self.kernel_size = kernel_size
 
-    def __call__(self, sample):
-        sample = np.array(sample)
-        prob = np.random.random_sample()
-        if prob < 0.5:
-            sigma = (self.max - self.min) * np.random.random_sample() + self.min
-            sample = cv2.GaussianBlur(sample, (self.kernel_size, self.kernel_size), sigma)
-        return sample
+
+class GaussianBlur(object):
+    """Gaussian blur augmentation from SimCLR: https://arxiv.org/abs/2002.05709"""
+
+    def __init__(self, sigma=[0.1, 2.0]):
+        self.sigma = sigma
+
+    def __call__(self, x):
+        sigma = random.uniform(self.sigma[0], self.sigma[1])
+        x = x.filter(ImageFilter.GaussianBlur(radius=sigma))
+        return x
 
 
 class Transforms:
-    def __init__(self, size, s=1.0, mean=None, std=None, blur=False, num_aug=4, cutout_holes=1, cutout_size=75):
+    def __init__(self, size, test_size=None, s=1.0, mean=None, std=None, blur=False, num_aug=4, cutout_holes=1, cutout_size=75):
         self.train_transform = [
-            torchvision.transforms.RandomResizedCrop(size=size),
+            torchvision.transforms.ToPILImage(),
+            torchvision.transforms.RandomResizedCrop(size=size, interpolation=Image.BICUBIC, scale=(0.2, 1.0)),
             torchvision.transforms.RandomHorizontalFlip(),
-            torchvision.transforms.RandomApply([torchvision.transforms.ColorJitter(0.8 * s, 0.8 * s, 0.8 * s, 0.2 * s)],
+            torchvision.transforms.RandomApply([torchvision.transforms.ColorJitter(0.8 * s, 0.8 * s, 0.4 * s, 0.2 * s)],
                                                p=0.8),
             torchvision.transforms.RandomGrayscale(p=0.2),
         ]
         if blur:
-            self.train_transform.append(GaussianBlur(kernel_size=23))
+            self.train_transform.append(torchvision.transforms.RandomApply([GaussianBlur([0.1, 2.0])], p=blur))
         self.train_transform.append(torchvision.transforms.ToTensor())
         self.test_transform = [
-            torchvision.transforms.Resize(size=(size, size)),
+            torchvision.transforms.ToPILImage(),
+            torchvision.transforms.Resize(size=(test_size, test_size), interpolation=Image.BICUBIC),
+            torchvision.transforms.CenterCrop(size),
             torchvision.transforms.ToTensor(),
         ]
         self.strong_transform = torchvision.transforms.Compose(

@@ -1,0 +1,1383 @@
+nohup: ignoring input
+cuda:2
+Namespace(batch_size=145, data_root='./datasets', eta=0.01, exp_dir='./save/CCFC++/Img', global_lr=1, image_size=224, k=10, latent_dim=256, lbd=0.1, lr=0.0005, mini_bs=145, n_clients=1, num_proj_layers=2, num_workers=6, p=0.0, pre_hidden_dim=64, proj_hidden_dim=512, resnet='ResNet18', seed=66, test_image_size=256, trial='v0')
+Global  NMI = 0.1484 ARI = 0.0737 F = 0.1735 ACC = 0.2474
+backbone.conv1.weight 9408 torch.Size([64, 3, 7, 7])
+backbone.bn1.weight 64 torch.Size([64])
+backbone.bn1.bias 64 torch.Size([64])
+backbone.layer1.0.conv1.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.0.bn1.weight 64 torch.Size([64])
+backbone.layer1.0.bn1.bias 64 torch.Size([64])
+backbone.layer1.0.conv2.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.0.bn2.weight 64 torch.Size([64])
+backbone.layer1.0.bn2.bias 64 torch.Size([64])
+backbone.layer1.1.conv1.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.1.bn1.weight 64 torch.Size([64])
+backbone.layer1.1.bn1.bias 64 torch.Size([64])
+backbone.layer1.1.conv2.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.1.bn2.weight 64 torch.Size([64])
+backbone.layer1.1.bn2.bias 64 torch.Size([64])
+backbone.layer2.0.conv1.weight 73728 torch.Size([128, 64, 3, 3])
+backbone.layer2.0.bn1.weight 128 torch.Size([128])
+backbone.layer2.0.bn1.bias 128 torch.Size([128])
+backbone.layer2.0.conv2.weight 147456 torch.Size([128, 128, 3, 3])
+backbone.layer2.0.bn2.weight 128 torch.Size([128])
+backbone.layer2.0.bn2.bias 128 torch.Size([128])
+backbone.layer2.0.downsample.0.weight 8192 torch.Size([128, 64, 1, 1])
+backbone.layer2.0.downsample.1.weight 128 torch.Size([128])
+backbone.layer2.0.downsample.1.bias 128 torch.Size([128])
+backbone.layer2.1.conv1.weight 147456 torch.Size([128, 128, 3, 3])
+backbone.layer2.1.bn1.weight 128 torch.Size([128])
+backbone.layer2.1.bn1.bias 128 torch.Size([128])
+backbone.layer2.1.conv2.weight 147456 torch.Size([128, 128, 3, 3])
+backbone.layer2.1.bn2.weight 128 torch.Size([128])
+backbone.layer2.1.bn2.bias 128 torch.Size([128])
+backbone.layer3.0.conv1.weight 294912 torch.Size([256, 128, 3, 3])
+backbone.layer3.0.bn1.weight 256 torch.Size([256])
+backbone.layer3.0.bn1.bias 256 torch.Size([256])
+backbone.layer3.0.conv2.weight 589824 torch.Size([256, 256, 3, 3])
+backbone.layer3.0.bn2.weight 256 torch.Size([256])
+backbone.layer3.0.bn2.bias 256 torch.Size([256])
+backbone.layer3.0.downsample.0.weight 32768 torch.Size([256, 128, 1, 1])
+backbone.layer3.0.downsample.1.weight 256 torch.Size([256])
+backbone.layer3.0.downsample.1.bias 256 torch.Size([256])
+backbone.layer3.1.conv1.weight 589824 torch.Size([256, 256, 3, 3])
+backbone.layer3.1.bn1.weight 256 torch.Size([256])
+backbone.layer3.1.bn1.bias 256 torch.Size([256])
+backbone.layer3.1.conv2.weight 589824 torch.Size([256, 256, 3, 3])
+backbone.layer3.1.bn2.weight 256 torch.Size([256])
+backbone.layer3.1.bn2.bias 256 torch.Size([256])
+backbone.layer4.0.conv1.weight 1179648 torch.Size([512, 256, 3, 3])
+backbone.layer4.0.bn1.weight 512 torch.Size([512])
+backbone.layer4.0.bn1.bias 512 torch.Size([512])
+backbone.layer4.0.conv2.weight 2359296 torch.Size([512, 512, 3, 3])
+backbone.layer4.0.bn2.weight 512 torch.Size([512])
+backbone.layer4.0.bn2.bias 512 torch.Size([512])
+backbone.layer4.0.downsample.0.weight 131072 torch.Size([512, 256, 1, 1])
+backbone.layer4.0.downsample.1.weight 512 torch.Size([512])
+backbone.layer4.0.downsample.1.bias 512 torch.Size([512])
+backbone.layer4.1.conv1.weight 2359296 torch.Size([512, 512, 3, 3])
+backbone.layer4.1.bn1.weight 512 torch.Size([512])
+backbone.layer4.1.bn1.bias 512 torch.Size([512])
+backbone.layer4.1.conv2.weight 2359296 torch.Size([512, 512, 3, 3])
+backbone.layer4.1.bn2.weight 512 torch.Size([512])
+backbone.layer4.1.bn2.bias 512 torch.Size([512])
+projector.layer1.0.weight 262144 torch.Size([512, 512])
+projector.layer1.0.bias 512 torch.Size([512])
+projector.layer1.1.weight 512 torch.Size([512])
+projector.layer1.1.bias 512 torch.Size([512])
+projector.layer2.0.weight 262144 torch.Size([512, 512])
+projector.layer2.0.bias 512 torch.Size([512])
+projector.layer2.1.weight 512 torch.Size([512])
+projector.layer2.1.bias 512 torch.Size([512])
+projector.layer3.0.weight 131072 torch.Size([256, 512])
+projector.layer3.0.bias 256 torch.Size([256])
+predictor.layer1.0.weight 16384 torch.Size([64, 256])
+predictor.layer1.0.bias 64 torch.Size([64])
+predictor.layer1.1.weight 64 torch.Size([64])
+predictor.layer1.1.bias 64 torch.Size([64])
+predictor.layer2.weight 16384 torch.Size([256, 64])
+predictor.layer2.bias 256 torch.Size([256])
+Round:  0 Train Loss: -1.286
+Global  NMI = 0.1686 ARI = 0.0396 F = 0.2744 ACC = 0.1845
+Round:  1 Train Loss: -1.782
+Global  NMI = 0.1483 ARI = 0.0548 F = 0.2212 ACC = 0.1832
+Round:  2 Train Loss: -1.740
+Global  NMI = 0.2206 ARI = 0.1375 F = 0.2553 ACC = 0.2705
+Round:  3 Train Loss: -1.642
+Global  NMI = 0.2334 ARI = 0.1537 F = 0.2614 ACC = 0.3098
+Round:  4 Train Loss: -1.791
+Global  NMI = 0.2475 ARI = 0.1659 F = 0.2620 ACC = 0.3125
+Round:  5 Train Loss: -1.667
+Global  NMI = 0.2415 ARI = 0.1575 F = 0.2484 ACC = 0.3432
+Round:  6 Train Loss: -1.646
+Global  NMI = 0.2210 ARI = 0.1324 F = 0.2373 ACC = 0.3018
+Round:  7 Train Loss: -1.684
+Global  NMI = 0.2667 ARI = 0.1808 F = 0.2789 ACC = 0.3201
+Round:  8 Train Loss: -1.640
+Global  NMI = 0.2643 ARI = 0.1623 F = 0.2533 ACC = 0.3323
+Round:  9 Train Loss: -1.653
+Global  NMI = 0.2614 ARI = 0.1463 F = 0.2584 ACC = 0.3182
+Round:  10 Train Loss: -1.698
+Global  NMI = 0.2601 ARI = 0.1577 F = 0.2500 ACC = 0.3199
+Round:  11 Train Loss: -1.634
+Global  NMI = 0.2534 ARI = 0.1662 F = 0.2682 ACC = 0.3281
+Round:  12 Train Loss: -1.707
+Global  NMI = 0.2795 ARI = 0.1732 F = 0.2754 ACC = 0.3242
+Round:  13 Train Loss: -1.629
+Global  NMI = 0.2514 ARI = 0.1486 F = 0.2547 ACC = 0.3290
+Round:  14 Train Loss: -1.698
+Global  NMI = 0.2508 ARI = 0.1633 F = 0.2703 ACC = 0.3176
+Round:  15 Train Loss: -1.746
+Global  NMI = 0.2773 ARI = 0.1703 F = 0.2655 ACC = 0.3252
+Round:  16 Train Loss: -1.682
+Global  NMI = 0.2870 ARI = 0.1868 F = 0.2765 ACC = 0.3395
+Round:  17 Train Loss: -1.692
+Global  NMI = 0.2710 ARI = 0.1706 F = 0.2703 ACC = 0.3305
+Round:  18 Train Loss: -1.689
+Global  NMI = 0.2252 ARI = 0.1537 F = 0.2535 ACC = 0.2929
+Round:  19 Train Loss: -1.685
+Global  NMI = 0.2815 ARI = 0.1880 F = 0.2814 ACC = 0.3406
+Round:  20 Train Loss: -1.634
+Global  NMI = 0.2696 ARI = 0.1689 F = 0.2701 ACC = 0.3336
+Round:  21 Train Loss: -1.639
+Global  NMI = 0.2868 ARI = 0.1797 F = 0.2721 ACC = 0.3238
+Round:  22 Train Loss: -1.673
+Global  NMI = 0.2747 ARI = 0.1882 F = 0.2786 ACC = 0.3178
+Round:  23 Train Loss: -1.742
+Global  NMI = 0.2845 ARI = 0.1919 F = 0.2838 ACC = 0.3432
+Round:  24 Train Loss: -1.777
+Global  NMI = 0.2760 ARI = 0.1868 F = 0.2728 ACC = 0.3618
+Round:  25 Train Loss: -1.704
+Global  NMI = 0.2945 ARI = 0.1911 F = 0.2805 ACC = 0.3506
+Round:  26 Train Loss: -1.752
+Global  NMI = 0.2869 ARI = 0.1754 F = 0.2761 ACC = 0.3448
+Round:  27 Train Loss: -1.750
+Global  NMI = 0.3262 ARI = 0.2121 F = 0.3061 ACC = 0.3808
+Round:  28 Train Loss: -1.728
+Global  NMI = 0.3171 ARI = 0.1937 F = 0.3137 ACC = 0.3175
+Round:  29 Train Loss: -1.780
+Global  NMI = 0.3200 ARI = 0.1924 F = 0.2825 ACC = 0.3564
+Round:  30 Train Loss: -1.753
+Global  NMI = 0.2796 ARI = 0.1696 F = 0.2615 ACC = 0.3398
+Round:  31 Train Loss: -1.778
+Global  NMI = 0.3129 ARI = 0.2043 F = 0.2953 ACC = 0.3592
+Round:  32 Train Loss: -1.762
+Global  NMI = 0.3280 ARI = 0.2165 F = 0.3025 ACC = 0.4001
+Round:  33 Train Loss: -1.779
+Global  NMI = 0.3436 ARI = 0.2277 F = 0.3160 ACC = 0.4053
+Round:  34 Train Loss: -1.772
+Global  NMI = 0.3236 ARI = 0.2015 F = 0.2843 ACC = 0.3658
+Round:  35 Train Loss: -1.772
+Global  NMI = 0.3425 ARI = 0.2194 F = 0.3081 ACC = 0.3861
+Round:  36 Train Loss: -1.749
+Global  NMI = 0.3097 ARI = 0.1876 F = 0.2749 ACC = 0.3659
+Round:  37 Train Loss: -1.786
+Global  NMI = 0.3273 ARI = 0.2070 F = 0.2934 ACC = 0.3694
+Round:  38 Train Loss: -1.816
+Global  NMI = 0.2854 ARI = 0.1596 F = 0.2535 ACC = 0.3435
+Round:  39 Train Loss: -1.833
+Global  NMI = 0.3372 ARI = 0.1787 F = 0.2832 ACC = 0.3324
+Round:  40 Train Loss: -1.829
+Global  NMI = 0.3529 ARI = 0.2081 F = 0.3043 ACC = 0.3607
+Round:  41 Train Loss: -1.803
+Global  NMI = 0.3059 ARI = 0.1674 F = 0.2565 ACC = 0.3332
+Round:  42 Train Loss: -1.807
+Global  NMI = 0.3271 ARI = 0.1974 F = 0.2837 ACC = 0.3865
+Round:  43 Train Loss: -1.797
+Global  NMI = 0.3254 ARI = 0.2098 F = 0.2997 ACC = 0.3856
+Round:  44 Train Loss: -1.826
+Global  NMI = 0.3621 ARI = 0.2196 F = 0.3047 ACC = 0.4012
+Round:  45 Train Loss: -1.787
+Global  NMI = 0.3118 ARI = 0.1717 F = 0.2681 ACC = 0.3415
+Round:  46 Train Loss: -1.808
+Global  NMI = 0.3628 ARI = 0.2043 F = 0.3212 ACC = 0.3567
+Round:  47 Train Loss: -1.808
+Global  NMI = 0.3409 ARI = 0.2140 F = 0.3048 ACC = 0.3751
+Round:  48 Train Loss: -1.822
+Global  NMI = 0.3563 ARI = 0.2296 F = 0.3172 ACC = 0.4109
+Round:  49 Train Loss: -1.803
+Global  NMI = 0.3681 ARI = 0.2244 F = 0.3118 ACC = 0.4015
+Round:  50 Train Loss: -1.801
+Global  NMI = 0.3352 ARI = 0.2165 F = 0.3034 ACC = 0.3718
+Round:  51 Train Loss: -1.799
+Global  NMI = 0.3488 ARI = 0.1936 F = 0.2967 ACC = 0.3628
+Round:  52 Train Loss: -1.815
+Global  NMI = 0.3492 ARI = 0.1880 F = 0.3097 ACC = 0.3502
+Round:  53 Train Loss: -1.811
+Global  NMI = 0.3535 ARI = 0.2224 F = 0.3131 ACC = 0.3898
+Round:  54 Train Loss: -1.812
+Global  NMI = 0.3955 ARI = 0.2432 F = 0.3560 ACC = 0.3979
+Round:  55 Train Loss: -1.828
+Global  NMI = 0.3499 ARI = 0.2187 F = 0.3073 ACC = 0.3730
+Round:  56 Train Loss: -1.835
+Global  NMI = 0.3823 ARI = 0.2500 F = 0.3346 ACC = 0.4113
+Round:  57 Train Loss: -1.828
+Global  NMI = 0.3482 ARI = 0.1887 F = 0.2859 ACC = 0.3778
+Round:  58 Train Loss: -1.845
+Global  NMI = 0.3876 ARI = 0.2496 F = 0.3344 ACC = 0.4153
+Round:  59 Train Loss: -1.814
+Global  NMI = 0.3869 ARI = 0.2520 F = 0.3443 ACC = 0.4045
+Round:  60 Train Loss: -1.812
+Global  NMI = 0.3793 ARI = 0.2581 F = 0.3385 ACC = 0.4427
+Round:  61 Train Loss: -1.800
+Global  NMI = 0.3571 ARI = 0.2273 F = 0.3254 ACC = 0.3919
+Round:  62 Train Loss: -1.818
+Global  NMI = 0.3742 ARI = 0.2277 F = 0.3145 ACC = 0.3940
+Round:  63 Train Loss: -1.814
+Global  NMI = 0.4001 ARI = 0.2611 F = 0.3436 ACC = 0.4298
+Round:  64 Train Loss: -1.828
+Global  NMI = 0.4050 ARI = 0.2819 F = 0.3645 ACC = 0.4394
+Round:  65 Train Loss: -1.819
+Global  NMI = 0.3817 ARI = 0.2415 F = 0.3243 ACC = 0.4365
+Round:  66 Train Loss: -1.803
+Global  NMI = 0.3964 ARI = 0.2673 F = 0.3522 ACC = 0.4178
+Round:  67 Train Loss: -1.815
+Global  NMI = 0.3674 ARI = 0.2536 F = 0.3332 ACC = 0.4099
+Round:  68 Train Loss: -1.790
+Global  NMI = 0.3905 ARI = 0.2920 F = 0.3742 ACC = 0.4657
+Round:  69 Train Loss: -1.797
+Global  NMI = 0.3703 ARI = 0.2080 F = 0.3164 ACC = 0.3814
+Round:  70 Train Loss: -1.845
+Global  NMI = 0.3890 ARI = 0.2550 F = 0.3368 ACC = 0.4442
+Round:  71 Train Loss: -1.814
+Global  NMI = 0.3900 ARI = 0.2498 F = 0.3423 ACC = 0.4032
+Round:  72 Train Loss: -1.831
+Global  NMI = 0.3948 ARI = 0.2722 F = 0.3515 ACC = 0.4434
+Round:  73 Train Loss: -1.853
+Global  NMI = 0.4129 ARI = 0.2925 F = 0.3678 ACC = 0.4672
+Round:  74 Train Loss: -1.841
+Global  NMI = 0.4026 ARI = 0.2749 F = 0.3506 ACC = 0.4378
+Round:  75 Train Loss: -1.830
+Global  NMI = 0.3658 ARI = 0.2416 F = 0.3252 ACC = 0.4336
+Round:  76 Train Loss: -1.826
+Global  NMI = 0.4123 ARI = 0.2905 F = 0.3687 ACC = 0.4642
+Round:  77 Train Loss: -1.829
+Global  NMI = 0.4211 ARI = 0.2791 F = 0.3621 ACC = 0.4332
+Round:  78 Train Loss: -1.826
+Global  NMI = 0.4597 ARI = 0.3294 F = 0.4098 ACC = 0.5010
+Round:  79 Train Loss: -1.829
+Global  NMI = 0.4109 ARI = 0.2830 F = 0.3656 ACC = 0.4548
+Round:  80 Train Loss: -1.822
+Global  NMI = 0.4122 ARI = 0.2900 F = 0.3660 ACC = 0.4689
+Round:  81 Train Loss: -1.808
+Global  NMI = 0.3646 ARI = 0.2267 F = 0.3383 ACC = 0.3758
+Round:  82 Train Loss: -1.826
+Global  NMI = 0.4082 ARI = 0.2817 F = 0.3604 ACC = 0.4567
+Round:  83 Train Loss: -1.827
+Global  NMI = 0.3906 ARI = 0.2810 F = 0.3592 ACC = 0.4367
+Round:  84 Train Loss: -1.821
+Global  NMI = 0.4093 ARI = 0.2898 F = 0.3696 ACC = 0.4654
+Round:  85 Train Loss: -1.818
+Global  NMI = 0.3748 ARI = 0.2361 F = 0.3288 ACC = 0.3922
+Round:  86 Train Loss: -1.824
+Global  NMI = 0.3757 ARI = 0.2163 F = 0.3278 ACC = 0.3825
+Round:  87 Train Loss: -1.837
+Global  NMI = 0.3861 ARI = 0.2375 F = 0.3327 ACC = 0.3855
+Round:  88 Train Loss: -1.842
+Global  NMI = 0.3837 ARI = 0.2409 F = 0.3358 ACC = 0.3790
+Round:  89 Train Loss: -1.867
+Global  NMI = 0.4271 ARI = 0.3093 F = 0.3858 ACC = 0.4917
+Round:  90 Train Loss: -1.865
+Global  NMI = 0.3911 ARI = 0.2333 F = 0.3231 ACC = 0.4311
+Round:  91 Train Loss: -1.842
+Global  NMI = 0.4126 ARI = 0.2840 F = 0.3634 ACC = 0.4509
+Round:  92 Train Loss: -1.864
+Global  NMI = 0.4015 ARI = 0.2582 F = 0.3420 ACC = 0.4417
+Round:  93 Train Loss: -1.838
+Global  NMI = 0.4003 ARI = 0.2705 F = 0.3472 ACC = 0.4587
+Round:  94 Train Loss: -1.866
+Global  NMI = 0.3955 ARI = 0.2509 F = 0.3370 ACC = 0.4218
+Round:  95 Train Loss: -1.866
+Global  NMI = 0.4139 ARI = 0.2571 F = 0.3402 ACC = 0.4292
+Round:  96 Train Loss: -1.866
+Global  NMI = 0.4171 ARI = 0.2788 F = 0.3579 ACC = 0.4503
+Round:  97 Train Loss: -1.866
+Global  NMI = 0.4406 ARI = 0.2954 F = 0.3766 ACC = 0.4608
+Round:  98 Train Loss: -1.887
+Global  NMI = 0.4199 ARI = 0.2718 F = 0.3667 ACC = 0.4497
+Round:  99 Train Loss: -1.880
+Global  NMI = 0.4131 ARI = 0.2629 F = 0.3416 ACC = 0.4421
+Round:  100 Train Loss: -1.855
+Global  NMI = 0.3533 ARI = 0.2046 F = 0.3129 ACC = 0.3781
+Round:  101 Train Loss: -1.882
+Global  NMI = 0.4218 ARI = 0.2775 F = 0.3553 ACC = 0.4678
+Round:  102 Train Loss: -1.861
+Global  NMI = 0.3963 ARI = 0.2404 F = 0.3455 ACC = 0.3994
+Round:  103 Train Loss: -1.885
+Global  NMI = 0.4180 ARI = 0.2533 F = 0.3533 ACC = 0.4106
+Round:  104 Train Loss: -1.870
+Global  NMI = 0.4179 ARI = 0.2798 F = 0.3596 ACC = 0.4545
+Round:  105 Train Loss: -1.855
+Global  NMI = 0.3915 ARI = 0.2069 F = 0.3181 ACC = 0.3852
+Round:  106 Train Loss: -1.855
+Global  NMI = 0.4108 ARI = 0.2582 F = 0.3387 ACC = 0.4328
+Round:  107 Train Loss: -1.849
+Global  NMI = 0.4364 ARI = 0.2829 F = 0.3649 ACC = 0.4808
+Round:  108 Train Loss: -1.866
+Global  NMI = 0.3991 ARI = 0.2641 F = 0.3463 ACC = 0.4386
+Round:  109 Train Loss: -1.854
+Global  NMI = 0.4441 ARI = 0.3012 F = 0.3849 ACC = 0.4577
+Round:  110 Train Loss: -1.841
+Global  NMI = 0.4025 ARI = 0.2299 F = 0.3256 ACC = 0.3902
+Round:  111 Train Loss: -1.870
+Global  NMI = 0.4279 ARI = 0.2868 F = 0.3687 ACC = 0.4441
+Round:  112 Train Loss: -1.887
+Global  NMI = 0.4454 ARI = 0.2917 F = 0.3767 ACC = 0.4673
+Round:  113 Train Loss: -1.880
+Global  NMI = 0.4351 ARI = 0.2740 F = 0.3527 ACC = 0.4683
+Round:  114 Train Loss: -1.898
+Global  NMI = 0.4375 ARI = 0.2862 F = 0.3689 ACC = 0.4513
+Round:  115 Train Loss: -1.889
+Global  NMI = 0.4552 ARI = 0.2891 F = 0.3717 ACC = 0.4694
+Round:  116 Train Loss: -1.872
+Global  NMI = 0.4522 ARI = 0.3223 F = 0.3913 ACC = 0.5169
+Round:  117 Train Loss: -1.872
+Global  NMI = 0.4672 ARI = 0.3246 F = 0.3992 ACC = 0.5068
+Round:  118 Train Loss: -1.891
+Global  NMI = 0.4476 ARI = 0.2962 F = 0.3758 ACC = 0.4718
+Round:  119 Train Loss: -1.896
+Global  NMI = 0.4667 ARI = 0.3144 F = 0.3905 ACC = 0.5176
+Round:  120 Train Loss: -1.908
+Global  NMI = 0.4207 ARI = 0.2302 F = 0.3247 ACC = 0.3931
+Round:  121 Train Loss: -1.913
+Global  NMI = 0.4429 ARI = 0.2426 F = 0.3428 ACC = 0.3620
+Round:  122 Train Loss: -1.911
+Global  NMI = 0.4320 ARI = 0.2320 F = 0.3379 ACC = 0.3994
+Round:  123 Train Loss: -1.900
+Global  NMI = 0.4217 ARI = 0.1530 F = 0.3390 ACC = 0.3024
+Round:  124 Train Loss: -1.895
+Global  NMI = 0.4406 ARI = 0.2426 F = 0.3484 ACC = 0.3975
+Round:  125 Train Loss: -1.917
+Global  NMI = 0.4237 ARI = 0.2189 F = 0.3287 ACC = 0.3668
+Round:  126 Train Loss: -1.901
+Global  NMI = 0.4457 ARI = 0.2843 F = 0.3678 ACC = 0.4555
+Round:  127 Train Loss: -1.879
+Global  NMI = 0.4117 ARI = 0.2050 F = 0.3342 ACC = 0.3455
+Round:  128 Train Loss: -1.899
+Global  NMI = 0.4326 ARI = 0.2420 F = 0.3421 ACC = 0.3861
+Round:  129 Train Loss: -1.899
+Global  NMI = 0.3851 ARI = 0.1810 F = 0.3109 ACC = 0.3061
+Round:  130 Train Loss: -1.906
+Global  NMI = 0.4350 ARI = 0.2036 F = 0.3459 ACC = 0.3377
+Round:  131 Train Loss: -1.911
+Global  NMI = 0.4374 ARI = 0.2721 F = 0.3524 ACC = 0.4602
+Round:  132 Train Loss: -1.923
+Global  NMI = 0.4040 ARI = 0.2112 F = 0.3276 ACC = 0.3588
+Round:  133 Train Loss: -1.932
+Global  NMI = 0.3743 ARI = 0.1740 F = 0.3075 ACC = 0.3272
+Round:  134 Train Loss: -1.924
+Global  NMI = 0.4017 ARI = 0.1561 F = 0.3137 ACC = 0.2960
+Round:  135 Train Loss: -1.901
+Global  NMI = 0.4178 ARI = 0.2094 F = 0.3283 ACC = 0.3652
+Round:  136 Train Loss: -1.906
+Global  NMI = 0.3940 ARI = 0.1932 F = 0.3304 ACC = 0.3236
+Round:  137 Train Loss: -1.918
+Global  NMI = 0.3799 ARI = 0.1558 F = 0.3198 ACC = 0.3073
+Round:  138 Train Loss: -1.926
+Global  NMI = 0.3859 ARI = 0.1509 F = 0.3229 ACC = 0.2792
+Round:  139 Train Loss: -1.913
+Global  NMI = 0.4007 ARI = 0.2057 F = 0.3224 ACC = 0.3348
+Round:  140 Train Loss: -1.901
+Global  NMI = 0.4467 ARI = 0.2001 F = 0.3355 ACC = 0.3368
+Round:  141 Train Loss: -1.910
+Global  NMI = 0.4415 ARI = 0.1937 F = 0.3399 ACC = 0.3192
+Round:  142 Train Loss: -1.908
+Global  NMI = 0.4155 ARI = 0.2548 F = 0.3535 ACC = 0.4200
+Round:  143 Train Loss: -1.887
+Global  NMI = 0.4102 ARI = 0.2140 F = 0.3186 ACC = 0.3741
+Round:  144 Train Loss: -1.881
+Global  NMI = 0.4020 ARI = 0.2462 F = 0.3353 ACC = 0.4092
+Round:  145 Train Loss: -1.894
+Global  NMI = 0.3904 ARI = 0.2261 F = 0.3278 ACC = 0.3808
+Round:  146 Train Loss: -1.911
+Global  NMI = 0.4238 ARI = 0.1914 F = 0.3563 ACC = 0.3302
+Round:  147 Train Loss: -1.901
+Global  NMI = 0.4130 ARI = 0.2195 F = 0.3462 ACC = 0.3702
+Round:  148 Train Loss: -1.917
+Global  NMI = 0.3906 ARI = 0.1931 F = 0.3180 ACC = 0.3390
+Round:  149 Train Loss: -1.917
+Global  NMI = 0.3654 ARI = 0.1467 F = 0.3184 ACC = 0.3026
+Global  NMI = 0.3656 ARI = 0.1463 F = 0.3182 ACC = 0.3023
+pseudo_labels 13000
+training on: cuda:2
+Round:  0 Train Loss: -0.929
+Global  NMI = 0.3130 ARI = 0.0579 F = 0.3188 ACC = 0.1914
+Round:  1 Train Loss: -0.941
+Global  NMI = 0.2877 ARI = 0.0447 F = 0.3152 ACC = 0.1691
+Round:  2 Train Loss: -0.935
+Global  NMI = 0.2778 ARI = 0.0410 F = 0.3132 ACC = 0.1512
+Round:  3 Train Loss: -0.936
+Global  NMI = 0.3020 ARI = 0.0620 F = 0.3025 ACC = 0.1862
+Round:  4 Train Loss: -0.946
+Global  NMI = 0.2786 ARI = 0.0433 F = 0.3123 ACC = 0.1552
+Round:  5 Train Loss: -0.945
+Global  NMI = 0.2838 ARI = 0.0454 F = 0.3132 ACC = 0.1633
+Round:  6 Train Loss: -0.941
+Global  NMI = 0.2526 ARI = 0.0369 F = 0.3110 ACC = 0.1620
+Round:  7 Train Loss: -0.940
+Global  NMI = 0.2407 ARI = 0.0540 F = 0.2707 ACC = 0.1698
+Round:  8 Train Loss: -0.947
+Global  NMI = 0.2413 ARI = 0.0643 F = 0.2560 ACC = 0.1999
+Round:  9 Train Loss: -0.948
+Global  NMI = 0.2614 ARI = 0.0734 F = 0.2658 ACC = 0.2085
+Round:  10 Train Loss: -0.949
+Global  NMI = 0.2632 ARI = 0.0615 F = 0.2871 ACC = 0.1911
+Round:  11 Train Loss: -0.958
+Global  NMI = 0.2646 ARI = 0.0606 F = 0.2863 ACC = 0.1882
+Round:  12 Train Loss: -0.954
+Global  NMI = 0.2362 ARI = 0.0676 F = 0.2646 ACC = 0.2108
+Round:  13 Train Loss: -0.955
+Global  NMI = 0.2214 ARI = 0.0627 F = 0.2463 ACC = 0.1978
+Round:  14 Train Loss: -0.967
+Global  NMI = 0.2243 ARI = 0.0729 F = 0.2364 ACC = 0.2125
+Round:  15 Train Loss: -0.968
+Global  NMI = 0.2299 ARI = 0.0657 F = 0.2534 ACC = 0.2020
+Round:  16 Train Loss: -0.967
+Global  NMI = 0.2342 ARI = 0.0607 F = 0.2729 ACC = 0.1927
+Round:  17 Train Loss: -0.966
+Global  NMI = 0.2299 ARI = 0.0747 F = 0.2487 ACC = 0.2181
+Round:  18 Train Loss: -0.959
+Global  NMI = 0.2278 ARI = 0.0751 F = 0.2412 ACC = 0.2082
+Round:  19 Train Loss: -0.955
+Global  NMI = 0.2202 ARI = 0.0800 F = 0.2360 ACC = 0.2255
+Round:  20 Train Loss: -0.963
+Global  NMI = 0.2132 ARI = 0.0763 F = 0.2217 ACC = 0.2127
+Round:  21 Train Loss: -0.962
+Global  NMI = 0.2170 ARI = 0.0849 F = 0.2192 ACC = 0.2201
+Round:  22 Train Loss: -0.968
+Global  NMI = 0.2106 ARI = 0.0820 F = 0.2032 ACC = 0.2448
+Round:  23 Train Loss: -0.953
+Global  NMI = 0.2183 ARI = 0.0737 F = 0.2513 ACC = 0.2182
+Round:  24 Train Loss: -0.959
+Global  NMI = 0.2145 ARI = 0.0739 F = 0.2476 ACC = 0.2121
+Round:  25 Train Loss: -0.962
+Global  NMI = 0.2375 ARI = 0.0725 F = 0.2656 ACC = 0.2201
+Round:  26 Train Loss: -0.971
+Global  NMI = 0.2230 ARI = 0.0585 F = 0.2827 ACC = 0.1974
+Round:  27 Train Loss: -0.969
+Global  NMI = 0.2052 ARI = 0.0640 F = 0.2590 ACC = 0.2252
+Round:  28 Train Loss: -0.960
+Global  NMI = 0.1965 ARI = 0.0679 F = 0.2334 ACC = 0.2209
+Round:  29 Train Loss: -0.968
+Global  NMI = 0.1940 ARI = 0.0608 F = 0.2385 ACC = 0.2050
+Round:  30 Train Loss: -0.957
+Global  NMI = 0.1960 ARI = 0.0636 F = 0.2402 ACC = 0.2102
+Round:  31 Train Loss: -0.961
+Global  NMI = 0.2101 ARI = 0.0677 F = 0.2460 ACC = 0.2182
+Round:  32 Train Loss: -0.967
+Global  NMI = 0.1986 ARI = 0.0625 F = 0.2316 ACC = 0.2095
+Round:  33 Train Loss: -0.961
+Global  NMI = 0.2108 ARI = 0.0593 F = 0.2492 ACC = 0.1868
+Round:  34 Train Loss: -0.955
+Global  NMI = 0.1899 ARI = 0.0869 F = 0.2000 ACC = 0.2532
+Round:  35 Train Loss: -0.965
+Global  NMI = 0.2043 ARI = 0.0549 F = 0.2717 ACC = 0.2005
+Round:  36 Train Loss: -0.959
+Global  NMI = 0.1816 ARI = 0.0487 F = 0.2598 ACC = 0.1878
+Round:  37 Train Loss: -0.951
+Global  NMI = 0.1771 ARI = 0.0482 F = 0.2460 ACC = 0.1868
+Round:  38 Train Loss: -0.970
+Global  NMI = 0.1731 ARI = 0.0522 F = 0.2314 ACC = 0.1890
+Round:  39 Train Loss: -0.969
+Global  NMI = 0.1628 ARI = 0.0562 F = 0.2123 ACC = 0.2018
+Round:  40 Train Loss: -0.970
+Global  NMI = 0.1550 ARI = 0.0616 F = 0.1930 ACC = 0.2096
+Round:  41 Train Loss: -0.960
+Global  NMI = 0.1579 ARI = 0.0578 F = 0.2100 ACC = 0.2077
+Round:  42 Train Loss: -0.964
+Global  NMI = 0.1653 ARI = 0.0532 F = 0.2357 ACC = 0.2087
+Round:  43 Train Loss: -0.969
+Global  NMI = 0.1528 ARI = 0.0543 F = 0.2119 ACC = 0.2022
+Round:  44 Train Loss: -0.967
+Global  NMI = 0.1447 ARI = 0.0543 F = 0.2051 ACC = 0.2072
+Round:  45 Train Loss: -0.967
+Global  NMI = 0.1554 ARI = 0.0562 F = 0.2025 ACC = 0.1975
+Round:  46 Train Loss: -0.967
+Global  NMI = 0.1613 ARI = 0.0603 F = 0.2008 ACC = 0.2038
+Round:  47 Train Loss: -0.969
+Global  NMI = 0.1554 ARI = 0.0642 F = 0.1946 ACC = 0.2127
+Round:  48 Train Loss: -0.963
+Global  NMI = 0.1530 ARI = 0.0655 F = 0.1858 ACC = 0.2121
+Round:  49 Train Loss: -0.964
+Global  NMI = 0.1501 ARI = 0.0624 F = 0.1798 ACC = 0.2145
+Round:  50 Train Loss: -0.953
+Global  NMI = 0.1532 ARI = 0.0415 F = 0.1916 ACC = 0.1997
+Round:  51 Train Loss: -0.961
+Global  NMI = 0.1536 ARI = 0.0515 F = 0.2273 ACC = 0.1978
+Round:  52 Train Loss: -0.959
+Global  NMI = 0.1460 ARI = 0.0489 F = 0.2212 ACC = 0.1974
+Round:  53 Train Loss: -0.968
+Global  NMI = 0.1400 ARI = 0.0499 F = 0.2148 ACC = 0.2020
+Round:  54 Train Loss: -0.959
+Global  NMI = 0.1388 ARI = 0.0582 F = 0.2039 ACC = 0.2151
+Round:  55 Train Loss: -0.962
+Global  NMI = 0.1405 ARI = 0.0516 F = 0.2135 ACC = 0.1996
+Round:  56 Train Loss: -0.968
+Global  NMI = 0.1338 ARI = 0.0583 F = 0.1997 ACC = 0.2129
+Round:  57 Train Loss: -0.966
+Global  NMI = 0.1405 ARI = 0.0564 F = 0.2034 ACC = 0.2040
+Round:  58 Train Loss: -0.962
+Global  NMI = 0.1448 ARI = 0.0597 F = 0.1989 ACC = 0.2027
+Round:  59 Train Loss: -0.969
+Global  NMI = 0.1395 ARI = 0.0604 F = 0.1982 ACC = 0.2035
+Round:  60 Train Loss: -0.956
+Global  NMI = 0.1425 ARI = 0.0624 F = 0.1949 ACC = 0.2082
+Round:  61 Train Loss: -0.956
+Global  NMI = 0.1383 ARI = 0.0659 F = 0.1841 ACC = 0.2135
+Round:  62 Train Loss: -0.954
+Global  NMI = 0.1437 ARI = 0.0710 F = 0.1791 ACC = 0.2258
+Round:  63 Train Loss: -0.958
+Global  NMI = 0.1551 ARI = 0.0625 F = 0.1955 ACC = 0.2238
+Round:  64 Train Loss: -0.959
+Global  NMI = 0.1629 ARI = 0.0739 F = 0.1927 ACC = 0.2443
+Round:  65 Train Loss: -0.964
+Global  NMI = 0.1669 ARI = 0.0755 F = 0.1910 ACC = 0.2491
+Round:  66 Train Loss: -0.957
+Global  NMI = 0.1716 ARI = 0.0730 F = 0.2174 ACC = 0.2282
+Round:  67 Train Loss: -0.954
+Global  NMI = 0.1677 ARI = 0.0879 F = 0.1940 ACC = 0.2572
+Round:  68 Train Loss: -0.960
+Global  NMI = 0.1836 ARI = 0.0579 F = 0.2337 ACC = 0.2032
+Round:  69 Train Loss: -0.938
+Global  NMI = 0.1725 ARI = 0.0544 F = 0.2529 ACC = 0.1965
+Round:  70 Train Loss: -0.953
+Global  NMI = 0.1924 ARI = 0.0546 F = 0.2638 ACC = 0.1909
+Round:  71 Train Loss: -0.954
+Global  NMI = 0.1806 ARI = 0.0550 F = 0.2512 ACC = 0.2025
+Round:  72 Train Loss: -0.946
+Global  NMI = 0.1738 ARI = 0.0519 F = 0.2448 ACC = 0.1947
+Round:  73 Train Loss: -0.956
+Global  NMI = 0.1600 ARI = 0.0478 F = 0.2400 ACC = 0.1848
+Round:  74 Train Loss: -0.962
+Global  NMI = 0.1599 ARI = 0.0521 F = 0.2318 ACC = 0.1956
+Round:  75 Train Loss: -0.961
+Global  NMI = 0.1680 ARI = 0.0591 F = 0.2231 ACC = 0.2038
+Round:  76 Train Loss: -0.974
+Global  NMI = 0.1619 ARI = 0.0574 F = 0.2126 ACC = 0.1915
+Round:  77 Train Loss: -0.973
+Global  NMI = 0.1596 ARI = 0.0632 F = 0.2102 ACC = 0.2114
+Round:  78 Train Loss: -0.962
+Global  NMI = 0.1602 ARI = 0.0538 F = 0.2199 ACC = 0.1871
+Round:  79 Train Loss: -0.968
+Global  NMI = 0.1492 ARI = 0.0555 F = 0.2041 ACC = 0.1945
+Round:  80 Train Loss: -0.968
+Global  NMI = 0.1535 ARI = 0.0566 F = 0.2105 ACC = 0.1991
+Round:  81 Train Loss: -0.973
+Global  NMI = 0.1534 ARI = 0.0530 F = 0.2218 ACC = 0.1860
+Round:  82 Train Loss: -0.969
+Global  NMI = 0.1486 ARI = 0.0522 F = 0.2153 ACC = 0.1793
+Round:  83 Train Loss: -0.970
+Global  NMI = 0.1506 ARI = 0.0576 F = 0.2040 ACC = 0.1932
+Round:  84 Train Loss: -0.972
+Global  NMI = 0.1471 ARI = 0.0623 F = 0.1922 ACC = 0.2035
+Round:  85 Train Loss: -0.961
+Global  NMI = 0.1524 ARI = 0.0633 F = 0.1982 ACC = 0.2182
+Round:  86 Train Loss: -0.950
+Global  NMI = 0.1618 ARI = 0.0686 F = 0.1963 ACC = 0.2305
+Round:  87 Train Loss: -0.948
+Global  NMI = 0.1564 ARI = 0.0756 F = 0.1945 ACC = 0.2299
+Round:  88 Train Loss: -0.936
+Global  NMI = 0.1661 ARI = 0.0661 F = 0.2023 ACC = 0.2126
+Round:  89 Train Loss: -0.966
+Global  NMI = 0.1661 ARI = 0.0539 F = 0.2332 ACC = 0.2035
+Round:  90 Train Loss: -0.968
+Global  NMI = 0.1504 ARI = 0.0498 F = 0.2344 ACC = 0.2018
+Round:  91 Train Loss: -0.946
+Global  NMI = 0.1503 ARI = 0.0353 F = 0.2634 ACC = 0.1802
+Round:  92 Train Loss: -0.952
+Global  NMI = 0.1626 ARI = 0.0417 F = 0.2599 ACC = 0.1787
+Round:  93 Train Loss: -0.966
+Global  NMI = 0.1626 ARI = 0.0461 F = 0.2503 ACC = 0.1788
+Round:  94 Train Loss: -0.969
+Global  NMI = 0.1623 ARI = 0.0492 F = 0.2425 ACC = 0.1842
+Round:  95 Train Loss: -0.961
+Global  NMI = 0.1588 ARI = 0.0491 F = 0.2371 ACC = 0.1776
+Round:  96 Train Loss: -0.967
+Global  NMI = 0.1530 ARI = 0.0444 F = 0.2381 ACC = 0.1768
+Round:  97 Train Loss: -0.957
+Global  NMI = 0.1498 ARI = 0.0397 F = 0.2473 ACC = 0.1773
+Round:  98 Train Loss: -0.950
+Global  NMI = 0.1362 ARI = 0.0494 F = 0.2147 ACC = 0.1895
+Round:  99 Train Loss: -0.961
+Global  NMI = 0.1376 ARI = 0.0462 F = 0.2189 ACC = 0.1855
+Round:  100 Train Loss: -0.957
+Global  NMI = 0.1434 ARI = 0.0556 F = 0.2061 ACC = 0.1985
+Round:  101 Train Loss: -0.965
+Global  NMI = 0.1390 ARI = 0.0547 F = 0.2024 ACC = 0.1962
+Round:  102 Train Loss: -0.963
+Global  NMI = 0.1377 ARI = 0.0506 F = 0.2085 ACC = 0.1900
+Round:  103 Train Loss: -0.964
+Global  NMI = 0.1329 ARI = 0.0562 F = 0.1889 ACC = 0.1952
+Round:  104 Train Loss: -0.969
+Global  NMI = 0.1343 ARI = 0.0528 F = 0.1986 ACC = 0.1925
+Round:  105 Train Loss: -0.966
+Global  NMI = 0.1296 ARI = 0.0588 F = 0.1827 ACC = 0.2036
+Round:  106 Train Loss: -0.954
+Global  NMI = 0.1364 ARI = 0.0573 F = 0.1861 ACC = 0.2120
+Round:  107 Train Loss: -0.963
+Global  NMI = 0.1272 ARI = 0.0618 F = 0.1780 ACC = 0.2096
+Round:  108 Train Loss: -0.964
+Global  NMI = 0.1308 ARI = 0.0557 F = 0.1874 ACC = 0.1976
+Round:  109 Train Loss: -0.972
+Global  NMI = 0.1317 ARI = 0.0568 F = 0.1859 ACC = 0.2014
+Round:  110 Train Loss: -0.967
+Global  NMI = 0.1295 ARI = 0.0606 F = 0.1825 ACC = 0.2036
+Round:  111 Train Loss: -0.954
+Global  NMI = 0.1365 ARI = 0.0611 F = 0.1836 ACC = 0.2070
+Round:  112 Train Loss: -0.961
+Global  NMI = 0.1322 ARI = 0.0602 F = 0.1855 ACC = 0.2170
+Round:  113 Train Loss: -0.964
+Global  NMI = 0.1326 ARI = 0.0573 F = 0.1861 ACC = 0.2001
+Round:  114 Train Loss: -0.972
+Global  NMI = 0.1314 ARI = 0.0568 F = 0.1847 ACC = 0.2021
+Round:  115 Train Loss: -0.954
+Global  NMI = 0.1253 ARI = 0.0467 F = 0.2033 ACC = 0.1813
+Round:  116 Train Loss: -0.967
+Global  NMI = 0.1252 ARI = 0.0524 F = 0.1924 ACC = 0.1936
+Round:  117 Train Loss: -0.964
+Global  NMI = 0.1166 ARI = 0.0536 F = 0.1855 ACC = 0.1907
+Round:  118 Train Loss: -0.931
+Global  NMI = 0.1144 ARI = 0.0555 F = 0.1791 ACC = 0.1982
+Round:  119 Train Loss: -0.959
+Global  NMI = 0.1163 ARI = 0.0526 F = 0.1829 ACC = 0.1959
+Round:  120 Train Loss: -0.972
+Global  NMI = 0.1161 ARI = 0.0498 F = 0.1833 ACC = 0.1951
+Round:  121 Train Loss: -0.974
+Global  NMI = 0.1150 ARI = 0.0523 F = 0.1743 ACC = 0.1958
+Round:  122 Train Loss: -0.974
+Global  NMI = 0.1182 ARI = 0.0541 F = 0.1759 ACC = 0.1979
+Round:  123 Train Loss: -0.972
+Global  NMI = 0.1194 ARI = 0.0504 F = 0.1791 ACC = 0.1955
+Round:  124 Train Loss: -0.969
+Global  NMI = 0.1217 ARI = 0.0511 F = 0.1795 ACC = 0.1981
+Round:  125 Train Loss: -0.974
+Global  NMI = 0.1227 ARI = 0.0525 F = 0.1790 ACC = 0.1968
+Round:  126 Train Loss: -0.976
+Global  NMI = 0.1222 ARI = 0.0532 F = 0.1771 ACC = 0.1981
+Round:  127 Train Loss: -0.973
+Global  NMI = 0.1184 ARI = 0.0540 F = 0.1750 ACC = 0.2021
+Round:  128 Train Loss: -0.970
+Global  NMI = 0.1200 ARI = 0.0538 F = 0.1783 ACC = 0.1965
+Round:  129 Train Loss: -0.975
+Global  NMI = 0.1160 ARI = 0.0512 F = 0.1742 ACC = 0.1942
+Round:  130 Train Loss: -0.974
+Global  NMI = 0.1125 ARI = 0.0515 F = 0.1623 ACC = 0.1958
+Round:  131 Train Loss: -0.977
+Global  NMI = 0.1146 ARI = 0.0522 F = 0.1694 ACC = 0.1984
+Round:  132 Train Loss: -0.975
+Global  NMI = 0.1216 ARI = 0.0574 F = 0.1748 ACC = 0.2020
+Round:  133 Train Loss: -0.979
+Global  NMI = 0.1235 ARI = 0.0591 F = 0.1777 ACC = 0.2037
+Round:  134 Train Loss: -0.973
+Global  NMI = 0.1225 ARI = 0.0578 F = 0.1775 ACC = 0.2015
+Round:  135 Train Loss: -0.972
+Global  NMI = 0.1232 ARI = 0.0576 F = 0.1768 ACC = 0.1995
+Round:  136 Train Loss: -0.972
+Global  NMI = 0.1204 ARI = 0.0574 F = 0.1656 ACC = 0.2009
+Round:  137 Train Loss: -0.974
+Global  NMI = 0.1325 ARI = 0.0504 F = 0.1763 ACC = 0.2042
+Round:  138 Train Loss: -0.959
+Global  NMI = 0.1321 ARI = 0.0513 F = 0.1840 ACC = 0.2003
+Round:  139 Train Loss: -0.966
+Global  NMI = 0.1335 ARI = 0.0529 F = 0.1780 ACC = 0.2016
+Round:  140 Train Loss: -0.975
+Global  NMI = 0.1378 ARI = 0.0492 F = 0.1807 ACC = 0.1992
+Round:  141 Train Loss: -0.972
+Global  NMI = 0.1274 ARI = 0.0536 F = 0.1743 ACC = 0.2036
+Round:  142 Train Loss: -0.970
+Global  NMI = 0.1363 ARI = 0.0534 F = 0.1809 ACC = 0.2059
+Round:  143 Train Loss: -0.972
+Global  NMI = 0.1362 ARI = 0.0476 F = 0.1795 ACC = 0.2016
+Round:  144 Train Loss: -0.971
+Global  NMI = 0.1422 ARI = 0.0534 F = 0.1806 ACC = 0.2168
+Round:  145 Train Loss: -0.957
+Global  NMI = 0.1381 ARI = 0.0567 F = 0.1717 ACC = 0.2121
+Round:  146 Train Loss: -0.962
+Global  NMI = 0.1441 ARI = 0.0513 F = 0.1727 ACC = 0.2085
+Round:  147 Train Loss: -0.976
+Global  NMI = 0.1539 ARI = 0.0465 F = 0.1955 ACC = 0.2012
+Round:  148 Train Loss: -0.978
+Global  NMI = 0.1481 ARI = 0.0508 F = 0.1869 ACC = 0.2122
+Round:  149 Train Loss: -0.977
+Global  NMI = 0.1417 ARI = 0.0505 F = 0.1899 ACC = 0.2084
+Round:  150 Train Loss: -0.980
+Global  NMI = 0.1383 ARI = 0.0573 F = 0.1782 ACC = 0.2095
+Round:  151 Train Loss: -0.979
+Global  NMI = 0.1382 ARI = 0.0601 F = 0.1788 ACC = 0.2055
+Round:  152 Train Loss: -0.983
+Global  NMI = 0.1399 ARI = 0.0625 F = 0.1791 ACC = 0.2038
+Round:  153 Train Loss: -0.980
+Global  NMI = 0.1399 ARI = 0.0660 F = 0.1743 ACC = 0.2085
+Round:  154 Train Loss: -0.980
+Global  NMI = 0.1326 ARI = 0.0657 F = 0.1790 ACC = 0.2052
+Round:  155 Train Loss: -0.975
+Global  NMI = 0.1314 ARI = 0.0644 F = 0.1800 ACC = 0.2044
+Round:  156 Train Loss: -0.980
+Global  NMI = 0.1255 ARI = 0.0608 F = 0.1790 ACC = 0.1998
+Round:  157 Train Loss: -0.971
+Global  NMI = 0.1269 ARI = 0.0601 F = 0.1883 ACC = 0.2043
+Round:  158 Train Loss: -0.972
+Global  NMI = 0.1248 ARI = 0.0601 F = 0.1830 ACC = 0.2020
+Round:  159 Train Loss: -0.974
+Global  NMI = 0.1273 ARI = 0.0642 F = 0.1817 ACC = 0.2065
+Round:  160 Train Loss: -0.978
+Global  NMI = 0.1301 ARI = 0.0637 F = 0.1826 ACC = 0.2083
+Round:  161 Train Loss: -0.977
+Global  NMI = 0.1296 ARI = 0.0640 F = 0.1824 ACC = 0.2028
+Round:  162 Train Loss: -0.977
+Global  NMI = 0.1312 ARI = 0.0655 F = 0.1839 ACC = 0.2098
+Round:  163 Train Loss: -0.965
+Global  NMI = 0.1281 ARI = 0.0627 F = 0.1819 ACC = 0.2060
+Round:  164 Train Loss: -0.975
+Global  NMI = 0.1297 ARI = 0.0636 F = 0.1827 ACC = 0.2082
+Round:  165 Train Loss: -0.968
+Global  NMI = 0.1365 ARI = 0.0598 F = 0.1885 ACC = 0.1981
+Round:  166 Train Loss: -0.970
+Global  NMI = 0.1339 ARI = 0.0606 F = 0.1896 ACC = 0.1998
+Round:  167 Train Loss: -0.970
+Global  NMI = 0.1353 ARI = 0.0663 F = 0.1850 ACC = 0.2111
+Round:  168 Train Loss: -0.978
+Global  NMI = 0.1348 ARI = 0.0645 F = 0.1807 ACC = 0.2107
+Round:  169 Train Loss: -0.963
+Global  NMI = 0.1390 ARI = 0.0656 F = 0.1835 ACC = 0.2109
+Round:  170 Train Loss: -0.966
+Global  NMI = 0.1390 ARI = 0.0664 F = 0.1845 ACC = 0.2082
+Round:  171 Train Loss: -0.969
+Global  NMI = 0.1407 ARI = 0.0684 F = 0.1893 ACC = 0.2064
+Round:  172 Train Loss: -0.972
+Global  NMI = 0.1446 ARI = 0.0715 F = 0.1863 ACC = 0.2147
+Round:  173 Train Loss: -0.974
+Global  NMI = 0.1455 ARI = 0.0713 F = 0.1901 ACC = 0.2175
+Round:  174 Train Loss: -0.977
+Global  NMI = 0.1439 ARI = 0.0704 F = 0.1857 ACC = 0.2145
+Round:  175 Train Loss: -0.979
+Global  NMI = 0.1463 ARI = 0.0715 F = 0.1877 ACC = 0.2167
+Round:  176 Train Loss: -0.962
+Global  NMI = 0.1482 ARI = 0.0710 F = 0.1854 ACC = 0.2221
+Round:  177 Train Loss: -0.977
+Global  NMI = 0.1496 ARI = 0.0716 F = 0.1858 ACC = 0.2244
+Round:  178 Train Loss: -0.977
+Global  NMI = 0.1535 ARI = 0.0740 F = 0.1867 ACC = 0.2278
+Round:  179 Train Loss: -0.979
+Global  NMI = 0.1502 ARI = 0.0736 F = 0.1862 ACC = 0.2275
+Round:  180 Train Loss: -0.979
+Global  NMI = 0.1502 ARI = 0.0738 F = 0.1855 ACC = 0.2275
+Round:  181 Train Loss: -0.978
+Global  NMI = 0.1494 ARI = 0.0721 F = 0.1847 ACC = 0.2259
+Round:  182 Train Loss: -0.977
+Global  NMI = 0.1500 ARI = 0.0709 F = 0.1845 ACC = 0.2267
+Round:  183 Train Loss: -0.981
+Global  NMI = 0.1485 ARI = 0.0718 F = 0.1834 ACC = 0.2272
+Round:  184 Train Loss: -0.974
+Global  NMI = 0.1481 ARI = 0.0713 F = 0.1806 ACC = 0.2321
+Round:  185 Train Loss: -0.974
+Global  NMI = 0.1452 ARI = 0.0721 F = 0.1820 ACC = 0.2313
+Round:  186 Train Loss: -0.979
+Global  NMI = 0.1461 ARI = 0.0733 F = 0.1834 ACC = 0.2305
+Round:  187 Train Loss: -0.982
+Global  NMI = 0.1416 ARI = 0.0724 F = 0.1806 ACC = 0.2325
+Round:  188 Train Loss: -0.977
+Global  NMI = 0.1437 ARI = 0.0718 F = 0.1820 ACC = 0.2361
+Round:  189 Train Loss: -0.977
+Global  NMI = 0.1472 ARI = 0.0697 F = 0.1813 ACC = 0.2352
+Round:  190 Train Loss: -0.978
+Global  NMI = 0.1420 ARI = 0.0673 F = 0.1787 ACC = 0.2378
+Round:  191 Train Loss: -0.983
+Global  NMI = 0.1425 ARI = 0.0696 F = 0.1829 ACC = 0.2355
+Round:  192 Train Loss: -0.978
+Global  NMI = 0.1455 ARI = 0.0678 F = 0.1809 ACC = 0.2322
+Round:  193 Train Loss: -0.974
+Global  NMI = 0.1461 ARI = 0.0647 F = 0.1789 ACC = 0.2310
+Round:  194 Train Loss: -0.981
+Global  NMI = 0.1487 ARI = 0.0648 F = 0.1833 ACC = 0.2329
+Round:  195 Train Loss: -0.975
+Global  NMI = 0.1457 ARI = 0.0651 F = 0.1814 ACC = 0.2291
+Round:  196 Train Loss: -0.974
+Global  NMI = 0.1374 ARI = 0.0674 F = 0.1799 ACC = 0.2264
+Round:  197 Train Loss: -0.976
+Global  NMI = 0.1374 ARI = 0.0657 F = 0.1787 ACC = 0.2221
+Round:  198 Train Loss: -0.974
+Global  NMI = 0.1352 ARI = 0.0681 F = 0.1816 ACC = 0.2222
+Round:  199 Train Loss: -0.977
+Global  NMI = 0.1299 ARI = 0.0724 F = 0.1823 ACC = 0.2236
+Round:  200 Train Loss: -0.975
+Global  NMI = 0.1300 ARI = 0.0705 F = 0.1790 ACC = 0.2169
+Round:  201 Train Loss: -0.975
+Global  NMI = 0.1339 ARI = 0.0674 F = 0.1799 ACC = 0.2223
+Round:  202 Train Loss: -0.980
+Global  NMI = 0.1243 ARI = 0.0668 F = 0.1747 ACC = 0.2177
+Round:  203 Train Loss: -0.980
+Global  NMI = 0.1200 ARI = 0.0670 F = 0.1781 ACC = 0.2188
+Round:  204 Train Loss: -0.981
+Global  NMI = 0.1175 ARI = 0.0663 F = 0.1758 ACC = 0.2186
+Round:  205 Train Loss: -0.978
+Global  NMI = 0.1170 ARI = 0.0662 F = 0.1759 ACC = 0.2135
+Round:  206 Train Loss: -0.981
+Global  NMI = 0.1218 ARI = 0.0622 F = 0.1762 ACC = 0.2156
+Round:  207 Train Loss: -0.975
+Global  NMI = 0.1205 ARI = 0.0572 F = 0.1774 ACC = 0.2101
+Round:  208 Train Loss: -0.977
+Global  NMI = 0.1262 ARI = 0.0566 F = 0.1788 ACC = 0.2152
+Round:  209 Train Loss: -0.968
+Global  NMI = 0.1261 ARI = 0.0595 F = 0.1869 ACC = 0.2078
+Round:  210 Train Loss: -0.966
+Global  NMI = 0.1299 ARI = 0.0541 F = 0.1970 ACC = 0.1949
+Round:  211 Train Loss: -0.965
+Global  NMI = 0.1224 ARI = 0.0513 F = 0.1960 ACC = 0.1912
+Round:  212 Train Loss: -0.973
+Global  NMI = 0.1152 ARI = 0.0501 F = 0.1839 ACC = 0.1903
+Round:  213 Train Loss: -0.967
+Global  NMI = 0.1229 ARI = 0.0539 F = 0.1837 ACC = 0.1815
+Round:  214 Train Loss: -0.973
+Global  NMI = 0.1190 ARI = 0.0539 F = 0.1811 ACC = 0.1875
+Round:  215 Train Loss: -0.966
+Global  NMI = 0.1131 ARI = 0.0583 F = 0.1736 ACC = 0.1920
+Round:  216 Train Loss: -0.965
+Global  NMI = 0.1173 ARI = 0.0558 F = 0.1758 ACC = 0.1895
+Round:  217 Train Loss: -0.965
+Global  NMI = 0.1155 ARI = 0.0599 F = 0.1727 ACC = 0.2008
+Round:  218 Train Loss: -0.970
+Global  NMI = 0.1172 ARI = 0.0597 F = 0.1743 ACC = 0.2016
+Round:  219 Train Loss: -0.971
+Global  NMI = 0.1169 ARI = 0.0571 F = 0.1728 ACC = 0.1990
+Round:  220 Train Loss: -0.977
+Global  NMI = 0.1183 ARI = 0.0579 F = 0.1729 ACC = 0.2028
+Round:  221 Train Loss: -0.975
+Global  NMI = 0.1136 ARI = 0.0584 F = 0.1714 ACC = 0.2058
+Round:  222 Train Loss: -0.981
+Global  NMI = 0.1110 ARI = 0.0592 F = 0.1710 ACC = 0.2045
+Round:  223 Train Loss: -0.977
+Global  NMI = 0.1132 ARI = 0.0604 F = 0.1716 ACC = 0.2052
+Round:  224 Train Loss: -0.978
+Global  NMI = 0.1109 ARI = 0.0589 F = 0.1707 ACC = 0.2054
+Round:  225 Train Loss: -0.979
+Global  NMI = 0.1122 ARI = 0.0585 F = 0.1712 ACC = 0.2048
+Round:  226 Train Loss: -0.973
+Global  NMI = 0.1134 ARI = 0.0569 F = 0.1773 ACC = 0.2015
+Round:  227 Train Loss: -0.976
+Global  NMI = 0.1064 ARI = 0.0531 F = 0.1771 ACC = 0.1985
+Round:  228 Train Loss: -0.976
+Global  NMI = 0.1068 ARI = 0.0478 F = 0.1830 ACC = 0.1945
+Round:  229 Train Loss: -0.979
+Global  NMI = 0.1050 ARI = 0.0415 F = 0.1939 ACC = 0.1772
+Round:  230 Train Loss: -0.962
+Global  NMI = 0.1085 ARI = 0.0447 F = 0.1909 ACC = 0.1831
+Round:  231 Train Loss: -0.958
+Global  NMI = 0.1167 ARI = 0.0423 F = 0.2039 ACC = 0.1750
+Round:  232 Train Loss: -0.966
+Global  NMI = 0.1107 ARI = 0.0479 F = 0.1864 ACC = 0.1725
+Round:  233 Train Loss: -0.972
+Global  NMI = 0.1121 ARI = 0.0457 F = 0.1909 ACC = 0.1697
+Round:  234 Train Loss: -0.968
+Global  NMI = 0.1144 ARI = 0.0385 F = 0.2116 ACC = 0.1643
+Round:  235 Train Loss: -0.969
+Global  NMI = 0.1098 ARI = 0.0422 F = 0.1971 ACC = 0.1750
+Round:  236 Train Loss: -0.961
+Global  NMI = 0.1120 ARI = 0.0435 F = 0.1879 ACC = 0.1805
+Round:  237 Train Loss: -0.968
+Global  NMI = 0.1139 ARI = 0.0503 F = 0.1815 ACC = 0.1863
+Round:  238 Train Loss: -0.970
+Global  NMI = 0.1112 ARI = 0.0526 F = 0.1816 ACC = 0.1917
+Round:  239 Train Loss: -0.972
+Global  NMI = 0.1101 ARI = 0.0522 F = 0.1772 ACC = 0.1910
+Round:  240 Train Loss: -0.974
+Global  NMI = 0.1095 ARI = 0.0484 F = 0.1830 ACC = 0.1820
+Round:  241 Train Loss: -0.971
+Global  NMI = 0.1087 ARI = 0.0488 F = 0.1840 ACC = 0.1847
+Round:  242 Train Loss: -0.977
+Global  NMI = 0.1092 ARI = 0.0544 F = 0.1805 ACC = 0.1908
+Round:  243 Train Loss: -0.972
+Global  NMI = 0.1070 ARI = 0.0525 F = 0.1840 ACC = 0.1892
+Round:  244 Train Loss: -0.975
+Global  NMI = 0.1068 ARI = 0.0532 F = 0.1828 ACC = 0.1892
+Round:  245 Train Loss: -0.973
+Global  NMI = 0.1085 ARI = 0.0486 F = 0.1899 ACC = 0.1878
+Round:  246 Train Loss: -0.971
+Global  NMI = 0.1061 ARI = 0.0516 F = 0.1800 ACC = 0.1912
+Round:  247 Train Loss: -0.972
+Global  NMI = 0.1086 ARI = 0.0524 F = 0.1816 ACC = 0.1902
+Round:  248 Train Loss: -0.979
+Global  NMI = 0.1055 ARI = 0.0488 F = 0.1854 ACC = 0.1900
+Round:  249 Train Loss: -0.975
+Global  NMI = 0.1075 ARI = 0.0436 F = 0.1904 ACC = 0.1846
+Round:  250 Train Loss: -0.970
+Global  NMI = 0.1043 ARI = 0.0407 F = 0.1946 ACC = 0.1785
+Round:  251 Train Loss: -0.960
+Global  NMI = 0.1059 ARI = 0.0482 F = 0.1792 ACC = 0.1847
+Round:  252 Train Loss: -0.972
+Global  NMI = 0.1084 ARI = 0.0498 F = 0.1818 ACC = 0.1902
+Round:  253 Train Loss: -0.974
+Global  NMI = 0.1104 ARI = 0.0497 F = 0.1862 ACC = 0.1882
+Round:  254 Train Loss: -0.968
+Global  NMI = 0.1078 ARI = 0.0499 F = 0.1856 ACC = 0.1895
+Round:  255 Train Loss: -0.969
+Global  NMI = 0.1072 ARI = 0.0419 F = 0.1953 ACC = 0.1745
+Round:  256 Train Loss: -0.970
+Global  NMI = 0.1027 ARI = 0.0373 F = 0.1999 ACC = 0.1722
+Round:  257 Train Loss: -0.966
+Global  NMI = 0.1024 ARI = 0.0412 F = 0.1915 ACC = 0.1803
+Round:  258 Train Loss: -0.967
+Global  NMI = 0.1005 ARI = 0.0334 F = 0.2109 ACC = 0.1705
+Round:  259 Train Loss: -0.953
+Global  NMI = 0.0983 ARI = 0.0403 F = 0.1913 ACC = 0.1814
+Round:  260 Train Loss: -0.964
+Global  NMI = 0.0974 ARI = 0.0379 F = 0.1925 ACC = 0.1748
+Round:  261 Train Loss: -0.962
+Global  NMI = 0.0995 ARI = 0.0369 F = 0.1967 ACC = 0.1722
+Round:  262 Train Loss: -0.968
+Global  NMI = 0.0978 ARI = 0.0374 F = 0.1943 ACC = 0.1726
+Round:  263 Train Loss: -0.973
+Global  NMI = 0.1015 ARI = 0.0409 F = 0.1866 ACC = 0.1792
+Round:  264 Train Loss: -0.973
+Global  NMI = 0.1016 ARI = 0.0458 F = 0.1783 ACC = 0.1881
+Round:  265 Train Loss: -0.971
+Global  NMI = 0.0997 ARI = 0.0387 F = 0.1948 ACC = 0.1748
+Round:  266 Train Loss: -0.969
+Global  NMI = 0.0995 ARI = 0.0353 F = 0.2016 ACC = 0.1725
+Round:  267 Train Loss: -0.972
+Global  NMI = 0.1011 ARI = 0.0343 F = 0.2103 ACC = 0.1647
+Round:  268 Train Loss: -0.964
+Global  NMI = 0.0999 ARI = 0.0232 F = 0.2517 ACC = 0.1550
+Round:  269 Train Loss: -0.964
+Global  NMI = 0.1092 ARI = 0.0314 F = 0.2313 ACC = 0.1555
+Round:  270 Train Loss: -0.964
+Global  NMI = 0.1040 ARI = 0.0304 F = 0.2270 ACC = 0.1552
+Round:  271 Train Loss: -0.962
+Global  NMI = 0.0976 ARI = 0.0259 F = 0.2360 ACC = 0.1506
+Round:  272 Train Loss: -0.976
+Global  NMI = 0.0963 ARI = 0.0303 F = 0.2181 ACC = 0.1619
+Round:  273 Train Loss: -0.969
+Global  NMI = 0.0948 ARI = 0.0291 F = 0.2216 ACC = 0.1613
+Round:  274 Train Loss: -0.971
+Global  NMI = 0.0981 ARI = 0.0281 F = 0.2290 ACC = 0.1590
+Round:  275 Train Loss: -0.977
+Global  NMI = 0.0956 ARI = 0.0319 F = 0.2129 ACC = 0.1671
+Round:  276 Train Loss: -0.982
+Global  NMI = 0.0968 ARI = 0.0362 F = 0.1989 ACC = 0.1711
+Round:  277 Train Loss: -0.977
+Global  NMI = 0.0943 ARI = 0.0349 F = 0.2018 ACC = 0.1729
+Round:  278 Train Loss: -0.978
+Global  NMI = 0.0954 ARI = 0.0339 F = 0.2056 ACC = 0.1722
+Round:  279 Train Loss: -0.977
+Global  NMI = 0.0915 ARI = 0.0347 F = 0.2020 ACC = 0.1712
+Round:  280 Train Loss: -0.979
+Global  NMI = 0.0922 ARI = 0.0389 F = 0.1916 ACC = 0.1805
+Round:  281 Train Loss: -0.977
+Global  NMI = 0.0934 ARI = 0.0423 F = 0.1812 ACC = 0.1820
+Round:  282 Train Loss: -0.977
+Global  NMI = 0.0935 ARI = 0.0454 F = 0.1761 ACC = 0.1872
+Round:  283 Train Loss: -0.972
+Global  NMI = 0.0957 ARI = 0.0444 F = 0.1754 ACC = 0.1834
+Round:  284 Train Loss: -0.979
+Global  NMI = 0.0972 ARI = 0.0425 F = 0.1856 ACC = 0.1822
+Round:  285 Train Loss: -0.974
+Global  NMI = 0.0960 ARI = 0.0421 F = 0.1794 ACC = 0.1784
+Round:  286 Train Loss: -0.977
+Global  NMI = 0.0951 ARI = 0.0422 F = 0.1765 ACC = 0.1812
+Round:  287 Train Loss: -0.966
+Global  NMI = 0.0968 ARI = 0.0441 F = 0.1749 ACC = 0.1817
+Round:  288 Train Loss: -0.976
+Global  NMI = 0.0978 ARI = 0.0447 F = 0.1782 ACC = 0.1821
+Round:  289 Train Loss: -0.979
+Global  NMI = 0.0959 ARI = 0.0453 F = 0.1760 ACC = 0.1869
+Round:  290 Train Loss: -0.977
+Global  NMI = 0.1007 ARI = 0.0463 F = 0.1749 ACC = 0.1949
+Round:  291 Train Loss: -0.972
+Global  NMI = 0.1054 ARI = 0.0445 F = 0.1826 ACC = 0.1943
+Round:  292 Train Loss: -0.966
+Global  NMI = 0.1039 ARI = 0.0486 F = 0.1721 ACC = 0.1998
+Round:  293 Train Loss: -0.970
+Global  NMI = 0.1036 ARI = 0.0498 F = 0.1727 ACC = 0.2034
+Round:  294 Train Loss: -0.974
+Global  NMI = 0.1024 ARI = 0.0520 F = 0.1719 ACC = 0.2071
+Round:  295 Train Loss: -0.970
+Global  NMI = 0.1028 ARI = 0.0531 F = 0.1653 ACC = 0.2075
+Round:  296 Train Loss: -0.968
+Global  NMI = 0.0983 ARI = 0.0497 F = 0.1742 ACC = 0.1944
+Round:  297 Train Loss: -0.971
+Global  NMI = 0.0988 ARI = 0.0427 F = 0.1817 ACC = 0.1793
+Round:  298 Train Loss: -0.971
+Global  NMI = 0.0997 ARI = 0.0446 F = 0.1850 ACC = 0.1865
+Round:  299 Train Loss: -0.971
+Global  NMI = 0.0995 ARI = 0.0481 F = 0.1779 ACC = 0.1880
+Round:  300 Train Loss: -0.974
+Global  NMI = 0.1023 ARI = 0.0450 F = 0.1845 ACC = 0.1856
+Round:  301 Train Loss: -0.972
+Global  NMI = 0.1026 ARI = 0.0472 F = 0.1835 ACC = 0.1938
+Round:  302 Train Loss: -0.970
+Global  NMI = 0.0982 ARI = 0.0446 F = 0.1844 ACC = 0.1902
+Round:  303 Train Loss: -0.971
+Global  NMI = 0.0969 ARI = 0.0442 F = 0.1833 ACC = 0.1855
+Round:  304 Train Loss: -0.969
+Global  NMI = 0.0939 ARI = 0.0458 F = 0.1768 ACC = 0.1905
+Round:  305 Train Loss: -0.964
+Global  NMI = 0.0972 ARI = 0.0497 F = 0.1787 ACC = 0.1982
+Round:  306 Train Loss: -0.967
+Global  NMI = 0.0963 ARI = 0.0421 F = 0.1874 ACC = 0.1837
+Round:  307 Train Loss: -0.964
+Global  NMI = 0.0950 ARI = 0.0408 F = 0.1928 ACC = 0.1854
+Round:  308 Train Loss: -0.971
+Global  NMI = 0.0944 ARI = 0.0411 F = 0.1872 ACC = 0.1825
+Round:  309 Train Loss: -0.974
+Global  NMI = 0.0926 ARI = 0.0394 F = 0.1885 ACC = 0.1819
+Round:  310 Train Loss: -0.969
+Global  NMI = 0.0942 ARI = 0.0364 F = 0.1986 ACC = 0.1735
+Round:  311 Train Loss: -0.952
+Global  NMI = 0.0912 ARI = 0.0314 F = 0.2051 ACC = 0.1667
+Round:  312 Train Loss: -0.973
+Global  NMI = 0.0909 ARI = 0.0364 F = 0.1921 ACC = 0.1748
+Round:  313 Train Loss: -0.971
+Global  NMI = 0.0939 ARI = 0.0392 F = 0.1892 ACC = 0.1781
+Round:  314 Train Loss: -0.973
+Global  NMI = 0.0981 ARI = 0.0400 F = 0.1884 ACC = 0.1768
+Round:  315 Train Loss: -0.970
+Global  NMI = 0.0978 ARI = 0.0456 F = 0.1777 ACC = 0.1822
+Round:  316 Train Loss: -0.970
+Global  NMI = 0.0968 ARI = 0.0462 F = 0.1752 ACC = 0.1831
+Round:  317 Train Loss: -0.966
+Global  NMI = 0.0980 ARI = 0.0474 F = 0.1736 ACC = 0.1875
+Round:  318 Train Loss: -0.964
+Global  NMI = 0.0968 ARI = 0.0457 F = 0.1702 ACC = 0.1859
+Round:  319 Train Loss: -0.969
+Global  NMI = 0.0951 ARI = 0.0458 F = 0.1687 ACC = 0.1889
+Round:  320 Train Loss: -0.965
+Global  NMI = 0.0940 ARI = 0.0459 F = 0.1641 ACC = 0.1948
+Round:  321 Train Loss: -0.965
+Global  NMI = 0.0926 ARI = 0.0436 F = 0.1643 ACC = 0.1927
+Round:  322 Train Loss: -0.969
+Global  NMI = 0.0924 ARI = 0.0440 F = 0.1625 ACC = 0.1934
+Round:  323 Train Loss: -0.968
+Global  NMI = 0.0953 ARI = 0.0480 F = 0.1629 ACC = 0.1962
+Round:  324 Train Loss: -0.959
+Global  NMI = 0.0946 ARI = 0.0496 F = 0.1631 ACC = 0.1971
+Round:  325 Train Loss: -0.968
+Global  NMI = 0.0956 ARI = 0.0497 F = 0.1624 ACC = 0.2033
+Round:  326 Train Loss: -0.963
+Global  NMI = 0.0961 ARI = 0.0511 F = 0.1637 ACC = 0.2020
+Round:  327 Train Loss: -0.964
+Global  NMI = 0.0974 ARI = 0.0505 F = 0.1653 ACC = 0.2056
+Round:  328 Train Loss: -0.966
+Global  NMI = 0.0989 ARI = 0.0512 F = 0.1643 ACC = 0.2041
+Round:  329 Train Loss: -0.967
+Global  NMI = 0.1004 ARI = 0.0530 F = 0.1656 ACC = 0.2087
+Round:  330 Train Loss: -0.967
+Global  NMI = 0.1002 ARI = 0.0531 F = 0.1650 ACC = 0.2084
+Round:  331 Train Loss: -0.968
+Global  NMI = 0.0974 ARI = 0.0535 F = 0.1632 ACC = 0.2088
+Round:  332 Train Loss: -0.970
+Global  NMI = 0.0971 ARI = 0.0555 F = 0.1646 ACC = 0.2123
+Round:  333 Train Loss: -0.971
+Global  NMI = 0.0959 ARI = 0.0553 F = 0.1646 ACC = 0.2117
+Round:  334 Train Loss: -0.971
+Global  NMI = 0.0961 ARI = 0.0550 F = 0.1649 ACC = 0.2119
+Round:  335 Train Loss: -0.972
+Global  NMI = 0.0928 ARI = 0.0542 F = 0.1588 ACC = 0.2105
+Round:  336 Train Loss: -0.973
+Global  NMI = 0.0947 ARI = 0.0471 F = 0.1616 ACC = 0.2085
+Round:  337 Train Loss: -0.968
+Global  NMI = 0.1010 ARI = 0.0506 F = 0.1643 ACC = 0.2096
+Round:  338 Train Loss: -0.961
+Global  NMI = 0.0921 ARI = 0.0569 F = 0.1602 ACC = 0.2151
+Round:  339 Train Loss: -0.962
+Global  NMI = 0.0941 ARI = 0.0494 F = 0.1605 ACC = 0.2108
+Round:  340 Train Loss: -0.961
+Global  NMI = 0.0942 ARI = 0.0461 F = 0.1578 ACC = 0.2032
+Round:  341 Train Loss: -0.964
+Global  NMI = 0.0931 ARI = 0.0466 F = 0.1579 ACC = 0.1976
+Round:  342 Train Loss: -0.960
+Global  NMI = 0.0977 ARI = 0.0448 F = 0.1645 ACC = 0.1978
+Round:  343 Train Loss: -0.961
+Global  NMI = 0.0997 ARI = 0.0471 F = 0.1574 ACC = 0.1971
+Round:  344 Train Loss: -0.964
+Global  NMI = 0.0958 ARI = 0.0482 F = 0.1594 ACC = 0.1998
+Round:  345 Train Loss: -0.965
+Global  NMI = 0.0955 ARI = 0.0511 F = 0.1623 ACC = 0.2000
+Round:  346 Train Loss: -0.954
+Global  NMI = 0.0994 ARI = 0.0491 F = 0.1621 ACC = 0.1976
+Round:  347 Train Loss: -0.959
+Global  NMI = 0.1000 ARI = 0.0469 F = 0.1675 ACC = 0.1959
+Round:  348 Train Loss: -0.968
+Global  NMI = 0.0964 ARI = 0.0516 F = 0.1726 ACC = 0.2010
+Round:  349 Train Loss: -0.969
+Global  NMI = 0.0982 ARI = 0.0494 F = 0.1717 ACC = 0.1908
+Round:  350 Train Loss: -0.960
+Global  NMI = 0.0986 ARI = 0.0525 F = 0.1693 ACC = 0.1990
+Round:  351 Train Loss: -0.962
+Global  NMI = 0.1004 ARI = 0.0518 F = 0.1672 ACC = 0.1998
+Round:  352 Train Loss: -0.960
+Global  NMI = 0.1021 ARI = 0.0490 F = 0.1689 ACC = 0.2033
+Round:  353 Train Loss: -0.965
+Global  NMI = 0.1022 ARI = 0.0527 F = 0.1779 ACC = 0.2152
+Round:  354 Train Loss: -0.967
+Global  NMI = 0.0997 ARI = 0.0526 F = 0.1696 ACC = 0.2097
+Round:  355 Train Loss: -0.968
+Global  NMI = 0.0990 ARI = 0.0520 F = 0.1673 ACC = 0.2108
+Round:  356 Train Loss: -0.970
+Global  NMI = 0.1018 ARI = 0.0526 F = 0.1720 ACC = 0.2135
+Round:  357 Train Loss: -0.972
+Global  NMI = 0.1010 ARI = 0.0557 F = 0.1729 ACC = 0.2214
+Round:  358 Train Loss: -0.969
+Global  NMI = 0.0995 ARI = 0.0562 F = 0.1702 ACC = 0.2207
+Round:  359 Train Loss: -0.970
+Global  NMI = 0.0958 ARI = 0.0575 F = 0.1691 ACC = 0.2208
+Round:  360 Train Loss: -0.973
+Global  NMI = 0.0954 ARI = 0.0573 F = 0.1666 ACC = 0.2213
+Round:  361 Train Loss: -0.967
+Global  NMI = 0.1030 ARI = 0.0499 F = 0.1715 ACC = 0.1998
+Round:  362 Train Loss: -0.957
+Global  NMI = 0.1041 ARI = 0.0527 F = 0.1637 ACC = 0.2065
+Round:  363 Train Loss: -0.968
+Global  NMI = 0.1054 ARI = 0.0552 F = 0.1672 ACC = 0.2118
+Round:  364 Train Loss: -0.967
+Global  NMI = 0.1063 ARI = 0.0562 F = 0.1691 ACC = 0.2122
+Round:  365 Train Loss: -0.965
+Global  NMI = 0.1057 ARI = 0.0575 F = 0.1693 ACC = 0.2108
+Round:  366 Train Loss: -0.967
+Global  NMI = 0.1098 ARI = 0.0582 F = 0.1788 ACC = 0.2108
+Round:  367 Train Loss: -0.963
+Global  NMI = 0.1121 ARI = 0.0593 F = 0.1745 ACC = 0.2167
+Round:  368 Train Loss: -0.968
+Global  NMI = 0.1134 ARI = 0.0597 F = 0.1760 ACC = 0.2168
+Round:  369 Train Loss: -0.970
+Global  NMI = 0.1147 ARI = 0.0592 F = 0.1721 ACC = 0.2177
+Round:  370 Train Loss: -0.970
+Global  NMI = 0.1146 ARI = 0.0583 F = 0.1717 ACC = 0.2164
+Round:  371 Train Loss: -0.965
+Global  NMI = 0.1177 ARI = 0.0584 F = 0.1703 ACC = 0.2164
+Round:  372 Train Loss: -0.967
+Global  NMI = 0.1168 ARI = 0.0579 F = 0.1699 ACC = 0.2230
+Round:  373 Train Loss: -0.966
+Global  NMI = 0.1168 ARI = 0.0585 F = 0.1707 ACC = 0.2207
+Round:  374 Train Loss: -0.964
+Global  NMI = 0.1170 ARI = 0.0591 F = 0.1710 ACC = 0.2210
+Round:  375 Train Loss: -0.966
+Global  NMI = 0.1151 ARI = 0.0575 F = 0.1697 ACC = 0.2175
+Round:  376 Train Loss: -0.962
+Global  NMI = 0.1131 ARI = 0.0513 F = 0.1746 ACC = 0.2093
+Round:  377 Train Loss: -0.958
+Global  NMI = 0.1108 ARI = 0.0540 F = 0.1637 ACC = 0.2188
+Round:  378 Train Loss: -0.955
+Global  NMI = 0.1112 ARI = 0.0551 F = 0.1661 ACC = 0.2229
+Round:  379 Train Loss: -0.955
+Global  NMI = 0.1182 ARI = 0.0511 F = 0.1711 ACC = 0.2192
+Round:  380 Train Loss: -0.960
+Global  NMI = 0.1137 ARI = 0.0458 F = 0.1738 ACC = 0.2072
+Round:  381 Train Loss: -0.961
+Global  NMI = 0.1129 ARI = 0.0477 F = 0.1680 ACC = 0.2069
+Round:  382 Train Loss: -0.963
+Global  NMI = 0.1111 ARI = 0.0476 F = 0.1723 ACC = 0.2075
+Round:  383 Train Loss: -0.957
+Global  NMI = 0.1067 ARI = 0.0509 F = 0.1680 ACC = 0.2140
+Round:  384 Train Loss: -0.955
+Global  NMI = 0.1047 ARI = 0.0545 F = 0.1630 ACC = 0.2159
+Round:  385 Train Loss: -0.925
+Global  NMI = 0.0988 ARI = 0.0566 F = 0.1670 ACC = 0.2161
+Round:  386 Train Loss: -0.937
+Global  NMI = 0.1023 ARI = 0.0579 F = 0.1666 ACC = 0.2253
+Round:  387 Train Loss: -0.944
+Global  NMI = 0.1016 ARI = 0.0562 F = 0.1650 ACC = 0.2212
+Round:  388 Train Loss: -0.951
+Global  NMI = 0.1008 ARI = 0.0557 F = 0.1647 ACC = 0.2196
+Round:  389 Train Loss: -0.954
+Global  NMI = 0.1012 ARI = 0.0559 F = 0.1646 ACC = 0.2206
+Round:  390 Train Loss: -0.952
+Global  NMI = 0.0993 ARI = 0.0633 F = 0.1627 ACC = 0.2306
+Round:  391 Train Loss: -0.949
+Global  NMI = 0.0994 ARI = 0.0647 F = 0.1652 ACC = 0.2318
+Round:  392 Train Loss: -0.950
+Global  NMI = 0.1001 ARI = 0.0652 F = 0.1660 ACC = 0.2333
+Round:  393 Train Loss: -0.954
+Global  NMI = 0.1015 ARI = 0.0621 F = 0.1622 ACC = 0.2309
+Round:  394 Train Loss: -0.953
+Global  NMI = 0.0997 ARI = 0.0602 F = 0.1614 ACC = 0.2293
+Round:  395 Train Loss: -0.954
+Global  NMI = 0.1021 ARI = 0.0623 F = 0.1675 ACC = 0.2305
+Round:  396 Train Loss: -0.957
+Global  NMI = 0.1031 ARI = 0.0601 F = 0.1689 ACC = 0.2283
+Round:  397 Train Loss: -0.944
+Global  NMI = 0.1030 ARI = 0.0615 F = 0.1617 ACC = 0.2308
+Round:  398 Train Loss: -0.952
+Global  NMI = 0.1058 ARI = 0.0549 F = 0.1651 ACC = 0.2239
+Round:  399 Train Loss: -0.950
+Global  NMI = 0.1060 ARI = 0.0545 F = 0.1634 ACC = 0.2227
+Round:  400 Train Loss: -0.955
+Global  NMI = 0.1105 ARI = 0.0542 F = 0.1731 ACC = 0.2263
+Round:  401 Train Loss: -0.959
+Global  NMI = 0.1102 ARI = 0.0544 F = 0.1726 ACC = 0.2271
+Round:  402 Train Loss: -0.965
+Global  NMI = 0.1067 ARI = 0.0592 F = 0.1688 ACC = 0.2296
+Round:  403 Train Loss: -0.968
+Global  NMI = 0.1090 ARI = 0.0620 F = 0.1717 ACC = 0.2318
+Round:  404 Train Loss: -0.964
+Global  NMI = 0.1076 ARI = 0.0643 F = 0.1707 ACC = 0.2331
+Round:  405 Train Loss: -0.969
+Global  NMI = 0.1071 ARI = 0.0642 F = 0.1700 ACC = 0.2335
+Round:  406 Train Loss: -0.967
+Global  NMI = 0.1051 ARI = 0.0674 F = 0.1722 ACC = 0.2344
+Round:  407 Train Loss: -0.968
+Global  NMI = 0.1038 ARI = 0.0676 F = 0.1729 ACC = 0.2332
+Round:  408 Train Loss: -0.967
+Global  NMI = 0.1042 ARI = 0.0664 F = 0.1712 ACC = 0.2330
+Round:  409 Train Loss: -0.964
+Global  NMI = 0.1031 ARI = 0.0648 F = 0.1714 ACC = 0.2295
+Round:  410 Train Loss: -0.964
+Global  NMI = 0.1017 ARI = 0.0656 F = 0.1726 ACC = 0.2305
+Round:  411 Train Loss: -0.967
+Global  NMI = 0.1008 ARI = 0.0655 F = 0.1721 ACC = 0.2308
+Round:  412 Train Loss: -0.972
+Global  NMI = 0.1035 ARI = 0.0635 F = 0.1706 ACC = 0.2304
+Round:  413 Train Loss: -0.972
+Global  NMI = 0.1000 ARI = 0.0652 F = 0.1718 ACC = 0.2292
+Round:  414 Train Loss: -0.973
+Global  NMI = 0.1013 ARI = 0.0650 F = 0.1716 ACC = 0.2299
+Round:  415 Train Loss: -0.969
+Global  NMI = 0.1023 ARI = 0.0642 F = 0.1696 ACC = 0.2322
+Round:  416 Train Loss: -0.972
+Global  NMI = 0.1016 ARI = 0.0658 F = 0.1711 ACC = 0.2340
+Round:  417 Train Loss: -0.971
+Global  NMI = 0.1017 ARI = 0.0669 F = 0.1656 ACC = 0.2342
+Round:  418 Train Loss: -0.973
+Global  NMI = 0.1044 ARI = 0.0644 F = 0.1693 ACC = 0.2325
+Round:  419 Train Loss: -0.970
+Global  NMI = 0.1049 ARI = 0.0679 F = 0.1664 ACC = 0.2362
+Round:  420 Train Loss: -0.973
+Global  NMI = 0.1090 ARI = 0.0649 F = 0.1718 ACC = 0.2369
+Round:  421 Train Loss: -0.972
+Global  NMI = 0.1065 ARI = 0.0648 F = 0.1720 ACC = 0.2360
+Round:  422 Train Loss: -0.970
+Global  NMI = 0.1068 ARI = 0.0636 F = 0.1706 ACC = 0.2355
+Round:  423 Train Loss: -0.969
+Global  NMI = 0.1066 ARI = 0.0599 F = 0.1687 ACC = 0.2328
+Round:  424 Train Loss: -0.973
+Global  NMI = 0.1076 ARI = 0.0590 F = 0.1759 ACC = 0.2322
+Round:  425 Train Loss: -0.969
+Global  NMI = 0.1066 ARI = 0.0643 F = 0.1709 ACC = 0.2373
+Round:  426 Train Loss: -0.965
+Global  NMI = 0.1085 ARI = 0.0605 F = 0.1772 ACC = 0.2348
+Round:  427 Train Loss: -0.969
+Global  NMI = 0.1036 ARI = 0.0632 F = 0.1689 ACC = 0.2355
+Round:  428 Train Loss: -0.968
+Global  NMI = 0.1008 ARI = 0.0676 F = 0.1712 ACC = 0.2348
+Round:  429 Train Loss: -0.976
+Global  NMI = 0.1036 ARI = 0.0564 F = 0.1798 ACC = 0.2273
+Round:  430 Train Loss: -0.971
+Global  NMI = 0.1020 ARI = 0.0602 F = 0.1822 ACC = 0.2340
+Round:  431 Train Loss: -0.977
+Global  NMI = 0.0957 ARI = 0.0587 F = 0.1709 ACC = 0.2257
+Round:  432 Train Loss: -0.971
+Global  NMI = 0.0935 ARI = 0.0577 F = 0.1690 ACC = 0.2272
+Round:  433 Train Loss: -0.972
+Global  NMI = 0.0907 ARI = 0.0552 F = 0.1669 ACC = 0.2232
+Round:  434 Train Loss: -0.973
+Global  NMI = 0.0931 ARI = 0.0572 F = 0.1695 ACC = 0.2255
+Round:  435 Train Loss: -0.977
+Global  NMI = 0.0913 ARI = 0.0590 F = 0.1687 ACC = 0.2222
+Round:  436 Train Loss: -0.970
+Global  NMI = 0.0881 ARI = 0.0639 F = 0.1773 ACC = 0.2265
+Round:  437 Train Loss: -0.975
+Global  NMI = 0.0870 ARI = 0.0649 F = 0.1830 ACC = 0.2237
+Round:  438 Train Loss: -0.978
+Global  NMI = 0.0860 ARI = 0.0682 F = 0.1854 ACC = 0.2263
+Round:  439 Train Loss: -0.979
+Global  NMI = 0.0876 ARI = 0.0644 F = 0.1943 ACC = 0.2198
+Round:  440 Train Loss: -0.978
+Global  NMI = 0.0871 ARI = 0.0590 F = 0.2051 ACC = 0.2170
+Round:  441 Train Loss: -0.978
+Global  NMI = 0.0916 ARI = 0.0599 F = 0.1944 ACC = 0.2198
+Round:  442 Train Loss: -0.979
+Global  NMI = 0.0932 ARI = 0.0606 F = 0.1981 ACC = 0.2221
+Round:  443 Train Loss: -0.981
+Global  NMI = 0.0906 ARI = 0.0575 F = 0.1989 ACC = 0.2179
+Round:  444 Train Loss: -0.977
+Global  NMI = 0.0904 ARI = 0.0573 F = 0.1982 ACC = 0.2189
+Round:  445 Train Loss: -0.975
+Global  NMI = 0.0929 ARI = 0.0591 F = 0.1939 ACC = 0.2200
+Round:  446 Train Loss: -0.979
+Global  NMI = 0.0932 ARI = 0.0568 F = 0.1894 ACC = 0.2153
+Round:  447 Train Loss: -0.977
+Global  NMI = 0.0961 ARI = 0.0519 F = 0.1981 ACC = 0.2115
+Round:  448 Train Loss: -0.968
+Global  NMI = 0.0919 ARI = 0.0476 F = 0.2012 ACC = 0.2042
+Round:  449 Train Loss: -0.965
+Global  NMI = 0.0904 ARI = 0.0482 F = 0.1883 ACC = 0.2089
+Round:  450 Train Loss: -0.968
+Global  NMI = 0.0897 ARI = 0.0439 F = 0.1842 ACC = 0.1987
+Round:  451 Train Loss: -0.953
+Global  NMI = 0.0894 ARI = 0.0438 F = 0.1745 ACC = 0.2032
+Round:  452 Train Loss: -0.957
+Global  NMI = 0.0886 ARI = 0.0425 F = 0.1703 ACC = 0.2012
+Round:  453 Train Loss: -0.962
+Global  NMI = 0.0836 ARI = 0.0439 F = 0.1660 ACC = 0.2046
+Round:  454 Train Loss: -0.950
+Global  NMI = 0.0785 ARI = 0.0467 F = 0.1583 ACC = 0.2035
+Round:  455 Train Loss: -0.954
+Global  NMI = 0.0715 ARI = 0.0519 F = 0.1686 ACC = 0.2021
+Round:  456 Train Loss: -0.947
+Global  NMI = 0.0723 ARI = 0.0535 F = 0.1678 ACC = 0.2044
+Round:  457 Train Loss: -0.946
+Global  NMI = 0.0676 ARI = 0.0502 F = 0.1672 ACC = 0.1926
+Round:  458 Train Loss: -0.938
+Global  NMI = 0.0619 ARI = 0.0360 F = 0.1875 ACC = 0.1771
+Round:  459 Train Loss: -0.923
+Global  NMI = 0.0656 ARI = 0.0406 F = 0.1826 ACC = 0.1840
+Round:  460 Train Loss: -0.941
+Global  NMI = 0.0670 ARI = 0.0491 F = 0.1787 ACC = 0.1988
+Round:  461 Train Loss: -0.954
+Global  NMI = 0.0674 ARI = 0.0499 F = 0.1809 ACC = 0.2009
+Round:  462 Train Loss: -0.947
+Global  NMI = 0.0700 ARI = 0.0528 F = 0.1740 ACC = 0.2029
+Round:  463 Train Loss: -0.951
+Global  NMI = 0.0686 ARI = 0.0518 F = 0.1724 ACC = 0.2008
+Round:  464 Train Loss: -0.951
+Global  NMI = 0.0748 ARI = 0.0575 F = 0.1650 ACC = 0.2099
+Round:  465 Train Loss: -0.946
+Global  NMI = 0.0776 ARI = 0.0561 F = 0.1584 ACC = 0.2088
+Round:  466 Train Loss: -0.940
+Global  NMI = 0.0776 ARI = 0.0550 F = 0.1555 ACC = 0.2088
+Round:  467 Train Loss: -0.951
+Global  NMI = 0.0778 ARI = 0.0534 F = 0.1555 ACC = 0.2072
+Round:  468 Train Loss: -0.949
+Global  NMI = 0.0799 ARI = 0.0538 F = 0.1549 ACC = 0.2098
+Round:  469 Train Loss: -0.947
+Global  NMI = 0.0824 ARI = 0.0498 F = 0.1529 ACC = 0.2073
+Round:  470 Train Loss: -0.944
+Global  NMI = 0.0791 ARI = 0.0572 F = 0.1611 ACC = 0.2095
+Round:  471 Train Loss: -0.947
+Global  NMI = 0.0781 ARI = 0.0592 F = 0.1610 ACC = 0.2118
+Round:  472 Train Loss: -0.956
+Global  NMI = 0.0791 ARI = 0.0570 F = 0.1596 ACC = 0.2102
+Round:  473 Train Loss: -0.962
+Global  NMI = 0.0787 ARI = 0.0589 F = 0.1605 ACC = 0.2152
+Round:  474 Train Loss: -0.964
+Global  NMI = 0.0793 ARI = 0.0581 F = 0.1591 ACC = 0.2118
+Round:  475 Train Loss: -0.961
+Global  NMI = 0.0806 ARI = 0.0587 F = 0.1597 ACC = 0.2138
+Round:  476 Train Loss: -0.964
+Global  NMI = 0.0816 ARI = 0.0586 F = 0.1589 ACC = 0.2145
+Round:  477 Train Loss: -0.958
+Global  NMI = 0.0809 ARI = 0.0569 F = 0.1578 ACC = 0.2135
+Round:  478 Train Loss: -0.965
+Global  NMI = 0.0820 ARI = 0.0565 F = 0.1570 ACC = 0.2129
+Round:  479 Train Loss: -0.960
+Global  NMI = 0.0821 ARI = 0.0554 F = 0.1555 ACC = 0.2116
+Round:  480 Train Loss: -0.961
+Global  NMI = 0.0835 ARI = 0.0526 F = 0.1555 ACC = 0.2095
+Round:  481 Train Loss: -0.964
+Global  NMI = 0.0854 ARI = 0.0534 F = 0.1561 ACC = 0.2129
+Round:  482 Train Loss: -0.965
+Global  NMI = 0.0862 ARI = 0.0524 F = 0.1554 ACC = 0.2118
+Round:  483 Train Loss: -0.962
+Global  NMI = 0.0868 ARI = 0.0486 F = 0.1566 ACC = 0.2076
+Round:  484 Train Loss: -0.960
+Global  NMI = 0.0885 ARI = 0.0492 F = 0.1582 ACC = 0.2100
+Round:  485 Train Loss: -0.958
+Global  NMI = 0.0869 ARI = 0.0497 F = 0.1559 ACC = 0.2103
+Round:  486 Train Loss: -0.958
+Global  NMI = 0.0868 ARI = 0.0491 F = 0.1553 ACC = 0.2098
+Round:  487 Train Loss: -0.954
+Global  NMI = 0.0891 ARI = 0.0497 F = 0.1557 ACC = 0.2082
+Round:  488 Train Loss: -0.954
+Global  NMI = 0.0903 ARI = 0.0533 F = 0.1614 ACC = 0.2165
+Round:  489 Train Loss: -0.958
+Global  NMI = 0.0926 ARI = 0.0515 F = 0.1560 ACC = 0.2155
+Round:  490 Train Loss: -0.959
+Global  NMI = 0.0913 ARI = 0.0506 F = 0.1555 ACC = 0.2115
+Round:  491 Train Loss: -0.963
+Global  NMI = 0.0916 ARI = 0.0500 F = 0.1560 ACC = 0.2108
+Round:  492 Train Loss: -0.965
+Global  NMI = 0.0922 ARI = 0.0507 F = 0.1559 ACC = 0.2128
+Round:  493 Train Loss: -0.963
+Global  NMI = 0.0940 ARI = 0.0517 F = 0.1565 ACC = 0.2155
+Round:  494 Train Loss: -0.962
+Global  NMI = 0.0964 ARI = 0.0506 F = 0.1661 ACC = 0.2178
+Round:  495 Train Loss: -0.961
+Global  NMI = 0.0950 ARI = 0.0496 F = 0.1650 ACC = 0.2162
+Round:  496 Train Loss: -0.963
+Global  NMI = 0.0948 ARI = 0.0540 F = 0.1654 ACC = 0.2181
+Round:  497 Train Loss: -0.958
+Global  NMI = 0.0950 ARI = 0.0562 F = 0.1660 ACC = 0.2219
+Round:  498 Train Loss: -0.966
+Global  NMI = 0.0967 ARI = 0.0562 F = 0.1658 ACC = 0.2218
+Round:  499 Train Loss: -0.962
+Global  NMI = 0.0954 ARI = 0.0585 F = 0.1599 ACC = 0.2202

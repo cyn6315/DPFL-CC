@@ -1,0 +1,6814 @@
+nohup: ignoring input
+cuda:3
+Namespace(batch_size=1500, data_root='./datasets', exp_dir='./save/CCFC/Cifar100-fed', global_lr=1, image_size=224, k=20, latent_dim=256, lbd=0.01, lr=0.0005, mini_bs=125, n_clients=40, num_proj_layers=2, num_workers=6, p=0.0, pre_hidden_dim=64, proj_hidden_dim=512, resnet='ResNet18', sample_ratio=0.05, seed=66, test_image_size=256, trial='v2')
+Global  NMI = 0.1450 ARI = 0.0617 F = 0.1139 ACC = 0.1800
+Global  NMI = 0.1436 ARI = 0.0590 F = 0.1088 ACC = 0.1708
+backbone.conv1.weight 9408 torch.Size([64, 3, 7, 7])
+backbone.bn1.weight 64 torch.Size([64])
+backbone.bn1.bias 64 torch.Size([64])
+backbone.layer1.0.conv1.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.0.bn1.weight 64 torch.Size([64])
+backbone.layer1.0.bn1.bias 64 torch.Size([64])
+backbone.layer1.0.conv2.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.0.bn2.weight 64 torch.Size([64])
+backbone.layer1.0.bn2.bias 64 torch.Size([64])
+backbone.layer1.1.conv1.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.1.bn1.weight 64 torch.Size([64])
+backbone.layer1.1.bn1.bias 64 torch.Size([64])
+backbone.layer1.1.conv2.weight 36864 torch.Size([64, 64, 3, 3])
+backbone.layer1.1.bn2.weight 64 torch.Size([64])
+backbone.layer1.1.bn2.bias 64 torch.Size([64])
+backbone.layer2.0.conv1.weight 73728 torch.Size([128, 64, 3, 3])
+backbone.layer2.0.bn1.weight 128 torch.Size([128])
+backbone.layer2.0.bn1.bias 128 torch.Size([128])
+backbone.layer2.0.conv2.weight 147456 torch.Size([128, 128, 3, 3])
+backbone.layer2.0.bn2.weight 128 torch.Size([128])
+backbone.layer2.0.bn2.bias 128 torch.Size([128])
+backbone.layer2.0.downsample.0.weight 8192 torch.Size([128, 64, 1, 1])
+backbone.layer2.0.downsample.1.weight 128 torch.Size([128])
+backbone.layer2.0.downsample.1.bias 128 torch.Size([128])
+backbone.layer2.1.conv1.weight 147456 torch.Size([128, 128, 3, 3])
+backbone.layer2.1.bn1.weight 128 torch.Size([128])
+backbone.layer2.1.bn1.bias 128 torch.Size([128])
+backbone.layer2.1.conv2.weight 147456 torch.Size([128, 128, 3, 3])
+backbone.layer2.1.bn2.weight 128 torch.Size([128])
+backbone.layer2.1.bn2.bias 128 torch.Size([128])
+backbone.layer3.0.conv1.weight 294912 torch.Size([256, 128, 3, 3])
+backbone.layer3.0.bn1.weight 256 torch.Size([256])
+backbone.layer3.0.bn1.bias 256 torch.Size([256])
+backbone.layer3.0.conv2.weight 589824 torch.Size([256, 256, 3, 3])
+backbone.layer3.0.bn2.weight 256 torch.Size([256])
+backbone.layer3.0.bn2.bias 256 torch.Size([256])
+backbone.layer3.0.downsample.0.weight 32768 torch.Size([256, 128, 1, 1])
+backbone.layer3.0.downsample.1.weight 256 torch.Size([256])
+backbone.layer3.0.downsample.1.bias 256 torch.Size([256])
+backbone.layer3.1.conv1.weight 589824 torch.Size([256, 256, 3, 3])
+backbone.layer3.1.bn1.weight 256 torch.Size([256])
+backbone.layer3.1.bn1.bias 256 torch.Size([256])
+backbone.layer3.1.conv2.weight 589824 torch.Size([256, 256, 3, 3])
+backbone.layer3.1.bn2.weight 256 torch.Size([256])
+backbone.layer3.1.bn2.bias 256 torch.Size([256])
+backbone.layer4.0.conv1.weight 1179648 torch.Size([512, 256, 3, 3])
+backbone.layer4.0.bn1.weight 512 torch.Size([512])
+backbone.layer4.0.bn1.bias 512 torch.Size([512])
+backbone.layer4.0.conv2.weight 2359296 torch.Size([512, 512, 3, 3])
+backbone.layer4.0.bn2.weight 512 torch.Size([512])
+backbone.layer4.0.bn2.bias 512 torch.Size([512])
+backbone.layer4.0.downsample.0.weight 131072 torch.Size([512, 256, 1, 1])
+backbone.layer4.0.downsample.1.weight 512 torch.Size([512])
+backbone.layer4.0.downsample.1.bias 512 torch.Size([512])
+backbone.layer4.1.conv1.weight 2359296 torch.Size([512, 512, 3, 3])
+backbone.layer4.1.bn1.weight 512 torch.Size([512])
+backbone.layer4.1.bn1.bias 512 torch.Size([512])
+backbone.layer4.1.conv2.weight 2359296 torch.Size([512, 512, 3, 3])
+backbone.layer4.1.bn2.weight 512 torch.Size([512])
+backbone.layer4.1.bn2.bias 512 torch.Size([512])
+projector.layer1.0.weight 262144 torch.Size([512, 512])
+projector.layer1.0.bias 512 torch.Size([512])
+projector.layer1.1.weight 512 torch.Size([512])
+projector.layer1.1.bias 512 torch.Size([512])
+projector.layer2.0.weight 262144 torch.Size([512, 512])
+projector.layer2.0.bias 512 torch.Size([512])
+projector.layer2.1.weight 512 torch.Size([512])
+projector.layer2.1.bias 512 torch.Size([512])
+projector.layer3.0.weight 131072 torch.Size([256, 512])
+projector.layer3.0.bias 256 torch.Size([256])
+predictor.layer1.0.weight 16384 torch.Size([64, 256])
+predictor.layer1.0.bias 64 torch.Size([64])
+predictor.layer1.1.weight 64 torch.Size([64])
+predictor.layer1.1.bias 64 torch.Size([64])
+predictor.layer2.weight 16384 torch.Size([256, 64])
+predictor.layer2.bias 256 torch.Size([256])
+count 2
+Round:  0 Train Loss: -1.668
+count 2
+Round:  1 Train Loss: -1.678
+count 2
+Round:  2 Train Loss: -1.661
+count 2
+Round:  3 Train Loss: -1.688
+count 2
+Round:  4 Train Loss: -1.673
+count 2
+Round:  5 Train Loss: -1.698
+count 2
+Round:  6 Train Loss: -1.682
+count 2
+Round:  7 Train Loss: -1.682
+count 2
+Round:  8 Train Loss: -1.690
+count 2
+Round:  9 Train Loss: -1.683
+centeral clustering:
+Global  NMI = 0.1439 ARI = 0.0590 F = 0.1089 ACC = 0.1784
+count 2
+Round:  10 Train Loss: -1.688
+count 2
+Round:  11 Train Loss: -1.687
+count 2
+Round:  12 Train Loss: -1.692
+count 2
+Round:  13 Train Loss: -1.681
+count 2
+Round:  14 Train Loss: -1.682
+count 2
+Round:  15 Train Loss: -1.690
+count 2
+Round:  16 Train Loss: -1.688
+count 2
+Round:  17 Train Loss: -1.701
+count 2
+Round:  18 Train Loss: -1.686
+count 2
+Round:  19 Train Loss: -1.690
+centeral clustering:
+Global  NMI = 0.1388 ARI = 0.0568 F = 0.1073 ACC = 0.1749
+count 2
+Round:  20 Train Loss: -1.688
+count 2
+Round:  21 Train Loss: -1.705
+count 2
+Round:  22 Train Loss: -1.689
+count 2
+Round:  23 Train Loss: -1.703
+count 2
+Round:  24 Train Loss: -1.709
+count 2
+Round:  25 Train Loss: -1.712
+count 2
+Round:  26 Train Loss: -1.705
+count 2
+Round:  27 Train Loss: -1.697
+count 2
+Round:  28 Train Loss: -1.708
+count 2
+Round:  29 Train Loss: -1.719
+centeral clustering:
+Global  NMI = 0.1490 ARI = 0.0616 F = 0.1104 ACC = 0.1879
+count 2
+Round:  30 Train Loss: -1.713
+count 2
+Round:  31 Train Loss: -1.716
+count 2
+Round:  32 Train Loss: -1.705
+count 2
+Round:  33 Train Loss: -1.698
+count 2
+Round:  34 Train Loss: -1.705
+count 2
+Round:  35 Train Loss: -1.717
+count 2
+Round:  36 Train Loss: -1.706
+count 2
+Round:  37 Train Loss: -1.698
+count 2
+Round:  38 Train Loss: -1.712
+count 2
+Round:  39 Train Loss: -1.720
+centeral clustering:
+Global  NMI = 0.1380 ARI = 0.0569 F = 0.1072 ACC = 0.1798
+Global  NMI = 0.1362 ARI = 0.0559 F = 0.1080 ACC = 0.1760
+count 2
+Round:  40 Train Loss: -1.733
+count 2
+Round:  41 Train Loss: -1.731
+count 2
+Round:  42 Train Loss: -1.726
+count 2
+Round:  43 Train Loss: -1.719
+count 2
+Round:  44 Train Loss: -1.712
+count 2
+Round:  45 Train Loss: -1.730
+count 2
+Round:  46 Train Loss: -1.727
+count 2
+Round:  47 Train Loss: -1.741
+count 2
+Round:  48 Train Loss: -1.742
+count 2
+Round:  49 Train Loss: -1.725
+centeral clustering:
+Global  NMI = 0.1380 ARI = 0.0572 F = 0.1068 ACC = 0.1792
+count 2
+Round:  50 Train Loss: -1.746
+count 2
+Round:  51 Train Loss: -1.738
+count 2
+Round:  52 Train Loss: -1.731
+count 2
+Round:  53 Train Loss: -1.728
+count 2
+Round:  54 Train Loss: -1.733
+count 2
+Round:  55 Train Loss: -1.729
+count 2
+Round:  56 Train Loss: -1.726
+count 2
+Round:  57 Train Loss: -1.750
+count 2
+Round:  58 Train Loss: -1.731
+count 2
+Round:  59 Train Loss: -1.751
+centeral clustering:
+Global  NMI = 0.1395 ARI = 0.0586 F = 0.1082 ACC = 0.1784
+count 2
+Round:  60 Train Loss: -1.728
+count 2
+Round:  61 Train Loss: -1.727
+count 2
+Round:  62 Train Loss: -1.735
+count 2
+Round:  63 Train Loss: -1.746
+count 2
+Round:  64 Train Loss: -1.728
+count 2
+Round:  65 Train Loss: -1.747
+count 2
+Round:  66 Train Loss: -1.750
+count 2
+Round:  67 Train Loss: -1.741
+count 2
+Round:  68 Train Loss: -1.752
+count 2
+Round:  69 Train Loss: -1.739
+centeral clustering:
+Global  NMI = 0.1436 ARI = 0.0599 F = 0.1088 ACC = 0.1876
+count 2
+Round:  70 Train Loss: -1.735
+count 2
+Round:  71 Train Loss: -1.740
+count 2
+Round:  72 Train Loss: -1.737
+count 2
+Round:  73 Train Loss: -1.735
+count 2
+Round:  74 Train Loss: -1.749
+count 2
+Round:  75 Train Loss: -1.756
+count 2
+Round:  76 Train Loss: -1.755
+count 2
+Round:  77 Train Loss: -1.737
+count 2
+Round:  78 Train Loss: -1.745
+count 2
+Round:  79 Train Loss: -1.747
+centeral clustering:
+Global  NMI = 0.1393 ARI = 0.0585 F = 0.1078 ACC = 0.1854
+Global  NMI = 0.1385 ARI = 0.0578 F = 0.1089 ACC = 0.1851
+count 2
+Round:  80 Train Loss: -1.753
+count 2
+Round:  81 Train Loss: -1.749
+count 2
+Round:  82 Train Loss: -1.739
+count 2
+Round:  83 Train Loss: -1.750
+count 2
+Round:  84 Train Loss: -1.753
+count 2
+Round:  85 Train Loss: -1.749
+count 2
+Round:  86 Train Loss: -1.746
+count 2
+Round:  87 Train Loss: -1.756
+count 2
+Round:  88 Train Loss: -1.754
+count 2
+Round:  89 Train Loss: -1.755
+centeral clustering:
+Global  NMI = 0.1427 ARI = 0.0608 F = 0.1105 ACC = 0.1877
+count 2
+Round:  90 Train Loss: -1.751
+count 2
+Round:  91 Train Loss: -1.748
+count 2
+Round:  92 Train Loss: -1.743
+count 2
+Round:  93 Train Loss: -1.746
+count 2
+Round:  94 Train Loss: -1.756
+count 2
+Round:  95 Train Loss: -1.759
+count 2
+Round:  96 Train Loss: -1.753
+count 2
+Round:  97 Train Loss: -1.747
+count 2
+Round:  98 Train Loss: -1.747
+count 2
+Round:  99 Train Loss: -1.750
+centeral clustering:
+Global  NMI = 0.1413 ARI = 0.0577 F = 0.1064 ACC = 0.1796
+count 2
+Round:  100 Train Loss: -1.757
+count 2
+Round:  101 Train Loss: -1.758
+count 2
+Round:  102 Train Loss: -1.754
+count 2
+Round:  103 Train Loss: -1.753
+count 2
+Round:  104 Train Loss: -1.749
+count 2
+Round:  105 Train Loss: -1.747
+count 2
+Round:  106 Train Loss: -1.744
+count 2
+Round:  107 Train Loss: -1.746
+count 2
+Round:  108 Train Loss: -1.748
+count 2
+Round:  109 Train Loss: -1.753
+centeral clustering:
+Global  NMI = 0.1426 ARI = 0.0573 F = 0.1072 ACC = 0.1854
+count 2
+Round:  110 Train Loss: -1.753
+count 2
+Round:  111 Train Loss: -1.751
+count 2
+Round:  112 Train Loss: -1.756
+count 2
+Round:  113 Train Loss: -1.743
+count 2
+Round:  114 Train Loss: -1.741
+count 2
+Round:  115 Train Loss: -1.756
+count 2
+Round:  116 Train Loss: -1.760
+count 2
+Round:  117 Train Loss: -1.761
+count 2
+Round:  118 Train Loss: -1.756
+count 2
+Round:  119 Train Loss: -1.756
+centeral clustering:
+Global  NMI = 0.1421 ARI = 0.0562 F = 0.1075 ACC = 0.1838
+Global  NMI = 0.1418 ARI = 0.0546 F = 0.1085 ACC = 0.1829
+count 2
+Round:  120 Train Loss: -1.765
+count 2
+Round:  121 Train Loss: -1.741
+count 2
+Round:  122 Train Loss: -1.756
+count 2
+Round:  123 Train Loss: -1.750
+count 2
+Round:  124 Train Loss: -1.754
+count 2
+Round:  125 Train Loss: -1.753
+count 2
+Round:  126 Train Loss: -1.754
+count 2
+Round:  127 Train Loss: -1.756
+count 2
+Round:  128 Train Loss: -1.736
+count 2
+Round:  129 Train Loss: -1.744
+centeral clustering:
+Global  NMI = 0.1411 ARI = 0.0584 F = 0.1081 ACC = 0.1746
+count 2
+Round:  130 Train Loss: -1.760
+count 2
+Round:  131 Train Loss: -1.756
+count 2
+Round:  132 Train Loss: -1.755
+count 2
+Round:  133 Train Loss: -1.762
+count 2
+Round:  134 Train Loss: -1.753
+count 2
+Round:  135 Train Loss: -1.745
+count 2
+Round:  136 Train Loss: -1.759
+count 2
+Round:  137 Train Loss: -1.753
+count 2
+Round:  138 Train Loss: -1.754
+count 2
+Round:  139 Train Loss: -1.760
+centeral clustering:
+Global  NMI = 0.1432 ARI = 0.0554 F = 0.1051 ACC = 0.1736
+count 2
+Round:  140 Train Loss: -1.762
+count 2
+Round:  141 Train Loss: -1.757
+count 2
+Round:  142 Train Loss: -1.762
+count 2
+Round:  143 Train Loss: -1.762
+count 2
+Round:  144 Train Loss: -1.747
+count 2
+Round:  145 Train Loss: -1.755
+count 2
+Round:  146 Train Loss: -1.762
+count 2
+Round:  147 Train Loss: -1.762
+count 2
+Round:  148 Train Loss: -1.754
+count 2
+Round:  149 Train Loss: -1.762
+centeral clustering:
+Global  NMI = 0.1433 ARI = 0.0568 F = 0.1062 ACC = 0.1764
+count 2
+Round:  150 Train Loss: -1.752
+count 2
+Round:  151 Train Loss: -1.751
+count 2
+Round:  152 Train Loss: -1.763
+count 2
+Round:  153 Train Loss: -1.764
+count 2
+Round:  154 Train Loss: -1.768
+count 2
+Round:  155 Train Loss: -1.761
+count 2
+Round:  156 Train Loss: -1.754
+count 2
+Round:  157 Train Loss: -1.772
+count 2
+Round:  158 Train Loss: -1.760
+count 2
+Round:  159 Train Loss: -1.762
+centeral clustering:
+Global  NMI = 0.1445 ARI = 0.0621 F = 0.1109 ACC = 0.1865
+Global  NMI = 0.1445 ARI = 0.0596 F = 0.1102 ACC = 0.1830
+count 2
+Round:  160 Train Loss: -1.770
+count 2
+Round:  161 Train Loss: -1.756
+count 2
+Round:  162 Train Loss: -1.761
+count 2
+Round:  163 Train Loss: -1.764
+count 2
+Round:  164 Train Loss: -1.754
+count 2
+Round:  165 Train Loss: -1.764
+count 2
+Round:  166 Train Loss: -1.750
+count 2
+Round:  167 Train Loss: -1.746
+count 2
+Round:  168 Train Loss: -1.758
+count 2
+Round:  169 Train Loss: -1.755
+centeral clustering:
+Global  NMI = 0.1425 ARI = 0.0582 F = 0.1078 ACC = 0.1818
+count 2
+Round:  170 Train Loss: -1.781
+count 2
+Round:  171 Train Loss: -1.760
+count 2
+Round:  172 Train Loss: -1.764
+count 2
+Round:  173 Train Loss: -1.771
+count 2
+Round:  174 Train Loss: -1.753
+count 2
+Round:  175 Train Loss: -1.763
+count 2
+Round:  176 Train Loss: -1.762
+count 2
+Round:  177 Train Loss: -1.755
+count 2
+Round:  178 Train Loss: -1.761
+count 2
+Round:  179 Train Loss: -1.762
+centeral clustering:
+Global  NMI = 0.1447 ARI = 0.0595 F = 0.1093 ACC = 0.1818
+count 2
+Round:  180 Train Loss: -1.762
+count 2
+Round:  181 Train Loss: -1.764
+count 2
+Round:  182 Train Loss: -1.761
+count 2
+Round:  183 Train Loss: -1.757
+count 2
+Round:  184 Train Loss: -1.768
+count 2
+Round:  185 Train Loss: -1.776
+count 2
+Round:  186 Train Loss: -1.771
+count 2
+Round:  187 Train Loss: -1.752
+count 2
+Round:  188 Train Loss: -1.764
+count 2
+Round:  189 Train Loss: -1.767
+centeral clustering:
+Global  NMI = 0.1487 ARI = 0.0619 F = 0.1107 ACC = 0.1873
+count 2
+Round:  190 Train Loss: -1.765
+count 2
+Round:  191 Train Loss: -1.757
+count 2
+Round:  192 Train Loss: -1.772
+count 2
+Round:  193 Train Loss: -1.758
+count 2
+Round:  194 Train Loss: -1.763
+count 2
+Round:  195 Train Loss: -1.771
+count 2
+Round:  196 Train Loss: -1.773
+count 2
+Round:  197 Train Loss: -1.771
+count 2
+Round:  198 Train Loss: -1.767
+count 2
+Round:  199 Train Loss: -1.763
+centeral clustering:
+Global  NMI = 0.1474 ARI = 0.0624 F = 0.1113 ACC = 0.1930
+Global  NMI = 0.1446 ARI = 0.0610 F = 0.1122 ACC = 0.1830
+count 2
+Round:  200 Train Loss: -1.763
+count 2
+Round:  201 Train Loss: -1.781
+count 2
+Round:  202 Train Loss: -1.767
+count 2
+Round:  203 Train Loss: -1.767
+count 2
+Round:  204 Train Loss: -1.773
+count 2
+Round:  205 Train Loss: -1.752
+count 2
+Round:  206 Train Loss: -1.772
+count 2
+Round:  207 Train Loss: -1.759
+count 2
+Round:  208 Train Loss: -1.772
+count 2
+Round:  209 Train Loss: -1.757
+centeral clustering:
+Global  NMI = 0.1397 ARI = 0.0561 F = 0.1066 ACC = 0.1790
+count 2
+Round:  210 Train Loss: -1.770
+count 2
+Round:  211 Train Loss: -1.762
+count 2
+Round:  212 Train Loss: -1.765
+count 2
+Round:  213 Train Loss: -1.757
+count 2
+Round:  214 Train Loss: -1.776
+count 2
+Round:  215 Train Loss: -1.774
+count 2
+Round:  216 Train Loss: -1.777
+count 2
+Round:  217 Train Loss: -1.776
+count 2
+Round:  218 Train Loss: -1.781
+count 2
+Round:  219 Train Loss: -1.761
+centeral clustering:
+Global  NMI = 0.1499 ARI = 0.0638 F = 0.1125 ACC = 0.1835
+count 2
+Round:  220 Train Loss: -1.774
+count 2
+Round:  221 Train Loss: -1.760
+count 2
+Round:  222 Train Loss: -1.774
+count 2
+Round:  223 Train Loss: -1.771
+count 2
+Round:  224 Train Loss: -1.772
+count 2
+Round:  225 Train Loss: -1.777
+count 2
+Round:  226 Train Loss: -1.779
+count 2
+Round:  227 Train Loss: -1.765
+count 2
+Round:  228 Train Loss: -1.778
+count 2
+Round:  229 Train Loss: -1.779
+centeral clustering:
+Global  NMI = 0.1451 ARI = 0.0603 F = 0.1093 ACC = 0.1872
+count 2
+Round:  230 Train Loss: -1.767
+count 2
+Round:  231 Train Loss: -1.767
+count 2
+Round:  232 Train Loss: -1.781
+count 2
+Round:  233 Train Loss: -1.774
+count 2
+Round:  234 Train Loss: -1.775
+count 2
+Round:  235 Train Loss: -1.771
+count 2
+Round:  236 Train Loss: -1.775
+count 2
+Round:  237 Train Loss: -1.773
+count 2
+Round:  238 Train Loss: -1.775
+count 2
+Round:  239 Train Loss: -1.775
+centeral clustering:
+Global  NMI = 0.1531 ARI = 0.0647 F = 0.1134 ACC = 0.1917
+Global  NMI = 0.1529 ARI = 0.0682 F = 0.1190 ACC = 0.1870
+count 2
+Round:  240 Train Loss: -1.785
+count 2
+Round:  241 Train Loss: -1.788
+count 2
+Round:  242 Train Loss: -1.785
+count 2
+Round:  243 Train Loss: -1.773
+count 2
+Round:  244 Train Loss: -1.775
+count 2
+Round:  245 Train Loss: -1.777
+count 2
+Round:  246 Train Loss: -1.779
+count 2
+Round:  247 Train Loss: -1.768
+count 2
+Round:  248 Train Loss: -1.772
+count 2
+Round:  249 Train Loss: -1.783
+centeral clustering:
+Global  NMI = 0.1504 ARI = 0.0642 F = 0.1129 ACC = 0.1901
+count 2
+Round:  250 Train Loss: -1.783
+count 2
+Round:  251 Train Loss: -1.766
+count 2
+Round:  252 Train Loss: -1.778
+count 2
+Round:  253 Train Loss: -1.781
+count 2
+Round:  254 Train Loss: -1.765
+count 2
+Round:  255 Train Loss: -1.774
+count 2
+Round:  256 Train Loss: -1.779
+count 2
+Round:  257 Train Loss: -1.772
+count 2
+Round:  258 Train Loss: -1.770
+count 2
+Round:  259 Train Loss: -1.775
+centeral clustering:
+Global  NMI = 0.1529 ARI = 0.0642 F = 0.1128 ACC = 0.1909
+count 2
+Round:  260 Train Loss: -1.772
+count 2
+Round:  261 Train Loss: -1.766
+count 2
+Round:  262 Train Loss: -1.770
+count 2
+Round:  263 Train Loss: -1.770
+count 2
+Round:  264 Train Loss: -1.775
+count 2
+Round:  265 Train Loss: -1.762
+count 2
+Round:  266 Train Loss: -1.774
+count 2
+Round:  267 Train Loss: -1.783
+count 2
+Round:  268 Train Loss: -1.773
+count 2
+Round:  269 Train Loss: -1.781
+centeral clustering:
+Global  NMI = 0.1627 ARI = 0.0703 F = 0.1192 ACC = 0.1949
+count 2
+Round:  270 Train Loss: -1.765
+count 2
+Round:  271 Train Loss: -1.776
+count 2
+Round:  272 Train Loss: -1.787
+count 2
+Round:  273 Train Loss: -1.775
+count 2
+Round:  274 Train Loss: -1.767
+count 2
+Round:  275 Train Loss: -1.780
+count 2
+Round:  276 Train Loss: -1.764
+count 2
+Round:  277 Train Loss: -1.773
+count 2
+Round:  278 Train Loss: -1.777
+count 2
+Round:  279 Train Loss: -1.778
+centeral clustering:
+Global  NMI = 0.1559 ARI = 0.0659 F = 0.1153 ACC = 0.1882
+Global  NMI = 0.1569 ARI = 0.0687 F = 0.1196 ACC = 0.1891
+count 2
+Round:  280 Train Loss: -1.773
+count 2
+Round:  281 Train Loss: -1.785
+count 2
+Round:  282 Train Loss: -1.781
+count 2
+Round:  283 Train Loss: -1.777
+count 2
+Round:  284 Train Loss: -1.779
+count 2
+Round:  285 Train Loss: -1.771
+count 2
+Round:  286 Train Loss: -1.771
+count 2
+Round:  287 Train Loss: -1.778
+count 2
+Round:  288 Train Loss: -1.779
+count 2
+Round:  289 Train Loss: -1.774
+centeral clustering:
+Global  NMI = 0.1514 ARI = 0.0630 F = 0.1115 ACC = 0.1889
+count 2
+Round:  290 Train Loss: -1.770
+count 2
+Round:  291 Train Loss: -1.772
+count 2
+Round:  292 Train Loss: -1.773
+count 2
+Round:  293 Train Loss: -1.767
+count 2
+Round:  294 Train Loss: -1.777
+count 2
+Round:  295 Train Loss: -1.774
+count 2
+Round:  296 Train Loss: -1.783
+count 2
+Round:  297 Train Loss: -1.790
+count 2
+Round:  298 Train Loss: -1.784
+count 2
+Round:  299 Train Loss: -1.779
+centeral clustering:
+Global  NMI = 0.1573 ARI = 0.0698 F = 0.1190 ACC = 0.1876
+count 2
+Round:  300 Train Loss: -1.791
+count 2
+Round:  301 Train Loss: -1.776
+count 2
+Round:  302 Train Loss: -1.775
+count 2
+Round:  303 Train Loss: -1.774
+count 2
+Round:  304 Train Loss: -1.770
+count 2
+Round:  305 Train Loss: -1.786
+count 2
+Round:  306 Train Loss: -1.772
+count 2
+Round:  307 Train Loss: -1.782
+count 2
+Round:  308 Train Loss: -1.782
+count 2
+Round:  309 Train Loss: -1.767
+centeral clustering:
+Global  NMI = 0.1579 ARI = 0.0652 F = 0.1139 ACC = 0.1909
+count 2
+Round:  310 Train Loss: -1.777
+count 2
+Round:  311 Train Loss: -1.780
+count 2
+Round:  312 Train Loss: -1.783
+count 2
+Round:  313 Train Loss: -1.789
+count 2
+Round:  314 Train Loss: -1.775
+count 2
+Round:  315 Train Loss: -1.781
+count 2
+Round:  316 Train Loss: -1.781
+count 2
+Round:  317 Train Loss: -1.779
+count 2
+Round:  318 Train Loss: -1.772
+count 2
+Round:  319 Train Loss: -1.783
+centeral clustering:
+Global  NMI = 0.1543 ARI = 0.0659 F = 0.1144 ACC = 0.1955
+Global  NMI = 0.1515 ARI = 0.0664 F = 0.1165 ACC = 0.1847
+count 2
+Round:  320 Train Loss: -1.772
+count 2
+Round:  321 Train Loss: -1.774
+count 2
+Round:  322 Train Loss: -1.781
+count 2
+Round:  323 Train Loss: -1.794
+count 2
+Round:  324 Train Loss: -1.780
+count 2
+Round:  325 Train Loss: -1.774
+count 2
+Round:  326 Train Loss: -1.784
+count 2
+Round:  327 Train Loss: -1.783
+count 2
+Round:  328 Train Loss: -1.786
+count 2
+Round:  329 Train Loss: -1.787
+centeral clustering:
+Global  NMI = 0.1573 ARI = 0.0658 F = 0.1154 ACC = 0.1886
+count 2
+Round:  330 Train Loss: -1.781
+count 2
+Round:  331 Train Loss: -1.787
+count 2
+Round:  332 Train Loss: -1.770
+count 2
+Round:  333 Train Loss: -1.778
+count 2
+Round:  334 Train Loss: -1.783
+count 2
+Round:  335 Train Loss: -1.777
+count 2
+Round:  336 Train Loss: -1.774
+count 2
+Round:  337 Train Loss: -1.776
+count 2
+Round:  338 Train Loss: -1.784
+count 2
+Round:  339 Train Loss: -1.790
+centeral clustering:
+Global  NMI = 0.1615 ARI = 0.0708 F = 0.1197 ACC = 0.2023
+count 2
+Round:  340 Train Loss: -1.776
+count 2
+Round:  341 Train Loss: -1.790
+count 2
+Round:  342 Train Loss: -1.780
+count 2
+Round:  343 Train Loss: -1.780
+count 2
+Round:  344 Train Loss: -1.778
+count 2
+Round:  345 Train Loss: -1.779
+count 2
+Round:  346 Train Loss: -1.780
+count 2
+Round:  347 Train Loss: -1.783
+count 2
+Round:  348 Train Loss: -1.764
+count 2
+Round:  349 Train Loss: -1.782
+centeral clustering:
+Global  NMI = 0.1558 ARI = 0.0639 F = 0.1127 ACC = 0.1865
+count 2
+Round:  350 Train Loss: -1.774
+count 2
+Round:  351 Train Loss: -1.783
+count 2
+Round:  352 Train Loss: -1.786
+count 2
+Round:  353 Train Loss: -1.792
+count 2
+Round:  354 Train Loss: -1.790
+count 2
+Round:  355 Train Loss: -1.774
+count 2
+Round:  356 Train Loss: -1.790
+count 2
+Round:  357 Train Loss: -1.781
+count 2
+Round:  358 Train Loss: -1.783
+count 2
+Round:  359 Train Loss: -1.775
+centeral clustering:
+Global  NMI = 0.1599 ARI = 0.0690 F = 0.1179 ACC = 0.1920
+Global  NMI = 0.1594 ARI = 0.0683 F = 0.1188 ACC = 0.1908
+count 2
+Round:  360 Train Loss: -1.782
+count 2
+Round:  361 Train Loss: -1.787
+count 2
+Round:  362 Train Loss: -1.777
+count 2
+Round:  363 Train Loss: -1.787
+count 2
+Round:  364 Train Loss: -1.783
+count 2
+Round:  365 Train Loss: -1.785
+count 2
+Round:  366 Train Loss: -1.787
+count 2
+Round:  367 Train Loss: -1.791
+count 2
+Round:  368 Train Loss: -1.777
+count 2
+Round:  369 Train Loss: -1.783
+centeral clustering:
+Global  NMI = 0.1618 ARI = 0.0744 F = 0.1229 ACC = 0.2057
+count 2
+Round:  370 Train Loss: -1.770
+count 2
+Round:  371 Train Loss: -1.779
+count 2
+Round:  372 Train Loss: -1.787
+count 2
+Round:  373 Train Loss: -1.786
+count 2
+Round:  374 Train Loss: -1.782
+count 2
+Round:  375 Train Loss: -1.777
+count 2
+Round:  376 Train Loss: -1.781
+count 2
+Round:  377 Train Loss: -1.782
+count 2
+Round:  378 Train Loss: -1.779
+count 2
+Round:  379 Train Loss: -1.782
+centeral clustering:
+Global  NMI = 0.1609 ARI = 0.0712 F = 0.1205 ACC = 0.1925
+count 2
+Round:  380 Train Loss: -1.785
+count 2
+Round:  381 Train Loss: -1.786
+count 2
+Round:  382 Train Loss: -1.778
+count 2
+Round:  383 Train Loss: -1.796
+count 2
+Round:  384 Train Loss: -1.774
+count 2
+Round:  385 Train Loss: -1.791
+count 2
+Round:  386 Train Loss: -1.784
+count 2
+Round:  387 Train Loss: -1.791
+count 2
+Round:  388 Train Loss: -1.777
+count 2
+Round:  389 Train Loss: -1.771
+centeral clustering:
+Global  NMI = 0.1547 ARI = 0.0656 F = 0.1142 ACC = 0.1931
+count 2
+Round:  390 Train Loss: -1.773
+count 2
+Round:  391 Train Loss: -1.780
+count 2
+Round:  392 Train Loss: -1.778
+count 2
+Round:  393 Train Loss: -1.786
+count 2
+Round:  394 Train Loss: -1.788
+count 2
+Round:  395 Train Loss: -1.787
+count 2
+Round:  396 Train Loss: -1.782
+count 2
+Round:  397 Train Loss: -1.792
+count 2
+Round:  398 Train Loss: -1.780
+count 2
+Round:  399 Train Loss: -1.793
+centeral clustering:
+Global  NMI = 0.1583 ARI = 0.0719 F = 0.1202 ACC = 0.1953
+Global  NMI = 0.1604 ARI = 0.0725 F = 0.1223 ACC = 0.1962
+count 2
+Round:  400 Train Loss: -1.792
+count 2
+Round:  401 Train Loss: -1.775
+count 2
+Round:  402 Train Loss: -1.788
+count 2
+Round:  403 Train Loss: -1.771
+count 2
+Round:  404 Train Loss: -1.781
+count 2
+Round:  405 Train Loss: -1.771
+count 2
+Round:  406 Train Loss: -1.786
+count 2
+Round:  407 Train Loss: -1.783
+count 2
+Round:  408 Train Loss: -1.788
+count 2
+Round:  409 Train Loss: -1.782
+centeral clustering:
+Global  NMI = 0.1686 ARI = 0.0737 F = 0.1229 ACC = 0.2047
+count 2
+Round:  410 Train Loss: -1.783
+count 2
+Round:  411 Train Loss: -1.779
+count 2
+Round:  412 Train Loss: -1.786
+count 2
+Round:  413 Train Loss: -1.776
+count 2
+Round:  414 Train Loss: -1.779
+count 2
+Round:  415 Train Loss: -1.785
+count 2
+Round:  416 Train Loss: -1.791
+count 2
+Round:  417 Train Loss: -1.781
+count 2
+Round:  418 Train Loss: -1.793
+count 2
+Round:  419 Train Loss: -1.786
+centeral clustering:
+Global  NMI = 0.1711 ARI = 0.0760 F = 0.1253 ACC = 0.2062
+count 2
+Round:  420 Train Loss: -1.780
+count 2
+Round:  421 Train Loss: -1.790
+count 2
+Round:  422 Train Loss: -1.773
+count 2
+Round:  423 Train Loss: -1.773
+count 2
+Round:  424 Train Loss: -1.769
+count 2
+Round:  425 Train Loss: -1.774
+count 2
+Round:  426 Train Loss: -1.775
+count 2
+Round:  427 Train Loss: -1.774
+count 2
+Round:  428 Train Loss: -1.763
+count 2
+Round:  429 Train Loss: -1.763
+centeral clustering:
+Global  NMI = 0.1557 ARI = 0.0633 F = 0.1147 ACC = 0.1835
+count 2
+Round:  430 Train Loss: -1.763
+count 2
+Round:  431 Train Loss: -1.755
+count 2
+Round:  432 Train Loss: -1.755
+count 2
+Round:  433 Train Loss: -1.760
+count 2
+Round:  434 Train Loss: -1.767
+count 2
+Round:  435 Train Loss: -1.760
+count 2
+Round:  436 Train Loss: -1.769
+count 2
+Round:  437 Train Loss: -1.766
+count 2
+Round:  438 Train Loss: -1.766
+count 2
+Round:  439 Train Loss: -1.753
+centeral clustering:
+Global  NMI = 0.1522 ARI = 0.0655 F = 0.1157 ACC = 0.1890
+Global  NMI = 0.1513 ARI = 0.0626 F = 0.1185 ACC = 0.1852
+count 2
+Round:  440 Train Loss: -1.771
+count 2
+Round:  441 Train Loss: -1.764
+count 2
+Round:  442 Train Loss: -1.776
+count 2
+Round:  443 Train Loss: -1.766
+count 2
+Round:  444 Train Loss: -1.767
+count 2
+Round:  445 Train Loss: -1.755
+count 2
+Round:  446 Train Loss: -1.746
+count 2
+Round:  447 Train Loss: -1.739
+count 2
+Round:  448 Train Loss: -1.760
+count 2
+Round:  449 Train Loss: -1.758
+centeral clustering:
+Global  NMI = 0.1361 ARI = 0.0603 F = 0.1124 ACC = 0.1701
+count 2
+Round:  450 Train Loss: -1.763
+count 2
+Round:  451 Train Loss: -1.754
+count 2
+Round:  452 Train Loss: -1.756
+count 2
+Round:  453 Train Loss: -1.772
+count 2
+Round:  454 Train Loss: -1.771
+count 2
+Round:  455 Train Loss: -1.774
+count 2
+Round:  456 Train Loss: -1.787
+count 2
+Round:  457 Train Loss: -1.774
+count 2
+Round:  458 Train Loss: -1.766
+count 2
+Round:  459 Train Loss: -1.782
+centeral clustering:
+Global  NMI = 0.1623 ARI = 0.0734 F = 0.1234 ACC = 0.1953
+count 2
+Round:  460 Train Loss: -1.773
+count 2
+Round:  461 Train Loss: -1.781
+count 2
+Round:  462 Train Loss: -1.777
+count 2
+Round:  463 Train Loss: -1.769
+count 2
+Round:  464 Train Loss: -1.782
+count 2
+Round:  465 Train Loss: -1.768
+count 2
+Round:  466 Train Loss: -1.789
+count 2
+Round:  467 Train Loss: -1.775
+count 2
+Round:  468 Train Loss: -1.772
+count 2
+Round:  469 Train Loss: -1.782
+centeral clustering:
+Global  NMI = 0.1616 ARI = 0.0739 F = 0.1237 ACC = 0.1958
+count 2
+Round:  470 Train Loss: -1.775
+count 2
+Round:  471 Train Loss: -1.778
+count 2
+Round:  472 Train Loss: -1.781
+count 2
+Round:  473 Train Loss: -1.772
+count 2
+Round:  474 Train Loss: -1.779
+count 2
+Round:  475 Train Loss: -1.788
+count 2
+Round:  476 Train Loss: -1.779
+count 2
+Round:  477 Train Loss: -1.778
+count 2
+Round:  478 Train Loss: -1.779
+count 2
+Round:  479 Train Loss: -1.782
+centeral clustering:
+Global  NMI = 0.1603 ARI = 0.0704 F = 0.1207 ACC = 0.1938
+Global  NMI = 0.1586 ARI = 0.0728 F = 0.1261 ACC = 0.2023
+count 2
+Round:  480 Train Loss: -1.774
+count 2
+Round:  481 Train Loss: -1.782
+count 2
+Round:  482 Train Loss: -1.784
+count 2
+Round:  483 Train Loss: -1.781
+count 2
+Round:  484 Train Loss: -1.790
+count 2
+Round:  485 Train Loss: -1.792
+count 2
+Round:  486 Train Loss: -1.782
+count 2
+Round:  487 Train Loss: -1.791
+count 2
+Round:  488 Train Loss: -1.783
+count 2
+Round:  489 Train Loss: -1.782
+centeral clustering:
+Global  NMI = 0.1709 ARI = 0.0784 F = 0.1292 ACC = 0.2078
+count 2
+Round:  490 Train Loss: -1.787
+count 2
+Round:  491 Train Loss: -1.793
+count 2
+Round:  492 Train Loss: -1.778
+count 2
+Round:  493 Train Loss: -1.775
+count 2
+Round:  494 Train Loss: -1.795
+count 2
+Round:  495 Train Loss: -1.783
+count 2
+Round:  496 Train Loss: -1.790
+count 2
+Round:  497 Train Loss: -1.778
+count 2
+Round:  498 Train Loss: -1.787
+count 2
+Round:  499 Train Loss: -1.793
+centeral clustering:
+Global  NMI = 0.1676 ARI = 0.0773 F = 0.1259 ACC = 0.2107
+count 2
+Round:  500 Train Loss: -1.783
+count 2
+Round:  501 Train Loss: -1.778
+count 2
+Round:  502 Train Loss: -1.776
+count 2
+Round:  503 Train Loss: -1.793
+count 2
+Round:  504 Train Loss: -1.782
+count 2
+Round:  505 Train Loss: -1.788
+count 2
+Round:  506 Train Loss: -1.799
+count 2
+Round:  507 Train Loss: -1.772
+count 2
+Round:  508 Train Loss: -1.782
+count 2
+Round:  509 Train Loss: -1.783
+centeral clustering:
+Global  NMI = 0.1619 ARI = 0.0741 F = 0.1236 ACC = 0.1981
+count 2
+Round:  510 Train Loss: -1.790
+count 2
+Round:  511 Train Loss: -1.791
+count 2
+Round:  512 Train Loss: -1.785
+count 2
+Round:  513 Train Loss: -1.783
+count 2
+Round:  514 Train Loss: -1.783
+count 2
+Round:  515 Train Loss: -1.792
+count 2
+Round:  516 Train Loss: -1.785
+count 2
+Round:  517 Train Loss: -1.785
+count 2
+Round:  518 Train Loss: -1.786
+count 2
+Round:  519 Train Loss: -1.782
+centeral clustering:
+Global  NMI = 0.1615 ARI = 0.0714 F = 0.1202 ACC = 0.1953
+Global  NMI = 0.1617 ARI = 0.0759 F = 0.1272 ACC = 0.1924
+count 2
+Round:  520 Train Loss: -1.790
+count 2
+Round:  521 Train Loss: -1.789
+count 2
+Round:  522 Train Loss: -1.787
+count 2
+Round:  523 Train Loss: -1.780
+count 2
+Round:  524 Train Loss: -1.789
+count 2
+Round:  525 Train Loss: -1.794
+count 2
+Round:  526 Train Loss: -1.796
+count 2
+Round:  527 Train Loss: -1.785
+count 2
+Round:  528 Train Loss: -1.797
+count 2
+Round:  529 Train Loss: -1.789
+centeral clustering:
+Global  NMI = 0.1661 ARI = 0.0749 F = 0.1252 ACC = 0.2072
+count 2
+Round:  530 Train Loss: -1.793
+count 2
+Round:  531 Train Loss: -1.797
+count 2
+Round:  532 Train Loss: -1.788
+count 2
+Round:  533 Train Loss: -1.791
+count 2
+Round:  534 Train Loss: -1.786
+count 2
+Round:  535 Train Loss: -1.787
+count 2
+Round:  536 Train Loss: -1.787
+count 2
+Round:  537 Train Loss: -1.792
+count 2
+Round:  538 Train Loss: -1.775
+count 2
+Round:  539 Train Loss: -1.796
+centeral clustering:
+Global  NMI = 0.1659 ARI = 0.0729 F = 0.1222 ACC = 0.2036
+count 2
+Round:  540 Train Loss: -1.788
+count 2
+Round:  541 Train Loss: -1.789
+count 2
+Round:  542 Train Loss: -1.786
+count 2
+Round:  543 Train Loss: -1.784
+count 2
+Round:  544 Train Loss: -1.789
+count 2
+Round:  545 Train Loss: -1.775
+count 2
+Round:  546 Train Loss: -1.781
+count 2
+Round:  547 Train Loss: -1.791
+count 2
+Round:  548 Train Loss: -1.788
+count 2
+Round:  549 Train Loss: -1.789
+centeral clustering:
+Global  NMI = 0.1773 ARI = 0.0851 F = 0.1334 ACC = 0.2153
+count 2
+Round:  550 Train Loss: -1.784
+count 2
+Round:  551 Train Loss: -1.792
+count 2
+Round:  552 Train Loss: -1.801
+count 2
+Round:  553 Train Loss: -1.792
+count 2
+Round:  554 Train Loss: -1.797
+count 2
+Round:  555 Train Loss: -1.780
+count 2
+Round:  556 Train Loss: -1.783
+count 2
+Round:  557 Train Loss: -1.798
+count 2
+Round:  558 Train Loss: -1.789
+count 2
+Round:  559 Train Loss: -1.788
+centeral clustering:
+Global  NMI = 0.1731 ARI = 0.0822 F = 0.1318 ACC = 0.2044
+Global  NMI = 0.1703 ARI = 0.0797 F = 0.1313 ACC = 0.2037
+count 2
+Round:  560 Train Loss: -1.790
+count 2
+Round:  561 Train Loss: -1.791
+count 2
+Round:  562 Train Loss: -1.789
+count 2
+Round:  563 Train Loss: -1.791
+count 2
+Round:  564 Train Loss: -1.790
+count 2
+Round:  565 Train Loss: -1.782
+count 2
+Round:  566 Train Loss: -1.787
+count 2
+Round:  567 Train Loss: -1.798
+count 2
+Round:  568 Train Loss: -1.801
+count 2
+Round:  569 Train Loss: -1.783
+centeral clustering:
+Global  NMI = 0.1736 ARI = 0.0803 F = 0.1294 ACC = 0.2088
+count 2
+Round:  570 Train Loss: -1.780
+count 2
+Round:  571 Train Loss: -1.788
+count 2
+Round:  572 Train Loss: -1.798
+count 2
+Round:  573 Train Loss: -1.785
+count 2
+Round:  574 Train Loss: -1.790
+count 2
+Round:  575 Train Loss: -1.779
+count 2
+Round:  576 Train Loss: -1.783
+count 2
+Round:  577 Train Loss: -1.788
+count 2
+Round:  578 Train Loss: -1.791
+count 2
+Round:  579 Train Loss: -1.797
+centeral clustering:
+Global  NMI = 0.1659 ARI = 0.0737 F = 0.1229 ACC = 0.2030
+count 2
+Round:  580 Train Loss: -1.792
+count 2
+Round:  581 Train Loss: -1.790
+count 2
+Round:  582 Train Loss: -1.794
+count 2
+Round:  583 Train Loss: -1.791
+count 2
+Round:  584 Train Loss: -1.788
+count 2
+Round:  585 Train Loss: -1.798
+count 2
+Round:  586 Train Loss: -1.787
+count 2
+Round:  587 Train Loss: -1.789
+count 2
+Round:  588 Train Loss: -1.792
+count 2
+Round:  589 Train Loss: -1.788
+centeral clustering:
+Global  NMI = 0.1738 ARI = 0.0795 F = 0.1289 ACC = 0.2083
+count 2
+Round:  590 Train Loss: -1.782
+count 2
+Round:  591 Train Loss: -1.789
+count 2
+Round:  592 Train Loss: -1.794
+count 2
+Round:  593 Train Loss: -1.788
+count 2
+Round:  594 Train Loss: -1.769
+count 2
+Round:  595 Train Loss: -1.789
+count 2
+Round:  596 Train Loss: -1.793
+count 2
+Round:  597 Train Loss: -1.795
+count 2
+Round:  598 Train Loss: -1.790
+count 2
+Round:  599 Train Loss: -1.799
+centeral clustering:
+Global  NMI = 0.1728 ARI = 0.0799 F = 0.1284 ACC = 0.2149
+Global  NMI = 0.1757 ARI = 0.0819 F = 0.1326 ACC = 0.2102
+count 2
+Round:  600 Train Loss: -1.789
+count 2
+Round:  601 Train Loss: -1.786
+count 2
+Round:  602 Train Loss: -1.784
+count 2
+Round:  603 Train Loss: -1.794
+count 2
+Round:  604 Train Loss: -1.789
+count 2
+Round:  605 Train Loss: -1.789
+count 2
+Round:  606 Train Loss: -1.789
+count 2
+Round:  607 Train Loss: -1.787
+count 2
+Round:  608 Train Loss: -1.784
+count 2
+Round:  609 Train Loss: -1.788
+centeral clustering:
+Global  NMI = 0.1806 ARI = 0.0841 F = 0.1332 ACC = 0.2190
+count 2
+Round:  610 Train Loss: -1.788
+count 2
+Round:  611 Train Loss: -1.782
+count 2
+Round:  612 Train Loss: -1.787
+count 2
+Round:  613 Train Loss: -1.789
+count 2
+Round:  614 Train Loss: -1.782
+count 2
+Round:  615 Train Loss: -1.784
+count 2
+Round:  616 Train Loss: -1.794
+count 2
+Round:  617 Train Loss: -1.790
+count 2
+Round:  618 Train Loss: -1.797
+count 2
+Round:  619 Train Loss: -1.793
+centeral clustering:
+Global  NMI = 0.1798 ARI = 0.0855 F = 0.1329 ACC = 0.2159
+count 2
+Round:  620 Train Loss: -1.795
+count 2
+Round:  621 Train Loss: -1.785
+count 2
+Round:  622 Train Loss: -1.775
+count 2
+Round:  623 Train Loss: -1.796
+count 2
+Round:  624 Train Loss: -1.788
+count 2
+Round:  625 Train Loss: -1.786
+count 2
+Round:  626 Train Loss: -1.790
+count 2
+Round:  627 Train Loss: -1.789
+count 2
+Round:  628 Train Loss: -1.794
+count 2
+Round:  629 Train Loss: -1.801
+centeral clustering:
+Global  NMI = 0.1716 ARI = 0.0793 F = 0.1301 ACC = 0.2039
+count 2
+Round:  630 Train Loss: -1.807
+count 2
+Round:  631 Train Loss: -1.790
+count 2
+Round:  632 Train Loss: -1.792
+count 2
+Round:  633 Train Loss: -1.783
+count 2
+Round:  634 Train Loss: -1.787
+count 2
+Round:  635 Train Loss: -1.797
+count 2
+Round:  636 Train Loss: -1.797
+count 2
+Round:  637 Train Loss: -1.794
+count 2
+Round:  638 Train Loss: -1.800
+count 2
+Round:  639 Train Loss: -1.784
+centeral clustering:
+Global  NMI = 0.1737 ARI = 0.0801 F = 0.1285 ACC = 0.2102
+Global  NMI = 0.1737 ARI = 0.0841 F = 0.1335 ACC = 0.2056
+count 2
+Round:  640 Train Loss: -1.792
+count 2
+Round:  641 Train Loss: -1.786
+count 2
+Round:  642 Train Loss: -1.785
+count 2
+Round:  643 Train Loss: -1.791
+count 2
+Round:  644 Train Loss: -1.779
+count 2
+Round:  645 Train Loss: -1.789
+count 2
+Round:  646 Train Loss: -1.791
+count 2
+Round:  647 Train Loss: -1.795
+count 2
+Round:  648 Train Loss: -1.794
+count 2
+Round:  649 Train Loss: -1.788
+centeral clustering:
+Global  NMI = 0.1783 ARI = 0.0843 F = 0.1343 ACC = 0.2120
+count 2
+Round:  650 Train Loss: -1.799
+count 2
+Round:  651 Train Loss: -1.786
+count 2
+Round:  652 Train Loss: -1.790
+count 2
+Round:  653 Train Loss: -1.802
+count 2
+Round:  654 Train Loss: -1.793
+count 2
+Round:  655 Train Loss: -1.792
+count 2
+Round:  656 Train Loss: -1.794
+count 2
+Round:  657 Train Loss: -1.794
+count 2
+Round:  658 Train Loss: -1.791
+count 2
+Round:  659 Train Loss: -1.803
+centeral clustering:
+Global  NMI = 0.1734 ARI = 0.0777 F = 0.1281 ACC = 0.2072
+count 2
+Round:  660 Train Loss: -1.805
+count 2
+Round:  661 Train Loss: -1.794
+count 2
+Round:  662 Train Loss: -1.796
+count 2
+Round:  663 Train Loss: -1.778
+count 2
+Round:  664 Train Loss: -1.798
+count 2
+Round:  665 Train Loss: -1.783
+count 2
+Round:  666 Train Loss: -1.792
+count 2
+Round:  667 Train Loss: -1.791
+count 2
+Round:  668 Train Loss: -1.789
+count 2
+Round:  669 Train Loss: -1.799
+centeral clustering:
+Global  NMI = 0.1808 ARI = 0.0830 F = 0.1316 ACC = 0.2193
+count 2
+Round:  670 Train Loss: -1.798
+count 2
+Round:  671 Train Loss: -1.796
+count 2
+Round:  672 Train Loss: -1.792
+count 2
+Round:  673 Train Loss: -1.792
+count 2
+Round:  674 Train Loss: -1.797
+count 2
+Round:  675 Train Loss: -1.799
+count 2
+Round:  676 Train Loss: -1.788
+count 2
+Round:  677 Train Loss: -1.784
+count 2
+Round:  678 Train Loss: -1.794
+count 2
+Round:  679 Train Loss: -1.781
+centeral clustering:
+Global  NMI = 0.1771 ARI = 0.0833 F = 0.1322 ACC = 0.2121
+Global  NMI = 0.1740 ARI = 0.0841 F = 0.1348 ACC = 0.2067
+count 2
+Round:  680 Train Loss: -1.792
+count 2
+Round:  681 Train Loss: -1.786
+count 2
+Round:  682 Train Loss: -1.794
+count 2
+Round:  683 Train Loss: -1.801
+count 2
+Round:  684 Train Loss: -1.800
+count 2
+Round:  685 Train Loss: -1.794
+count 2
+Round:  686 Train Loss: -1.797
+count 2
+Round:  687 Train Loss: -1.791
+count 2
+Round:  688 Train Loss: -1.791
+count 2
+Round:  689 Train Loss: -1.794
+centeral clustering:
+Global  NMI = 0.1796 ARI = 0.0836 F = 0.1324 ACC = 0.2122
+count 2
+Round:  690 Train Loss: -1.792
+count 2
+Round:  691 Train Loss: -1.793
+count 2
+Round:  692 Train Loss: -1.795
+count 2
+Round:  693 Train Loss: -1.791
+count 2
+Round:  694 Train Loss: -1.796
+count 2
+Round:  695 Train Loss: -1.801
+count 2
+Round:  696 Train Loss: -1.798
+count 2
+Round:  697 Train Loss: -1.799
+count 2
+Round:  698 Train Loss: -1.800
+count 2
+Round:  699 Train Loss: -1.795
+centeral clustering:
+Global  NMI = 0.1756 ARI = 0.0794 F = 0.1283 ACC = 0.2103
+count 2
+Round:  700 Train Loss: -1.793
+count 2
+Round:  701 Train Loss: -1.789
+count 2
+Round:  702 Train Loss: -1.793
+count 2
+Round:  703 Train Loss: -1.786
+count 2
+Round:  704 Train Loss: -1.783
+count 2
+Round:  705 Train Loss: -1.785
+count 2
+Round:  706 Train Loss: -1.795
+count 2
+Round:  707 Train Loss: -1.787
+count 2
+Round:  708 Train Loss: -1.779
+count 2
+Round:  709 Train Loss: -1.795
+centeral clustering:
+Global  NMI = 0.1714 ARI = 0.0755 F = 0.1239 ACC = 0.2011
+count 2
+Round:  710 Train Loss: -1.796
+count 2
+Round:  711 Train Loss: -1.800
+count 2
+Round:  712 Train Loss: -1.789
+count 2
+Round:  713 Train Loss: -1.798
+count 2
+Round:  714 Train Loss: -1.787
+count 2
+Round:  715 Train Loss: -1.789
+count 2
+Round:  716 Train Loss: -1.790
+count 2
+Round:  717 Train Loss: -1.786
+count 2
+Round:  718 Train Loss: -1.794
+count 2
+Round:  719 Train Loss: -1.790
+centeral clustering:
+Global  NMI = 0.1806 ARI = 0.0809 F = 0.1284 ACC = 0.2179
+Global  NMI = 0.1821 ARI = 0.0811 F = 0.1297 ACC = 0.2175
+count 2
+Round:  720 Train Loss: -1.800
+count 2
+Round:  721 Train Loss: -1.790
+count 2
+Round:  722 Train Loss: -1.789
+count 2
+Round:  723 Train Loss: -1.779
+count 2
+Round:  724 Train Loss: -1.785
+count 2
+Round:  725 Train Loss: -1.788
+count 2
+Round:  726 Train Loss: -1.780
+count 2
+Round:  727 Train Loss: -1.785
+count 2
+Round:  728 Train Loss: -1.783
+count 2
+Round:  729 Train Loss: -1.783
+centeral clustering:
+Global  NMI = 0.1743 ARI = 0.0815 F = 0.1292 ACC = 0.2119
+count 2
+Round:  730 Train Loss: -1.786
+count 2
+Round:  731 Train Loss: -1.779
+count 2
+Round:  732 Train Loss: -1.792
+count 2
+Round:  733 Train Loss: -1.794
+count 2
+Round:  734 Train Loss: -1.794
+count 2
+Round:  735 Train Loss: -1.802
+count 2
+Round:  736 Train Loss: -1.795
+count 2
+Round:  737 Train Loss: -1.780
+count 2
+Round:  738 Train Loss: -1.790
+count 2
+Round:  739 Train Loss: -1.798
+centeral clustering:
+Global  NMI = 0.1786 ARI = 0.0833 F = 0.1311 ACC = 0.2199
+count 2
+Round:  740 Train Loss: -1.790
+count 2
+Round:  741 Train Loss: -1.793
+count 2
+Round:  742 Train Loss: -1.787
+count 2
+Round:  743 Train Loss: -1.781
+count 2
+Round:  744 Train Loss: -1.785
+count 2
+Round:  745 Train Loss: -1.789
+count 2
+Round:  746 Train Loss: -1.777
+count 2
+Round:  747 Train Loss: -1.784
+count 2
+Round:  748 Train Loss: -1.785
+count 2
+Round:  749 Train Loss: -1.803
+centeral clustering:
+Global  NMI = 0.1812 ARI = 0.0847 F = 0.1318 ACC = 0.2144
+count 2
+Round:  750 Train Loss: -1.789
+count 2
+Round:  751 Train Loss: -1.794
+count 2
+Round:  752 Train Loss: -1.794
+count 2
+Round:  753 Train Loss: -1.796
+count 2
+Round:  754 Train Loss: -1.808
+count 2
+Round:  755 Train Loss: -1.795
+count 2
+Round:  756 Train Loss: -1.795
+count 2
+Round:  757 Train Loss: -1.797
+count 2
+Round:  758 Train Loss: -1.791
+count 2
+Round:  759 Train Loss: -1.792
+centeral clustering:
+Global  NMI = 0.1759 ARI = 0.0807 F = 0.1283 ACC = 0.2124
+Global  NMI = 0.1759 ARI = 0.0869 F = 0.1362 ACC = 0.2125
+count 2
+Round:  760 Train Loss: -1.781
+count 2
+Round:  761 Train Loss: -1.782
+count 2
+Round:  762 Train Loss: -1.791
+count 2
+Round:  763 Train Loss: -1.791
+count 2
+Round:  764 Train Loss: -1.784
+count 2
+Round:  765 Train Loss: -1.797
+count 2
+Round:  766 Train Loss: -1.800
+count 2
+Round:  767 Train Loss: -1.787
+count 2
+Round:  768 Train Loss: -1.802
+count 2
+Round:  769 Train Loss: -1.793
+centeral clustering:
+Global  NMI = 0.1856 ARI = 0.0869 F = 0.1339 ACC = 0.2218
+count 2
+Round:  770 Train Loss: -1.795
+count 2
+Round:  771 Train Loss: -1.794
+count 2
+Round:  772 Train Loss: -1.799
+count 2
+Round:  773 Train Loss: -1.797
+count 2
+Round:  774 Train Loss: -1.781
+count 2
+Round:  775 Train Loss: -1.791
+count 2
+Round:  776 Train Loss: -1.801
+count 2
+Round:  777 Train Loss: -1.794
+count 2
+Round:  778 Train Loss: -1.797
+count 2
+Round:  779 Train Loss: -1.795
+centeral clustering:
+Global  NMI = 0.1848 ARI = 0.0856 F = 0.1336 ACC = 0.2157
+count 2
+Round:  780 Train Loss: -1.793
+count 2
+Round:  781 Train Loss: -1.787
+count 2
+Round:  782 Train Loss: -1.800
+count 2
+Round:  783 Train Loss: -1.792
+count 2
+Round:  784 Train Loss: -1.799
+count 2
+Round:  785 Train Loss: -1.801
+count 2
+Round:  786 Train Loss: -1.790
+count 2
+Round:  787 Train Loss: -1.791
+count 2
+Round:  788 Train Loss: -1.789
+count 2
+Round:  789 Train Loss: -1.790
+centeral clustering:
+Global  NMI = 0.1793 ARI = 0.0806 F = 0.1288 ACC = 0.2156
+count 2
+Round:  790 Train Loss: -1.791
+count 2
+Round:  791 Train Loss: -1.798
+count 2
+Round:  792 Train Loss: -1.789
+count 2
+Round:  793 Train Loss: -1.781
+count 2
+Round:  794 Train Loss: -1.786
+count 2
+Round:  795 Train Loss: -1.785
+count 2
+Round:  796 Train Loss: -1.790
+count 2
+Round:  797 Train Loss: -1.800
+count 2
+Round:  798 Train Loss: -1.794
+count 2
+Round:  799 Train Loss: -1.792
+centeral clustering:
+Global  NMI = 0.1866 ARI = 0.0894 F = 0.1376 ACC = 0.2334
+Global  NMI = 0.1841 ARI = 0.0887 F = 0.1383 ACC = 0.2232
+count 2
+Round:  800 Train Loss: -1.783
+count 2
+Round:  801 Train Loss: -1.796
+count 2
+Round:  802 Train Loss: -1.789
+count 2
+Round:  803 Train Loss: -1.785
+count 2
+Round:  804 Train Loss: -1.786
+count 2
+Round:  805 Train Loss: -1.785
+count 2
+Round:  806 Train Loss: -1.780
+count 2
+Round:  807 Train Loss: -1.780
+count 2
+Round:  808 Train Loss: -1.780
+count 2
+Round:  809 Train Loss: -1.778
+centeral clustering:
+Global  NMI = 0.1895 ARI = 0.0897 F = 0.1375 ACC = 0.2140
+count 2
+Round:  810 Train Loss: -1.779
+count 2
+Round:  811 Train Loss: -1.774
+count 2
+Round:  812 Train Loss: -1.785
+count 2
+Round:  813 Train Loss: -1.779
+count 2
+Round:  814 Train Loss: -1.788
+count 2
+Round:  815 Train Loss: -1.791
+count 2
+Round:  816 Train Loss: -1.793
+count 2
+Round:  817 Train Loss: -1.781
+count 2
+Round:  818 Train Loss: -1.788
+count 2
+Round:  819 Train Loss: -1.786
+centeral clustering:
+Global  NMI = 0.1713 ARI = 0.0779 F = 0.1261 ACC = 0.2076
+count 2
+Round:  820 Train Loss: -1.785
+count 2
+Round:  821 Train Loss: -1.784
+count 2
+Round:  822 Train Loss: -1.783
+count 2
+Round:  823 Train Loss: -1.785
+count 2
+Round:  824 Train Loss: -1.778
+count 2
+Round:  825 Train Loss: -1.786
+count 2
+Round:  826 Train Loss: -1.777
+count 2
+Round:  827 Train Loss: -1.787
+count 2
+Round:  828 Train Loss: -1.783
+count 2
+Round:  829 Train Loss: -1.783
+centeral clustering:
+Global  NMI = 0.1861 ARI = 0.0892 F = 0.1369 ACC = 0.2151
+count 2
+Round:  830 Train Loss: -1.786
+count 2
+Round:  831 Train Loss: -1.788
+count 2
+Round:  832 Train Loss: -1.791
+count 2
+Round:  833 Train Loss: -1.793
+count 2
+Round:  834 Train Loss: -1.783
+count 2
+Round:  835 Train Loss: -1.805
+count 2
+Round:  836 Train Loss: -1.794
+count 2
+Round:  837 Train Loss: -1.789
+count 2
+Round:  838 Train Loss: -1.796
+count 2
+Round:  839 Train Loss: -1.795
+centeral clustering:
+Global  NMI = 0.1740 ARI = 0.0857 F = 0.1334 ACC = 0.2092
+Global  NMI = 0.1730 ARI = 0.0870 F = 0.1356 ACC = 0.2057
+count 2
+Round:  840 Train Loss: -1.800
+count 2
+Round:  841 Train Loss: -1.799
+count 2
+Round:  842 Train Loss: -1.788
+count 2
+Round:  843 Train Loss: -1.793
+count 2
+Round:  844 Train Loss: -1.789
+count 2
+Round:  845 Train Loss: -1.802
+count 2
+Round:  846 Train Loss: -1.793
+count 2
+Round:  847 Train Loss: -1.798
+count 2
+Round:  848 Train Loss: -1.798
+count 2
+Round:  849 Train Loss: -1.790
+centeral clustering:
+Global  NMI = 0.1887 ARI = 0.0888 F = 0.1354 ACC = 0.2275
+count 2
+Round:  850 Train Loss: -1.795
+count 2
+Round:  851 Train Loss: -1.789
+count 2
+Round:  852 Train Loss: -1.798
+count 2
+Round:  853 Train Loss: -1.800
+count 2
+Round:  854 Train Loss: -1.778
+count 2
+Round:  855 Train Loss: -1.800
+count 2
+Round:  856 Train Loss: -1.794
+count 2
+Round:  857 Train Loss: -1.786
+count 2
+Round:  858 Train Loss: -1.799
+count 2
+Round:  859 Train Loss: -1.809
+centeral clustering:
+Global  NMI = 0.1877 ARI = 0.0901 F = 0.1375 ACC = 0.2345
+count 2
+Round:  860 Train Loss: -1.802
+count 2
+Round:  861 Train Loss: -1.800
+count 2
+Round:  862 Train Loss: -1.802
+count 2
+Round:  863 Train Loss: -1.794
+count 2
+Round:  864 Train Loss: -1.802
+count 2
+Round:  865 Train Loss: -1.801
+count 2
+Round:  866 Train Loss: -1.795
+count 2
+Round:  867 Train Loss: -1.794
+count 2
+Round:  868 Train Loss: -1.796
+count 2
+Round:  869 Train Loss: -1.806
+centeral clustering:
+Global  NMI = 0.1805 ARI = 0.0851 F = 0.1327 ACC = 0.2255
+count 2
+Round:  870 Train Loss: -1.789
+count 2
+Round:  871 Train Loss: -1.789
+count 2
+Round:  872 Train Loss: -1.797
+count 2
+Round:  873 Train Loss: -1.797
+count 2
+Round:  874 Train Loss: -1.799
+count 2
+Round:  875 Train Loss: -1.800
+count 2
+Round:  876 Train Loss: -1.799
+count 2
+Round:  877 Train Loss: -1.803
+count 2
+Round:  878 Train Loss: -1.798
+count 2
+Round:  879 Train Loss: -1.806
+centeral clustering:
+Global  NMI = 0.1878 ARI = 0.0897 F = 0.1375 ACC = 0.2286
+Global  NMI = 0.1896 ARI = 0.0939 F = 0.1422 ACC = 0.2273
+count 2
+Round:  880 Train Loss: -1.794
+count 2
+Round:  881 Train Loss: -1.798
+count 2
+Round:  882 Train Loss: -1.792
+count 2
+Round:  883 Train Loss: -1.802
+count 2
+Round:  884 Train Loss: -1.787
+count 2
+Round:  885 Train Loss: -1.782
+count 2
+Round:  886 Train Loss: -1.805
+count 2
+Round:  887 Train Loss: -1.810
+count 2
+Round:  888 Train Loss: -1.814
+count 2
+Round:  889 Train Loss: -1.795
+centeral clustering:
+Global  NMI = 0.1830 ARI = 0.0846 F = 0.1323 ACC = 0.2229
+count 2
+Round:  890 Train Loss: -1.806
+count 2
+Round:  891 Train Loss: -1.807
+count 2
+Round:  892 Train Loss: -1.797
+count 2
+Round:  893 Train Loss: -1.803
+count 2
+Round:  894 Train Loss: -1.805
+count 2
+Round:  895 Train Loss: -1.804
+count 2
+Round:  896 Train Loss: -1.797
+count 2
+Round:  897 Train Loss: -1.801
+count 2
+Round:  898 Train Loss: -1.800
+count 2
+Round:  899 Train Loss: -1.801
+centeral clustering:
+Global  NMI = 0.1880 ARI = 0.0878 F = 0.1346 ACC = 0.2250
+count 2
+Round:  900 Train Loss: -1.810
+count 2
+Round:  901 Train Loss: -1.803
+count 2
+Round:  902 Train Loss: -1.799
+count 2
+Round:  903 Train Loss: -1.798
+count 2
+Round:  904 Train Loss: -1.798
+count 2
+Round:  905 Train Loss: -1.806
+count 2
+Round:  906 Train Loss: -1.797
+count 2
+Round:  907 Train Loss: -1.802
+count 2
+Round:  908 Train Loss: -1.794
+count 2
+Round:  909 Train Loss: -1.793
+centeral clustering:
+Global  NMI = 0.1855 ARI = 0.0903 F = 0.1377 ACC = 0.2201
+count 2
+Round:  910 Train Loss: -1.788
+count 2
+Round:  911 Train Loss: -1.790
+count 2
+Round:  912 Train Loss: -1.803
+count 2
+Round:  913 Train Loss: -1.804
+count 2
+Round:  914 Train Loss: -1.792
+count 2
+Round:  915 Train Loss: -1.800
+count 2
+Round:  916 Train Loss: -1.805
+count 2
+Round:  917 Train Loss: -1.780
+count 2
+Round:  918 Train Loss: -1.797
+count 2
+Round:  919 Train Loss: -1.797
+centeral clustering:
+Global  NMI = 0.1921 ARI = 0.0965 F = 0.1435 ACC = 0.2243
+Global  NMI = 0.1916 ARI = 0.0975 F = 0.1452 ACC = 0.2267
+count 2
+Round:  920 Train Loss: -1.795
+count 2
+Round:  921 Train Loss: -1.805
+count 2
+Round:  922 Train Loss: -1.797
+count 2
+Round:  923 Train Loss: -1.803
+count 2
+Round:  924 Train Loss: -1.794
+count 2
+Round:  925 Train Loss: -1.791
+count 2
+Round:  926 Train Loss: -1.802
+count 2
+Round:  927 Train Loss: -1.803
+count 2
+Round:  928 Train Loss: -1.812
+count 2
+Round:  929 Train Loss: -1.802
+centeral clustering:
+Global  NMI = 0.1794 ARI = 0.0805 F = 0.1281 ACC = 0.2174
+count 2
+Round:  930 Train Loss: -1.792
+count 2
+Round:  931 Train Loss: -1.791
+count 2
+Round:  932 Train Loss: -1.791
+count 2
+Round:  933 Train Loss: -1.788
+count 2
+Round:  934 Train Loss: -1.803
+count 2
+Round:  935 Train Loss: -1.804
+count 2
+Round:  936 Train Loss: -1.798
+count 2
+Round:  937 Train Loss: -1.793
+count 2
+Round:  938 Train Loss: -1.795
+count 2
+Round:  939 Train Loss: -1.789
+centeral clustering:
+Global  NMI = 0.1855 ARI = 0.0876 F = 0.1354 ACC = 0.2219
+count 2
+Round:  940 Train Loss: -1.791
+count 2
+Round:  941 Train Loss: -1.784
+count 2
+Round:  942 Train Loss: -1.784
+count 2
+Round:  943 Train Loss: -1.801
+count 2
+Round:  944 Train Loss: -1.793
+count 2
+Round:  945 Train Loss: -1.800
+count 2
+Round:  946 Train Loss: -1.787
+count 2
+Round:  947 Train Loss: -1.800
+count 2
+Round:  948 Train Loss: -1.804
+count 2
+Round:  949 Train Loss: -1.792
+centeral clustering:
+Global  NMI = 0.1810 ARI = 0.0820 F = 0.1301 ACC = 0.2155
+count 2
+Round:  950 Train Loss: -1.799
+count 2
+Round:  951 Train Loss: -1.797
+count 2
+Round:  952 Train Loss: -1.793
+count 2
+Round:  953 Train Loss: -1.806
+count 2
+Round:  954 Train Loss: -1.791
+count 2
+Round:  955 Train Loss: -1.791
+count 2
+Round:  956 Train Loss: -1.791
+count 2
+Round:  957 Train Loss: -1.792
+count 2
+Round:  958 Train Loss: -1.795
+count 2
+Round:  959 Train Loss: -1.786
+centeral clustering:
+Global  NMI = 0.1820 ARI = 0.0846 F = 0.1322 ACC = 0.2154
+Global  NMI = 0.1845 ARI = 0.0904 F = 0.1397 ACC = 0.2180
+count 2
+Round:  960 Train Loss: -1.773
+count 2
+Round:  961 Train Loss: -1.780
+count 2
+Round:  962 Train Loss: -1.780
+count 2
+Round:  963 Train Loss: -1.784
+count 2
+Round:  964 Train Loss: -1.773
+count 2
+Round:  965 Train Loss: -1.772
+count 2
+Round:  966 Train Loss: -1.773
+count 2
+Round:  967 Train Loss: -1.780
+count 2
+Round:  968 Train Loss: -1.756
+count 2
+Round:  969 Train Loss: -1.765
+centeral clustering:
+Global  NMI = 0.1639 ARI = 0.0713 F = 0.1284 ACC = 0.1818
+count 2
+Round:  970 Train Loss: -1.769
+count 2
+Round:  971 Train Loss: -1.777
+count 2
+Round:  972 Train Loss: -1.771
+count 2
+Round:  973 Train Loss: -1.775
+count 2
+Round:  974 Train Loss: -1.770
+count 2
+Round:  975 Train Loss: -1.767
+count 2
+Round:  976 Train Loss: -1.773
+count 2
+Round:  977 Train Loss: -1.769
+count 2
+Round:  978 Train Loss: -1.778
+count 2
+Round:  979 Train Loss: -1.768
+centeral clustering:
+Global  NMI = 0.1633 ARI = 0.0760 F = 0.1230 ACC = 0.1996
+count 2
+Round:  980 Train Loss: -1.766
+count 2
+Round:  981 Train Loss: -1.776
+count 2
+Round:  982 Train Loss: -1.771
+count 2
+Round:  983 Train Loss: -1.775
+count 2
+Round:  984 Train Loss: -1.775
+count 2
+Round:  985 Train Loss: -1.778
+count 2
+Round:  986 Train Loss: -1.781
+count 2
+Round:  987 Train Loss: -1.777
+count 2
+Round:  988 Train Loss: -1.783
+count 2
+Round:  989 Train Loss: -1.792
+centeral clustering:
+Global  NMI = 0.1726 ARI = 0.0860 F = 0.1339 ACC = 0.2084
+count 2
+Round:  990 Train Loss: -1.781
+count 2
+Round:  991 Train Loss: -1.780
+count 2
+Round:  992 Train Loss: -1.784
+count 2
+Round:  993 Train Loss: -1.781
+count 2
+Round:  994 Train Loss: -1.789
+count 2
+Round:  995 Train Loss: -1.790
+count 2
+Round:  996 Train Loss: -1.799
+count 2
+Round:  997 Train Loss: -1.796
+count 2
+Round:  998 Train Loss: -1.793
+count 2
+Round:  999 Train Loss: -1.795
+centeral clustering:
+Global  NMI = 0.1835 ARI = 0.0878 F = 0.1354 ACC = 0.2236
+Global  NMI = 0.1828 ARI = 0.0896 F = 0.1383 ACC = 0.2213
+count 2
+Round:  1000 Train Loss: -1.789
+count 2
+Round:  1001 Train Loss: -1.788
+count 2
+Round:  1002 Train Loss: -1.779
+count 2
+Round:  1003 Train Loss: -1.783
+count 2
+Round:  1004 Train Loss: -1.782
+count 2
+Round:  1005 Train Loss: -1.774
+count 2
+Round:  1006 Train Loss: -1.794
+count 2
+Round:  1007 Train Loss: -1.793
+count 2
+Round:  1008 Train Loss: -1.795
+count 2
+Round:  1009 Train Loss: -1.778
+centeral clustering:
+Global  NMI = 0.1712 ARI = 0.0801 F = 0.1275 ACC = 0.2094
+count 2
+Round:  1010 Train Loss: -1.790
+count 2
+Round:  1011 Train Loss: -1.785
+count 2
+Round:  1012 Train Loss: -1.787
+count 2
+Round:  1013 Train Loss: -1.804
+count 2
+Round:  1014 Train Loss: -1.791
+count 2
+Round:  1015 Train Loss: -1.784
+count 2
+Round:  1016 Train Loss: -1.787
+count 2
+Round:  1017 Train Loss: -1.799
+count 2
+Round:  1018 Train Loss: -1.789
+count 2
+Round:  1019 Train Loss: -1.795
+centeral clustering:
+Global  NMI = 0.1671 ARI = 0.0723 F = 0.1210 ACC = 0.2027
+count 2
+Round:  1020 Train Loss: -1.802
+count 2
+Round:  1021 Train Loss: -1.797
+count 2
+Round:  1022 Train Loss: -1.799
+count 2
+Round:  1023 Train Loss: -1.794
+count 2
+Round:  1024 Train Loss: -1.798
+count 2
+Round:  1025 Train Loss: -1.789
+count 2
+Round:  1026 Train Loss: -1.793
+count 2
+Round:  1027 Train Loss: -1.800
+count 2
+Round:  1028 Train Loss: -1.790
+count 2
+Round:  1029 Train Loss: -1.813
+centeral clustering:
+Global  NMI = 0.1833 ARI = 0.0876 F = 0.1358 ACC = 0.2221
+count 2
+Round:  1030 Train Loss: -1.790
+count 2
+Round:  1031 Train Loss: -1.805
+count 2
+Round:  1032 Train Loss: -1.799
+count 2
+Round:  1033 Train Loss: -1.803
+count 2
+Round:  1034 Train Loss: -1.805
+count 2
+Round:  1035 Train Loss: -1.796
+count 2
+Round:  1036 Train Loss: -1.801
+count 2
+Round:  1037 Train Loss: -1.807
+count 2
+Round:  1038 Train Loss: -1.801
+count 2
+Round:  1039 Train Loss: -1.802
+centeral clustering:
+Global  NMI = 0.1867 ARI = 0.0844 F = 0.1316 ACC = 0.2183
+Global  NMI = 0.1856 ARI = 0.0893 F = 0.1388 ACC = 0.2106
+count 2
+Round:  1040 Train Loss: -1.803
+count 2
+Round:  1041 Train Loss: -1.801
+count 2
+Round:  1042 Train Loss: -1.803
+count 2
+Round:  1043 Train Loss: -1.801
+count 2
+Round:  1044 Train Loss: -1.802
+count 2
+Round:  1045 Train Loss: -1.803
+count 2
+Round:  1046 Train Loss: -1.806
+count 2
+Round:  1047 Train Loss: -1.803
+count 2
+Round:  1048 Train Loss: -1.806
+count 2
+Round:  1049 Train Loss: -1.804
+centeral clustering:
+Global  NMI = 0.1817 ARI = 0.0846 F = 0.1317 ACC = 0.2226
+count 2
+Round:  1050 Train Loss: -1.799
+count 2
+Round:  1051 Train Loss: -1.799
+count 2
+Round:  1052 Train Loss: -1.800
+count 2
+Round:  1053 Train Loss: -1.795
+count 2
+Round:  1054 Train Loss: -1.801
+count 2
+Round:  1055 Train Loss: -1.801
+count 2
+Round:  1056 Train Loss: -1.798
+count 2
+Round:  1057 Train Loss: -1.803
+count 2
+Round:  1058 Train Loss: -1.802
+count 2
+Round:  1059 Train Loss: -1.805
+centeral clustering:
+Global  NMI = 0.1833 ARI = 0.0858 F = 0.1337 ACC = 0.2287
+count 2
+Round:  1060 Train Loss: -1.801
+count 2
+Round:  1061 Train Loss: -1.796
+count 2
+Round:  1062 Train Loss: -1.800
+count 2
+Round:  1063 Train Loss: -1.809
+count 2
+Round:  1064 Train Loss: -1.804
+count 2
+Round:  1065 Train Loss: -1.805
+count 2
+Round:  1066 Train Loss: -1.802
+count 2
+Round:  1067 Train Loss: -1.807
+count 2
+Round:  1068 Train Loss: -1.814
+count 2
+Round:  1069 Train Loss: -1.814
+centeral clustering:
+Global  NMI = 0.1864 ARI = 0.0878 F = 0.1350 ACC = 0.2225
+count 2
+Round:  1070 Train Loss: -1.804
+count 2
+Round:  1071 Train Loss: -1.809
+count 2
+Round:  1072 Train Loss: -1.805
+count 2
+Round:  1073 Train Loss: -1.808
+count 2
+Round:  1074 Train Loss: -1.792
+count 2
+Round:  1075 Train Loss: -1.809
+count 2
+Round:  1076 Train Loss: -1.804
+count 2
+Round:  1077 Train Loss: -1.798
+count 2
+Round:  1078 Train Loss: -1.800
+count 2
+Round:  1079 Train Loss: -1.808
+centeral clustering:
+Global  NMI = 0.1835 ARI = 0.0923 F = 0.1410 ACC = 0.2247
+Global  NMI = 0.1832 ARI = 0.0935 F = 0.1435 ACC = 0.2228
+count 2
+Round:  1080 Train Loss: -1.812
+count 2
+Round:  1081 Train Loss: -1.801
+count 2
+Round:  1082 Train Loss: -1.812
+count 2
+Round:  1083 Train Loss: -1.807
+count 2
+Round:  1084 Train Loss: -1.800
+count 2
+Round:  1085 Train Loss: -1.800
+count 2
+Round:  1086 Train Loss: -1.802
+count 2
+Round:  1087 Train Loss: -1.797
+count 2
+Round:  1088 Train Loss: -1.811
+count 2
+Round:  1089 Train Loss: -1.803
+centeral clustering:
+Global  NMI = 0.1929 ARI = 0.0940 F = 0.1424 ACC = 0.2221
+count 2
+Round:  1090 Train Loss: -1.808
+count 2
+Round:  1091 Train Loss: -1.803
+count 2
+Round:  1092 Train Loss: -1.794
+count 2
+Round:  1093 Train Loss: -1.805
+count 2
+Round:  1094 Train Loss: -1.797
+count 2
+Round:  1095 Train Loss: -1.798
+count 2
+Round:  1096 Train Loss: -1.812
+count 2
+Round:  1097 Train Loss: -1.803
+count 2
+Round:  1098 Train Loss: -1.792
+count 2
+Round:  1099 Train Loss: -1.799
+centeral clustering:
+Global  NMI = 0.1908 ARI = 0.0890 F = 0.1369 ACC = 0.2276
+count 2
+Round:  1100 Train Loss: -1.803
+count 2
+Round:  1101 Train Loss: -1.809
+count 2
+Round:  1102 Train Loss: -1.805
+count 2
+Round:  1103 Train Loss: -1.796
+count 2
+Round:  1104 Train Loss: -1.800
+count 2
+Round:  1105 Train Loss: -1.804
+count 2
+Round:  1106 Train Loss: -1.795
+count 2
+Round:  1107 Train Loss: -1.788
+count 2
+Round:  1108 Train Loss: -1.803
+count 2
+Round:  1109 Train Loss: -1.803
+centeral clustering:
+Global  NMI = 0.1922 ARI = 0.0882 F = 0.1366 ACC = 0.2300
+count 2
+Round:  1110 Train Loss: -1.808
+count 2
+Round:  1111 Train Loss: -1.801
+count 2
+Round:  1112 Train Loss: -1.794
+count 2
+Round:  1113 Train Loss: -1.811
+count 2
+Round:  1114 Train Loss: -1.809
+count 2
+Round:  1115 Train Loss: -1.803
+count 2
+Round:  1116 Train Loss: -1.803
+count 2
+Round:  1117 Train Loss: -1.814
+count 2
+Round:  1118 Train Loss: -1.800
+count 2
+Round:  1119 Train Loss: -1.799
+centeral clustering:
+Global  NMI = 0.1949 ARI = 0.0941 F = 0.1414 ACC = 0.2261
+Global  NMI = 0.1955 ARI = 0.0971 F = 0.1462 ACC = 0.2332
+count 2
+Round:  1120 Train Loss: -1.801
+count 2
+Round:  1121 Train Loss: -1.793
+count 2
+Round:  1122 Train Loss: -1.790
+count 2
+Round:  1123 Train Loss: -1.809
+count 2
+Round:  1124 Train Loss: -1.797
+count 2
+Round:  1125 Train Loss: -1.802
+count 2
+Round:  1126 Train Loss: -1.804
+count 2
+Round:  1127 Train Loss: -1.806
+count 2
+Round:  1128 Train Loss: -1.810
+count 2
+Round:  1129 Train Loss: -1.801
+centeral clustering:
+Global  NMI = 0.1866 ARI = 0.0820 F = 0.1294 ACC = 0.2114
+count 2
+Round:  1130 Train Loss: -1.816
+count 2
+Round:  1131 Train Loss: -1.793
+count 2
+Round:  1132 Train Loss: -1.800
+count 2
+Round:  1133 Train Loss: -1.809
+count 2
+Round:  1134 Train Loss: -1.804
+count 2
+Round:  1135 Train Loss: -1.802
+count 2
+Round:  1136 Train Loss: -1.808
+count 2
+Round:  1137 Train Loss: -1.807
+count 2
+Round:  1138 Train Loss: -1.807
+count 2
+Round:  1139 Train Loss: -1.805
+centeral clustering:
+Global  NMI = 0.1905 ARI = 0.0873 F = 0.1352 ACC = 0.2286
+count 2
+Round:  1140 Train Loss: -1.809
+count 2
+Round:  1141 Train Loss: -1.806
+count 2
+Round:  1142 Train Loss: -1.815
+count 2
+Round:  1143 Train Loss: -1.808
+count 2
+Round:  1144 Train Loss: -1.808
+count 2
+Round:  1145 Train Loss: -1.805
+count 2
+Round:  1146 Train Loss: -1.805
+count 2
+Round:  1147 Train Loss: -1.806
+count 2
+Round:  1148 Train Loss: -1.803
+count 2
+Round:  1149 Train Loss: -1.805
+centeral clustering:
+Global  NMI = 0.1907 ARI = 0.0897 F = 0.1374 ACC = 0.2346
+count 2
+Round:  1150 Train Loss: -1.801
+count 2
+Round:  1151 Train Loss: -1.810
+count 2
+Round:  1152 Train Loss: -1.803
+count 2
+Round:  1153 Train Loss: -1.810
+count 2
+Round:  1154 Train Loss: -1.813
+count 2
+Round:  1155 Train Loss: -1.805
+count 2
+Round:  1156 Train Loss: -1.801
+count 2
+Round:  1157 Train Loss: -1.802
+count 2
+Round:  1158 Train Loss: -1.797
+count 2
+Round:  1159 Train Loss: -1.805
+centeral clustering:
+Global  NMI = 0.2038 ARI = 0.1023 F = 0.1497 ACC = 0.2326
+Global  NMI = 0.2054 ARI = 0.1060 F = 0.1543 ACC = 0.2387
+count 2
+Round:  1160 Train Loss: -1.797
+count 2
+Round:  1161 Train Loss: -1.798
+count 2
+Round:  1162 Train Loss: -1.801
+count 2
+Round:  1163 Train Loss: -1.797
+count 2
+Round:  1164 Train Loss: -1.808
+count 2
+Round:  1165 Train Loss: -1.801
+count 2
+Round:  1166 Train Loss: -1.794
+count 2
+Round:  1167 Train Loss: -1.806
+count 2
+Round:  1168 Train Loss: -1.799
+count 2
+Round:  1169 Train Loss: -1.802
+centeral clustering:
+Global  NMI = 0.1912 ARI = 0.0936 F = 0.1403 ACC = 0.2256
+count 2
+Round:  1170 Train Loss: -1.805
+count 2
+Round:  1171 Train Loss: -1.801
+count 2
+Round:  1172 Train Loss: -1.807
+count 2
+Round:  1173 Train Loss: -1.809
+count 2
+Round:  1174 Train Loss: -1.814
+count 2
+Round:  1175 Train Loss: -1.806
+count 2
+Round:  1176 Train Loss: -1.803
+count 2
+Round:  1177 Train Loss: -1.802
+count 2
+Round:  1178 Train Loss: -1.810
+count 2
+Round:  1179 Train Loss: -1.800
+centeral clustering:
+Global  NMI = 0.1969 ARI = 0.0967 F = 0.1440 ACC = 0.2367
+count 2
+Round:  1180 Train Loss: -1.813
+count 2
+Round:  1181 Train Loss: -1.806
+count 2
+Round:  1182 Train Loss: -1.811
+count 2
+Round:  1183 Train Loss: -1.809
+count 2
+Round:  1184 Train Loss: -1.819
+count 2
+Round:  1185 Train Loss: -1.810
+count 2
+Round:  1186 Train Loss: -1.811
+count 2
+Round:  1187 Train Loss: -1.815
+count 2
+Round:  1188 Train Loss: -1.799
+count 2
+Round:  1189 Train Loss: -1.809
+centeral clustering:
+Global  NMI = 0.1994 ARI = 0.0993 F = 0.1460 ACC = 0.2356
+count 2
+Round:  1190 Train Loss: -1.798
+count 2
+Round:  1191 Train Loss: -1.804
+count 2
+Round:  1192 Train Loss: -1.797
+count 2
+Round:  1193 Train Loss: -1.802
+count 2
+Round:  1194 Train Loss: -1.810
+count 2
+Round:  1195 Train Loss: -1.803
+count 2
+Round:  1196 Train Loss: -1.805
+count 2
+Round:  1197 Train Loss: -1.795
+count 2
+Round:  1198 Train Loss: -1.805
+count 2
+Round:  1199 Train Loss: -1.808
+centeral clustering:
+Global  NMI = 0.1876 ARI = 0.0905 F = 0.1371 ACC = 0.2223
+Global  NMI = 0.1890 ARI = 0.0939 F = 0.1411 ACC = 0.2308
+count 2
+Round:  1200 Train Loss: -1.800
+count 2
+Round:  1201 Train Loss: -1.817
+count 2
+Round:  1202 Train Loss: -1.810
+count 2
+Round:  1203 Train Loss: -1.807
+count 2
+Round:  1204 Train Loss: -1.806
+count 2
+Round:  1205 Train Loss: -1.811
+count 2
+Round:  1206 Train Loss: -1.808
+count 2
+Round:  1207 Train Loss: -1.810
+count 2
+Round:  1208 Train Loss: -1.809
+count 2
+Round:  1209 Train Loss: -1.806
+centeral clustering:
+Global  NMI = 0.1981 ARI = 0.0972 F = 0.1448 ACC = 0.2242
+count 2
+Round:  1210 Train Loss: -1.804
+count 2
+Round:  1211 Train Loss: -1.811
+count 2
+Round:  1212 Train Loss: -1.806
+count 2
+Round:  1213 Train Loss: -1.811
+count 2
+Round:  1214 Train Loss: -1.809
+count 2
+Round:  1215 Train Loss: -1.801
+count 2
+Round:  1216 Train Loss: -1.800
+count 2
+Round:  1217 Train Loss: -1.804
+count 2
+Round:  1218 Train Loss: -1.796
+count 2
+Round:  1219 Train Loss: -1.802
+centeral clustering:
+Global  NMI = 0.1938 ARI = 0.0932 F = 0.1398 ACC = 0.2324
+count 2
+Round:  1220 Train Loss: -1.807
+count 2
+Round:  1221 Train Loss: -1.813
+count 2
+Round:  1222 Train Loss: -1.799
+count 2
+Round:  1223 Train Loss: -1.813
+count 2
+Round:  1224 Train Loss: -1.807
+count 2
+Round:  1225 Train Loss: -1.808
+count 2
+Round:  1226 Train Loss: -1.803
+count 2
+Round:  1227 Train Loss: -1.806
+count 2
+Round:  1228 Train Loss: -1.800
+count 2
+Round:  1229 Train Loss: -1.806
+centeral clustering:
+Global  NMI = 0.1911 ARI = 0.0929 F = 0.1395 ACC = 0.2304
+count 2
+Round:  1230 Train Loss: -1.801
+count 2
+Round:  1231 Train Loss: -1.803
+count 2
+Round:  1232 Train Loss: -1.803
+count 2
+Round:  1233 Train Loss: -1.814
+count 2
+Round:  1234 Train Loss: -1.805
+count 2
+Round:  1235 Train Loss: -1.800
+count 2
+Round:  1236 Train Loss: -1.800
+count 2
+Round:  1237 Train Loss: -1.806
+count 2
+Round:  1238 Train Loss: -1.810
+count 2
+Round:  1239 Train Loss: -1.812
+centeral clustering:
+Global  NMI = 0.1884 ARI = 0.0893 F = 0.1363 ACC = 0.2272
+Global  NMI = 0.1897 ARI = 0.0986 F = 0.1466 ACC = 0.2325
+count 2
+Round:  1240 Train Loss: -1.797
+count 2
+Round:  1241 Train Loss: -1.806
+count 2
+Round:  1242 Train Loss: -1.806
+count 2
+Round:  1243 Train Loss: -1.806
+count 2
+Round:  1244 Train Loss: -1.805
+count 2
+Round:  1245 Train Loss: -1.809
+count 2
+Round:  1246 Train Loss: -1.806
+count 2
+Round:  1247 Train Loss: -1.803
+count 2
+Round:  1248 Train Loss: -1.789
+count 2
+Round:  1249 Train Loss: -1.801
+centeral clustering:
+Global  NMI = 0.1907 ARI = 0.0864 F = 0.1335 ACC = 0.2177
+count 2
+Round:  1250 Train Loss: -1.798
+count 2
+Round:  1251 Train Loss: -1.794
+count 2
+Round:  1252 Train Loss: -1.801
+count 2
+Round:  1253 Train Loss: -1.801
+count 2
+Round:  1254 Train Loss: -1.806
+count 2
+Round:  1255 Train Loss: -1.808
+count 2
+Round:  1256 Train Loss: -1.805
+count 2
+Round:  1257 Train Loss: -1.808
+count 2
+Round:  1258 Train Loss: -1.804
+count 2
+Round:  1259 Train Loss: -1.801
+centeral clustering:
+Global  NMI = 0.1903 ARI = 0.0916 F = 0.1388 ACC = 0.2359
+count 2
+Round:  1260 Train Loss: -1.802
+count 2
+Round:  1261 Train Loss: -1.797
+count 2
+Round:  1262 Train Loss: -1.809
+count 2
+Round:  1263 Train Loss: -1.803
+count 2
+Round:  1264 Train Loss: -1.811
+count 2
+Round:  1265 Train Loss: -1.807
+count 2
+Round:  1266 Train Loss: -1.804
+count 2
+Round:  1267 Train Loss: -1.801
+count 2
+Round:  1268 Train Loss: -1.799
+count 2
+Round:  1269 Train Loss: -1.807
+centeral clustering:
+Global  NMI = 0.1944 ARI = 0.0894 F = 0.1371 ACC = 0.2268
+count 2
+Round:  1270 Train Loss: -1.802
+count 2
+Round:  1271 Train Loss: -1.806
+count 2
+Round:  1272 Train Loss: -1.797
+count 2
+Round:  1273 Train Loss: -1.795
+count 2
+Round:  1274 Train Loss: -1.806
+count 2
+Round:  1275 Train Loss: -1.815
+count 2
+Round:  1276 Train Loss: -1.808
+count 2
+Round:  1277 Train Loss: -1.807
+count 2
+Round:  1278 Train Loss: -1.811
+count 2
+Round:  1279 Train Loss: -1.804
+centeral clustering:
+Global  NMI = 0.2019 ARI = 0.1012 F = 0.1476 ACC = 0.2402
+Global  NMI = 0.1996 ARI = 0.1076 F = 0.1565 ACC = 0.2311
+count 2
+Round:  1280 Train Loss: -1.801
+count 2
+Round:  1281 Train Loss: -1.802
+count 2
+Round:  1282 Train Loss: -1.808
+count 2
+Round:  1283 Train Loss: -1.808
+count 2
+Round:  1284 Train Loss: -1.804
+count 2
+Round:  1285 Train Loss: -1.808
+count 2
+Round:  1286 Train Loss: -1.808
+count 2
+Round:  1287 Train Loss: -1.804
+count 2
+Round:  1288 Train Loss: -1.808
+count 2
+Round:  1289 Train Loss: -1.808
+centeral clustering:
+Global  NMI = 0.1946 ARI = 0.0924 F = 0.1397 ACC = 0.2306
+count 2
+Round:  1290 Train Loss: -1.802
+count 2
+Round:  1291 Train Loss: -1.800
+count 2
+Round:  1292 Train Loss: -1.798
+count 2
+Round:  1293 Train Loss: -1.793
+count 2
+Round:  1294 Train Loss: -1.783
+count 2
+Round:  1295 Train Loss: -1.790
+count 2
+Round:  1296 Train Loss: -1.799
+count 2
+Round:  1297 Train Loss: -1.804
+count 2
+Round:  1298 Train Loss: -1.792
+count 2
+Round:  1299 Train Loss: -1.794
+centeral clustering:
+Global  NMI = 0.1883 ARI = 0.0873 F = 0.1351 ACC = 0.2237
+count 2
+Round:  1300 Train Loss: -1.796
+count 2
+Round:  1301 Train Loss: -1.793
+count 2
+Round:  1302 Train Loss: -1.790
+count 2
+Round:  1303 Train Loss: -1.791
+count 2
+Round:  1304 Train Loss: -1.803
+count 2
+Round:  1305 Train Loss: -1.792
+count 2
+Round:  1306 Train Loss: -1.798
+count 2
+Round:  1307 Train Loss: -1.788
+count 2
+Round:  1308 Train Loss: -1.793
+count 2
+Round:  1309 Train Loss: -1.794
+centeral clustering:
+Global  NMI = 0.1933 ARI = 0.0956 F = 0.1423 ACC = 0.2305
+count 2
+Round:  1310 Train Loss: -1.799
+count 2
+Round:  1311 Train Loss: -1.798
+count 2
+Round:  1312 Train Loss: -1.804
+count 2
+Round:  1313 Train Loss: -1.802
+count 2
+Round:  1314 Train Loss: -1.803
+count 2
+Round:  1315 Train Loss: -1.807
+count 2
+Round:  1316 Train Loss: -1.800
+count 2
+Round:  1317 Train Loss: -1.809
+count 2
+Round:  1318 Train Loss: -1.810
+count 2
+Round:  1319 Train Loss: -1.802
+centeral clustering:
+Global  NMI = 0.1814 ARI = 0.0849 F = 0.1318 ACC = 0.2186
+Global  NMI = 0.1748 ARI = 0.0859 F = 0.1345 ACC = 0.2100
+count 2
+Round:  1320 Train Loss: -1.806
+count 2
+Round:  1321 Train Loss: -1.802
+count 2
+Round:  1322 Train Loss: -1.803
+count 2
+Round:  1323 Train Loss: -1.804
+count 2
+Round:  1324 Train Loss: -1.811
+count 2
+Round:  1325 Train Loss: -1.792
+count 2
+Round:  1326 Train Loss: -1.809
+count 2
+Round:  1327 Train Loss: -1.802
+count 2
+Round:  1328 Train Loss: -1.810
+count 2
+Round:  1329 Train Loss: -1.800
+centeral clustering:
+Global  NMI = 0.1980 ARI = 0.0972 F = 0.1436 ACC = 0.2295
+count 2
+Round:  1330 Train Loss: -1.801
+count 2
+Round:  1331 Train Loss: -1.814
+count 2
+Round:  1332 Train Loss: -1.813
+count 2
+Round:  1333 Train Loss: -1.805
+count 2
+Round:  1334 Train Loss: -1.814
+count 2
+Round:  1335 Train Loss: -1.804
+count 2
+Round:  1336 Train Loss: -1.805
+count 2
+Round:  1337 Train Loss: -1.812
+count 2
+Round:  1338 Train Loss: -1.809
+count 2
+Round:  1339 Train Loss: -1.812
+centeral clustering:
+Global  NMI = 0.1895 ARI = 0.0904 F = 0.1374 ACC = 0.2234
+count 2
+Round:  1340 Train Loss: -1.815
+count 2
+Round:  1341 Train Loss: -1.811
+count 2
+Round:  1342 Train Loss: -1.814
+count 2
+Round:  1343 Train Loss: -1.812
+count 2
+Round:  1344 Train Loss: -1.809
+count 2
+Round:  1345 Train Loss: -1.818
+count 2
+Round:  1346 Train Loss: -1.805
+count 2
+Round:  1347 Train Loss: -1.814
+count 2
+Round:  1348 Train Loss: -1.813
+count 2
+Round:  1349 Train Loss: -1.806
+centeral clustering:
+Global  NMI = 0.1913 ARI = 0.0926 F = 0.1393 ACC = 0.2247
+count 2
+Round:  1350 Train Loss: -1.813
+count 2
+Round:  1351 Train Loss: -1.807
+count 2
+Round:  1352 Train Loss: -1.817
+count 2
+Round:  1353 Train Loss: -1.808
+count 2
+Round:  1354 Train Loss: -1.814
+count 2
+Round:  1355 Train Loss: -1.819
+count 2
+Round:  1356 Train Loss: -1.814
+count 2
+Round:  1357 Train Loss: -1.803
+count 2
+Round:  1358 Train Loss: -1.810
+count 2
+Round:  1359 Train Loss: -1.813
+centeral clustering:
+Global  NMI = 0.1952 ARI = 0.0960 F = 0.1429 ACC = 0.2230
+Global  NMI = 0.1982 ARI = 0.0998 F = 0.1475 ACC = 0.2273
+count 2
+Round:  1360 Train Loss: -1.807
+count 2
+Round:  1361 Train Loss: -1.810
+count 2
+Round:  1362 Train Loss: -1.808
+count 2
+Round:  1363 Train Loss: -1.817
+count 2
+Round:  1364 Train Loss: -1.811
+count 2
+Round:  1365 Train Loss: -1.817
+count 2
+Round:  1366 Train Loss: -1.810
+count 2
+Round:  1367 Train Loss: -1.816
+count 2
+Round:  1368 Train Loss: -1.806
+count 2
+Round:  1369 Train Loss: -1.817
+centeral clustering:
+Global  NMI = 0.2030 ARI = 0.0969 F = 0.1430 ACC = 0.2289
+count 2
+Round:  1370 Train Loss: -1.810
+count 2
+Round:  1371 Train Loss: -1.810
+count 2
+Round:  1372 Train Loss: -1.816
+count 2
+Round:  1373 Train Loss: -1.810
+count 2
+Round:  1374 Train Loss: -1.804
+count 2
+Round:  1375 Train Loss: -1.811
+count 2
+Round:  1376 Train Loss: -1.813
+count 2
+Round:  1377 Train Loss: -1.815
+count 2
+Round:  1378 Train Loss: -1.815
+count 2
+Round:  1379 Train Loss: -1.819
+centeral clustering:
+Global  NMI = 0.1940 ARI = 0.0885 F = 0.1348 ACC = 0.2177
+count 2
+Round:  1380 Train Loss: -1.809
+count 2
+Round:  1381 Train Loss: -1.808
+count 2
+Round:  1382 Train Loss: -1.816
+count 2
+Round:  1383 Train Loss: -1.807
+count 2
+Round:  1384 Train Loss: -1.819
+count 2
+Round:  1385 Train Loss: -1.810
+count 2
+Round:  1386 Train Loss: -1.820
+count 2
+Round:  1387 Train Loss: -1.809
+count 2
+Round:  1388 Train Loss: -1.813
+count 2
+Round:  1389 Train Loss: -1.816
+centeral clustering:
+Global  NMI = 0.2002 ARI = 0.0927 F = 0.1401 ACC = 0.2282
+count 2
+Round:  1390 Train Loss: -1.812
+count 2
+Round:  1391 Train Loss: -1.810
+count 2
+Round:  1392 Train Loss: -1.812
+count 2
+Round:  1393 Train Loss: -1.814
+count 2
+Round:  1394 Train Loss: -1.817
+count 2
+Round:  1395 Train Loss: -1.817
+count 2
+Round:  1396 Train Loss: -1.808
+count 2
+Round:  1397 Train Loss: -1.807
+count 2
+Round:  1398 Train Loss: -1.815
+count 2
+Round:  1399 Train Loss: -1.814
+centeral clustering:
+Global  NMI = 0.1984 ARI = 0.0949 F = 0.1413 ACC = 0.2357
+Global  NMI = 0.1972 ARI = 0.0992 F = 0.1471 ACC = 0.2291
+count 2
+Round:  1400 Train Loss: -1.819
+count 2
+Round:  1401 Train Loss: -1.815
+count 2
+Round:  1402 Train Loss: -1.818
+count 2
+Round:  1403 Train Loss: -1.812
+count 2
+Round:  1404 Train Loss: -1.821
+count 2
+Round:  1405 Train Loss: -1.804
+count 2
+Round:  1406 Train Loss: -1.808
+count 2
+Round:  1407 Train Loss: -1.807
+count 2
+Round:  1408 Train Loss: -1.807
+count 2
+Round:  1409 Train Loss: -1.808
+centeral clustering:
+Global  NMI = 0.2062 ARI = 0.0976 F = 0.1437 ACC = 0.2370
+count 2
+Round:  1410 Train Loss: -1.817
+count 2
+Round:  1411 Train Loss: -1.811
+count 2
+Round:  1412 Train Loss: -1.804
+count 2
+Round:  1413 Train Loss: -1.806
+count 2
+Round:  1414 Train Loss: -1.821
+count 2
+Round:  1415 Train Loss: -1.817
+count 2
+Round:  1416 Train Loss: -1.816
+count 2
+Round:  1417 Train Loss: -1.816
+count 2
+Round:  1418 Train Loss: -1.813
+count 2
+Round:  1419 Train Loss: -1.820
+centeral clustering:
+Global  NMI = 0.2087 ARI = 0.1041 F = 0.1502 ACC = 0.2406
+count 2
+Round:  1420 Train Loss: -1.813
+count 2
+Round:  1421 Train Loss: -1.818
+count 2
+Round:  1422 Train Loss: -1.818
+count 2
+Round:  1423 Train Loss: -1.818
+count 2
+Round:  1424 Train Loss: -1.819
+count 2
+Round:  1425 Train Loss: -1.811
+count 2
+Round:  1426 Train Loss: -1.812
+count 2
+Round:  1427 Train Loss: -1.814
+count 2
+Round:  1428 Train Loss: -1.805
+count 2
+Round:  1429 Train Loss: -1.808
+centeral clustering:
+Global  NMI = 0.2044 ARI = 0.0965 F = 0.1437 ACC = 0.2320
+count 2
+Round:  1430 Train Loss: -1.813
+count 2
+Round:  1431 Train Loss: -1.814
+count 2
+Round:  1432 Train Loss: -1.818
+count 2
+Round:  1433 Train Loss: -1.805
+count 2
+Round:  1434 Train Loss: -1.815
+count 2
+Round:  1435 Train Loss: -1.816
+count 2
+Round:  1436 Train Loss: -1.816
+count 2
+Round:  1437 Train Loss: -1.812
+count 2
+Round:  1438 Train Loss: -1.811
+count 2
+Round:  1439 Train Loss: -1.808
+centeral clustering:
+Global  NMI = 0.2118 ARI = 0.1038 F = 0.1497 ACC = 0.2431
+Global  NMI = 0.2123 ARI = 0.1081 F = 0.1554 ACC = 0.2445
+count 2
+Round:  1440 Train Loss: -1.830
+count 2
+Round:  1441 Train Loss: -1.819
+count 2
+Round:  1442 Train Loss: -1.813
+count 2
+Round:  1443 Train Loss: -1.817
+count 2
+Round:  1444 Train Loss: -1.809
+count 2
+Round:  1445 Train Loss: -1.816
+count 2
+Round:  1446 Train Loss: -1.812
+count 2
+Round:  1447 Train Loss: -1.809
+count 2
+Round:  1448 Train Loss: -1.825
+count 2
+Round:  1449 Train Loss: -1.815
+centeral clustering:
+Global  NMI = 0.2109 ARI = 0.1049 F = 0.1513 ACC = 0.2399
+count 2
+Round:  1450 Train Loss: -1.816
+count 2
+Round:  1451 Train Loss: -1.812
+count 2
+Round:  1452 Train Loss: -1.814
+count 2
+Round:  1453 Train Loss: -1.816
+count 2
+Round:  1454 Train Loss: -1.824
+count 2
+Round:  1455 Train Loss: -1.813
+count 2
+Round:  1456 Train Loss: -1.805
+count 2
+Round:  1457 Train Loss: -1.801
+count 2
+Round:  1458 Train Loss: -1.808
+count 2
+Round:  1459 Train Loss: -1.807
+centeral clustering:
+Global  NMI = 0.2059 ARI = 0.0995 F = 0.1458 ACC = 0.2335
+count 2
+Round:  1460 Train Loss: -1.812
+count 2
+Round:  1461 Train Loss: -1.819
+count 2
+Round:  1462 Train Loss: -1.815
+count 2
+Round:  1463 Train Loss: -1.804
+count 2
+Round:  1464 Train Loss: -1.810
+count 2
+Round:  1465 Train Loss: -1.805
+count 2
+Round:  1466 Train Loss: -1.810
+count 2
+Round:  1467 Train Loss: -1.812
+count 2
+Round:  1468 Train Loss: -1.804
+count 2
+Round:  1469 Train Loss: -1.804
+centeral clustering:
+Global  NMI = 0.2053 ARI = 0.0971 F = 0.1438 ACC = 0.2302
+count 2
+Round:  1470 Train Loss: -1.795
+count 2
+Round:  1471 Train Loss: -1.799
+count 2
+Round:  1472 Train Loss: -1.811
+count 2
+Round:  1473 Train Loss: -1.809
+count 2
+Round:  1474 Train Loss: -1.807
+count 2
+Round:  1475 Train Loss: -1.818
+count 2
+Round:  1476 Train Loss: -1.810
+count 2
+Round:  1477 Train Loss: -1.817
+count 2
+Round:  1478 Train Loss: -1.813
+count 2
+Round:  1479 Train Loss: -1.820
+centeral clustering:
+Global  NMI = 0.2048 ARI = 0.1016 F = 0.1486 ACC = 0.2429
+Global  NMI = 0.2062 ARI = 0.1047 F = 0.1519 ACC = 0.2416
+count 2
+Round:  1480 Train Loss: -1.817
+count 2
+Round:  1481 Train Loss: -1.802
+count 2
+Round:  1482 Train Loss: -1.822
+count 2
+Round:  1483 Train Loss: -1.815
+count 2
+Round:  1484 Train Loss: -1.819
+count 2
+Round:  1485 Train Loss: -1.819
+count 2
+Round:  1486 Train Loss: -1.820
+count 2
+Round:  1487 Train Loss: -1.819
+count 2
+Round:  1488 Train Loss: -1.811
+count 2
+Round:  1489 Train Loss: -1.816
+centeral clustering:
+Global  NMI = 0.1986 ARI = 0.0907 F = 0.1375 ACC = 0.2273
+count 2
+Round:  1490 Train Loss: -1.820
+count 2
+Round:  1491 Train Loss: -1.814
+count 2
+Round:  1492 Train Loss: -1.809
+count 2
+Round:  1493 Train Loss: -1.815
+count 2
+Round:  1494 Train Loss: -1.813
+count 2
+Round:  1495 Train Loss: -1.817
+count 2
+Round:  1496 Train Loss: -1.820
+count 2
+Round:  1497 Train Loss: -1.816
+count 2
+Round:  1498 Train Loss: -1.819
+count 2
+Round:  1499 Train Loss: -1.817
+centeral clustering:
+Global  NMI = 0.1919 ARI = 0.0864 F = 0.1339 ACC = 0.2209
+count 2
+Round:  1500 Train Loss: -1.811
+count 2
+Round:  1501 Train Loss: -1.814
+count 2
+Round:  1502 Train Loss: -1.819
+count 2
+Round:  1503 Train Loss: -1.816
+count 2
+Round:  1504 Train Loss: -1.815
+count 2
+Round:  1505 Train Loss: -1.818
+count 2
+Round:  1506 Train Loss: -1.816
+count 2
+Round:  1507 Train Loss: -1.819
+count 2
+Round:  1508 Train Loss: -1.814
+count 2
+Round:  1509 Train Loss: -1.812
+centeral clustering:
+Global  NMI = 0.1988 ARI = 0.0914 F = 0.1389 ACC = 0.2217
+count 2
+Round:  1510 Train Loss: -1.811
+count 2
+Round:  1511 Train Loss: -1.813
+count 2
+Round:  1512 Train Loss: -1.823
+count 2
+Round:  1513 Train Loss: -1.819
+count 2
+Round:  1514 Train Loss: -1.823
+count 2
+Round:  1515 Train Loss: -1.825
+count 2
+Round:  1516 Train Loss: -1.807
+count 2
+Round:  1517 Train Loss: -1.817
+count 2
+Round:  1518 Train Loss: -1.819
+count 2
+Round:  1519 Train Loss: -1.814
+centeral clustering:
+Global  NMI = 0.2063 ARI = 0.0933 F = 0.1404 ACC = 0.2266
+Global  NMI = 0.2050 ARI = 0.1017 F = 0.1504 ACC = 0.2282
+count 2
+Round:  1520 Train Loss: -1.816
+count 2
+Round:  1521 Train Loss: -1.812
+count 2
+Round:  1522 Train Loss: -1.819
+count 2
+Round:  1523 Train Loss: -1.817
+count 2
+Round:  1524 Train Loss: -1.825
+count 2
+Round:  1525 Train Loss: -1.822
+count 2
+Round:  1526 Train Loss: -1.810
+count 2
+Round:  1527 Train Loss: -1.814
+count 2
+Round:  1528 Train Loss: -1.818
+count 2
+Round:  1529 Train Loss: -1.816
+centeral clustering:
+Global  NMI = 0.2098 ARI = 0.0981 F = 0.1447 ACC = 0.2368
+count 2
+Round:  1530 Train Loss: -1.817
+count 2
+Round:  1531 Train Loss: -1.817
+count 2
+Round:  1532 Train Loss: -1.814
+count 2
+Round:  1533 Train Loss: -1.818
+count 2
+Round:  1534 Train Loss: -1.816
+count 2
+Round:  1535 Train Loss: -1.822
+count 2
+Round:  1536 Train Loss: -1.820
+count 2
+Round:  1537 Train Loss: -1.820
+count 2
+Round:  1538 Train Loss: -1.819
+count 2
+Round:  1539 Train Loss: -1.824
+centeral clustering:
+Global  NMI = 0.2084 ARI = 0.1018 F = 0.1493 ACC = 0.2366
+count 2
+Round:  1540 Train Loss: -1.816
+count 2
+Round:  1541 Train Loss: -1.816
+count 2
+Round:  1542 Train Loss: -1.810
+count 2
+Round:  1543 Train Loss: -1.819
+count 2
+Round:  1544 Train Loss: -1.822
+count 2
+Round:  1545 Train Loss: -1.819
+count 2
+Round:  1546 Train Loss: -1.824
+count 2
+Round:  1547 Train Loss: -1.825
+count 2
+Round:  1548 Train Loss: -1.819
+count 2
+Round:  1549 Train Loss: -1.809
+centeral clustering:
+Global  NMI = 0.2056 ARI = 0.1048 F = 0.1515 ACC = 0.2355
+count 2
+Round:  1550 Train Loss: -1.818
+count 2
+Round:  1551 Train Loss: -1.820
+count 2
+Round:  1552 Train Loss: -1.807
+count 2
+Round:  1553 Train Loss: -1.817
+count 2
+Round:  1554 Train Loss: -1.818
+count 2
+Round:  1555 Train Loss: -1.821
+count 2
+Round:  1556 Train Loss: -1.821
+count 2
+Round:  1557 Train Loss: -1.817
+count 2
+Round:  1558 Train Loss: -1.822
+count 2
+Round:  1559 Train Loss: -1.812
+centeral clustering:
+Global  NMI = 0.2092 ARI = 0.1060 F = 0.1535 ACC = 0.2378
+Global  NMI = 0.2114 ARI = 0.1097 F = 0.1581 ACC = 0.2442
+count 2
+Round:  1560 Train Loss: -1.828
+count 2
+Round:  1561 Train Loss: -1.816
+count 2
+Round:  1562 Train Loss: -1.814
+count 2
+Round:  1563 Train Loss: -1.818
+count 2
+Round:  1564 Train Loss: -1.822
+count 2
+Round:  1565 Train Loss: -1.814
+count 2
+Round:  1566 Train Loss: -1.813
+count 2
+Round:  1567 Train Loss: -1.818
+count 2
+Round:  1568 Train Loss: -1.820
+count 2
+Round:  1569 Train Loss: -1.818
+centeral clustering:
+Global  NMI = 0.2134 ARI = 0.1071 F = 0.1532 ACC = 0.2335
+count 2
+Round:  1570 Train Loss: -1.826
+count 2
+Round:  1571 Train Loss: -1.811
+count 2
+Round:  1572 Train Loss: -1.818
+count 2
+Round:  1573 Train Loss: -1.820
+count 2
+Round:  1574 Train Loss: -1.821
+count 2
+Round:  1575 Train Loss: -1.821
+count 2
+Round:  1576 Train Loss: -1.818
+count 2
+Round:  1577 Train Loss: -1.827
+count 2
+Round:  1578 Train Loss: -1.822
+count 2
+Round:  1579 Train Loss: -1.819
+centeral clustering:
+Global  NMI = 0.2101 ARI = 0.1094 F = 0.1564 ACC = 0.2363
+count 2
+Round:  1580 Train Loss: -1.822
+count 2
+Round:  1581 Train Loss: -1.824
+count 2
+Round:  1582 Train Loss: -1.817
+count 2
+Round:  1583 Train Loss: -1.822
+count 2
+Round:  1584 Train Loss: -1.819
+count 2
+Round:  1585 Train Loss: -1.827
+count 2
+Round:  1586 Train Loss: -1.817
+count 2
+Round:  1587 Train Loss: -1.821
+count 2
+Round:  1588 Train Loss: -1.822
+count 2
+Round:  1589 Train Loss: -1.817
+centeral clustering:
+Global  NMI = 0.2190 ARI = 0.1193 F = 0.1661 ACC = 0.2512
+count 2
+Round:  1590 Train Loss: -1.824
+count 2
+Round:  1591 Train Loss: -1.826
+count 2
+Round:  1592 Train Loss: -1.825
+count 2
+Round:  1593 Train Loss: -1.823
+count 2
+Round:  1594 Train Loss: -1.824
+count 2
+Round:  1595 Train Loss: -1.829
+count 2
+Round:  1596 Train Loss: -1.828
+count 2
+Round:  1597 Train Loss: -1.826
+count 2
+Round:  1598 Train Loss: -1.830
+count 2
+Round:  1599 Train Loss: -1.817
+centeral clustering:
+Global  NMI = 0.2119 ARI = 0.1077 F = 0.1541 ACC = 0.2365
+Global  NMI = 0.2128 ARI = 0.1138 F = 0.1615 ACC = 0.2426
+count 2
+Round:  1600 Train Loss: -1.822
+count 2
+Round:  1601 Train Loss: -1.826
+count 2
+Round:  1602 Train Loss: -1.828
+count 2
+Round:  1603 Train Loss: -1.830
+count 2
+Round:  1604 Train Loss: -1.828
+count 2
+Round:  1605 Train Loss: -1.823
+count 2
+Round:  1606 Train Loss: -1.825
+count 2
+Round:  1607 Train Loss: -1.825
+count 2
+Round:  1608 Train Loss: -1.822
+count 2
+Round:  1609 Train Loss: -1.829
+centeral clustering:
+Global  NMI = 0.2095 ARI = 0.1091 F = 0.1560 ACC = 0.2487
+count 2
+Round:  1610 Train Loss: -1.828
+count 2
+Round:  1611 Train Loss: -1.832
+count 2
+Round:  1612 Train Loss: -1.831
+count 2
+Round:  1613 Train Loss: -1.827
+count 2
+Round:  1614 Train Loss: -1.827
+count 2
+Round:  1615 Train Loss: -1.821
+count 2
+Round:  1616 Train Loss: -1.820
+count 2
+Round:  1617 Train Loss: -1.832
+count 2
+Round:  1618 Train Loss: -1.826
+count 2
+Round:  1619 Train Loss: -1.827
+centeral clustering:
+Global  NMI = 0.2160 ARI = 0.1140 F = 0.1612 ACC = 0.2482
+count 2
+Round:  1620 Train Loss: -1.825
+count 2
+Round:  1621 Train Loss: -1.819
+count 2
+Round:  1622 Train Loss: -1.822
+count 2
+Round:  1623 Train Loss: -1.826
+count 2
+Round:  1624 Train Loss: -1.823
+count 2
+Round:  1625 Train Loss: -1.819
+count 2
+Round:  1626 Train Loss: -1.830
+count 2
+Round:  1627 Train Loss: -1.826
+count 2
+Round:  1628 Train Loss: -1.828
+count 2
+Round:  1629 Train Loss: -1.818
+centeral clustering:
+Global  NMI = 0.2165 ARI = 0.1162 F = 0.1627 ACC = 0.2490
+count 2
+Round:  1630 Train Loss: -1.822
+count 2
+Round:  1631 Train Loss: -1.829
+count 2
+Round:  1632 Train Loss: -1.825
+count 2
+Round:  1633 Train Loss: -1.816
+count 2
+Round:  1634 Train Loss: -1.823
+count 2
+Round:  1635 Train Loss: -1.833
+count 2
+Round:  1636 Train Loss: -1.824
+count 2
+Round:  1637 Train Loss: -1.829
+count 2
+Round:  1638 Train Loss: -1.825
+count 2
+Round:  1639 Train Loss: -1.825
+centeral clustering:
+Global  NMI = 0.2138 ARI = 0.1064 F = 0.1536 ACC = 0.2434
+Global  NMI = 0.2124 ARI = 0.1092 F = 0.1569 ACC = 0.2493
+count 2
+Round:  1640 Train Loss: -1.830
+count 2
+Round:  1641 Train Loss: -1.834
+count 2
+Round:  1642 Train Loss: -1.822
+count 2
+Round:  1643 Train Loss: -1.829
+count 2
+Round:  1644 Train Loss: -1.830
+count 2
+Round:  1645 Train Loss: -1.831
+count 2
+Round:  1646 Train Loss: -1.836
+count 2
+Round:  1647 Train Loss: -1.824
+count 2
+Round:  1648 Train Loss: -1.827
+count 2
+Round:  1649 Train Loss: -1.834
+centeral clustering:
+Global  NMI = 0.2148 ARI = 0.1096 F = 0.1561 ACC = 0.2444
+count 2
+Round:  1650 Train Loss: -1.829
+count 2
+Round:  1651 Train Loss: -1.831
+count 2
+Round:  1652 Train Loss: -1.825
+count 2
+Round:  1653 Train Loss: -1.834
+count 2
+Round:  1654 Train Loss: -1.836
+count 2
+Round:  1655 Train Loss: -1.825
+count 2
+Round:  1656 Train Loss: -1.822
+count 2
+Round:  1657 Train Loss: -1.829
+count 2
+Round:  1658 Train Loss: -1.833
+count 2
+Round:  1659 Train Loss: -1.827
+centeral clustering:
+Global  NMI = 0.2075 ARI = 0.0993 F = 0.1463 ACC = 0.2279
+count 2
+Round:  1660 Train Loss: -1.835
+count 2
+Round:  1661 Train Loss: -1.828
+count 2
+Round:  1662 Train Loss: -1.832
+count 2
+Round:  1663 Train Loss: -1.831
+count 2
+Round:  1664 Train Loss: -1.836
+count 2
+Round:  1665 Train Loss: -1.837
+count 2
+Round:  1666 Train Loss: -1.835
+count 2
+Round:  1667 Train Loss: -1.824
+count 2
+Round:  1668 Train Loss: -1.842
+count 2
+Round:  1669 Train Loss: -1.836
+centeral clustering:
+Global  NMI = 0.2173 ARI = 0.1101 F = 0.1558 ACC = 0.2348
+count 2
+Round:  1670 Train Loss: -1.829
+count 2
+Round:  1671 Train Loss: -1.829
+count 2
+Round:  1672 Train Loss: -1.831
+count 2
+Round:  1673 Train Loss: -1.829
+count 2
+Round:  1674 Train Loss: -1.831
+count 2
+Round:  1675 Train Loss: -1.834
+count 2
+Round:  1676 Train Loss: -1.824
+count 2
+Round:  1677 Train Loss: -1.830
+count 2
+Round:  1678 Train Loss: -1.825
+count 2
+Round:  1679 Train Loss: -1.837
+centeral clustering:
+Global  NMI = 0.2040 ARI = 0.0955 F = 0.1422 ACC = 0.2215
+Global  NMI = 0.2070 ARI = 0.1020 F = 0.1498 ACC = 0.2259
+count 2
+Round:  1680 Train Loss: -1.833
+count 2
+Round:  1681 Train Loss: -1.819
+count 2
+Round:  1682 Train Loss: -1.819
+count 2
+Round:  1683 Train Loss: -1.835
+count 2
+Round:  1684 Train Loss: -1.838
+count 2
+Round:  1685 Train Loss: -1.834
+count 2
+Round:  1686 Train Loss: -1.836
+count 2
+Round:  1687 Train Loss: -1.831
+count 2
+Round:  1688 Train Loss: -1.829
+count 2
+Round:  1689 Train Loss: -1.829
+centeral clustering:
+Global  NMI = 0.2161 ARI = 0.1017 F = 0.1485 ACC = 0.2387
+count 2
+Round:  1690 Train Loss: -1.835
+count 2
+Round:  1691 Train Loss: -1.824
+count 2
+Round:  1692 Train Loss: -1.829
+count 2
+Round:  1693 Train Loss: -1.833
+count 2
+Round:  1694 Train Loss: -1.824
+count 2
+Round:  1695 Train Loss: -1.829
+count 2
+Round:  1696 Train Loss: -1.830
+count 2
+Round:  1697 Train Loss: -1.828
+count 2
+Round:  1698 Train Loss: -1.827
+count 2
+Round:  1699 Train Loss: -1.832
+centeral clustering:
+Global  NMI = 0.2131 ARI = 0.1026 F = 0.1495 ACC = 0.2410
+count 2
+Round:  1700 Train Loss: -1.826
+count 2
+Round:  1701 Train Loss: -1.835
+count 2
+Round:  1702 Train Loss: -1.825
+count 2
+Round:  1703 Train Loss: -1.825
+count 2
+Round:  1704 Train Loss: -1.823
+count 2
+Round:  1705 Train Loss: -1.828
+count 2
+Round:  1706 Train Loss: -1.829
+count 2
+Round:  1707 Train Loss: -1.825
+count 2
+Round:  1708 Train Loss: -1.830
+count 2
+Round:  1709 Train Loss: -1.830
+centeral clustering:
+Global  NMI = 0.2102 ARI = 0.1009 F = 0.1475 ACC = 0.2341
+count 2
+Round:  1710 Train Loss: -1.837
+count 2
+Round:  1711 Train Loss: -1.822
+count 2
+Round:  1712 Train Loss: -1.834
+count 2
+Round:  1713 Train Loss: -1.835
+count 2
+Round:  1714 Train Loss: -1.819
+count 2
+Round:  1715 Train Loss: -1.833
+count 2
+Round:  1716 Train Loss: -1.829
+count 2
+Round:  1717 Train Loss: -1.832
+count 2
+Round:  1718 Train Loss: -1.825
+count 2
+Round:  1719 Train Loss: -1.828
+centeral clustering:
+Global  NMI = 0.2152 ARI = 0.1035 F = 0.1498 ACC = 0.2401
+Global  NMI = 0.2166 ARI = 0.1129 F = 0.1597 ACC = 0.2433
+count 2
+Round:  1720 Train Loss: -1.825
+count 2
+Round:  1721 Train Loss: -1.833
+count 2
+Round:  1722 Train Loss: -1.835
+count 2
+Round:  1723 Train Loss: -1.835
+count 2
+Round:  1724 Train Loss: -1.836
+count 2
+Round:  1725 Train Loss: -1.832
+count 2
+Round:  1726 Train Loss: -1.830
+count 2
+Round:  1727 Train Loss: -1.836
+count 2
+Round:  1728 Train Loss: -1.834
+count 2
+Round:  1729 Train Loss: -1.837
+centeral clustering:
+Global  NMI = 0.2124 ARI = 0.1016 F = 0.1481 ACC = 0.2395
+count 2
+Round:  1730 Train Loss: -1.831
+count 2
+Round:  1731 Train Loss: -1.836
+count 2
+Round:  1732 Train Loss: -1.831
+count 2
+Round:  1733 Train Loss: -1.831
+count 2
+Round:  1734 Train Loss: -1.831
+count 2
+Round:  1735 Train Loss: -1.833
+count 2
+Round:  1736 Train Loss: -1.836
+count 2
+Round:  1737 Train Loss: -1.840
+count 2
+Round:  1738 Train Loss: -1.832
+count 2
+Round:  1739 Train Loss: -1.828
+centeral clustering:
+Global  NMI = 0.2115 ARI = 0.1022 F = 0.1480 ACC = 0.2385
+count 2
+Round:  1740 Train Loss: -1.833
+count 2
+Round:  1741 Train Loss: -1.838
+count 2
+Round:  1742 Train Loss: -1.834
+count 2
+Round:  1743 Train Loss: -1.835
+count 2
+Round:  1744 Train Loss: -1.833
+count 2
+Round:  1745 Train Loss: -1.838
+count 2
+Round:  1746 Train Loss: -1.825
+count 2
+Round:  1747 Train Loss: -1.833
+count 2
+Round:  1748 Train Loss: -1.832
+count 2
+Round:  1749 Train Loss: -1.829
+centeral clustering:
+Global  NMI = 0.2161 ARI = 0.1115 F = 0.1576 ACC = 0.2349
+count 2
+Round:  1750 Train Loss: -1.827
+count 2
+Round:  1751 Train Loss: -1.832
+count 2
+Round:  1752 Train Loss: -1.831
+count 2
+Round:  1753 Train Loss: -1.836
+count 2
+Round:  1754 Train Loss: -1.832
+count 2
+Round:  1755 Train Loss: -1.845
+count 2
+Round:  1756 Train Loss: -1.832
+count 2
+Round:  1757 Train Loss: -1.832
+count 2
+Round:  1758 Train Loss: -1.835
+count 2
+Round:  1759 Train Loss: -1.836
+centeral clustering:
+Global  NMI = 0.2133 ARI = 0.1107 F = 0.1576 ACC = 0.2318
+Global  NMI = 0.2142 ARI = 0.1124 F = 0.1599 ACC = 0.2358
+count 2
+Round:  1760 Train Loss: -1.838
+count 2
+Round:  1761 Train Loss: -1.836
+count 2
+Round:  1762 Train Loss: -1.830
+count 2
+Round:  1763 Train Loss: -1.829
+count 2
+Round:  1764 Train Loss: -1.838
+count 2
+Round:  1765 Train Loss: -1.836
+count 2
+Round:  1766 Train Loss: -1.829
+count 2
+Round:  1767 Train Loss: -1.837
+count 2
+Round:  1768 Train Loss: -1.839
+count 2
+Round:  1769 Train Loss: -1.830
+centeral clustering:
+Global  NMI = 0.2065 ARI = 0.0953 F = 0.1417 ACC = 0.2371
+count 2
+Round:  1770 Train Loss: -1.837
+count 2
+Round:  1771 Train Loss: -1.839
+count 2
+Round:  1772 Train Loss: -1.838
+count 2
+Round:  1773 Train Loss: -1.825
+count 2
+Round:  1774 Train Loss: -1.839
+count 2
+Round:  1775 Train Loss: -1.832
+count 2
+Round:  1776 Train Loss: -1.837
+count 2
+Round:  1777 Train Loss: -1.836
+count 2
+Round:  1778 Train Loss: -1.838
+count 2
+Round:  1779 Train Loss: -1.844
+centeral clustering:
+Global  NMI = 0.2152 ARI = 0.1017 F = 0.1475 ACC = 0.2458
+count 2
+Round:  1780 Train Loss: -1.841
+count 2
+Round:  1781 Train Loss: -1.838
+count 2
+Round:  1782 Train Loss: -1.840
+count 2
+Round:  1783 Train Loss: -1.835
+count 2
+Round:  1784 Train Loss: -1.833
+count 2
+Round:  1785 Train Loss: -1.839
+count 2
+Round:  1786 Train Loss: -1.835
+count 2
+Round:  1787 Train Loss: -1.836
+count 2
+Round:  1788 Train Loss: -1.838
+count 2
+Round:  1789 Train Loss: -1.839
+centeral clustering:
+Global  NMI = 0.1997 ARI = 0.0922 F = 0.1393 ACC = 0.2389
+count 2
+Round:  1790 Train Loss: -1.837
+count 2
+Round:  1791 Train Loss: -1.836
+count 2
+Round:  1792 Train Loss: -1.843
+count 2
+Round:  1793 Train Loss: -1.841
+count 2
+Round:  1794 Train Loss: -1.841
+count 2
+Round:  1795 Train Loss: -1.833
+count 2
+Round:  1796 Train Loss: -1.834
+count 2
+Round:  1797 Train Loss: -1.837
+count 2
+Round:  1798 Train Loss: -1.839
+count 2
+Round:  1799 Train Loss: -1.837
+centeral clustering:
+Global  NMI = 0.2083 ARI = 0.0931 F = 0.1403 ACC = 0.2326
+Global  NMI = 0.2106 ARI = 0.0969 F = 0.1461 ACC = 0.2364
+count 2
+Round:  1800 Train Loss: -1.839
+count 2
+Round:  1801 Train Loss: -1.837
+count 2
+Round:  1802 Train Loss: -1.839
+count 2
+Round:  1803 Train Loss: -1.836
+count 2
+Round:  1804 Train Loss: -1.838
+count 2
+Round:  1805 Train Loss: -1.838
+count 2
+Round:  1806 Train Loss: -1.841
+count 2
+Round:  1807 Train Loss: -1.837
+count 2
+Round:  1808 Train Loss: -1.842
+count 2
+Round:  1809 Train Loss: -1.852
+centeral clustering:
+Global  NMI = 0.2075 ARI = 0.0973 F = 0.1437 ACC = 0.2382
+count 2
+Round:  1810 Train Loss: -1.842
+count 2
+Round:  1811 Train Loss: -1.835
+count 2
+Round:  1812 Train Loss: -1.835
+count 2
+Round:  1813 Train Loss: -1.836
+count 2
+Round:  1814 Train Loss: -1.832
+count 2
+Round:  1815 Train Loss: -1.836
+count 2
+Round:  1816 Train Loss: -1.835
+count 2
+Round:  1817 Train Loss: -1.835
+count 2
+Round:  1818 Train Loss: -1.844
+count 2
+Round:  1819 Train Loss: -1.837
+centeral clustering:
+Global  NMI = 0.2146 ARI = 0.1038 F = 0.1507 ACC = 0.2472
+count 2
+Round:  1820 Train Loss: -1.839
+count 2
+Round:  1821 Train Loss: -1.840
+count 2
+Round:  1822 Train Loss: -1.840
+count 2
+Round:  1823 Train Loss: -1.838
+count 2
+Round:  1824 Train Loss: -1.833
+count 2
+Round:  1825 Train Loss: -1.834
+count 2
+Round:  1826 Train Loss: -1.839
+count 2
+Round:  1827 Train Loss: -1.841
+count 2
+Round:  1828 Train Loss: -1.834
+count 2
+Round:  1829 Train Loss: -1.833
+centeral clustering:
+Global  NMI = 0.2140 ARI = 0.1043 F = 0.1507 ACC = 0.2547
+count 2
+Round:  1830 Train Loss: -1.843
+count 2
+Round:  1831 Train Loss: -1.844
+count 2
+Round:  1832 Train Loss: -1.843
+count 2
+Round:  1833 Train Loss: -1.841
+count 2
+Round:  1834 Train Loss: -1.844
+count 2
+Round:  1835 Train Loss: -1.839
+count 2
+Round:  1836 Train Loss: -1.840
+count 2
+Round:  1837 Train Loss: -1.844
+count 2
+Round:  1838 Train Loss: -1.842
+count 2
+Round:  1839 Train Loss: -1.841
+centeral clustering:
+Global  NMI = 0.2184 ARI = 0.1076 F = 0.1536 ACC = 0.2488
+Global  NMI = 0.2173 ARI = 0.1096 F = 0.1575 ACC = 0.2480
+count 2
+Round:  1840 Train Loss: -1.840
+count 2
+Round:  1841 Train Loss: -1.834
+count 2
+Round:  1842 Train Loss: -1.837
+count 2
+Round:  1843 Train Loss: -1.841
+count 2
+Round:  1844 Train Loss: -1.844
+count 2
+Round:  1845 Train Loss: -1.846
+count 2
+Round:  1846 Train Loss: -1.840
+count 2
+Round:  1847 Train Loss: -1.843
+count 2
+Round:  1848 Train Loss: -1.850
+count 2
+Round:  1849 Train Loss: -1.843
+centeral clustering:
+Global  NMI = 0.2137 ARI = 0.1043 F = 0.1506 ACC = 0.2400
+count 2
+Round:  1850 Train Loss: -1.838
+count 2
+Round:  1851 Train Loss: -1.838
+count 2
+Round:  1852 Train Loss: -1.841
+count 2
+Round:  1853 Train Loss: -1.847
+count 2
+Round:  1854 Train Loss: -1.836
+count 2
+Round:  1855 Train Loss: -1.834
+count 2
+Round:  1856 Train Loss: -1.837
+count 2
+Round:  1857 Train Loss: -1.840
+count 2
+Round:  1858 Train Loss: -1.840
+count 2
+Round:  1859 Train Loss: -1.836
+centeral clustering:
+Global  NMI = 0.2167 ARI = 0.1081 F = 0.1546 ACC = 0.2476
+count 2
+Round:  1860 Train Loss: -1.842
+count 2
+Round:  1861 Train Loss: -1.841
+count 2
+Round:  1862 Train Loss: -1.841
+count 2
+Round:  1863 Train Loss: -1.833
+count 2
+Round:  1864 Train Loss: -1.838
+count 2
+Round:  1865 Train Loss: -1.846
+count 2
+Round:  1866 Train Loss: -1.846
+count 2
+Round:  1867 Train Loss: -1.844
+count 2
+Round:  1868 Train Loss: -1.839
+count 2
+Round:  1869 Train Loss: -1.842
+centeral clustering:
+Global  NMI = 0.2233 ARI = 0.1111 F = 0.1572 ACC = 0.2546
+count 2
+Round:  1870 Train Loss: -1.836
+count 2
+Round:  1871 Train Loss: -1.846
+count 2
+Round:  1872 Train Loss: -1.843
+count 2
+Round:  1873 Train Loss: -1.836
+count 2
+Round:  1874 Train Loss: -1.837
+count 2
+Round:  1875 Train Loss: -1.840
+count 2
+Round:  1876 Train Loss: -1.846
+count 2
+Round:  1877 Train Loss: -1.840
+count 2
+Round:  1878 Train Loss: -1.837
+count 2
+Round:  1879 Train Loss: -1.840
+centeral clustering:
+Global  NMI = 0.2255 ARI = 0.1088 F = 0.1551 ACC = 0.2480
+Global  NMI = 0.2273 ARI = 0.1105 F = 0.1575 ACC = 0.2565
+count 2
+Round:  1880 Train Loss: -1.840
+count 2
+Round:  1881 Train Loss: -1.844
+count 2
+Round:  1882 Train Loss: -1.837
+count 2
+Round:  1883 Train Loss: -1.835
+count 2
+Round:  1884 Train Loss: -1.841
+count 2
+Round:  1885 Train Loss: -1.836
+count 2
+Round:  1886 Train Loss: -1.839
+count 2
+Round:  1887 Train Loss: -1.839
+count 2
+Round:  1888 Train Loss: -1.842
+count 2
+Round:  1889 Train Loss: -1.841
+centeral clustering:
+Global  NMI = 0.2192 ARI = 0.1081 F = 0.1540 ACC = 0.2504
+count 2
+Round:  1890 Train Loss: -1.845
+count 2
+Round:  1891 Train Loss: -1.852
+count 2
+Round:  1892 Train Loss: -1.840
+count 2
+Round:  1893 Train Loss: -1.844
+count 2
+Round:  1894 Train Loss: -1.830
+count 2
+Round:  1895 Train Loss: -1.840
+count 2
+Round:  1896 Train Loss: -1.841
+count 2
+Round:  1897 Train Loss: -1.840
+count 2
+Round:  1898 Train Loss: -1.839
+count 2
+Round:  1899 Train Loss: -1.840
+centeral clustering:
+Global  NMI = 0.2272 ARI = 0.1086 F = 0.1545 ACC = 0.2551
+count 2
+Round:  1900 Train Loss: -1.841
+count 2
+Round:  1901 Train Loss: -1.829
+count 2
+Round:  1902 Train Loss: -1.843
+count 2
+Round:  1903 Train Loss: -1.838
+count 2
+Round:  1904 Train Loss: -1.842
+count 2
+Round:  1905 Train Loss: -1.842
+count 2
+Round:  1906 Train Loss: -1.838
+count 2
+Round:  1907 Train Loss: -1.839
+count 2
+Round:  1908 Train Loss: -1.845
+count 2
+Round:  1909 Train Loss: -1.837
+centeral clustering:
+Global  NMI = 0.2220 ARI = 0.1064 F = 0.1520 ACC = 0.2513
+count 2
+Round:  1910 Train Loss: -1.838
+count 2
+Round:  1911 Train Loss: -1.838
+count 2
+Round:  1912 Train Loss: -1.838
+count 2
+Round:  1913 Train Loss: -1.844
+count 2
+Round:  1914 Train Loss: -1.840
+count 2
+Round:  1915 Train Loss: -1.837
+count 2
+Round:  1916 Train Loss: -1.841
+count 2
+Round:  1917 Train Loss: -1.834
+count 2
+Round:  1918 Train Loss: -1.841
+count 2
+Round:  1919 Train Loss: -1.833
+centeral clustering:
+Global  NMI = 0.2217 ARI = 0.1068 F = 0.1523 ACC = 0.2423
+Global  NMI = 0.2228 ARI = 0.1096 F = 0.1556 ACC = 0.2476
+count 2
+Round:  1920 Train Loss: -1.840
+count 2
+Round:  1921 Train Loss: -1.836
+count 2
+Round:  1922 Train Loss: -1.835
+count 2
+Round:  1923 Train Loss: -1.835
+count 2
+Round:  1924 Train Loss: -1.833
+count 2
+Round:  1925 Train Loss: -1.843
+count 2
+Round:  1926 Train Loss: -1.844
+count 2
+Round:  1927 Train Loss: -1.838
+count 2
+Round:  1928 Train Loss: -1.837
+count 2
+Round:  1929 Train Loss: -1.843
+centeral clustering:
+Global  NMI = 0.2250 ARI = 0.1099 F = 0.1559 ACC = 0.2525
+count 2
+Round:  1930 Train Loss: -1.848
+count 2
+Round:  1931 Train Loss: -1.837
+count 2
+Round:  1932 Train Loss: -1.834
+count 2
+Round:  1933 Train Loss: -1.834
+count 2
+Round:  1934 Train Loss: -1.841
+count 2
+Round:  1935 Train Loss: -1.842
+count 2
+Round:  1936 Train Loss: -1.841
+count 2
+Round:  1937 Train Loss: -1.837
+count 2
+Round:  1938 Train Loss: -1.840
+count 2
+Round:  1939 Train Loss: -1.843
+centeral clustering:
+Global  NMI = 0.2279 ARI = 0.1129 F = 0.1583 ACC = 0.2618
+count 2
+Round:  1940 Train Loss: -1.842
+count 2
+Round:  1941 Train Loss: -1.833
+count 2
+Round:  1942 Train Loss: -1.838
+count 2
+Round:  1943 Train Loss: -1.834
+count 2
+Round:  1944 Train Loss: -1.841
+count 2
+Round:  1945 Train Loss: -1.840
+count 2
+Round:  1946 Train Loss: -1.831
+count 2
+Round:  1947 Train Loss: -1.839
+count 2
+Round:  1948 Train Loss: -1.849
+count 2
+Round:  1949 Train Loss: -1.845
+centeral clustering:
+Global  NMI = 0.2358 ARI = 0.1223 F = 0.1674 ACC = 0.2744
+count 2
+Round:  1950 Train Loss: -1.842
+count 2
+Round:  1951 Train Loss: -1.845
+count 2
+Round:  1952 Train Loss: -1.839
+count 2
+Round:  1953 Train Loss: -1.836
+count 2
+Round:  1954 Train Loss: -1.840
+count 2
+Round:  1955 Train Loss: -1.842
+count 2
+Round:  1956 Train Loss: -1.840
+count 2
+Round:  1957 Train Loss: -1.837
+count 2
+Round:  1958 Train Loss: -1.844
+count 2
+Round:  1959 Train Loss: -1.838
+centeral clustering:
+Global  NMI = 0.2232 ARI = 0.1096 F = 0.1552 ACC = 0.2643
+Global  NMI = 0.2195 ARI = 0.1105 F = 0.1564 ACC = 0.2559
+count 2
+Round:  1960 Train Loss: -1.838
+count 2
+Round:  1961 Train Loss: -1.836
+count 2
+Round:  1962 Train Loss: -1.848
+count 2
+Round:  1963 Train Loss: -1.837
+count 2
+Round:  1964 Train Loss: -1.840
+count 2
+Round:  1965 Train Loss: -1.843
+count 2
+Round:  1966 Train Loss: -1.839
+count 2
+Round:  1967 Train Loss: -1.836
+count 2
+Round:  1968 Train Loss: -1.830
+count 2
+Round:  1969 Train Loss: -1.835
+centeral clustering:
+Global  NMI = 0.2306 ARI = 0.1139 F = 0.1595 ACC = 0.2658
+count 2
+Round:  1970 Train Loss: -1.831
+count 2
+Round:  1971 Train Loss: -1.842
+count 2
+Round:  1972 Train Loss: -1.838
+count 2
+Round:  1973 Train Loss: -1.840
+count 2
+Round:  1974 Train Loss: -1.846
+count 2
+Round:  1975 Train Loss: -1.841
+count 2
+Round:  1976 Train Loss: -1.842
+count 2
+Round:  1977 Train Loss: -1.838
+count 2
+Round:  1978 Train Loss: -1.842
+count 2
+Round:  1979 Train Loss: -1.836
+centeral clustering:
+Global  NMI = 0.2302 ARI = 0.1149 F = 0.1603 ACC = 0.2652
+count 2
+Round:  1980 Train Loss: -1.840
+count 2
+Round:  1981 Train Loss: -1.839
+count 2
+Round:  1982 Train Loss: -1.846
+count 2
+Round:  1983 Train Loss: -1.841
+count 2
+Round:  1984 Train Loss: -1.840
+count 2
+Round:  1985 Train Loss: -1.835
+count 2
+Round:  1986 Train Loss: -1.839
+count 2
+Round:  1987 Train Loss: -1.836
+count 2
+Round:  1988 Train Loss: -1.844
+count 2
+Round:  1989 Train Loss: -1.833
+centeral clustering:
+Global  NMI = 0.2313 ARI = 0.1160 F = 0.1614 ACC = 0.2604
+count 2
+Round:  1990 Train Loss: -1.841
+count 2
+Round:  1991 Train Loss: -1.849
+count 2
+Round:  1992 Train Loss: -1.833
+count 2
+Round:  1993 Train Loss: -1.846
+count 2
+Round:  1994 Train Loss: -1.839
+count 2
+Round:  1995 Train Loss: -1.844
+count 2
+Round:  1996 Train Loss: -1.837
+count 2
+Round:  1997 Train Loss: -1.848
+count 2
+Round:  1998 Train Loss: -1.835
+count 2
+Round:  1999 Train Loss: -1.840
+centeral clustering:
+Global  NMI = 0.2218 ARI = 0.1063 F = 0.1518 ACC = 0.2574
+Global  NMI = 0.2157 ARI = 0.1018 F = 0.1485 ACC = 0.2492
+Global  NMI = 0.2173 ARI = 0.1023 F = 0.1488 ACC = 0.2496
+pseudo_labels 60000
+Global  NMI = 0.2208 ARI = 0.1058 F = 0.1514 ACC = 0.2561
+pseudo_labels 60000
+training on: cuda:3
+Round:  0 User: 0 Train Loss: -0.815
+Round:  0 User: 1 Train Loss: -0.806
+Round:  0 User: 2 Train Loss: -0.802
+Round:  0 User: 3 Train Loss: -0.797
+Round:  0 User: 4 Train Loss: -0.801
+Round:  0 User: 5 Train Loss: -0.805
+Round:  0 User: 6 Train Loss: -0.805
+Round:  0 User: 7 Train Loss: -0.798
+Round:  0 User: 8 Train Loss: -0.801
+Round:  0 User: 9 Train Loss: -0.803
+Round:  0 User: 10 Train Loss: -0.804
+Round:  0 User: 11 Train Loss: -0.806
+Round:  0 User: 12 Train Loss: -0.807
+Round:  0 User: 13 Train Loss: -0.800
+Round:  0 User: 14 Train Loss: -0.803
+Round:  0 User: 15 Train Loss: -0.804
+Round:  0 User: 16 Train Loss: -0.802
+Round:  0 User: 17 Train Loss: -0.800
+Round:  0 User: 18 Train Loss: -0.798
+Round:  0 User: 19 Train Loss: -0.804
+Round:  0 User: 20 Train Loss: -0.802
+Round:  0 User: 21 Train Loss: -0.804
+Round:  0 User: 22 Train Loss: -0.806
+Round:  0 User: 23 Train Loss: -0.804
+Round:  0 User: 24 Train Loss: -0.802
+Round:  0 User: 25 Train Loss: -0.806
+Round:  0 User: 26 Train Loss: -0.801
+Round:  0 User: 27 Train Loss: -0.798
+Round:  0 User: 28 Train Loss: -0.803
+Round:  0 User: 29 Train Loss: -0.802
+Round:  0 User: 30 Train Loss: -0.806
+Round:  0 User: 31 Train Loss: -0.799
+Round:  0 User: 32 Train Loss: -0.799
+Round:  0 User: 33 Train Loss: -0.805
+Round:  0 User: 34 Train Loss: -0.802
+Round:  0 User: 35 Train Loss: -0.807
+Round:  0 User: 36 Train Loss: -0.795
+Round:  0 User: 37 Train Loss: -0.802
+Round:  0 User: 38 Train Loss: -0.803
+Round:  0 User: 39 Train Loss: -0.804
+Round:  0 Train Loss: -0.803
+count 40
+Global  NMI = 0.2170 ARI = 0.1120 F = 0.1607 ACC = 0.2455
+Round:  1 User: 0 Train Loss: -0.874
+Round:  1 User: 1 Train Loss: -0.879
+Round:  1 User: 2 Train Loss: -0.875
+Round:  1 User: 3 Train Loss: -0.876
+Round:  1 User: 4 Train Loss: -0.880
+Round:  1 User: 5 Train Loss: -0.878
+Round:  1 User: 6 Train Loss: -0.878
+Round:  1 User: 7 Train Loss: -0.875
+Round:  1 User: 8 Train Loss: -0.876
+Round:  1 User: 9 Train Loss: -0.879
+Round:  1 User: 10 Train Loss: -0.877
+Round:  1 User: 11 Train Loss: -0.879
+Round:  1 User: 12 Train Loss: -0.878
+Round:  1 User: 13 Train Loss: -0.874
+Round:  1 User: 14 Train Loss: -0.876
+Round:  1 User: 15 Train Loss: -0.884
+Round:  1 User: 16 Train Loss: -0.880
+Round:  1 User: 17 Train Loss: -0.878
+Round:  1 User: 18 Train Loss: -0.877
+Round:  1 User: 19 Train Loss: -0.879
+Round:  1 User: 20 Train Loss: -0.877
+Round:  1 User: 21 Train Loss: -0.880
+Round:  1 User: 22 Train Loss: -0.879
+Round:  1 User: 23 Train Loss: -0.876
+Round:  1 User: 24 Train Loss: -0.877
+Round:  1 User: 25 Train Loss: -0.876
+Round:  1 User: 26 Train Loss: -0.879
+Round:  1 User: 27 Train Loss: -0.878
+Round:  1 User: 28 Train Loss: -0.878
+Round:  1 User: 29 Train Loss: -0.875
+Round:  1 User: 30 Train Loss: -0.878
+Round:  1 User: 31 Train Loss: -0.878
+Round:  1 User: 32 Train Loss: -0.876
+Round:  1 User: 33 Train Loss: -0.881
+Round:  1 User: 34 Train Loss: -0.878
+Round:  1 User: 35 Train Loss: -0.881
+Round:  1 User: 36 Train Loss: -0.876
+Round:  1 User: 37 Train Loss: -0.877
+Round:  1 User: 38 Train Loss: -0.871
+Round:  1 User: 39 Train Loss: -0.881
+Round:  1 Train Loss: -0.878
+count 40
+Global  NMI = 0.2133 ARI = 0.1075 F = 0.1568 ACC = 0.2403
+Round:  2 User: 0 Train Loss: -0.904
+Round:  2 User: 1 Train Loss: -0.908
+Round:  2 User: 2 Train Loss: -0.907
+Round:  2 User: 3 Train Loss: -0.904
+Round:  2 User: 4 Train Loss: -0.907
+Round:  2 User: 5 Train Loss: -0.903
+Round:  2 User: 6 Train Loss: -0.904
+Round:  2 User: 7 Train Loss: -0.901
+Round:  2 User: 8 Train Loss: -0.910
+Round:  2 User: 9 Train Loss: -0.903
+Round:  2 User: 10 Train Loss: -0.903
+Round:  2 User: 11 Train Loss: -0.908
+Round:  2 User: 12 Train Loss: -0.905
+Round:  2 User: 13 Train Loss: -0.906
+Round:  2 User: 14 Train Loss: -0.905
+Round:  2 User: 15 Train Loss: -0.906
+Round:  2 User: 16 Train Loss: -0.911
+Round:  2 User: 17 Train Loss: -0.906
+Round:  2 User: 18 Train Loss: -0.909
+Round:  2 User: 19 Train Loss: -0.912
+Round:  2 User: 20 Train Loss: -0.904
+Round:  2 User: 21 Train Loss: -0.905
+Round:  2 User: 22 Train Loss: -0.905
+Round:  2 User: 23 Train Loss: -0.903
+Round:  2 User: 24 Train Loss: -0.908
+Round:  2 User: 25 Train Loss: -0.908
+Round:  2 User: 26 Train Loss: -0.906
+Round:  2 User: 27 Train Loss: -0.904
+Round:  2 User: 28 Train Loss: -0.903
+Round:  2 User: 29 Train Loss: -0.907
+Round:  2 User: 30 Train Loss: -0.904
+Round:  2 User: 31 Train Loss: -0.904
+Round:  2 User: 32 Train Loss: -0.910
+Round:  2 User: 33 Train Loss: -0.907
+Round:  2 User: 34 Train Loss: -0.910
+Round:  2 User: 35 Train Loss: -0.908
+Round:  2 User: 36 Train Loss: -0.905
+Round:  2 User: 37 Train Loss: -0.909
+Round:  2 User: 38 Train Loss: -0.902
+Round:  2 User: 39 Train Loss: -0.905
+Round:  2 Train Loss: -0.906
+count 40
+Global  NMI = 0.2111 ARI = 0.1076 F = 0.1575 ACC = 0.2360
+Round:  3 User: 0 Train Loss: -0.919
+Round:  3 User: 1 Train Loss: -0.925
+Round:  3 User: 2 Train Loss: -0.921
+Round:  3 User: 3 Train Loss: -0.920
+Round:  3 User: 4 Train Loss: -0.921
+Round:  3 User: 5 Train Loss: -0.922
+Round:  3 User: 6 Train Loss: -0.918
+Round:  3 User: 7 Train Loss: -0.918
+Round:  3 User: 8 Train Loss: -0.925
+Round:  3 User: 9 Train Loss: -0.921
+Round:  3 User: 10 Train Loss: -0.927
+Round:  3 User: 11 Train Loss: -0.924
+Round:  3 User: 12 Train Loss: -0.923
+Round:  3 User: 13 Train Loss: -0.919
+Round:  3 User: 14 Train Loss: -0.920
+Round:  3 User: 15 Train Loss: -0.919
+Round:  3 User: 16 Train Loss: -0.925
+Round:  3 User: 17 Train Loss: -0.916
+Round:  3 User: 18 Train Loss: -0.927
+Round:  3 User: 19 Train Loss: -0.925
+Round:  3 User: 20 Train Loss: -0.922
+Round:  3 User: 21 Train Loss: -0.928
+Round:  3 User: 22 Train Loss: -0.921
+Round:  3 User: 23 Train Loss: -0.918
+Round:  3 User: 24 Train Loss: -0.927
+Round:  3 User: 25 Train Loss: -0.923
+Round:  3 User: 26 Train Loss: -0.921
+Round:  3 User: 27 Train Loss: -0.920
+Round:  3 User: 28 Train Loss: -0.919
+Round:  3 User: 29 Train Loss: -0.922
+Round:  3 User: 30 Train Loss: -0.924
+Round:  3 User: 31 Train Loss: -0.919
+Round:  3 User: 32 Train Loss: -0.922
+Round:  3 User: 33 Train Loss: -0.923
+Round:  3 User: 34 Train Loss: -0.927
+Round:  3 User: 35 Train Loss: -0.923
+Round:  3 User: 36 Train Loss: -0.921
+Round:  3 User: 37 Train Loss: -0.923
+Round:  3 User: 38 Train Loss: -0.920
+Round:  3 User: 39 Train Loss: -0.923
+Round:  3 Train Loss: -0.922
+count 40
+Global  NMI = 0.2095 ARI = 0.1059 F = 0.1562 ACC = 0.2347
+Round:  4 User: 0 Train Loss: -0.927
+Round:  4 User: 1 Train Loss: -0.934
+Round:  4 User: 2 Train Loss: -0.929
+Round:  4 User: 3 Train Loss: -0.931
+Round:  4 User: 4 Train Loss: -0.930
+Round:  4 User: 5 Train Loss: -0.932
+Round:  4 User: 6 Train Loss: -0.928
+Round:  4 User: 7 Train Loss: -0.928
+Round:  4 User: 8 Train Loss: -0.932
+Round:  4 User: 9 Train Loss: -0.930
+Round:  4 User: 10 Train Loss: -0.930
+Round:  4 User: 11 Train Loss: -0.933
+Round:  4 User: 12 Train Loss: -0.932
+Round:  4 User: 13 Train Loss: -0.930
+Round:  4 User: 14 Train Loss: -0.933
+Round:  4 User: 15 Train Loss: -0.932
+Round:  4 User: 16 Train Loss: -0.931
+Round:  4 User: 17 Train Loss: -0.933
+Round:  4 User: 18 Train Loss: -0.930
+Round:  4 User: 19 Train Loss: -0.933
+Round:  4 User: 20 Train Loss: -0.926
+Round:  4 User: 21 Train Loss: -0.934
+Round:  4 User: 22 Train Loss: -0.929
+Round:  4 User: 23 Train Loss: -0.930
+Round:  4 User: 24 Train Loss: -0.930
+Round:  4 User: 25 Train Loss: -0.933
+Round:  4 User: 26 Train Loss: -0.931
+Round:  4 User: 27 Train Loss: -0.931
+Round:  4 User: 28 Train Loss: -0.929
+Round:  4 User: 29 Train Loss: -0.932
+Round:  4 User: 30 Train Loss: -0.931
+Round:  4 User: 31 Train Loss: -0.925
+Round:  4 User: 32 Train Loss: -0.931
+Round:  4 User: 33 Train Loss: -0.933
+Round:  4 User: 34 Train Loss: -0.931
+Round:  4 User: 35 Train Loss: -0.933
+Round:  4 User: 36 Train Loss: -0.931
+Round:  4 User: 37 Train Loss: -0.932
+Round:  4 User: 38 Train Loss: -0.924
+Round:  4 User: 39 Train Loss: -0.931
+Round:  4 Train Loss: -0.931
+count 40
+Global  NMI = 0.2079 ARI = 0.1061 F = 0.1556 ACC = 0.2339
+Round:  5 User: 0 Train Loss: -0.940
+Round:  5 User: 1 Train Loss: -0.939
+Round:  5 User: 2 Train Loss: -0.938
+Round:  5 User: 3 Train Loss: -0.938
+Round:  5 User: 4 Train Loss: -0.938
+Round:  5 User: 5 Train Loss: -0.938
+Round:  5 User: 6 Train Loss: -0.940
+Round:  5 User: 7 Train Loss: -0.939
+Round:  5 User: 8 Train Loss: -0.938
+Round:  5 User: 9 Train Loss: -0.943
+Round:  5 User: 10 Train Loss: -0.941
+Round:  5 User: 11 Train Loss: -0.941
+Round:  5 User: 12 Train Loss: -0.940
+Round:  5 User: 13 Train Loss: -0.938
+Round:  5 User: 14 Train Loss: -0.942
+Round:  5 User: 15 Train Loss: -0.937
+Round:  5 User: 16 Train Loss: -0.941
+Round:  5 User: 17 Train Loss: -0.942
+Round:  5 User: 18 Train Loss: -0.943
+Round:  5 User: 19 Train Loss: -0.940
+Round:  5 User: 20 Train Loss: -0.938
+Round:  5 User: 21 Train Loss: -0.943
+Round:  5 User: 22 Train Loss: -0.933
+Round:  5 User: 23 Train Loss: -0.941
+Round:  5 User: 24 Train Loss: -0.937
+Round:  5 User: 25 Train Loss: -0.940
+Round:  5 User: 26 Train Loss: -0.941
+Round:  5 User: 27 Train Loss: -0.944
+Round:  5 User: 28 Train Loss: -0.940
+Round:  5 User: 29 Train Loss: -0.937
+Round:  5 User: 30 Train Loss: -0.945
+Round:  5 User: 31 Train Loss: -0.936
+Round:  5 User: 32 Train Loss: -0.941
+Round:  5 User: 33 Train Loss: -0.943
+Round:  5 User: 34 Train Loss: -0.941
+Round:  5 User: 35 Train Loss: -0.941
+Round:  5 User: 36 Train Loss: -0.940
+Round:  5 User: 37 Train Loss: -0.939
+Round:  5 User: 38 Train Loss: -0.936
+Round:  5 User: 39 Train Loss: -0.938
+Round:  5 Train Loss: -0.940
+count 40
+Global  NMI = 0.2072 ARI = 0.1054 F = 0.1552 ACC = 0.2332
+Round:  6 User: 0 Train Loss: -0.940
+Round:  6 User: 1 Train Loss: -0.940
+Round:  6 User: 2 Train Loss: -0.939
+Round:  6 User: 3 Train Loss: -0.943
+Round:  6 User: 4 Train Loss: -0.944
+Round:  6 User: 5 Train Loss: -0.945
+Round:  6 User: 6 Train Loss: -0.944
+Round:  6 User: 7 Train Loss: -0.944
+Round:  6 User: 8 Train Loss: -0.946
+Round:  6 User: 9 Train Loss: -0.951
+Round:  6 User: 10 Train Loss: -0.944
+Round:  6 User: 11 Train Loss: -0.947
+Round:  6 User: 12 Train Loss: -0.948
+Round:  6 User: 13 Train Loss: -0.941
+Round:  6 User: 14 Train Loss: -0.947
+Round:  6 User: 15 Train Loss: -0.941
+Round:  6 User: 16 Train Loss: -0.944
+Round:  6 User: 17 Train Loss: -0.944
+Round:  6 User: 18 Train Loss: -0.947
+Round:  6 User: 19 Train Loss: -0.945
+Round:  6 User: 20 Train Loss: -0.944
+Round:  6 User: 21 Train Loss: -0.948
+Round:  6 User: 22 Train Loss: -0.943
+Round:  6 User: 23 Train Loss: -0.947
+Round:  6 User: 24 Train Loss: -0.944
+Round:  6 User: 25 Train Loss: -0.945
+Round:  6 User: 26 Train Loss: -0.944
+Round:  6 User: 27 Train Loss: -0.945
+Round:  6 User: 28 Train Loss: -0.946
+Round:  6 User: 29 Train Loss: -0.938
+Round:  6 User: 30 Train Loss: -0.946
+Round:  6 User: 31 Train Loss: -0.940
+Round:  6 User: 32 Train Loss: -0.944
+Round:  6 User: 33 Train Loss: -0.948
+Round:  6 User: 34 Train Loss: -0.943
+Round:  6 User: 35 Train Loss: -0.940
+Round:  6 User: 36 Train Loss: -0.942
+Round:  6 User: 37 Train Loss: -0.943
+Round:  6 User: 38 Train Loss: -0.941
+Round:  6 User: 39 Train Loss: -0.944
+Round:  6 Train Loss: -0.944
+count 40
+Global  NMI = 0.2065 ARI = 0.1048 F = 0.1546 ACC = 0.2315
+Round:  7 User: 0 Train Loss: -0.945
+Round:  7 User: 1 Train Loss: -0.946
+Round:  7 User: 2 Train Loss: -0.946
+Round:  7 User: 3 Train Loss: -0.952
+Round:  7 User: 4 Train Loss: -0.947
+Round:  7 User: 5 Train Loss: -0.951
+Round:  7 User: 6 Train Loss: -0.948
+Round:  7 User: 7 Train Loss: -0.945
+Round:  7 User: 8 Train Loss: -0.948
+Round:  7 User: 9 Train Loss: -0.946
+Round:  7 User: 10 Train Loss: -0.951
+Round:  7 User: 11 Train Loss: -0.946
+Round:  7 User: 12 Train Loss: -0.949
+Round:  7 User: 13 Train Loss: -0.948
+Round:  7 User: 14 Train Loss: -0.954
+Round:  7 User: 15 Train Loss: -0.949
+Round:  7 User: 16 Train Loss: -0.944
+Round:  7 User: 17 Train Loss: -0.944
+Round:  7 User: 18 Train Loss: -0.947
+Round:  7 User: 19 Train Loss: -0.947
+Round:  7 User: 20 Train Loss: -0.947
+Round:  7 User: 21 Train Loss: -0.952
+Round:  7 User: 22 Train Loss: -0.945
+Round:  7 User: 23 Train Loss: -0.947
+Round:  7 User: 24 Train Loss: -0.944
+Round:  7 User: 25 Train Loss: -0.950
+Round:  7 User: 26 Train Loss: -0.950
+Round:  7 User: 27 Train Loss: -0.945
+Round:  7 User: 28 Train Loss: -0.947
+Round:  7 User: 29 Train Loss: -0.947
+Round:  7 User: 30 Train Loss: -0.950
+Round:  7 User: 31 Train Loss: -0.940
+Round:  7 User: 32 Train Loss: -0.946
+Round:  7 User: 33 Train Loss: -0.951
+Round:  7 User: 34 Train Loss: -0.950
+Round:  7 User: 35 Train Loss: -0.945
+Round:  7 User: 36 Train Loss: -0.950
+Round:  7 User: 37 Train Loss: -0.951
+Round:  7 User: 38 Train Loss: -0.943
+Round:  7 User: 39 Train Loss: -0.947
+Round:  7 Train Loss: -0.947
+count 40
+Global  NMI = 0.2061 ARI = 0.1047 F = 0.1545 ACC = 0.2309
+Round:  8 User: 0 Train Loss: -0.945
+Round:  8 User: 1 Train Loss: -0.951
+Round:  8 User: 2 Train Loss: -0.950
+Round:  8 User: 3 Train Loss: -0.952
+Round:  8 User: 4 Train Loss: -0.950
+Round:  8 User: 5 Train Loss: -0.954
+Round:  8 User: 6 Train Loss: -0.952
+Round:  8 User: 7 Train Loss: -0.950
+Round:  8 User: 8 Train Loss: -0.953
+Round:  8 User: 9 Train Loss: -0.956
+Round:  8 User: 10 Train Loss: -0.952
+Round:  8 User: 11 Train Loss: -0.950
+Round:  8 User: 12 Train Loss: -0.956
+Round:  8 User: 13 Train Loss: -0.951
+Round:  8 User: 14 Train Loss: -0.953
+Round:  8 User: 15 Train Loss: -0.949
+Round:  8 User: 16 Train Loss: -0.951
+Round:  8 User: 17 Train Loss: -0.949
+Round:  8 User: 18 Train Loss: -0.953
+Round:  8 User: 19 Train Loss: -0.948
+Round:  8 User: 20 Train Loss: -0.952
+Round:  8 User: 21 Train Loss: -0.954
+Round:  8 User: 22 Train Loss: -0.948
+Round:  8 User: 23 Train Loss: -0.950
+Round:  8 User: 24 Train Loss: -0.950
+Round:  8 User: 25 Train Loss: -0.953
+Round:  8 User: 26 Train Loss: -0.954
+Round:  8 User: 27 Train Loss: -0.951
+Round:  8 User: 28 Train Loss: -0.948
+Round:  8 User: 29 Train Loss: -0.948
+Round:  8 User: 30 Train Loss: -0.952
+Round:  8 User: 31 Train Loss: -0.947
+Round:  8 User: 32 Train Loss: -0.947
+Round:  8 User: 33 Train Loss: -0.951
+Round:  8 User: 34 Train Loss: -0.952
+Round:  8 User: 35 Train Loss: -0.951
+Round:  8 User: 36 Train Loss: -0.947
+Round:  8 User: 37 Train Loss: -0.952
+Round:  8 User: 38 Train Loss: -0.946
+Round:  8 User: 39 Train Loss: -0.951
+Round:  8 Train Loss: -0.951
+count 40
+Global  NMI = 0.2048 ARI = 0.1039 F = 0.1538 ACC = 0.2286
+Round:  9 User: 0 Train Loss: -0.949
+Round:  9 User: 1 Train Loss: -0.952
+Round:  9 User: 2 Train Loss: -0.953
+Round:  9 User: 3 Train Loss: -0.954
+Round:  9 User: 4 Train Loss: -0.951
+Round:  9 User: 5 Train Loss: -0.952
+Round:  9 User: 6 Train Loss: -0.951
+Round:  9 User: 7 Train Loss: -0.949
+Round:  9 User: 8 Train Loss: -0.950
+Round:  9 User: 9 Train Loss: -0.956
+Round:  9 User: 10 Train Loss: -0.954
+Round:  9 User: 11 Train Loss: -0.952
+Round:  9 User: 12 Train Loss: -0.954
+Round:  9 User: 13 Train Loss: -0.953
+Round:  9 User: 14 Train Loss: -0.956
+Round:  9 User: 15 Train Loss: -0.949
+Round:  9 User: 16 Train Loss: -0.952
+Round:  9 User: 17 Train Loss: -0.954
+Round:  9 User: 18 Train Loss: -0.952
+Round:  9 User: 19 Train Loss: -0.951
+Round:  9 User: 20 Train Loss: -0.956
+Round:  9 User: 21 Train Loss: -0.952
+Round:  9 User: 22 Train Loss: -0.953
+Round:  9 User: 23 Train Loss: -0.950
+Round:  9 User: 24 Train Loss: -0.954
+Round:  9 User: 25 Train Loss: -0.954
+Round:  9 User: 26 Train Loss: -0.955
+Round:  9 User: 27 Train Loss: -0.953
+Round:  9 User: 28 Train Loss: -0.953
+Round:  9 User: 29 Train Loss: -0.950
+Round:  9 User: 30 Train Loss: -0.955
+Round:  9 User: 31 Train Loss: -0.952
+Round:  9 User: 32 Train Loss: -0.949
+Round:  9 User: 33 Train Loss: -0.954
+Round:  9 User: 34 Train Loss: -0.951
+Round:  9 User: 35 Train Loss: -0.952
+Round:  9 User: 36 Train Loss: -0.951
+Round:  9 User: 37 Train Loss: -0.952
+Round:  9 User: 38 Train Loss: -0.945
+Round:  9 User: 39 Train Loss: -0.956
+Round:  9 Train Loss: -0.952
+count 40
+Global  NMI = 0.2041 ARI = 0.1037 F = 0.1535 ACC = 0.2278
+Round:  10 User: 0 Train Loss: -0.953
+Round:  10 User: 1 Train Loss: -0.955
+Round:  10 User: 2 Train Loss: -0.954
+Round:  10 User: 3 Train Loss: -0.952
+Round:  10 User: 4 Train Loss: -0.952
+Round:  10 User: 5 Train Loss: -0.955
+Round:  10 User: 6 Train Loss: -0.949
+Round:  10 User: 7 Train Loss: -0.952
+Round:  10 User: 8 Train Loss: -0.956
+Round:  10 User: 9 Train Loss: -0.956
+Round:  10 User: 10 Train Loss: -0.957
+Round:  10 User: 11 Train Loss: -0.956
+Round:  10 User: 12 Train Loss: -0.956
+Round:  10 User: 13 Train Loss: -0.953
+Round:  10 User: 14 Train Loss: -0.957
+Round:  10 User: 15 Train Loss: -0.953
+Round:  10 User: 16 Train Loss: -0.955
+Round:  10 User: 17 Train Loss: -0.953
+Round:  10 User: 18 Train Loss: -0.957
+Round:  10 User: 19 Train Loss: -0.956
+Round:  10 User: 20 Train Loss: -0.958
+Round:  10 User: 21 Train Loss: -0.953
+Round:  10 User: 22 Train Loss: -0.955
+Round:  10 User: 23 Train Loss: -0.949
+Round:  10 User: 24 Train Loss: -0.955
+Round:  10 User: 25 Train Loss: -0.957
+Round:  10 User: 26 Train Loss: -0.956
+Round:  10 User: 27 Train Loss: -0.954
+Round:  10 User: 28 Train Loss: -0.951
+Round:  10 User: 29 Train Loss: -0.953
+Round:  10 User: 30 Train Loss: -0.958
+Round:  10 User: 31 Train Loss: -0.951
+Round:  10 User: 32 Train Loss: -0.953
+Round:  10 User: 33 Train Loss: -0.957
+Round:  10 User: 34 Train Loss: -0.954
+Round:  10 User: 35 Train Loss: -0.951
+Round:  10 User: 36 Train Loss: -0.952
+Round:  10 User: 37 Train Loss: -0.953
+Round:  10 User: 38 Train Loss: -0.954
+Round:  10 User: 39 Train Loss: -0.955
+Round:  10 Train Loss: -0.954
+count 40
+Global  NMI = 0.2045 ARI = 0.1018 F = 0.1531 ACC = 0.2247
+Round:  11 User: 0 Train Loss: -0.952
+Round:  11 User: 1 Train Loss: -0.952
+Round:  11 User: 2 Train Loss: -0.957
+Round:  11 User: 3 Train Loss: -0.953
+Round:  11 User: 4 Train Loss: -0.953
+Round:  11 User: 5 Train Loss: -0.958
+Round:  11 User: 6 Train Loss: -0.949
+Round:  11 User: 7 Train Loss: -0.954
+Round:  11 User: 8 Train Loss: -0.952
+Round:  11 User: 9 Train Loss: -0.956
+Round:  11 User: 10 Train Loss: -0.956
+Round:  11 User: 11 Train Loss: -0.955
+Round:  11 User: 12 Train Loss: -0.957
+Round:  11 User: 13 Train Loss: -0.953
+Round:  11 User: 14 Train Loss: -0.956
+Round:  11 User: 15 Train Loss: -0.955
+Round:  11 User: 16 Train Loss: -0.957
+Round:  11 User: 17 Train Loss: -0.955
+Round:  11 User: 18 Train Loss: -0.951
+Round:  11 User: 19 Train Loss: -0.952
+Round:  11 User: 20 Train Loss: -0.955
+Round:  11 User: 21 Train Loss: -0.956
+Round:  11 User: 22 Train Loss: -0.954
+Round:  11 User: 23 Train Loss: -0.954
+Round:  11 User: 24 Train Loss: -0.956
+Round:  11 User: 25 Train Loss: -0.957
+Round:  11 User: 26 Train Loss: -0.954
+Round:  11 User: 27 Train Loss: -0.949
+Round:  11 User: 28 Train Loss: -0.956
+Round:  11 User: 29 Train Loss: -0.953
+Round:  11 User: 30 Train Loss: -0.956
+Round:  11 User: 31 Train Loss: -0.957
+Round:  11 User: 32 Train Loss: -0.953
+Round:  11 User: 33 Train Loss: -0.955
+Round:  11 User: 34 Train Loss: -0.953
+Round:  11 User: 35 Train Loss: -0.951
+Round:  11 User: 36 Train Loss: -0.953
+Round:  11 User: 37 Train Loss: -0.958
+Round:  11 User: 38 Train Loss: -0.952
+Round:  11 User: 39 Train Loss: -0.955
+Round:  11 Train Loss: -0.954
+count 40
+Global  NMI = 0.2041 ARI = 0.1018 F = 0.1530 ACC = 0.2238
+Round:  12 User: 0 Train Loss: -0.955
+Round:  12 User: 1 Train Loss: -0.954
+Round:  12 User: 2 Train Loss: -0.955
+Round:  12 User: 3 Train Loss: -0.955
+Round:  12 User: 4 Train Loss: -0.958
+Round:  12 User: 5 Train Loss: -0.961
+Round:  12 User: 6 Train Loss: -0.958
+Round:  12 User: 7 Train Loss: -0.952
+Round:  12 User: 8 Train Loss: -0.955
+Round:  12 User: 9 Train Loss: -0.959
+Round:  12 User: 10 Train Loss: -0.959
+Round:  12 User: 11 Train Loss: -0.956
+Round:  12 User: 12 Train Loss: -0.955
+Round:  12 User: 13 Train Loss: -0.955
+Round:  12 User: 14 Train Loss: -0.959
+Round:  12 User: 15 Train Loss: -0.955
+Round:  12 User: 16 Train Loss: -0.958
+Round:  12 User: 17 Train Loss: -0.955
+Round:  12 User: 18 Train Loss: -0.957
+Round:  12 User: 19 Train Loss: -0.955
+Round:  12 User: 20 Train Loss: -0.955
+Round:  12 User: 21 Train Loss: -0.958
+Round:  12 User: 22 Train Loss: -0.956
+Round:  12 User: 23 Train Loss: -0.959
+Round:  12 User: 24 Train Loss: -0.955
+Round:  12 User: 25 Train Loss: -0.959
+Round:  12 User: 26 Train Loss: -0.955
+Round:  12 User: 27 Train Loss: -0.954
+Round:  12 User: 28 Train Loss: -0.953
+Round:  12 User: 29 Train Loss: -0.953
+Round:  12 User: 30 Train Loss: -0.958
+Round:  12 User: 31 Train Loss: -0.958
+Round:  12 User: 32 Train Loss: -0.958
+Round:  12 User: 33 Train Loss: -0.958
+Round:  12 User: 34 Train Loss: -0.951
+Round:  12 User: 35 Train Loss: -0.957
+Round:  12 User: 36 Train Loss: -0.957
+Round:  12 User: 37 Train Loss: -0.958
+Round:  12 User: 38 Train Loss: -0.952
+Round:  12 User: 39 Train Loss: -0.956
+Round:  12 Train Loss: -0.956
+count 40
+Global  NMI = 0.2039 ARI = 0.1019 F = 0.1532 ACC = 0.2228
+Round:  13 User: 0 Train Loss: -0.957
+Round:  13 User: 1 Train Loss: -0.958
+Round:  13 User: 2 Train Loss: -0.957
+Round:  13 User: 3 Train Loss: -0.958
+Round:  13 User: 4 Train Loss: -0.958
+Round:  13 User: 5 Train Loss: -0.961
+Round:  13 User: 6 Train Loss: -0.958
+Round:  13 User: 7 Train Loss: -0.958
+Round:  13 User: 8 Train Loss: -0.956
+Round:  13 User: 9 Train Loss: -0.962
+Round:  13 User: 10 Train Loss: -0.962
+Round:  13 User: 11 Train Loss: -0.960
+Round:  13 User: 12 Train Loss: -0.960
+Round:  13 User: 13 Train Loss: -0.956
+Round:  13 User: 14 Train Loss: -0.961
+Round:  13 User: 15 Train Loss: -0.958
+Round:  13 User: 16 Train Loss: -0.959
+Round:  13 User: 17 Train Loss: -0.960
+Round:  13 User: 18 Train Loss: -0.957
+Round:  13 User: 19 Train Loss: -0.960
+Round:  13 User: 20 Train Loss: -0.958
+Round:  13 User: 21 Train Loss: -0.962
+Round:  13 User: 22 Train Loss: -0.957
+Round:  13 User: 23 Train Loss: -0.957
+Round:  13 User: 24 Train Loss: -0.962
+Round:  13 User: 25 Train Loss: -0.957
+Round:  13 User: 26 Train Loss: -0.954
+Round:  13 User: 27 Train Loss: -0.955
+Round:  13 User: 28 Train Loss: -0.960
+Round:  13 User: 29 Train Loss: -0.957
+Round:  13 User: 30 Train Loss: -0.959
+Round:  13 User: 31 Train Loss: -0.957
+Round:  13 User: 32 Train Loss: -0.959
+Round:  13 User: 33 Train Loss: -0.955
+Round:  13 User: 34 Train Loss: -0.957
+Round:  13 User: 35 Train Loss: -0.958
+Round:  13 User: 36 Train Loss: -0.956
+Round:  13 User: 37 Train Loss: -0.960
+Round:  13 User: 38 Train Loss: -0.953
+Round:  13 User: 39 Train Loss: -0.959
+Round:  13 Train Loss: -0.958
+count 40
+Global  NMI = 0.2035 ARI = 0.1011 F = 0.1524 ACC = 0.2221
+Round:  14 User: 0 Train Loss: -0.957
+Round:  14 User: 1 Train Loss: -0.960
+Round:  14 User: 2 Train Loss: -0.957
+Round:  14 User: 3 Train Loss: -0.959
+Round:  14 User: 4 Train Loss: -0.957
+Round:  14 User: 5 Train Loss: -0.960
+Round:  14 User: 6 Train Loss: -0.955
+Round:  14 User: 7 Train Loss: -0.958
+Round:  14 User: 8 Train Loss: -0.956
+Round:  14 User: 9 Train Loss: -0.961
+Round:  14 User: 10 Train Loss: -0.962
+Round:  14 User: 11 Train Loss: -0.956
+Round:  14 User: 12 Train Loss: -0.959
+Round:  14 User: 13 Train Loss: -0.961
+Round:  14 User: 14 Train Loss: -0.964
+Round:  14 User: 15 Train Loss: -0.960
+Round:  14 User: 16 Train Loss: -0.958
+Round:  14 User: 17 Train Loss: -0.960
+Round:  14 User: 18 Train Loss: -0.960
+Round:  14 User: 19 Train Loss: -0.959
+Round:  14 User: 20 Train Loss: -0.960
+Round:  14 User: 21 Train Loss: -0.962
+Round:  14 User: 22 Train Loss: -0.958
+Round:  14 User: 23 Train Loss: -0.960
+Round:  14 User: 24 Train Loss: -0.961
+Round:  14 User: 25 Train Loss: -0.959
+Round:  14 User: 26 Train Loss: -0.958
+Round:  14 User: 27 Train Loss: -0.957
+Round:  14 User: 28 Train Loss: -0.958
+Round:  14 User: 29 Train Loss: -0.959
+Round:  14 User: 30 Train Loss: -0.960
+Round:  14 User: 31 Train Loss: -0.957
+Round:  14 User: 32 Train Loss: -0.960
+Round:  14 User: 33 Train Loss: -0.963
+Round:  14 User: 34 Train Loss: -0.958
+Round:  14 User: 35 Train Loss: -0.956
+Round:  14 User: 36 Train Loss: -0.956
+Round:  14 User: 37 Train Loss: -0.961
+Round:  14 User: 38 Train Loss: -0.955
+Round:  14 User: 39 Train Loss: -0.956
+Round:  14 Train Loss: -0.959
+count 40
+Global  NMI = 0.2024 ARI = 0.1002 F = 0.1516 ACC = 0.2210
+Round:  15 User: 0 Train Loss: -0.959
+Round:  15 User: 1 Train Loss: -0.960
+Round:  15 User: 2 Train Loss: -0.961
+Round:  15 User: 3 Train Loss: -0.958
+Round:  15 User: 4 Train Loss: -0.954
+Round:  15 User: 5 Train Loss: -0.961
+Round:  15 User: 6 Train Loss: -0.960
+Round:  15 User: 7 Train Loss: -0.959
+Round:  15 User: 8 Train Loss: -0.962
+Round:  15 User: 9 Train Loss: -0.961
+Round:  15 User: 10 Train Loss: -0.960
+Round:  15 User: 11 Train Loss: -0.960
+Round:  15 User: 12 Train Loss: -0.964
+Round:  15 User: 13 Train Loss: -0.960
+Round:  15 User: 14 Train Loss: -0.962
+Round:  15 User: 15 Train Loss: -0.960
+Round:  15 User: 16 Train Loss: -0.960
+Round:  15 User: 17 Train Loss: -0.961
+Round:  15 User: 18 Train Loss: -0.963
+Round:  15 User: 19 Train Loss: -0.964
+Round:  15 User: 20 Train Loss: -0.963
+Round:  15 User: 21 Train Loss: -0.963
+Round:  15 User: 22 Train Loss: -0.962
+Round:  15 User: 23 Train Loss: -0.959
+Round:  15 User: 24 Train Loss: -0.963
+Round:  15 User: 25 Train Loss: -0.959
+Round:  15 User: 26 Train Loss: -0.960
+Round:  15 User: 27 Train Loss: -0.954
+Round:  15 User: 28 Train Loss: -0.961
+Round:  15 User: 29 Train Loss: -0.956
+Round:  15 User: 30 Train Loss: -0.959
+Round:  15 User: 31 Train Loss: -0.961
+Round:  15 User: 32 Train Loss: -0.962
+Round:  15 User: 33 Train Loss: -0.958
+Round:  15 User: 34 Train Loss: -0.962
+Round:  15 User: 35 Train Loss: -0.960
+Round:  15 User: 36 Train Loss: -0.963
+Round:  15 User: 37 Train Loss: -0.961
+Round:  15 User: 38 Train Loss: -0.956
+Round:  15 User: 39 Train Loss: -0.958
+Round:  15 Train Loss: -0.960
+count 40
+Global  NMI = 0.2022 ARI = 0.1010 F = 0.1521 ACC = 0.2209
+Round:  16 User: 0 Train Loss: -0.960
+Round:  16 User: 1 Train Loss: -0.960
+Round:  16 User: 2 Train Loss: -0.960
+Round:  16 User: 3 Train Loss: -0.965
+Round:  16 User: 4 Train Loss: -0.960
+Round:  16 User: 5 Train Loss: -0.964
+Round:  16 User: 6 Train Loss: -0.962
+Round:  16 User: 7 Train Loss: -0.959
+Round:  16 User: 8 Train Loss: -0.957
+Round:  16 User: 9 Train Loss: -0.963
+Round:  16 User: 10 Train Loss: -0.965
+Round:  16 User: 11 Train Loss: -0.962
+Round:  16 User: 12 Train Loss: -0.962
+Round:  16 User: 13 Train Loss: -0.962
+Round:  16 User: 14 Train Loss: -0.963
+Round:  16 User: 15 Train Loss: -0.962
+Round:  16 User: 16 Train Loss: -0.963
+Round:  16 User: 17 Train Loss: -0.960
+Round:  16 User: 18 Train Loss: -0.963
+Round:  16 User: 19 Train Loss: -0.964
+Round:  16 User: 20 Train Loss: -0.962
+Round:  16 User: 21 Train Loss: -0.964
+Round:  16 User: 22 Train Loss: -0.958
+Round:  16 User: 23 Train Loss: -0.959
+Round:  16 User: 24 Train Loss: -0.963
+Round:  16 User: 25 Train Loss: -0.961
+Round:  16 User: 26 Train Loss: -0.960
+Round:  16 User: 27 Train Loss: -0.960
+Round:  16 User: 28 Train Loss: -0.964
+Round:  16 User: 29 Train Loss: -0.960
+Round:  16 User: 30 Train Loss: -0.962
+Round:  16 User: 31 Train Loss: -0.960
+Round:  16 User: 32 Train Loss: -0.963
+Round:  16 User: 33 Train Loss: -0.963
+Round:  16 User: 34 Train Loss: -0.959
+Round:  16 User: 35 Train Loss: -0.961
+Round:  16 User: 36 Train Loss: -0.964
+Round:  16 User: 37 Train Loss: -0.964
+Round:  16 User: 38 Train Loss: -0.961
+Round:  16 User: 39 Train Loss: -0.961
+Round:  16 Train Loss: -0.962
+count 40
+Global  NMI = 0.2020 ARI = 0.1002 F = 0.1514 ACC = 0.2205
+Round:  17 User: 0 Train Loss: -0.962
+Round:  17 User: 1 Train Loss: -0.966
+Round:  17 User: 2 Train Loss: -0.962
+Round:  17 User: 3 Train Loss: -0.960
+Round:  17 User: 4 Train Loss: -0.961
+Round:  17 User: 5 Train Loss: -0.963
+Round:  17 User: 6 Train Loss: -0.956
+Round:  17 User: 7 Train Loss: -0.959
+Round:  17 User: 8 Train Loss: -0.961
+Round:  17 User: 9 Train Loss: -0.964
+Round:  17 User: 10 Train Loss: -0.963
+Round:  17 User: 11 Train Loss: -0.964
+Round:  17 User: 12 Train Loss: -0.966
+Round:  17 User: 13 Train Loss: -0.963
+Round:  17 User: 14 Train Loss: -0.964
+Round:  17 User: 15 Train Loss: -0.964
+Round:  17 User: 16 Train Loss: -0.964
+Round:  17 User: 17 Train Loss: -0.962
+Round:  17 User: 18 Train Loss: -0.963
+Round:  17 User: 19 Train Loss: -0.965
+Round:  17 User: 20 Train Loss: -0.961
+Round:  17 User: 21 Train Loss: -0.967
+Round:  17 User: 22 Train Loss: -0.961
+Round:  17 User: 23 Train Loss: -0.965
+Round:  17 User: 24 Train Loss: -0.961
+Round:  17 User: 25 Train Loss: -0.961
+Round:  17 User: 26 Train Loss: -0.962
+Round:  17 User: 27 Train Loss: -0.959
+Round:  17 User: 28 Train Loss: -0.963
+Round:  17 User: 29 Train Loss: -0.960
+Round:  17 User: 30 Train Loss: -0.964
+Round:  17 User: 31 Train Loss: -0.962
+Round:  17 User: 32 Train Loss: -0.965
+Round:  17 User: 33 Train Loss: -0.964
+Round:  17 User: 34 Train Loss: -0.963
+Round:  17 User: 35 Train Loss: -0.964
+Round:  17 User: 36 Train Loss: -0.962
+Round:  17 User: 37 Train Loss: -0.963
+Round:  17 User: 38 Train Loss: -0.958
+Round:  17 User: 39 Train Loss: -0.956
+Round:  17 Train Loss: -0.962
+count 40
+Global  NMI = 0.2017 ARI = 0.0954 F = 0.1489 ACC = 0.2207
+Round:  18 User: 0 Train Loss: -0.962
+Round:  18 User: 1 Train Loss: -0.963
+Round:  18 User: 2 Train Loss: -0.967
+Round:  18 User: 3 Train Loss: -0.961
+Round:  18 User: 4 Train Loss: -0.966
+Round:  18 User: 5 Train Loss: -0.966
+Round:  18 User: 6 Train Loss: -0.964
+Round:  18 User: 7 Train Loss: -0.958
+Round:  18 User: 8 Train Loss: -0.963
+Round:  18 User: 9 Train Loss: -0.965
+Round:  18 User: 10 Train Loss: -0.963
+Round:  18 User: 11 Train Loss: -0.964
+Round:  18 User: 12 Train Loss: -0.962
+Round:  18 User: 13 Train Loss: -0.962
+Round:  18 User: 14 Train Loss: -0.965
+Round:  18 User: 15 Train Loss: -0.963
+Round:  18 User: 16 Train Loss: -0.963
+Round:  18 User: 17 Train Loss: -0.965
+Round:  18 User: 18 Train Loss: -0.960
+Round:  18 User: 19 Train Loss: -0.964
+Round:  18 User: 20 Train Loss: -0.963
+Round:  18 User: 21 Train Loss: -0.965
+Round:  18 User: 22 Train Loss: -0.963
+Round:  18 User: 23 Train Loss: -0.968
+Round:  18 User: 24 Train Loss: -0.962
+Round:  18 User: 25 Train Loss: -0.964
+Round:  18 User: 26 Train Loss: -0.964
+Round:  18 User: 27 Train Loss: -0.963
+Round:  18 User: 28 Train Loss: -0.960
+Round:  18 User: 29 Train Loss: -0.962
+Round:  18 User: 30 Train Loss: -0.965
+Round:  18 User: 31 Train Loss: -0.962
+Round:  18 User: 32 Train Loss: -0.965
+Round:  18 User: 33 Train Loss: -0.964
+Round:  18 User: 34 Train Loss: -0.957
+Round:  18 User: 35 Train Loss: -0.967
+Round:  18 User: 36 Train Loss: -0.964
+Round:  18 User: 37 Train Loss: -0.964
+Round:  18 User: 38 Train Loss: -0.960
+Round:  18 User: 39 Train Loss: -0.962
+Round:  18 Train Loss: -0.963
+count 40
+Global  NMI = 0.2012 ARI = 0.0955 F = 0.1487 ACC = 0.2205
+Round:  19 User: 0 Train Loss: -0.962
+Round:  19 User: 1 Train Loss: -0.967
+Round:  19 User: 2 Train Loss: -0.963
+Round:  19 User: 3 Train Loss: -0.961
+Round:  19 User: 4 Train Loss: -0.962
+Round:  19 User: 5 Train Loss: -0.967
+Round:  19 User: 6 Train Loss: -0.965
+Round:  19 User: 7 Train Loss: -0.958
+Round:  19 User: 8 Train Loss: -0.966
+Round:  19 User: 9 Train Loss: -0.961
+Round:  19 User: 10 Train Loss: -0.964
+Round:  19 User: 11 Train Loss: -0.966
+Round:  19 User: 12 Train Loss: -0.964
+Round:  19 User: 13 Train Loss: -0.964
+Round:  19 User: 14 Train Loss: -0.966
+Round:  19 User: 15 Train Loss: -0.965
+Round:  19 User: 16 Train Loss: -0.968
+Round:  19 User: 17 Train Loss: -0.966
+Round:  19 User: 18 Train Loss: -0.965
+Round:  19 User: 19 Train Loss: -0.965
+Round:  19 User: 20 Train Loss: -0.968
+Round:  19 User: 21 Train Loss: -0.966
+Round:  19 User: 22 Train Loss: -0.964
+Round:  19 User: 23 Train Loss: -0.965
+Round:  19 User: 24 Train Loss: -0.965
+Round:  19 User: 25 Train Loss: -0.961
+Round:  19 User: 26 Train Loss: -0.963
+Round:  19 User: 27 Train Loss: -0.963
+Round:  19 User: 28 Train Loss: -0.962
+Round:  19 User: 29 Train Loss: -0.961
+Round:  19 User: 30 Train Loss: -0.967
+Round:  19 User: 31 Train Loss: -0.962
+Round:  19 User: 32 Train Loss: -0.962
+Round:  19 User: 33 Train Loss: -0.964
+Round:  19 User: 34 Train Loss: -0.964
+Round:  19 User: 35 Train Loss: -0.964
+Round:  19 User: 36 Train Loss: -0.964
+Round:  19 User: 37 Train Loss: -0.963
+Round:  19 User: 38 Train Loss: -0.963
+Round:  19 User: 39 Train Loss: -0.961
+Round:  19 Train Loss: -0.964
+count 40
+Global  NMI = 0.1994 ARI = 0.0980 F = 0.1507 ACC = 0.2205
+Round:  20 User: 0 Train Loss: -0.965
+Round:  20 User: 1 Train Loss: -0.966
+Round:  20 User: 2 Train Loss: -0.967
+Round:  20 User: 3 Train Loss: -0.965
+Round:  20 User: 4 Train Loss: -0.965
+Round:  20 User: 5 Train Loss: -0.965
+Round:  20 User: 6 Train Loss: -0.965
+Round:  20 User: 7 Train Loss: -0.965
+Round:  20 User: 8 Train Loss: -0.965
+Round:  20 User: 9 Train Loss: -0.966
+Round:  20 User: 10 Train Loss: -0.965
+Round:  20 User: 11 Train Loss: -0.965
+Round:  20 User: 12 Train Loss: -0.969
+Round:  20 User: 13 Train Loss: -0.965
+Round:  20 User: 14 Train Loss: -0.968
+Round:  20 User: 15 Train Loss: -0.968
+Round:  20 User: 16 Train Loss: -0.968
+Round:  20 User: 17 Train Loss: -0.966
+Round:  20 User: 18 Train Loss: -0.965
+Round:  20 User: 19 Train Loss: -0.967
+Round:  20 User: 20 Train Loss: -0.969
+Round:  20 User: 21 Train Loss: -0.967
+Round:  20 User: 22 Train Loss: -0.963
+Round:  20 User: 23 Train Loss: -0.961
+Round:  20 User: 24 Train Loss: -0.963
+Round:  20 User: 25 Train Loss: -0.967
+Round:  20 User: 26 Train Loss: -0.965
+Round:  20 User: 27 Train Loss: -0.966
+Round:  20 User: 28 Train Loss: -0.965
+Round:  20 User: 29 Train Loss: -0.963
+Round:  20 User: 30 Train Loss: -0.967
+Round:  20 User: 31 Train Loss: -0.967
+Round:  20 User: 32 Train Loss: -0.967
+Round:  20 User: 33 Train Loss: -0.962
+Round:  20 User: 34 Train Loss: -0.964
+Round:  20 User: 35 Train Loss: -0.967
+Round:  20 User: 36 Train Loss: -0.966
+Round:  20 User: 37 Train Loss: -0.966
+Round:  20 User: 38 Train Loss: -0.963
+Round:  20 User: 39 Train Loss: -0.967
+Round:  20 Train Loss: -0.966
+count 40
+Global  NMI = 0.2000 ARI = 0.0996 F = 0.1507 ACC = 0.2201
+Round:  21 User: 0 Train Loss: -0.966
+Round:  21 User: 1 Train Loss: -0.964
+Round:  21 User: 2 Train Loss: -0.966
+Round:  21 User: 3 Train Loss: -0.964
+Round:  21 User: 4 Train Loss: -0.964
+Round:  21 User: 5 Train Loss: -0.966
+Round:  21 User: 6 Train Loss: -0.968
+Round:  21 User: 7 Train Loss: -0.963
+Round:  21 User: 8 Train Loss: -0.963
+Round:  21 User: 9 Train Loss: -0.969
+Round:  21 User: 10 Train Loss: -0.971
+Round:  21 User: 11 Train Loss: -0.965
+Round:  21 User: 12 Train Loss: -0.966
+Round:  21 User: 13 Train Loss: -0.969
+Round:  21 User: 14 Train Loss: -0.969
+Round:  21 User: 15 Train Loss: -0.964
+Round:  21 User: 16 Train Loss: -0.969
+Round:  21 User: 17 Train Loss: -0.965
+Round:  21 User: 18 Train Loss: -0.964
+Round:  21 User: 19 Train Loss: -0.966
+Round:  21 User: 20 Train Loss: -0.968
+Round:  21 User: 21 Train Loss: -0.966
+Round:  21 User: 22 Train Loss: -0.963
+Round:  21 User: 23 Train Loss: -0.967
+Round:  21 User: 24 Train Loss: -0.963
+Round:  21 User: 25 Train Loss: -0.966
+Round:  21 User: 26 Train Loss: -0.964
+Round:  21 User: 27 Train Loss: -0.965
+Round:  21 User: 28 Train Loss: -0.966
+Round:  21 User: 29 Train Loss: -0.963
+Round:  21 User: 30 Train Loss: -0.971
+Round:  21 User: 31 Train Loss: -0.967
+Round:  21 User: 32 Train Loss: -0.966
+Round:  21 User: 33 Train Loss: -0.963
+Round:  21 User: 34 Train Loss: -0.963
+Round:  21 User: 35 Train Loss: -0.963
+Round:  21 User: 36 Train Loss: -0.965
+Round:  21 User: 37 Train Loss: -0.965
+Round:  21 User: 38 Train Loss: -0.962
+Round:  21 User: 39 Train Loss: -0.967
+Round:  21 Train Loss: -0.966
+count 40
+Global  NMI = 0.2006 ARI = 0.0991 F = 0.1506 ACC = 0.2199
+Round:  22 User: 0 Train Loss: -0.963
+Round:  22 User: 1 Train Loss: -0.964
+Round:  22 User: 2 Train Loss: -0.967
+Round:  22 User: 3 Train Loss: -0.966
+Round:  22 User: 4 Train Loss: -0.966
+Round:  22 User: 5 Train Loss: -0.970
+Round:  22 User: 6 Train Loss: -0.965
+Round:  22 User: 7 Train Loss: -0.965
+Round:  22 User: 8 Train Loss: -0.969
+Round:  22 User: 9 Train Loss: -0.968
+Round:  22 User: 10 Train Loss: -0.969
+Round:  22 User: 11 Train Loss: -0.967
+Round:  22 User: 12 Train Loss: -0.965
+Round:  22 User: 13 Train Loss: -0.965
+Round:  22 User: 14 Train Loss: -0.967
+Round:  22 User: 15 Train Loss: -0.971
+Round:  22 User: 16 Train Loss: -0.967
+Round:  22 User: 17 Train Loss: -0.968
+Round:  22 User: 18 Train Loss: -0.966
+Round:  22 User: 19 Train Loss: -0.968
+Round:  22 User: 20 Train Loss: -0.966
+Round:  22 User: 21 Train Loss: -0.970
+Round:  22 User: 22 Train Loss: -0.969
+Round:  22 User: 23 Train Loss: -0.967
+Round:  22 User: 24 Train Loss: -0.966
+Round:  22 User: 25 Train Loss: -0.966
+Round:  22 User: 26 Train Loss: -0.968
+Round:  22 User: 27 Train Loss: -0.960
+Round:  22 User: 28 Train Loss: -0.967
+Round:  22 User: 29 Train Loss: -0.967
+Round:  22 User: 30 Train Loss: -0.971
+Round:  22 User: 31 Train Loss: -0.964
+Round:  22 User: 32 Train Loss: -0.967
+Round:  22 User: 33 Train Loss: -0.968
+Round:  22 User: 34 Train Loss: -0.965
+Round:  22 User: 35 Train Loss: -0.970
+Round:  22 User: 36 Train Loss: -0.966
+Round:  22 User: 37 Train Loss: -0.966
+Round:  22 User: 38 Train Loss: -0.963
+Round:  22 User: 39 Train Loss: -0.967
+Round:  22 Train Loss: -0.967
+count 40
+Global  NMI = 0.2008 ARI = 0.0993 F = 0.1507 ACC = 0.2205
+Round:  23 User: 0 Train Loss: -0.964
+Round:  23 User: 1 Train Loss: -0.970
+Round:  23 User: 2 Train Loss: -0.969
+Round:  23 User: 3 Train Loss: -0.966
+Round:  23 User: 4 Train Loss: -0.965
+Round:  23 User: 5 Train Loss: -0.967
+Round:  23 User: 6 Train Loss: -0.966
+Round:  23 User: 7 Train Loss: -0.967
+Round:  23 User: 8 Train Loss: -0.967
+Round:  23 User: 9 Train Loss: -0.968
+Round:  23 User: 10 Train Loss: -0.972
+Round:  23 User: 11 Train Loss: -0.965
+Round:  23 User: 12 Train Loss: -0.969
+Round:  23 User: 13 Train Loss: -0.967
+Round:  23 User: 14 Train Loss: -0.969
+Round:  23 User: 15 Train Loss: -0.969
+Round:  23 User: 16 Train Loss: -0.968
+Round:  23 User: 17 Train Loss: -0.970
+Round:  23 User: 18 Train Loss: -0.969
+Round:  23 User: 19 Train Loss: -0.970
+Round:  23 User: 20 Train Loss: -0.971
+Round:  23 User: 21 Train Loss: -0.969
+Round:  23 User: 22 Train Loss: -0.967
+Round:  23 User: 23 Train Loss: -0.968
+Round:  23 User: 24 Train Loss: -0.968
+Round:  23 User: 25 Train Loss: -0.965
+Round:  23 User: 26 Train Loss: -0.968
+Round:  23 User: 27 Train Loss: -0.966
+Round:  23 User: 28 Train Loss: -0.968
+Round:  23 User: 29 Train Loss: -0.964
+Round:  23 User: 30 Train Loss: -0.969
+Round:  23 User: 31 Train Loss: -0.968
+Round:  23 User: 32 Train Loss: -0.970
+Round:  23 User: 33 Train Loss: -0.968
+Round:  23 User: 34 Train Loss: -0.966
+Round:  23 User: 35 Train Loss: -0.970
+Round:  23 User: 36 Train Loss: -0.967
+Round:  23 User: 37 Train Loss: -0.968
+Round:  23 User: 38 Train Loss: -0.966
+Round:  23 User: 39 Train Loss: -0.968
+Round:  23 Train Loss: -0.968
+count 40
+Global  NMI = 0.2013 ARI = 0.0955 F = 0.1489 ACC = 0.2205
+Round:  24 User: 0 Train Loss: -0.966
+Round:  24 User: 1 Train Loss: -0.968
+Round:  24 User: 2 Train Loss: -0.965
+Round:  24 User: 3 Train Loss: -0.964
+Round:  24 User: 4 Train Loss: -0.970
+Round:  24 User: 5 Train Loss: -0.968
+Round:  24 User: 6 Train Loss: -0.966
+Round:  24 User: 7 Train Loss: -0.967
+Round:  24 User: 8 Train Loss: -0.964
+Round:  24 User: 9 Train Loss: -0.966
+Round:  24 User: 10 Train Loss: -0.970
+Round:  24 User: 11 Train Loss: -0.970
+Round:  24 User: 12 Train Loss: -0.968
+Round:  24 User: 13 Train Loss: -0.965
+Round:  24 User: 14 Train Loss: -0.973
+Round:  24 User: 15 Train Loss: -0.970
+Round:  24 User: 16 Train Loss: -0.966
+Round:  24 User: 17 Train Loss: -0.970
+Round:  24 User: 18 Train Loss: -0.964
+Round:  24 User: 19 Train Loss: -0.969
+Round:  24 User: 20 Train Loss: -0.969
+Round:  24 User: 21 Train Loss: -0.968
+Round:  24 User: 22 Train Loss: -0.970
+Round:  24 User: 23 Train Loss: -0.965
+Round:  24 User: 24 Train Loss: -0.965
+Round:  24 User: 25 Train Loss: -0.966
+Round:  24 User: 26 Train Loss: -0.971
+Round:  24 User: 27 Train Loss: -0.967
+Round:  24 User: 28 Train Loss: -0.966
+Round:  24 User: 29 Train Loss: -0.969
+Round:  24 User: 30 Train Loss: -0.968
+Round:  24 User: 31 Train Loss: -0.965
+Round:  24 User: 32 Train Loss: -0.968
+Round:  24 User: 33 Train Loss: -0.967
+Round:  24 User: 34 Train Loss: -0.966
+Round:  24 User: 35 Train Loss: -0.963
+Round:  24 User: 36 Train Loss: -0.969
+Round:  24 User: 37 Train Loss: -0.963
+Round:  24 User: 38 Train Loss: -0.963
+Round:  24 User: 39 Train Loss: -0.967
+Round:  24 Train Loss: -0.967
+count 40
+Global  NMI = 0.2003 ARI = 0.0994 F = 0.1507 ACC = 0.2201
+Round:  25 User: 0 Train Loss: -0.969
+Round:  25 User: 1 Train Loss: -0.970
+Round:  25 User: 2 Train Loss: -0.969
+Round:  25 User: 3 Train Loss: -0.968
+Round:  25 User: 4 Train Loss: -0.967
+Round:  25 User: 5 Train Loss: -0.972
+Round:  25 User: 6 Train Loss: -0.972
+Round:  25 User: 7 Train Loss: -0.966
+Round:  25 User: 8 Train Loss: -0.969
+Round:  25 User: 9 Train Loss: -0.972
+Round:  25 User: 10 Train Loss: -0.973
+Round:  25 User: 11 Train Loss: -0.970
+Round:  25 User: 12 Train Loss: -0.969
+Round:  25 User: 13 Train Loss: -0.967
+Round:  25 User: 14 Train Loss: -0.966
+Round:  25 User: 15 Train Loss: -0.968
+Round:  25 User: 16 Train Loss: -0.972
+Round:  25 User: 17 Train Loss: -0.970
+Round:  25 User: 18 Train Loss: -0.964
+Round:  25 User: 19 Train Loss: -0.971
+Round:  25 User: 20 Train Loss: -0.972
+Round:  25 User: 21 Train Loss: -0.970
+Round:  25 User: 22 Train Loss: -0.969
+Round:  25 User: 23 Train Loss: -0.970
+Round:  25 User: 24 Train Loss: -0.970
+Round:  25 User: 25 Train Loss: -0.970
+Round:  25 User: 26 Train Loss: -0.969
+Round:  25 User: 27 Train Loss: -0.967
+Round:  25 User: 28 Train Loss: -0.967
+Round:  25 User: 29 Train Loss: -0.966
+Round:  25 User: 30 Train Loss: -0.970
+Round:  25 User: 31 Train Loss: -0.968
+Round:  25 User: 32 Train Loss: -0.971
+Round:  25 User: 33 Train Loss: -0.967
+Round:  25 User: 34 Train Loss: -0.965
+Round:  25 User: 35 Train Loss: -0.968
+Round:  25 User: 36 Train Loss: -0.967
+Round:  25 User: 37 Train Loss: -0.972
+Round:  25 User: 38 Train Loss: -0.967
+Round:  25 User: 39 Train Loss: -0.968
+Round:  25 Train Loss: -0.969
+count 40
+Global  NMI = 0.2007 ARI = 0.0992 F = 0.1505 ACC = 0.2203
+Round:  26 User: 0 Train Loss: -0.965
+Round:  26 User: 1 Train Loss: -0.970
+Round:  26 User: 2 Train Loss: -0.969
+Round:  26 User: 3 Train Loss: -0.967
+Round:  26 User: 4 Train Loss: -0.970
+Round:  26 User: 5 Train Loss: -0.973
+Round:  26 User: 6 Train Loss: -0.968
+Round:  26 User: 7 Train Loss: -0.965
+Round:  26 User: 8 Train Loss: -0.970
+Round:  26 User: 9 Train Loss: -0.971
+Round:  26 User: 10 Train Loss: -0.971
+Round:  26 User: 11 Train Loss: -0.969
+Round:  26 User: 12 Train Loss: -0.968
+Round:  26 User: 13 Train Loss: -0.968
+Round:  26 User: 14 Train Loss: -0.974
+Round:  26 User: 15 Train Loss: -0.970
+Round:  26 User: 16 Train Loss: -0.970
+Round:  26 User: 17 Train Loss: -0.972
+Round:  26 User: 18 Train Loss: -0.971
+Round:  26 User: 19 Train Loss: -0.970
+Round:  26 User: 20 Train Loss: -0.969
+Round:  26 User: 21 Train Loss: -0.973
+Round:  26 User: 22 Train Loss: -0.967
+Round:  26 User: 23 Train Loss: -0.970
+Round:  26 User: 24 Train Loss: -0.970
+Round:  26 User: 25 Train Loss: -0.972
+Round:  26 User: 26 Train Loss: -0.969
+Round:  26 User: 27 Train Loss: -0.968
+Round:  26 User: 28 Train Loss: -0.969
+Round:  26 User: 29 Train Loss: -0.968
+Round:  26 User: 30 Train Loss: -0.973
+Round:  26 User: 31 Train Loss: -0.969
+Round:  26 User: 32 Train Loss: -0.971
+Round:  26 User: 33 Train Loss: -0.968
+Round:  26 User: 34 Train Loss: -0.967
+Round:  26 User: 35 Train Loss: -0.971
+Round:  26 User: 36 Train Loss: -0.969
+Round:  26 User: 37 Train Loss: -0.969
+Round:  26 User: 38 Train Loss: -0.967
+Round:  26 User: 39 Train Loss: -0.967
+Round:  26 Train Loss: -0.969
+count 40
+Global  NMI = 0.2007 ARI = 0.0995 F = 0.1507 ACC = 0.2203
+Round:  27 User: 0 Train Loss: -0.968
+Round:  27 User: 1 Train Loss: -0.969
+Round:  27 User: 2 Train Loss: -0.968
+Round:  27 User: 3 Train Loss: -0.967
+Round:  27 User: 4 Train Loss: -0.965
+Round:  27 User: 5 Train Loss: -0.974
+Round:  27 User: 6 Train Loss: -0.972
+Round:  27 User: 7 Train Loss: -0.970
+Round:  27 User: 8 Train Loss: -0.971
+Round:  27 User: 9 Train Loss: -0.974
+Round:  27 User: 10 Train Loss: -0.976
+Round:  27 User: 11 Train Loss: -0.972
+Round:  27 User: 12 Train Loss: -0.970
+Round:  27 User: 13 Train Loss: -0.972
+Round:  27 User: 14 Train Loss: -0.973
+Round:  27 User: 15 Train Loss: -0.975
+Round:  27 User: 16 Train Loss: -0.972
+Round:  27 User: 17 Train Loss: -0.971
+Round:  27 User: 18 Train Loss: -0.965
+Round:  27 User: 19 Train Loss: -0.971
+Round:  27 User: 20 Train Loss: -0.973
+Round:  27 User: 21 Train Loss: -0.974
+Round:  27 User: 22 Train Loss: -0.970
+Round:  27 User: 23 Train Loss: -0.974
+Round:  27 User: 24 Train Loss: -0.972
+Round:  27 User: 25 Train Loss: -0.971
+Round:  27 User: 26 Train Loss: -0.969
+Round:  27 User: 27 Train Loss: -0.967
+Round:  27 User: 28 Train Loss: -0.971
+Round:  27 User: 29 Train Loss: -0.971
+Round:  27 User: 30 Train Loss: -0.973
+Round:  27 User: 31 Train Loss: -0.971
+Round:  27 User: 32 Train Loss: -0.971
+Round:  27 User: 33 Train Loss: -0.969
+Round:  27 User: 34 Train Loss: -0.968
+Round:  27 User: 35 Train Loss: -0.972
+Round:  27 User: 36 Train Loss: -0.967
+Round:  27 User: 37 Train Loss: -0.970
+Round:  27 User: 38 Train Loss: -0.966
+Round:  27 User: 39 Train Loss: -0.973
+Round:  27 Train Loss: -0.971
+count 40
+Global  NMI = 0.2005 ARI = 0.0990 F = 0.1502 ACC = 0.2203
+Round:  28 User: 0 Train Loss: -0.966
+Round:  28 User: 1 Train Loss: -0.966
+Round:  28 User: 2 Train Loss: -0.972
+Round:  28 User: 3 Train Loss: -0.970
+Round:  28 User: 4 Train Loss: -0.968
+Round:  28 User: 5 Train Loss: -0.974
+Round:  28 User: 6 Train Loss: -0.970
+Round:  28 User: 7 Train Loss: -0.971
+Round:  28 User: 8 Train Loss: -0.974
+Round:  28 User: 9 Train Loss: -0.974
+Round:  28 User: 10 Train Loss: -0.976
+Round:  28 User: 11 Train Loss: -0.971
+Round:  28 User: 12 Train Loss: -0.967
+Round:  28 User: 13 Train Loss: -0.971
+Round:  28 User: 14 Train Loss: -0.976
+Round:  28 User: 15 Train Loss: -0.974
+Round:  28 User: 16 Train Loss: -0.971
+Round:  28 User: 17 Train Loss: -0.972
+Round:  28 User: 18 Train Loss: -0.972
+Round:  28 User: 19 Train Loss: -0.968
+Round:  28 User: 20 Train Loss: -0.970
+Round:  28 User: 21 Train Loss: -0.974
+Round:  28 User: 22 Train Loss: -0.972
+Round:  28 User: 23 Train Loss: -0.971
+Round:  28 User: 24 Train Loss: -0.969
+Round:  28 User: 25 Train Loss: -0.971
+Round:  28 User: 26 Train Loss: -0.972
+Round:  28 User: 27 Train Loss: -0.972
+Round:  28 User: 28 Train Loss: -0.972
+Round:  28 User: 29 Train Loss: -0.969
+Round:  28 User: 30 Train Loss: -0.972
+Round:  28 User: 31 Train Loss: -0.968
+Round:  28 User: 32 Train Loss: -0.973
+Round:  28 User: 33 Train Loss: -0.969
+Round:  28 User: 34 Train Loss: -0.968
+Round:  28 User: 35 Train Loss: -0.970
+Round:  28 User: 36 Train Loss: -0.970
+Round:  28 User: 37 Train Loss: -0.969
+Round:  28 User: 38 Train Loss: -0.969
+Round:  28 User: 39 Train Loss: -0.970
+Round:  28 Train Loss: -0.971
+count 40
+Global  NMI = 0.2006 ARI = 0.0987 F = 0.1501 ACC = 0.2201
+Round:  29 User: 0 Train Loss: -0.969
+Round:  29 User: 1 Train Loss: -0.975
+Round:  29 User: 2 Train Loss: -0.973
+Round:  29 User: 3 Train Loss: -0.973
+Round:  29 User: 4 Train Loss: -0.969
+Round:  29 User: 5 Train Loss: -0.974
+Round:  29 User: 6 Train Loss: -0.970
+Round:  29 User: 7 Train Loss: -0.968
+Round:  29 User: 8 Train Loss: -0.973
+Round:  29 User: 9 Train Loss: -0.975
+Round:  29 User: 10 Train Loss: -0.972
+Round:  29 User: 11 Train Loss: -0.969
+Round:  29 User: 12 Train Loss: -0.972
+Round:  29 User: 13 Train Loss: -0.971
+Round:  29 User: 14 Train Loss: -0.971
+Round:  29 User: 15 Train Loss: -0.972
+Round:  29 User: 16 Train Loss: -0.970
+Round:  29 User: 17 Train Loss: -0.973
+Round:  29 User: 18 Train Loss: -0.972
+Round:  29 User: 19 Train Loss: -0.971
+Round:  29 User: 20 Train Loss: -0.973
+Round:  29 User: 21 Train Loss: -0.969
+Round:  29 User: 22 Train Loss: -0.969
+Round:  29 User: 23 Train Loss: -0.972
+Round:  29 User: 24 Train Loss: -0.971
+Round:  29 User: 25 Train Loss: -0.973
+Round:  29 User: 26 Train Loss: -0.971
+Round:  29 User: 27 Train Loss: -0.974
+Round:  29 User: 28 Train Loss: -0.969
+Round:  29 User: 29 Train Loss: -0.972
+Round:  29 User: 30 Train Loss: -0.970
+Round:  29 User: 31 Train Loss: -0.974
+Round:  29 User: 32 Train Loss: -0.973
+Round:  29 User: 33 Train Loss: -0.974
+Round:  29 User: 34 Train Loss: -0.968
+Round:  29 User: 35 Train Loss: -0.973
+Round:  29 User: 36 Train Loss: -0.972
+Round:  29 User: 37 Train Loss: -0.972
+Round:  29 User: 38 Train Loss: -0.969
+Round:  29 User: 39 Train Loss: -0.973
+Round:  29 Train Loss: -0.972
+count 40
+Global  NMI = 0.2007 ARI = 0.0943 F = 0.1482 ACC = 0.2199
+Round:  30 User: 0 Train Loss: -0.969
+Round:  30 User: 1 Train Loss: -0.970
+Round:  30 User: 2 Train Loss: -0.972
+Round:  30 User: 3 Train Loss: -0.971
+Round:  30 User: 4 Train Loss: -0.972
+Round:  30 User: 5 Train Loss: -0.973
+Round:  30 User: 6 Train Loss: -0.970
+Round:  30 User: 7 Train Loss: -0.968
+Round:  30 User: 8 Train Loss: -0.968
+Round:  30 User: 9 Train Loss: -0.972
+Round:  30 User: 10 Train Loss: -0.974
+Round:  30 User: 11 Train Loss: -0.974
+Round:  30 User: 12 Train Loss: -0.972
+Round:  30 User: 13 Train Loss: -0.969
+Round:  30 User: 14 Train Loss: -0.971
+Round:  30 User: 15 Train Loss: -0.966
+Round:  30 User: 16 Train Loss: -0.969
+Round:  30 User: 17 Train Loss: -0.971
+Round:  30 User: 18 Train Loss: -0.968
+Round:  30 User: 19 Train Loss: -0.973
+Round:  30 User: 20 Train Loss: -0.972
+Round:  30 User: 21 Train Loss: -0.974
+Round:  30 User: 22 Train Loss: -0.970
+Round:  30 User: 23 Train Loss: -0.971
+Round:  30 User: 24 Train Loss: -0.969
+Round:  30 User: 25 Train Loss: -0.973
+Round:  30 User: 26 Train Loss: -0.970
+Round:  30 User: 27 Train Loss: -0.966
+Round:  30 User: 28 Train Loss: -0.971
+Round:  30 User: 29 Train Loss: -0.970
+Round:  30 User: 30 Train Loss: -0.972
+Round:  30 User: 31 Train Loss: -0.971
+Round:  30 User: 32 Train Loss: -0.968
+Round:  30 User: 33 Train Loss: -0.970
+Round:  30 User: 34 Train Loss: -0.969
+Round:  30 User: 35 Train Loss: -0.971
+Round:  30 User: 36 Train Loss: -0.974
+Round:  30 User: 37 Train Loss: -0.970
+Round:  30 User: 38 Train Loss: -0.966
+Round:  30 User: 39 Train Loss: -0.970
+Round:  30 Train Loss: -0.970
+count 40
+Global  NMI = 0.2008 ARI = 0.0946 F = 0.1482 ACC = 0.2200
+Round:  31 User: 0 Train Loss: -0.973
+Round:  31 User: 1 Train Loss: -0.971
+Round:  31 User: 2 Train Loss: -0.975
+Round:  31 User: 3 Train Loss: -0.972
+Round:  31 User: 4 Train Loss: -0.971
+Round:  31 User: 5 Train Loss: -0.968
+Round:  31 User: 6 Train Loss: -0.968
+Round:  31 User: 7 Train Loss: -0.972
+Round:  31 User: 8 Train Loss: -0.970
+Round:  31 User: 9 Train Loss: -0.974
+Round:  31 User: 10 Train Loss: -0.973
+Round:  31 User: 11 Train Loss: -0.973
+Round:  31 User: 12 Train Loss: -0.972
+Round:  31 User: 13 Train Loss: -0.971
+Round:  31 User: 14 Train Loss: -0.976
+Round:  31 User: 15 Train Loss: -0.972
+Round:  31 User: 16 Train Loss: -0.972
+Round:  31 User: 17 Train Loss: -0.973
+Round:  31 User: 18 Train Loss: -0.970
+Round:  31 User: 19 Train Loss: -0.974
+Round:  31 User: 20 Train Loss: -0.972
+Round:  31 User: 21 Train Loss: -0.973
+Round:  31 User: 22 Train Loss: -0.971
+Round:  31 User: 23 Train Loss: -0.976
+Round:  31 User: 24 Train Loss: -0.971
+Round:  31 User: 25 Train Loss: -0.975
+Round:  31 User: 26 Train Loss: -0.971
+Round:  31 User: 27 Train Loss: -0.973
+Round:  31 User: 28 Train Loss: -0.973
+Round:  31 User: 29 Train Loss: -0.971
+Round:  31 User: 30 Train Loss: -0.973
+Round:  31 User: 31 Train Loss: -0.971
+Round:  31 User: 32 Train Loss: -0.975
+Round:  31 User: 33 Train Loss: -0.973
+Round:  31 User: 34 Train Loss: -0.966
+Round:  31 User: 35 Train Loss: -0.973
+Round:  31 User: 36 Train Loss: -0.972
+Round:  31 User: 37 Train Loss: -0.969
+Round:  31 User: 38 Train Loss: -0.969
+Round:  31 User: 39 Train Loss: -0.975
+Round:  31 Train Loss: -0.972
+count 40
+Global  NMI = 0.2008 ARI = 0.0946 F = 0.1481 ACC = 0.2199
+Round:  32 User: 0 Train Loss: -0.971
+Round:  32 User: 1 Train Loss: -0.976
+Round:  32 User: 2 Train Loss: -0.968
+Round:  32 User: 3 Train Loss: -0.971
+Round:  32 User: 4 Train Loss: -0.969
+Round:  32 User: 5 Train Loss: -0.973
+Round:  32 User: 6 Train Loss: -0.968
+Round:  32 User: 7 Train Loss: -0.973
+Round:  32 User: 8 Train Loss: -0.972
+Round:  32 User: 9 Train Loss: -0.975
+Round:  32 User: 10 Train Loss: -0.974
+Round:  32 User: 11 Train Loss: -0.971
+Round:  32 User: 12 Train Loss: -0.973
+Round:  32 User: 13 Train Loss: -0.975
+Round:  32 User: 14 Train Loss: -0.970
+Round:  32 User: 15 Train Loss: -0.973
+Round:  32 User: 16 Train Loss: -0.969
+Round:  32 User: 17 Train Loss: -0.973
+Round:  32 User: 18 Train Loss: -0.971
+Round:  32 User: 19 Train Loss: -0.970
+Round:  32 User: 20 Train Loss: -0.972
+Round:  32 User: 21 Train Loss: -0.972
+Round:  32 User: 22 Train Loss: -0.974
+Round:  32 User: 23 Train Loss: -0.976
+Round:  32 User: 24 Train Loss: -0.975
+Round:  32 User: 25 Train Loss: -0.974
+Round:  32 User: 26 Train Loss: -0.973
+Round:  32 User: 27 Train Loss: -0.972
+Round:  32 User: 28 Train Loss: -0.975
+Round:  32 User: 29 Train Loss: -0.967
+Round:  32 User: 30 Train Loss: -0.972
+Round:  32 User: 31 Train Loss: -0.975
+Round:  32 User: 32 Train Loss: -0.972
+Round:  32 User: 33 Train Loss: -0.970
+Round:  32 User: 34 Train Loss: -0.969
+Round:  32 User: 35 Train Loss: -0.973
+Round:  32 User: 36 Train Loss: -0.973
+Round:  32 User: 37 Train Loss: -0.972
+Round:  32 User: 38 Train Loss: -0.967
+Round:  32 User: 39 Train Loss: -0.974
+Round:  32 Train Loss: -0.972
+count 40
+Global  NMI = 0.2005 ARI = 0.0992 F = 0.1507 ACC = 0.2204
+Round:  33 User: 0 Train Loss: -0.971
+Round:  33 User: 1 Train Loss: -0.970
+Round:  33 User: 2 Train Loss: -0.973
+Round:  33 User: 3 Train Loss: -0.973
+Round:  33 User: 4 Train Loss: -0.972
+Round:  33 User: 5 Train Loss: -0.973
+Round:  33 User: 6 Train Loss: -0.971
+Round:  33 User: 7 Train Loss: -0.969
+Round:  33 User: 8 Train Loss: -0.974
+Round:  33 User: 9 Train Loss: -0.976
+Round:  33 User: 10 Train Loss: -0.977
+Round:  33 User: 11 Train Loss: -0.972
+Round:  33 User: 12 Train Loss: -0.974
+Round:  33 User: 13 Train Loss: -0.973
+Round:  33 User: 14 Train Loss: -0.975
+Round:  33 User: 15 Train Loss: -0.976
+Round:  33 User: 16 Train Loss: -0.971
+Round:  33 User: 17 Train Loss: -0.975
+Round:  33 User: 18 Train Loss: -0.969
+Round:  33 User: 19 Train Loss: -0.975
+Round:  33 User: 20 Train Loss: -0.978
+Round:  33 User: 21 Train Loss: -0.977
+Round:  33 User: 22 Train Loss: -0.972
+Round:  33 User: 23 Train Loss: -0.972
+Round:  33 User: 24 Train Loss: -0.968
+Round:  33 User: 25 Train Loss: -0.975
+Round:  33 User: 26 Train Loss: -0.973
+Round:  33 User: 27 Train Loss: -0.974
+Round:  33 User: 28 Train Loss: -0.969
+Round:  33 User: 29 Train Loss: -0.975
+Round:  33 User: 30 Train Loss: -0.977
+Round:  33 User: 31 Train Loss: -0.971
+Round:  33 User: 32 Train Loss: -0.973
+Round:  33 User: 33 Train Loss: -0.970
+Round:  33 User: 34 Train Loss: -0.973
+Round:  33 User: 35 Train Loss: -0.975
+Round:  33 User: 36 Train Loss: -0.974
+Round:  33 User: 37 Train Loss: -0.973
+Round:  33 User: 38 Train Loss: -0.970
+Round:  33 User: 39 Train Loss: -0.975
+Round:  33 Train Loss: -0.973
+count 40
+Global  NMI = 0.2007 ARI = 0.0995 F = 0.1508 ACC = 0.2207
+Round:  34 User: 0 Train Loss: -0.972
+Round:  34 User: 1 Train Loss: -0.971
+Round:  34 User: 2 Train Loss: -0.973
+Round:  34 User: 3 Train Loss: -0.975
+Round:  34 User: 4 Train Loss: -0.972
+Round:  34 User: 5 Train Loss: -0.975
+Round:  34 User: 6 Train Loss: -0.974
+Round:  34 User: 7 Train Loss: -0.974
+Round:  34 User: 8 Train Loss: -0.971
+Round:  34 User: 9 Train Loss: -0.973
+Round:  34 User: 10 Train Loss: -0.976
+Round:  34 User: 11 Train Loss: -0.973
+Round:  34 User: 12 Train Loss: -0.973
+Round:  34 User: 13 Train Loss: -0.975
+Round:  34 User: 14 Train Loss: -0.977
+Round:  34 User: 15 Train Loss: -0.973
+Round:  34 User: 16 Train Loss: -0.974
+Round:  34 User: 17 Train Loss: -0.973
+Round:  34 User: 18 Train Loss: -0.972
+Round:  34 User: 19 Train Loss: -0.974
+Round:  34 User: 20 Train Loss: -0.976
+Round:  34 User: 21 Train Loss: -0.975
+Round:  34 User: 22 Train Loss: -0.971
+Round:  34 User: 23 Train Loss: -0.974
+Round:  34 User: 24 Train Loss: -0.972
+Round:  34 User: 25 Train Loss: -0.975
+Round:  34 User: 26 Train Loss: -0.975
+Round:  34 User: 27 Train Loss: -0.973
+Round:  34 User: 28 Train Loss: -0.977
+Round:  34 User: 29 Train Loss: -0.970
+Round:  34 User: 30 Train Loss: -0.973
+Round:  34 User: 31 Train Loss: -0.973
+Round:  34 User: 32 Train Loss: -0.973
+Round:  34 User: 33 Train Loss: -0.970
+Round:  34 User: 34 Train Loss: -0.974
+Round:  34 User: 35 Train Loss: -0.976
+Round:  34 User: 36 Train Loss: -0.972
+Round:  34 User: 37 Train Loss: -0.974
+Round:  34 User: 38 Train Loss: -0.969
+Round:  34 User: 39 Train Loss: -0.973
+Round:  34 Train Loss: -0.973
+count 40
+Global  NMI = 0.2006 ARI = 0.0991 F = 0.1505 ACC = 0.2205
+Round:  35 User: 0 Train Loss: -0.975
+Round:  35 User: 1 Train Loss: -0.976
+Round:  35 User: 2 Train Loss: -0.973
+Round:  35 User: 3 Train Loss: -0.974
+Round:  35 User: 4 Train Loss: -0.976
+Round:  35 User: 5 Train Loss: -0.977
+Round:  35 User: 6 Train Loss: -0.974
+Round:  35 User: 7 Train Loss: -0.975
+Round:  35 User: 8 Train Loss: -0.975
+Round:  35 User: 9 Train Loss: -0.976
+Round:  35 User: 10 Train Loss: -0.976
+Round:  35 User: 11 Train Loss: -0.976
+Round:  35 User: 12 Train Loss: -0.975
+Round:  35 User: 13 Train Loss: -0.977
+Round:  35 User: 14 Train Loss: -0.976
+Round:  35 User: 15 Train Loss: -0.974
+Round:  35 User: 16 Train Loss: -0.970
+Round:  35 User: 17 Train Loss: -0.977
+Round:  35 User: 18 Train Loss: -0.973
+Round:  35 User: 19 Train Loss: -0.976
+Round:  35 User: 20 Train Loss: -0.975
+Round:  35 User: 21 Train Loss: -0.974
+Round:  35 User: 22 Train Loss: -0.969
+Round:  35 User: 23 Train Loss: -0.976
+Round:  35 User: 24 Train Loss: -0.972
+Round:  35 User: 25 Train Loss: -0.976
+Round:  35 User: 26 Train Loss: -0.972
+Round:  35 User: 27 Train Loss: -0.971
+Round:  35 User: 28 Train Loss: -0.975
+Round:  35 User: 29 Train Loss: -0.972
+Round:  35 User: 30 Train Loss: -0.975
+Round:  35 User: 31 Train Loss: -0.974
+Round:  35 User: 32 Train Loss: -0.974
+Round:  35 User: 33 Train Loss: -0.977
+Round:  35 User: 34 Train Loss: -0.972
+Round:  35 User: 35 Train Loss: -0.977
+Round:  35 User: 36 Train Loss: -0.971
+Round:  35 User: 37 Train Loss: -0.973
+Round:  35 User: 38 Train Loss: -0.971
+Round:  35 User: 39 Train Loss: -0.975
+Round:  35 Train Loss: -0.974
+count 40
+Global  NMI = 0.2007 ARI = 0.0991 F = 0.1505 ACC = 0.2203
+Round:  36 User: 0 Train Loss: -0.971
+Round:  36 User: 1 Train Loss: -0.976
+Round:  36 User: 2 Train Loss: -0.975
+Round:  36 User: 3 Train Loss: -0.974
+Round:  36 User: 4 Train Loss: -0.975
+Round:  36 User: 5 Train Loss: -0.975
+Round:  36 User: 6 Train Loss: -0.975
+Round:  36 User: 7 Train Loss: -0.974
+Round:  36 User: 8 Train Loss: -0.975
+Round:  36 User: 9 Train Loss: -0.974
+Round:  36 User: 10 Train Loss: -0.979
+Round:  36 User: 11 Train Loss: -0.974
+Round:  36 User: 12 Train Loss: -0.975
+Round:  36 User: 13 Train Loss: -0.976
+Round:  36 User: 14 Train Loss: -0.979
+Round:  36 User: 15 Train Loss: -0.974
+Round:  36 User: 16 Train Loss: -0.973
+Round:  36 User: 17 Train Loss: -0.977
+Round:  36 User: 18 Train Loss: -0.974
+Round:  36 User: 19 Train Loss: -0.977
+Round:  36 User: 20 Train Loss: -0.979
+Round:  36 User: 21 Train Loss: -0.971
+Round:  36 User: 22 Train Loss: -0.973
+Round:  36 User: 23 Train Loss: -0.973
+Round:  36 User: 24 Train Loss: -0.977
+Round:  36 User: 25 Train Loss: -0.974
+Round:  36 User: 26 Train Loss: -0.974
+Round:  36 User: 27 Train Loss: -0.974
+Round:  36 User: 28 Train Loss: -0.972
+Round:  36 User: 29 Train Loss: -0.974
+Round:  36 User: 30 Train Loss: -0.976
+Round:  36 User: 31 Train Loss: -0.975
+Round:  36 User: 32 Train Loss: -0.980
+Round:  36 User: 33 Train Loss: -0.976
+Round:  36 User: 34 Train Loss: -0.971
+Round:  36 User: 35 Train Loss: -0.976
+Round:  36 User: 36 Train Loss: -0.975
+Round:  36 User: 37 Train Loss: -0.974
+Round:  36 User: 38 Train Loss: -0.972
+Round:  36 User: 39 Train Loss: -0.975
+Round:  36 Train Loss: -0.975
+count 40
+Global  NMI = 0.2007 ARI = 0.0991 F = 0.1502 ACC = 0.2203
+Round:  37 User: 0 Train Loss: -0.978
+Round:  37 User: 1 Train Loss: -0.974
+Round:  37 User: 2 Train Loss: -0.973
+Round:  37 User: 3 Train Loss: -0.976
+Round:  37 User: 4 Train Loss: -0.977
+Round:  37 User: 5 Train Loss: -0.976
+Round:  37 User: 6 Train Loss: -0.972
+Round:  37 User: 7 Train Loss: -0.974
+Round:  37 User: 8 Train Loss: -0.978
+Round:  37 User: 9 Train Loss: -0.979
+Round:  37 User: 10 Train Loss: -0.976
+Round:  37 User: 11 Train Loss: -0.975
+Round:  37 User: 12 Train Loss: -0.980
+Round:  37 User: 13 Train Loss: -0.975
+Round:  37 User: 14 Train Loss: -0.977
+Round:  37 User: 15 Train Loss: -0.976
+Round:  37 User: 16 Train Loss: -0.973
+Round:  37 User: 17 Train Loss: -0.975
+Round:  37 User: 18 Train Loss: -0.978
+Round:  37 User: 19 Train Loss: -0.975
+Round:  37 User: 20 Train Loss: -0.972
+Round:  37 User: 21 Train Loss: -0.976
+Round:  37 User: 22 Train Loss: -0.972
+Round:  37 User: 23 Train Loss: -0.977
+Round:  37 User: 24 Train Loss: -0.974
+Round:  37 User: 25 Train Loss: -0.974
+Round:  37 User: 26 Train Loss: -0.975
+Round:  37 User: 27 Train Loss: -0.975
+Round:  37 User: 28 Train Loss: -0.977
+Round:  37 User: 29 Train Loss: -0.974
+Round:  37 User: 30 Train Loss: -0.979
+Round:  37 User: 31 Train Loss: -0.973
+Round:  37 User: 32 Train Loss: -0.973
+Round:  37 User: 33 Train Loss: -0.972
+Round:  37 User: 34 Train Loss: -0.972
+Round:  37 User: 35 Train Loss: -0.974
+Round:  37 User: 36 Train Loss: -0.972
+Round:  37 User: 37 Train Loss: -0.976
+Round:  37 User: 38 Train Loss: -0.975
+Round:  37 User: 39 Train Loss: -0.975
+Round:  37 Train Loss: -0.975
+count 40
+Global  NMI = 0.2007 ARI = 0.0991 F = 0.1503 ACC = 0.2203
+Round:  38 User: 0 Train Loss: -0.974
+Round:  38 User: 1 Train Loss: -0.974
+Round:  38 User: 2 Train Loss: -0.975
+Round:  38 User: 3 Train Loss: -0.975
+Round:  38 User: 4 Train Loss: -0.975
+Round:  38 User: 5 Train Loss: -0.978
+Round:  38 User: 6 Train Loss: -0.971
+Round:  38 User: 7 Train Loss: -0.973
+Round:  38 User: 8 Train Loss: -0.972
+Round:  38 User: 9 Train Loss: -0.979
+Round:  38 User: 10 Train Loss: -0.979
+Round:  38 User: 11 Train Loss: -0.972
+Round:  38 User: 12 Train Loss: -0.975
+Round:  38 User: 13 Train Loss: -0.976
+Round:  38 User: 14 Train Loss: -0.975
+Round:  38 User: 15 Train Loss: -0.976
+Round:  38 User: 16 Train Loss: -0.980
+Round:  38 User: 17 Train Loss: -0.978
+Round:  38 User: 18 Train Loss: -0.974
+Round:  38 User: 19 Train Loss: -0.976
+Round:  38 User: 20 Train Loss: -0.978
+Round:  38 User: 21 Train Loss: -0.977
+Round:  38 User: 22 Train Loss: -0.977
+Round:  38 User: 23 Train Loss: -0.977
+Round:  38 User: 24 Train Loss: -0.976
+Round:  38 User: 25 Train Loss: -0.974
+Round:  38 User: 26 Train Loss: -0.973
+Round:  38 User: 27 Train Loss: -0.975
+Round:  38 User: 28 Train Loss: -0.975
+Round:  38 User: 29 Train Loss: -0.977
+Round:  38 User: 30 Train Loss: -0.976
+Round:  38 User: 31 Train Loss: -0.976
+Round:  38 User: 32 Train Loss: -0.975
+Round:  38 User: 33 Train Loss: -0.974
+Round:  38 User: 34 Train Loss: -0.973
+Round:  38 User: 35 Train Loss: -0.977
+Round:  38 User: 36 Train Loss: -0.976
+Round:  38 User: 37 Train Loss: -0.974
+Round:  38 User: 38 Train Loss: -0.973
+Round:  38 User: 39 Train Loss: -0.973
+Round:  38 Train Loss: -0.975
+count 40
+Global  NMI = 0.2008 ARI = 0.0992 F = 0.1504 ACC = 0.2208
+Round:  39 User: 0 Train Loss: -0.973
+Round:  39 User: 1 Train Loss: -0.977
+Round:  39 User: 2 Train Loss: -0.977
+Round:  39 User: 3 Train Loss: -0.976
+Round:  39 User: 4 Train Loss: -0.975
+Round:  39 User: 5 Train Loss: -0.980
+Round:  39 User: 6 Train Loss: -0.974
+Round:  39 User: 7 Train Loss: -0.974
+Round:  39 User: 8 Train Loss: -0.975
+Round:  39 User: 9 Train Loss: -0.977
+Round:  39 User: 10 Train Loss: -0.980
+Round:  39 User: 11 Train Loss: -0.977
+Round:  39 User: 12 Train Loss: -0.978
+Round:  39 User: 13 Train Loss: -0.974
+Round:  39 User: 14 Train Loss: -0.977
+Round:  39 User: 15 Train Loss: -0.976
+Round:  39 User: 16 Train Loss: -0.972
+Round:  39 User: 17 Train Loss: -0.979
+Round:  39 User: 18 Train Loss: -0.977
+Round:  39 User: 19 Train Loss: -0.979
+Round:  39 User: 20 Train Loss: -0.976
+Round:  39 User: 21 Train Loss: -0.976
+Round:  39 User: 22 Train Loss: -0.976
+Round:  39 User: 23 Train Loss: -0.978
+Round:  39 User: 24 Train Loss: -0.976
+Round:  39 User: 25 Train Loss: -0.975
+Round:  39 User: 26 Train Loss: -0.975
+Round:  39 User: 27 Train Loss: -0.976
+Round:  39 User: 28 Train Loss: -0.975
+Round:  39 User: 29 Train Loss: -0.975
+Round:  39 User: 30 Train Loss: -0.977
+Round:  39 User: 31 Train Loss: -0.977
+Round:  39 User: 32 Train Loss: -0.976
+Round:  39 User: 33 Train Loss: -0.974
+Round:  39 User: 34 Train Loss: -0.975
+Round:  39 User: 35 Train Loss: -0.977
+Round:  39 User: 36 Train Loss: -0.977
+Round:  39 User: 37 Train Loss: -0.973
+Round:  39 User: 38 Train Loss: -0.971
+Round:  39 User: 39 Train Loss: -0.974
+Round:  39 Train Loss: -0.976
+count 40
+Global  NMI = 0.2008 ARI = 0.0992 F = 0.1504 ACC = 0.2206
+Round:  40 User: 0 Train Loss: -0.976
+Round:  40 User: 1 Train Loss: -0.977
+Round:  40 User: 2 Train Loss: -0.978
+Round:  40 User: 3 Train Loss: -0.975
+Round:  40 User: 4 Train Loss: -0.971
+Round:  40 User: 5 Train Loss: -0.976
+Round:  40 User: 6 Train Loss: -0.974
+Round:  40 User: 7 Train Loss: -0.976
+Round:  40 User: 8 Train Loss: -0.974
+Round:  40 User: 9 Train Loss: -0.978
+Round:  40 User: 10 Train Loss: -0.976
+Round:  40 User: 11 Train Loss: -0.976
+Round:  40 User: 12 Train Loss: -0.978
+Round:  40 User: 13 Train Loss: -0.975
+Round:  40 User: 14 Train Loss: -0.979
+Round:  40 User: 15 Train Loss: -0.975
+Round:  40 User: 16 Train Loss: -0.975
+Round:  40 User: 17 Train Loss: -0.977
+Round:  40 User: 18 Train Loss: -0.975
+Round:  40 User: 19 Train Loss: -0.979
+Round:  40 User: 20 Train Loss: -0.977
+Round:  40 User: 21 Train Loss: -0.979
+Round:  40 User: 22 Train Loss: -0.975
+Round:  40 User: 23 Train Loss: -0.975
+Round:  40 User: 24 Train Loss: -0.973
+Round:  40 User: 25 Train Loss: -0.975
+Round:  40 User: 26 Train Loss: -0.973
+Round:  40 User: 27 Train Loss: -0.972
+Round:  40 User: 28 Train Loss: -0.973
+Round:  40 User: 29 Train Loss: -0.977
+Round:  40 User: 30 Train Loss: -0.977
+Round:  40 User: 31 Train Loss: -0.977
+Round:  40 User: 32 Train Loss: -0.977
+Round:  40 User: 33 Train Loss: -0.978
+Round:  40 User: 34 Train Loss: -0.978
+Round:  40 User: 35 Train Loss: -0.976
+Round:  40 User: 36 Train Loss: -0.976
+Round:  40 User: 37 Train Loss: -0.975
+Round:  40 User: 38 Train Loss: -0.976
+Round:  40 User: 39 Train Loss: -0.975
+Round:  40 Train Loss: -0.976
+count 40
+Global  NMI = 0.2009 ARI = 0.0992 F = 0.1504 ACC = 0.2209
+Round:  41 User: 0 Train Loss: -0.978
+Round:  41 User: 1 Train Loss: -0.978
+Round:  41 User: 2 Train Loss: -0.977
+Round:  41 User: 3 Train Loss: -0.976
+Round:  41 User: 4 Train Loss: -0.975
+Round:  41 User: 5 Train Loss: -0.978
+Round:  41 User: 6 Train Loss: -0.974
+Round:  41 User: 7 Train Loss: -0.975
+Round:  41 User: 8 Train Loss: -0.978
+Round:  41 User: 9 Train Loss: -0.978
+Round:  41 User: 10 Train Loss: -0.979
+Round:  41 User: 11 Train Loss: -0.974
+Round:  41 User: 12 Train Loss: -0.977
+Round:  41 User: 13 Train Loss: -0.975
+Round:  41 User: 14 Train Loss: -0.977
+Round:  41 User: 15 Train Loss: -0.976
+Round:  41 User: 16 Train Loss: -0.978
+Round:  41 User: 17 Train Loss: -0.976
+Round:  41 User: 18 Train Loss: -0.972
+Round:  41 User: 19 Train Loss: -0.979
+Round:  41 User: 20 Train Loss: -0.978
+Round:  41 User: 21 Train Loss: -0.978
+Round:  41 User: 22 Train Loss: -0.974
+Round:  41 User: 23 Train Loss: -0.975
+Round:  41 User: 24 Train Loss: -0.977
+Round:  41 User: 25 Train Loss: -0.978
+Round:  41 User: 26 Train Loss: -0.973
+Round:  41 User: 27 Train Loss: -0.973
+Round:  41 User: 28 Train Loss: -0.972
+Round:  41 User: 29 Train Loss: -0.972
+Round:  41 User: 30 Train Loss: -0.977
+Round:  41 User: 31 Train Loss: -0.976
+Round:  41 User: 32 Train Loss: -0.976
+Round:  41 User: 33 Train Loss: -0.975
+Round:  41 User: 34 Train Loss: -0.973
+Round:  41 User: 35 Train Loss: -0.980
+Round:  41 User: 36 Train Loss: -0.977
+Round:  41 User: 37 Train Loss: -0.978
+Round:  41 User: 38 Train Loss: -0.977
+Round:  41 User: 39 Train Loss: -0.977
+Round:  41 Train Loss: -0.976
+count 40
+Global  NMI = 0.2008 ARI = 0.0991 F = 0.1503 ACC = 0.2210
+Round:  42 User: 0 Train Loss: -0.979
+Round:  42 User: 1 Train Loss: -0.977
+Round:  42 User: 2 Train Loss: -0.971
+Round:  42 User: 3 Train Loss: -0.976
+Round:  42 User: 4 Train Loss: -0.976
+Round:  42 User: 5 Train Loss: -0.978
+Round:  42 User: 6 Train Loss: -0.976
+Round:  42 User: 7 Train Loss: -0.977
+Round:  42 User: 8 Train Loss: -0.977
+Round:  42 User: 9 Train Loss: -0.976
+Round:  42 User: 10 Train Loss: -0.980
+Round:  42 User: 11 Train Loss: -0.976
+Round:  42 User: 12 Train Loss: -0.980
+Round:  42 User: 13 Train Loss: -0.978
+Round:  42 User: 14 Train Loss: -0.976
+Round:  42 User: 15 Train Loss: -0.978
+Round:  42 User: 16 Train Loss: -0.975
+Round:  42 User: 17 Train Loss: -0.978
+Round:  42 User: 18 Train Loss: -0.974
+Round:  42 User: 19 Train Loss: -0.977
+Round:  42 User: 20 Train Loss: -0.979
+Round:  42 User: 21 Train Loss: -0.980
+Round:  42 User: 22 Train Loss: -0.976
+Round:  42 User: 23 Train Loss: -0.976
+Round:  42 User: 24 Train Loss: -0.971
+Round:  42 User: 25 Train Loss: -0.974
+Round:  42 User: 26 Train Loss: -0.976
+Round:  42 User: 27 Train Loss: -0.975
+Round:  42 User: 28 Train Loss: -0.976
+Round:  42 User: 29 Train Loss: -0.972
+Round:  42 User: 30 Train Loss: -0.978
+Round:  42 User: 31 Train Loss: -0.979
+Round:  42 User: 32 Train Loss: -0.980
+Round:  42 User: 33 Train Loss: -0.977
+Round:  42 User: 34 Train Loss: -0.977
+Round:  42 User: 35 Train Loss: -0.973
+Round:  42 User: 36 Train Loss: -0.974
+Round:  42 User: 37 Train Loss: -0.974
+Round:  42 User: 38 Train Loss: -0.973
+Round:  42 User: 39 Train Loss: -0.978
+Round:  42 Train Loss: -0.976
+count 40
+Global  NMI = 0.2006 ARI = 0.0990 F = 0.1502 ACC = 0.2208
+Round:  43 User: 0 Train Loss: -0.980
+Round:  43 User: 1 Train Loss: -0.974
+Round:  43 User: 2 Train Loss: -0.976
+Round:  43 User: 3 Train Loss: -0.977
+Round:  43 User: 4 Train Loss: -0.974
+Round:  43 User: 5 Train Loss: -0.978
+Round:  43 User: 6 Train Loss: -0.979
+Round:  43 User: 7 Train Loss: -0.978
+Round:  43 User: 8 Train Loss: -0.976
+Round:  43 User: 9 Train Loss: -0.979
+Round:  43 User: 10 Train Loss: -0.978
+Round:  43 User: 11 Train Loss: -0.976
+Round:  43 User: 12 Train Loss: -0.979
+Round:  43 User: 13 Train Loss: -0.975
+Round:  43 User: 14 Train Loss: -0.980
+Round:  43 User: 15 Train Loss: -0.976
+Round:  43 User: 16 Train Loss: -0.977
+Round:  43 User: 17 Train Loss: -0.978
+Round:  43 User: 18 Train Loss: -0.975
+Round:  43 User: 19 Train Loss: -0.978
+Round:  43 User: 20 Train Loss: -0.978
+Round:  43 User: 21 Train Loss: -0.978
+Round:  43 User: 22 Train Loss: -0.978
+Round:  43 User: 23 Train Loss: -0.980
+Round:  43 User: 24 Train Loss: -0.974
+Round:  43 User: 25 Train Loss: -0.977
+Round:  43 User: 26 Train Loss: -0.979
+Round:  43 User: 27 Train Loss: -0.977
+Round:  43 User: 28 Train Loss: -0.980
+Round:  43 User: 29 Train Loss: -0.977
+Round:  43 User: 30 Train Loss: -0.978
+Round:  43 User: 31 Train Loss: -0.978
+Round:  43 User: 32 Train Loss: -0.979
+Round:  43 User: 33 Train Loss: -0.979
+Round:  43 User: 34 Train Loss: -0.977
+Round:  43 User: 35 Train Loss: -0.982
+Round:  43 User: 36 Train Loss: -0.973
+Round:  43 User: 37 Train Loss: -0.976
+Round:  43 User: 38 Train Loss: -0.975
+Round:  43 User: 39 Train Loss: -0.980
+Round:  43 Train Loss: -0.977
+count 40
+Global  NMI = 0.2007 ARI = 0.0991 F = 0.1503 ACC = 0.2208
+Round:  44 User: 0 Train Loss: -0.975
+Round:  44 User: 1 Train Loss: -0.973
+Round:  44 User: 2 Train Loss: -0.976
+Round:  44 User: 3 Train Loss: -0.975
+Round:  44 User: 4 Train Loss: -0.980
+Round:  44 User: 5 Train Loss: -0.977
+Round:  44 User: 6 Train Loss: -0.977
+Round:  44 User: 7 Train Loss: -0.973
+Round:  44 User: 8 Train Loss: -0.976
+Round:  44 User: 9 Train Loss: -0.981
+Round:  44 User: 10 Train Loss: -0.979
+Round:  44 User: 11 Train Loss: -0.978
+Round:  44 User: 12 Train Loss: -0.977
+Round:  44 User: 13 Train Loss: -0.974
+Round:  44 User: 14 Train Loss: -0.977
+Round:  44 User: 15 Train Loss: -0.978
+Round:  44 User: 16 Train Loss: -0.979
+Round:  44 User: 17 Train Loss: -0.978
+Round:  44 User: 18 Train Loss: -0.978
+Round:  44 User: 19 Train Loss: -0.977
+Round:  44 User: 20 Train Loss: -0.978
+Round:  44 User: 21 Train Loss: -0.980
+Round:  44 User: 22 Train Loss: -0.976
+Round:  44 User: 23 Train Loss: -0.977
+Round:  44 User: 24 Train Loss: -0.978
+Round:  44 User: 25 Train Loss: -0.976
+Round:  44 User: 26 Train Loss: -0.976
+Round:  44 User: 27 Train Loss: -0.976
+Round:  44 User: 28 Train Loss: -0.977
+Round:  44 User: 29 Train Loss: -0.979
+Round:  44 User: 30 Train Loss: -0.980
+Round:  44 User: 31 Train Loss: -0.978
+Round:  44 User: 32 Train Loss: -0.977
+Round:  44 User: 33 Train Loss: -0.978
+Round:  44 User: 34 Train Loss: -0.979
+Round:  44 User: 35 Train Loss: -0.976
+Round:  44 User: 36 Train Loss: -0.979
+Round:  44 User: 37 Train Loss: -0.978
+Round:  44 User: 38 Train Loss: -0.977
+Round:  44 User: 39 Train Loss: -0.979
+Round:  44 Train Loss: -0.977
+count 40
+Global  NMI = 0.2007 ARI = 0.0991 F = 0.1502 ACC = 0.2207
+Round:  45 User: 0 Train Loss: -0.979
+Round:  45 User: 1 Train Loss: -0.976
+Round:  45 User: 2 Train Loss: -0.977
+Round:  45 User: 3 Train Loss: -0.975
+Round:  45 User: 4 Train Loss: -0.974
+Round:  45 User: 5 Train Loss: -0.979
+Round:  45 User: 6 Train Loss: -0.977
+Round:  45 User: 7 Train Loss: -0.978
+Round:  45 User: 8 Train Loss: -0.975
+Round:  45 User: 9 Train Loss: -0.982
+Round:  45 User: 10 Train Loss: -0.980
+Round:  45 User: 11 Train Loss: -0.980
+Round:  45 User: 12 Train Loss: -0.977
+Round:  45 User: 13 Train Loss: -0.980
+Round:  45 User: 14 Train Loss: -0.979
+Round:  45 User: 15 Train Loss: -0.977
+Round:  45 User: 16 Train Loss: -0.977
+Round:  45 User: 17 Train Loss: -0.974
+Round:  45 User: 18 Train Loss: -0.977
+Round:  45 User: 19 Train Loss: -0.982
+Round:  45 User: 20 Train Loss: -0.981
+Round:  45 User: 21 Train Loss: -0.980
+Round:  45 User: 22 Train Loss: -0.978
+Round:  45 User: 23 Train Loss: -0.975
+Round:  45 User: 24 Train Loss: -0.975
+Round:  45 User: 25 Train Loss: -0.976
+Round:  45 User: 26 Train Loss: -0.975
+Round:  45 User: 27 Train Loss: -0.976
+Round:  45 User: 28 Train Loss: -0.981
+Round:  45 User: 29 Train Loss: -0.979
+Round:  45 User: 30 Train Loss: -0.981
+Round:  45 User: 31 Train Loss: -0.978
+Round:  45 User: 32 Train Loss: -0.980
+Round:  45 User: 33 Train Loss: -0.977
+Round:  45 User: 34 Train Loss: -0.973
+Round:  45 User: 35 Train Loss: -0.980
+Round:  45 User: 36 Train Loss: -0.977
+Round:  45 User: 37 Train Loss: -0.977
+Round:  45 User: 38 Train Loss: -0.978
+Round:  45 User: 39 Train Loss: -0.977
+Round:  45 Train Loss: -0.978
+count 40
+Global  NMI = 0.2008 ARI = 0.0992 F = 0.1502 ACC = 0.2207
+Round:  46 User: 0 Train Loss: -0.977
+Round:  46 User: 1 Train Loss: -0.978
+Round:  46 User: 2 Train Loss: -0.975
+Round:  46 User: 3 Train Loss: -0.978
+Round:  46 User: 4 Train Loss: -0.979
+Round:  46 User: 5 Train Loss: -0.978
+Round:  46 User: 6 Train Loss: -0.980
+Round:  46 User: 7 Train Loss: -0.977
+Round:  46 User: 8 Train Loss: -0.980
+Round:  46 User: 9 Train Loss: -0.978
+Round:  46 User: 10 Train Loss: -0.980
+Round:  46 User: 11 Train Loss: -0.977
+Round:  46 User: 12 Train Loss: -0.979
+Round:  46 User: 13 Train Loss: -0.980
+Round:  46 User: 14 Train Loss: -0.979
+Round:  46 User: 15 Train Loss: -0.978
+Round:  46 User: 16 Train Loss: -0.974
+Round:  46 User: 17 Train Loss: -0.979
+Round:  46 User: 18 Train Loss: -0.975
+Round:  46 User: 19 Train Loss: -0.981
+Round:  46 User: 20 Train Loss: -0.979
+Round:  46 User: 21 Train Loss: -0.978
+Round:  46 User: 22 Train Loss: -0.976
+Round:  46 User: 23 Train Loss: -0.981
+Round:  46 User: 24 Train Loss: -0.979
+Round:  46 User: 25 Train Loss: -0.980
+Round:  46 User: 26 Train Loss: -0.976
+Round:  46 User: 27 Train Loss: -0.974
+Round:  46 User: 28 Train Loss: -0.981
+Round:  46 User: 29 Train Loss: -0.979
+Round:  46 User: 30 Train Loss: -0.981
+Round:  46 User: 31 Train Loss: -0.979
+Round:  46 User: 32 Train Loss: -0.979
+Round:  46 User: 33 Train Loss: -0.972
+Round:  46 User: 34 Train Loss: -0.974
+Round:  46 User: 35 Train Loss: -0.981
+Round:  46 User: 36 Train Loss: -0.979
+Round:  46 User: 37 Train Loss: -0.976
+Round:  46 User: 38 Train Loss: -0.973
+Round:  46 User: 39 Train Loss: -0.980
+Round:  46 Train Loss: -0.978
+count 40
+Global  NMI = 0.2008 ARI = 0.0991 F = 0.1502 ACC = 0.2207
+Round:  47 User: 0 Train Loss: -0.979
+Round:  47 User: 1 Train Loss: -0.977
+Round:  47 User: 2 Train Loss: -0.978
+Round:  47 User: 3 Train Loss: -0.979
+Round:  47 User: 4 Train Loss: -0.973
+Round:  47 User: 5 Train Loss: -0.978
+Round:  47 User: 6 Train Loss: -0.977
+Round:  47 User: 7 Train Loss: -0.979
+Round:  47 User: 8 Train Loss: -0.977
+Round:  47 User: 9 Train Loss: -0.978
+Round:  47 User: 10 Train Loss: -0.978
+Round:  47 User: 11 Train Loss: -0.976
+Round:  47 User: 12 Train Loss: -0.976
+Round:  47 User: 13 Train Loss: -0.974
+Round:  47 User: 14 Train Loss: -0.979
+Round:  47 User: 15 Train Loss: -0.980
+Round:  47 User: 16 Train Loss: -0.974
+Round:  47 User: 17 Train Loss: -0.980
+Round:  47 User: 18 Train Loss: -0.978
+Round:  47 User: 19 Train Loss: -0.980
+Round:  47 User: 20 Train Loss: -0.980
+Round:  47 User: 21 Train Loss: -0.981
+Round:  47 User: 22 Train Loss: -0.979
+Round:  47 User: 23 Train Loss: -0.981
+Round:  47 User: 24 Train Loss: -0.975
+Round:  47 User: 25 Train Loss: -0.977
+Round:  47 User: 26 Train Loss: -0.976
+Round:  47 User: 27 Train Loss: -0.976
+Round:  47 User: 28 Train Loss: -0.977
+Round:  47 User: 29 Train Loss: -0.978
+Round:  47 User: 30 Train Loss: -0.980
+Round:  47 User: 31 Train Loss: -0.979
+Round:  47 User: 32 Train Loss: -0.978
+Round:  47 User: 33 Train Loss: -0.974
+Round:  47 User: 34 Train Loss: -0.978
+Round:  47 User: 35 Train Loss: -0.980
+Round:  47 User: 36 Train Loss: -0.979
+Round:  47 User: 37 Train Loss: -0.980
+Round:  47 User: 38 Train Loss: -0.978
+Round:  47 User: 39 Train Loss: -0.978
+Round:  47 Train Loss: -0.978
+count 40
+Global  NMI = 0.2008 ARI = 0.0993 F = 0.1503 ACC = 0.2208
+Round:  48 User: 0 Train Loss: -0.979
+Round:  48 User: 1 Train Loss: -0.978
+Round:  48 User: 2 Train Loss: -0.980
+Round:  48 User: 3 Train Loss: -0.979
+Round:  48 User: 4 Train Loss: -0.978
+Round:  48 User: 5 Train Loss: -0.980
+Round:  48 User: 6 Train Loss: -0.977
+Round:  48 User: 7 Train Loss: -0.976
+Round:  48 User: 8 Train Loss: -0.981
+Round:  48 User: 9 Train Loss: -0.979
+Round:  48 User: 10 Train Loss: -0.979
+Round:  48 User: 11 Train Loss: -0.979
+Round:  48 User: 12 Train Loss: -0.980
+Round:  48 User: 13 Train Loss: -0.977
+Round:  48 User: 14 Train Loss: -0.983
+Round:  48 User: 15 Train Loss: -0.980
+Round:  48 User: 16 Train Loss: -0.978
+Round:  48 User: 17 Train Loss: -0.979
+Round:  48 User: 18 Train Loss: -0.979
+Round:  48 User: 19 Train Loss: -0.979
+Round:  48 User: 20 Train Loss: -0.982
+Round:  48 User: 21 Train Loss: -0.977
+Round:  48 User: 22 Train Loss: -0.976
+Round:  48 User: 23 Train Loss: -0.975
+Round:  48 User: 24 Train Loss: -0.974
+Round:  48 User: 25 Train Loss: -0.975
+Round:  48 User: 26 Train Loss: -0.977
+Round:  48 User: 27 Train Loss: -0.974
+Round:  48 User: 28 Train Loss: -0.978
+Round:  48 User: 29 Train Loss: -0.975
+Round:  48 User: 30 Train Loss: -0.978
+Round:  48 User: 31 Train Loss: -0.980
+Round:  48 User: 32 Train Loss: -0.980
+Round:  48 User: 33 Train Loss: -0.979
+Round:  48 User: 34 Train Loss: -0.978
+Round:  48 User: 35 Train Loss: -0.981
+Round:  48 User: 36 Train Loss: -0.975
+Round:  48 User: 37 Train Loss: -0.977
+Round:  48 User: 38 Train Loss: -0.977
+Round:  48 User: 39 Train Loss: -0.978
+Round:  48 Train Loss: -0.978
+count 40
+Global  NMI = 0.2009 ARI = 0.0992 F = 0.1503 ACC = 0.2209
+Round:  49 User: 0 Train Loss: -0.979
+Round:  49 User: 1 Train Loss: -0.979
+Round:  49 User: 2 Train Loss: -0.981
+Round:  49 User: 3 Train Loss: -0.977
+Round:  49 User: 4 Train Loss: -0.974
+Round:  49 User: 5 Train Loss: -0.980
+Round:  49 User: 6 Train Loss: -0.974
+Round:  49 User: 7 Train Loss: -0.979
+Round:  49 User: 8 Train Loss: -0.978
+Round:  49 User: 9 Train Loss: -0.980
+Round:  49 User: 10 Train Loss: -0.981
+Round:  49 User: 11 Train Loss: -0.976
+Round:  49 User: 12 Train Loss: -0.980
+Round:  49 User: 13 Train Loss: -0.980
+Round:  49 User: 14 Train Loss: -0.981
+Round:  49 User: 15 Train Loss: -0.978
+Round:  49 User: 16 Train Loss: -0.976
+Round:  49 User: 17 Train Loss: -0.978
+Round:  49 User: 18 Train Loss: -0.978
+Round:  49 User: 19 Train Loss: -0.978
+Round:  49 User: 20 Train Loss: -0.980
+Round:  49 User: 21 Train Loss: -0.981
+Round:  49 User: 22 Train Loss: -0.979
+Round:  49 User: 23 Train Loss: -0.980
+Round:  49 User: 24 Train Loss: -0.976
+Round:  49 User: 25 Train Loss: -0.982
+Round:  49 User: 26 Train Loss: -0.979
+Round:  49 User: 27 Train Loss: -0.975
+Round:  49 User: 28 Train Loss: -0.978
+Round:  49 User: 29 Train Loss: -0.978
+Round:  49 User: 30 Train Loss: -0.980
+Round:  49 User: 31 Train Loss: -0.981
+Round:  49 User: 32 Train Loss: -0.979
+Round:  49 User: 33 Train Loss: -0.980
+Round:  49 User: 34 Train Loss: -0.979
+Round:  49 User: 35 Train Loss: -0.979
+Round:  49 User: 36 Train Loss: -0.979
+Round:  49 User: 37 Train Loss: -0.977
+Round:  49 User: 38 Train Loss: -0.979
+Round:  49 User: 39 Train Loss: -0.978
+Round:  49 Train Loss: -0.979
+count 40
+Global  NMI = 0.2008 ARI = 0.0991 F = 0.1502 ACC = 0.2208
+Round:  50 User: 0 Train Loss: -0.979
+Round:  50 User: 1 Train Loss: -0.982
+Round:  50 User: 2 Train Loss: -0.980
+Round:  50 User: 3 Train Loss: -0.978
+Round:  50 User: 4 Train Loss: -0.976
+Round:  50 User: 5 Train Loss: -0.978
+Round:  50 User: 6 Train Loss: -0.980
+Round:  50 User: 7 Train Loss: -0.979
+Round:  50 User: 8 Train Loss: -0.977
+Round:  50 User: 9 Train Loss: -0.982
+Round:  50 User: 10 Train Loss: -0.979
+Round:  50 User: 11 Train Loss: -0.977
+Round:  50 User: 12 Train Loss: -0.981
+Round:  50 User: 13 Train Loss: -0.976
+Round:  50 User: 14 Train Loss: -0.978
+Round:  50 User: 15 Train Loss: -0.981
+Round:  50 User: 16 Train Loss: -0.980
+Round:  50 User: 17 Train Loss: -0.981
+Round:  50 User: 18 Train Loss: -0.978
+Round:  50 User: 19 Train Loss: -0.981
+Round:  50 User: 20 Train Loss: -0.981
+Round:  50 User: 21 Train Loss: -0.980
+Round:  50 User: 22 Train Loss: -0.980
+Round:  50 User: 23 Train Loss: -0.975
+Round:  50 User: 24 Train Loss: -0.975
+Round:  50 User: 25 Train Loss: -0.981
+Round:  50 User: 26 Train Loss: -0.981
+Round:  50 User: 27 Train Loss: -0.977
+Round:  50 User: 28 Train Loss: -0.977
+Round:  50 User: 29 Train Loss: -0.978
+Round:  50 User: 30 Train Loss: -0.978
+Round:  50 User: 31 Train Loss: -0.977
+Round:  50 User: 32 Train Loss: -0.978
+Round:  50 User: 33 Train Loss: -0.980
+Round:  50 User: 34 Train Loss: -0.982
+Round:  50 User: 35 Train Loss: -0.981
+Round:  50 User: 36 Train Loss: -0.980
+Round:  50 User: 37 Train Loss: -0.980
+Round:  50 User: 38 Train Loss: -0.976
+Round:  50 User: 39 Train Loss: -0.977
+Round:  50 Train Loss: -0.979
+count 40
+Global  NMI = 0.2009 ARI = 0.0993 F = 0.1503 ACC = 0.2208
+Round:  51 User: 0 Train Loss: -0.979
+Round:  51 User: 1 Train Loss: -0.980
+Round:  51 User: 2 Train Loss: -0.978
+Round:  51 User: 3 Train Loss: -0.976
+Round:  51 User: 4 Train Loss: -0.977
+Round:  51 User: 5 Train Loss: -0.981
+Round:  51 User: 6 Train Loss: -0.981
+Round:  51 User: 7 Train Loss: -0.979
+Round:  51 User: 8 Train Loss: -0.979
+Round:  51 User: 9 Train Loss: -0.984
+Round:  51 User: 10 Train Loss: -0.981
+Round:  51 User: 11 Train Loss: -0.979
+Round:  51 User: 12 Train Loss: -0.981
+Round:  51 User: 13 Train Loss: -0.978
+Round:  51 User: 14 Train Loss: -0.983
+Round:  51 User: 15 Train Loss: -0.981
+Round:  51 User: 16 Train Loss: -0.980
+Round:  51 User: 17 Train Loss: -0.980
+Round:  51 User: 18 Train Loss: -0.979
+Round:  51 User: 19 Train Loss: -0.982
+Round:  51 User: 20 Train Loss: -0.980
+Round:  51 User: 21 Train Loss: -0.981
+Round:  51 User: 22 Train Loss: -0.980
+Round:  51 User: 23 Train Loss: -0.980
+Round:  51 User: 24 Train Loss: -0.977
+Round:  51 User: 25 Train Loss: -0.983
+Round:  51 User: 26 Train Loss: -0.977
+Round:  51 User: 27 Train Loss: -0.978
+Round:  51 User: 28 Train Loss: -0.977
+Round:  51 User: 29 Train Loss: -0.976
+Round:  51 User: 30 Train Loss: -0.976
+Round:  51 User: 31 Train Loss: -0.981
+Round:  51 User: 32 Train Loss: -0.979
+Round:  51 User: 33 Train Loss: -0.979
+Round:  51 User: 34 Train Loss: -0.980
+Round:  51 User: 35 Train Loss: -0.980
+Round:  51 User: 36 Train Loss: -0.981
+Round:  51 User: 37 Train Loss: -0.978
+Round:  51 User: 38 Train Loss: -0.979
+Round:  51 User: 39 Train Loss: -0.979
+Round:  51 Train Loss: -0.979
+count 40
+Global  NMI = 0.2008 ARI = 0.0992 F = 0.1503 ACC = 0.2207
+Round:  52 User: 0 Train Loss: -0.976
+Round:  52 User: 1 Train Loss: -0.977
+Round:  52 User: 2 Train Loss: -0.979
+Round:  52 User: 3 Train Loss: -0.978
+Round:  52 User: 4 Train Loss: -0.979
+Round:  52 User: 5 Train Loss: -0.980
+Round:  52 User: 6 Train Loss: -0.977
+Round:  52 User: 7 Train Loss: -0.981
+Round:  52 User: 8 Train Loss: -0.981
+Round:  52 User: 9 Train Loss: -0.980
+Round:  52 User: 10 Train Loss: -0.982
+Round:  52 User: 11 Train Loss: -0.977
+Round:  52 User: 12 Train Loss: -0.978
+Round:  52 User: 13 Train Loss: -0.980
+Round:  52 User: 14 Train Loss: -0.982
+Round:  52 User: 15 Train Loss: -0.981
+Round:  52 User: 16 Train Loss: -0.979
+Round:  52 User: 17 Train Loss: -0.980
+Round:  52 User: 18 Train Loss: -0.982
+Round:  52 User: 19 Train Loss: -0.980
+Round:  52 User: 20 Train Loss: -0.982
+Round:  52 User: 21 Train Loss: -0.983
+Round:  52 User: 22 Train Loss: -0.978
+Round:  52 User: 23 Train Loss: -0.979
+Round:  52 User: 24 Train Loss: -0.979
+Round:  52 User: 25 Train Loss: -0.981
+Round:  52 User: 26 Train Loss: -0.978
+Round:  52 User: 27 Train Loss: -0.979
+Round:  52 User: 28 Train Loss: -0.978
+Round:  52 User: 29 Train Loss: -0.976
+Round:  52 User: 30 Train Loss: -0.983
+Round:  52 User: 31 Train Loss: -0.981
+Round:  52 User: 32 Train Loss: -0.981
+Round:  52 User: 33 Train Loss: -0.979
+Round:  52 User: 34 Train Loss: -0.978
+Round:  52 User: 35 Train Loss: -0.980
+Round:  52 User: 36 Train Loss: -0.981
+Round:  52 User: 37 Train Loss: -0.978
+Round:  52 User: 38 Train Loss: -0.976
+Round:  52 User: 39 Train Loss: -0.982
+Round:  52 Train Loss: -0.980
+count 40
